@@ -1,0 +1,84 @@
+{
+  "meta": {
+    "title": "Новый проект",
+    "created": "2025-06-18T09:14:20.145Z",
+    "modified": "2025-06-18T09:16:26.667Z",
+    "version": "1.0"
+  },
+  "tableConfig": {
+    "columns": [
+      "theme",
+      "description",
+      "additional"
+    ],
+    "columnWidths": [
+      "250px",
+      "1fr",
+      "200px"
+    ]
+  },
+  "rows": [
+    {
+      "cells": [
+        {
+          "content": "",
+          "type": "text",
+          "language": null,
+          "styles": {
+            "width": "",
+            "height": ""
+          }
+        },
+        {
+          "content": "fn main() {    println!(\"Hello, world!\");}",
+          "type": "code",
+          "language": "rust",
+          "styles": {
+            "width": "",
+            "height": ""
+          }
+        },
+        {
+          "content": "",
+          "type": "text",
+          "language": null,
+          "styles": {
+            "width": "",
+            "height": ""
+          }
+        }
+      ]
+    },
+    {
+      "cells": [
+        {
+          "content": "",
+          "type": "text",
+          "language": null,
+          "styles": {
+            "width": "",
+            "height": ""
+          }
+        },
+        {
+          "content": "",
+          "type": "text",
+          "language": null,
+          "styles": {
+            "width": "",
+            "height": ""
+          }
+        },
+        {
+          "content": "",
+          "type": "text",
+          "language": null,
+          "styles": {
+            "width": "",
+            "height": ""
+          }
+        }
+      ]
+    }
+  ]
+}

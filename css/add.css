@@ -1,0 +1,22 @@
+.grid-table {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0;
+    width: 100%;
+}
+
+.grid-cell {
+    border: 1px solid #ccc;
+    padding: 8px;
+    min-width: 100px;
+    min-height: 40px;
+    resize: both;
+    overflow: auto;
+    vertical-align: top;
+    outline: none;
+}
+
+.grid-header {
+    background-color: #eeeeee;
+    font-weight: bold;
+}

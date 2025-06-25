@@ -1,0 +1,56 @@
+:root {
+    --content-max-width: 97%; /* Установите желаемую ширину в процентах */
+    /* Или */
+    /*--content-max-width: 1200px;*/ /* Установите желаемую ширину в пикселях */
+}
+
+/* Уменьшить отступы в элементах боковой навигации */
+.nav-chapters{
+  min-width: 20px;
+}
+
+/*-----------------------------------------*/
+
+.edit-table {
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: fixed;
+    user-select: text;
+  }
+  
+  .edit-table th,
+  .edit-table td {
+    border: 1px solid #ccc;
+    padding: 8px;
+    min-width: 100px;
+    min-height: 40px;
+    width: auto;
+    resize: both;
+    overflow: auto;
+    vertical-align: top;
+  }
+  
+  .edit-table td[contenteditable="true"] {
+    background-color: #f9f9f9;
+    outline: none;
+  }
+  
+  .edit-table th {
+    background-color: #eeeeee; 
+    font-weight: bold;
+  }
+  
+  .table-wrapper {
+    overflow-x: auto;
+  }
+
+  .edit-table code {
+    padding: 0;
+  }
+
+
+
+
+
+/* ------------------------------------------- */
+

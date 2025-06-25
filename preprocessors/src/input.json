@@ -1,0 +1,34 @@
+[
+    {
+      "root": "/home/jeka/Projects/Rust/mdbook-test/sheets/sheets/",
+      "renderer": "html",
+      "mdbook_version": "0.4.51",
+      "book": {
+        "src": "/home/jeka/Projects/Rust/mdbook-test/sheets/sheets/"
+      },
+      "config": {}
+    },
+    {
+      "sections": [
+        {
+          "Chapter": {
+            "name": "Chapter 1",
+            "content": "Это тест {{ include('src/hello.md') }}",
+            "number": [],
+            "path": "/home/jeka/Projects/Rust/mdbook-test/sheets/sheets/src/include/intro.md",
+            "source_path": "/home/jeka/Projects/Rust/mdbook-test/sheets/sheets/src/include/intro.md",
+            "parent_names": [],
+            "sub_items": []
+            
+          }
+        }
+      ],
+      "title": "Тестовая книга",
+      "authors": [],
+      "description": null,
+      "multilingual": false,
+      "language": "ru",
+      "__non_exhaustive":null
+    }
+  ]
+  

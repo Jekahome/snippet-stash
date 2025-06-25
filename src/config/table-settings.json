@@ -1,0 +1,27 @@
+{
+    "columns": [
+      {"width": 200},
+      {"width": 500},
+      {"width": 50}
+    ],
+    "cells": {
+      "tab_2_header_topic": {
+        "fontSize": "16px",
+        "backgroundColor": "blue",
+        "contentType": "text",
+        "width": 200
+      },
+      "tab_2_1_topic": {
+        "fontSize": "12px",
+        "backgroundColor": "#ffffff",
+        "rowHeight": "50px",
+        "contentType": "text"
+      },
+      "tab_2_1_content": {
+        "fontSize": "12px",
+        "backgroundColor": "#f9f9f9",
+        "rowHeight": "50px",
+        "contentType": "text"
+      }
+    }
+  }

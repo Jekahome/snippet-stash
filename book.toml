@@ -1,0 +1,45 @@
+[book]
+authors = ["Jeka"]
+language = "ru"
+multilingual = true
+src = "src"
+title = "Sheets"
+
+
+[output.html]
+# Базовый URL книги (используется при генерации ссылок)
+site-url = "http://localhost:3002"
+mathjax-support = true
+default-theme = "light"
+additional-js = [
+    "js/global.js", 
+    "theme/js/highlight.min.11.9.0.js",
+    #"theme/js/highlightjs-line-numbers.min.2.8.0.js"
+] # ,"tab-grid-indexstorage-icon.js","js/grid-indexstorage.js"
+additional-css = [
+    "theme/css/highlight.11.9.0.css",
+    # "theme/css/monokai.min.11.9.0.css"
+]  # "css/grid.css", 
+highlight-theme = "light" # base16-ocean.dark, InspiredGitHub, monokai
+highlight-languages = ["rust", "python", "javascript", "bash"]
+#line-numbers = true
+
+[output.html.playground]
+editable = true
+
+[output.html.highlight]
+exclude = ["mermaid"]
+
+#[preprocessor.tera]
+#command = "mdbook-tera"
+#renderers = ["html"] # html markdown
+
+#[preprocessor.mermaid]
+#command = "mdbook-mermaid"
+
+ 
+[preprocessor.include-md]
+command = "preprocessors/target/release/mdbook-include-md"
+
+#[build]
+#build-dir = "book"
