@@ -9,7 +9,7 @@
   <pre id="output">Загрузка...</pre>
 
   <script type="module">
-    const response = await fetch('/config/table-settings.json');
+    const response = await fetch('/snippet-stash/config/table-settings.json');
     const data = await response.json();
     document.getElementById('output').textContent = JSON.stringify(data, null, 2);
   </script>
