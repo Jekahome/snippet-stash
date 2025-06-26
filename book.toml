@@ -39,7 +39,8 @@ exclude = ["mermaid"]
 
  
 [preprocessor.include-md]
-command = "preprocessors/target/release/mdbook-include-md"
+command = "preprocessors/mdbook-include-md"
+#command = "preprocessors/target/release/mdbook-include-md"
 
 #[build]
 #build-dir = "book"

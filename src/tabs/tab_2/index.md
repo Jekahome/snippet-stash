@@ -248,6 +248,9 @@ html, body {
 
 <script>
 // Глобальные переменные
+const isGitHubPages = window.location.host.includes('github.io');
+const basePath = isGitHubPages ? '/snippet-stash' : '';
+
 const currentTabId = 'tab_2'; // Идентификатор текущей вкладки
 let tableSettings = null;     // Хранилище настроек таблицы
 let contentStore = {};       // Хранилище содержимого ячеек (ДОБАВЛЕНО)
@@ -494,7 +497,7 @@ function applyCellSettings(cell, settings) {
 async function loadSettingsFromFile() {
     console.log('Loading settings from file...');
     try {
-        const response = await fetch('/config/table-settings.json');
+        const response = await fetch(`${basePath}/config/table-settings.json`);
         if (!response.ok) throw new Error("Файл настроек не найден");
         
         tableSettings = await response.text();
