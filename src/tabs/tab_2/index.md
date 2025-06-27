@@ -480,7 +480,7 @@ async function saveDataFromIndexStore() {
         
         /* Тут отправка через Github API */
         // Используем данные из indexstore 
-        saveToGitHub();
+       await saveToGitHub();
         
     } catch (error) {
         console.error("Ошибка сохранения:", error);
