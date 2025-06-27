@@ -439,15 +439,15 @@ function updateCellSettingsInIndexStore(cell, newSettings) {
     console.log('Updated cell settings in indexstore:', { cellId, newSettings });
 }
 
-// Сохранение данных ИЗ indexstore
+// Сохранение данных из indexstore
 document.getElementById('saveSettingsBtn').addEventListener('click', function() {
     console.log('Saving data from indexstore...');
     
     // Обновляем контент в indexstore из DOM (на случай если что-то не синхронизировалось)
     syncContentToIndexStore();
     
-    // Сохраняем данные из indexstore
-    saveDataFromIndexStore().then(() => {
+    // Сохраняем данные из indexstore в файл репозитория
+    saveToGitHub().then(() => {
         console.log('Data saved successfully from indexstore');
         console.log('Current indexstore:', window.indexstore);
         showFeedback("Все данные сохранены");
@@ -466,28 +466,7 @@ function syncContentToIndexStore() {
     });
 }
 
-// Сохранение данных из indexstore в файл репозитория
-async function saveDataFromIndexStore() {
-    try {
-       // const settings = window.indexstore.settings[currentTabId];
-       // const content = window.indexstore.content[currentTabId];
-        
-        // Можем сохранить и настройки, и контент, или только настройки
-        // В зависимости от того, как организована ваша система сохранения
-        
-       // console.log('Saving settings:', settings);
-       // console.log('Saving content:', content);
-        
-        /* Тут отправка через Github API */
-        // Используем данные из indexstore 
-       await saveToGitHub();
-        
-    } catch (error) {
-        console.error("Ошибка сохранения:", error);
-        throw error;
-    }
-}
-
+ 
 // Настройка меню для ячейки
 function setupCellSettingsMenu(cell) {
     const trigger = document.createElement('div');
