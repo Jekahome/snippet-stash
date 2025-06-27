@@ -201,6 +201,7 @@ html, body {
 <div class="container">
     <div class="controls">
         <button id="saveSettingsBtn">Сохранить настройки в файл</button>
+        <input type="password" id="token" placeholder="GitHub Token" />
     </div>
     <table class="data-table" id="dataTable">
         <colgroup>
@@ -250,22 +251,26 @@ html, body {
 // Глобальные переменные
 const isGitHubPages = window.location.host.includes('github.io');
 const basePath = isGitHubPages ? '/snippet-stash' : '';
-
 const currentTabId = 'tab_2'; // Идентификатор текущей вкладки
-let tableSettings = null;     // Хранилище настроек таблицы
-let contentStore = {};       // Хранилище содержимого ячеек  
+const owner = 'Jekahome';
+const repo = 'snippet-stash';
+const path = 'src/config/table-settings.json'; 
+const branch = 'main';
 
 // Инициализация при загрузке страницы
 window.addEventListener('DOMContentLoaded', async () => {
     try {
-        // 1. Загружаем настройки из файла
-        await loadSettingsFromFile();
+        // 1. Инициализируем indexstore
+        initIndexStore();
         
-        // 2. Инициализируем хранилище контента  
-        initContentStore();
+        // 2. Загружаем настройки из файла ТОЛЬКО если их нет в indexstore
+        if (!window.indexstore.settings[currentTabId]) {
+            console.log('Загружаем настройки из файла ТОЛЬКО если их нет в indexstore');
+            await loadSettingsFromFile();
+        }
         
-        // 3. Инициализируем таблицу
-        initTableSettings();
+        // 3. Применяем настройки и контент из indexstore
+        initTableFromIndexStore();
         
         showFeedback("Таблица готова к работе");
     } catch (error) {
@@ -274,22 +279,41 @@ window.addEventListener('DOMContentLoaded', async () => {
     }
 });
 
+// 1. Инициализация indexstore как единого источника данных
+function initIndexStore() {
+    window.indexstore = window.indexstore || {
+        settings: {}, // Настройки таблицы (размеры, цвета, шрифты)
+        content: {}   // Содержимое ячеек
+    };
+    
+    if (!window.indexstore.settings[currentTabId]) {
+        window.indexstore.settings[currentTabId] = null;
+    }
+    
+    if (!window.indexstore.content[currentTabId]) {
+        window.indexstore.content[currentTabId] = {};
+    }
+}
+
+// 2. Загрузка настроек из файла в indexstore
 async function loadSettingsFromFile() {
-    console.log('Loading settings from file...');
+    console.log('Loading settings from file to indexstore...');
     try {
         const response = await fetch(`${basePath}/config/table-settings.json`);
         if (!response.ok) throw new Error("Файл настроек не найден");
         
-        tableSettings = await response.text();
-        console.log('Settings loaded');
+        const settingsText = await response.text();
+        // Сохраняем в indexstore
+        window.indexstore.settings[currentTabId] = JSON.parse(settingsText);
+        console.log('Settings loaded to indexstore');
     } catch (error) {
         console.warn("Используются настройки по умолчанию:", error);
-        showFeedback("Ошибка загрузки настроек", true);
-        initDefaultSettings();
+        initDefaultSettingsInIndexStore();
     }
 }
 
-function initDefaultSettings() {
+// Настройки по умолчанию в indexstore
+function initDefaultSettingsInIndexStore() {
     const defaultSettings = {
         columns: [
             { width: 200 },
@@ -299,7 +323,7 @@ function initDefaultSettings() {
         cells: {
             [`${currentTabId}_header_topic`]: {
                 fontSize: "16px",
-                backgroundColor: "#f0f0f0",
+                backgroundColor: "black",
                 contentType: "text",
                 width: 200
             },
@@ -317,19 +341,12 @@ function initDefaultSettings() {
             }
         }
     };
-    tableSettings = JSON.stringify(defaultSettings);
+    
+    window.indexstore.settings[currentTabId] = defaultSettings;
 }
 
-// Инициализация хранилища для нового/обновленного контента 
-function initContentStore() {
-    contentStore = window.indexstore?.contentStore || {};
-    if (!contentStore[currentTabId]) {
-        contentStore[currentTabId] = {};
-    }
-}
-
-// Функция инициализации таблицы с учетом идентификаторов вкладки
-function initTableSettings() {
+// 3. Инициализация таблицы из indexstore
+function initTableFromIndexStore() {
     const cells = document.querySelectorAll('.data-table td, .data-table th');
     
     cells.forEach((cell) => {
@@ -342,123 +359,97 @@ function initTableSettings() {
             cell.appendChild(contentWrapper);
         }
         
-        // Добавляем обработчики для ячеек с контентом  
+        // Для ячеек с контентом
         if (cell.tagName === 'TD') {
             const contentWrapper = cell.querySelector('.cell-content') || cell;
             const cellId = getCellId(cell);
             
-            // Восстанавливаем сохраненный контент
-            if (contentStore[currentTabId]?.[cellId] !== undefined) {
-                contentWrapper.innerHTML = contentStore[currentTabId][cellId];
+            // Восстанавливаем контент ИЗ indexstore
+            if (window.indexstore.content[currentTabId]?.[cellId] !== undefined) {
+                contentWrapper.innerHTML = window.indexstore.content[currentTabId][cellId];
             }
             
-            // Обработчик изменений
+            // Обработчик изменений - сохраняем В indexstore
             contentWrapper.addEventListener('input', (e) => {
-                updateCellContent(cell, e.target.innerHTML);
+                updateContentInIndexStore(cellId, e.target.innerHTML);
             });
         }
         
-        const trigger = document.createElement('div');
-        trigger.className = 'settings-trigger';
-
-        const menu = document.createElement('div');
-        menu.className = 'settings-menu';
-        
-        const isHeader = cell.tagName === 'TH';
-        const columnIndex = cell.cellIndex;
-        const contentWrapper = cell.querySelector('.cell-content');
-        
-        let menuHTML = `
-            <label>F: <input type="number" class="font-size" value="14" min="8" max="24"></label>
-            <label>B: <input type="color" class="bg-color" value="${rgbToHex(getComputedStyle(cell).backgroundColor) || '#f9f9f9'}"></label>
-            <label>T:
-                <select class="content-type">
-                    <option value="text">text</option>
-                    <option value="code">code</option>
-                    <option value="html">HTML</option>
-                </select>
-            </label>
-        `;
-        
-        if (isHeader) {
-            const currentWidth = getColumnWidth(columnIndex);
-            menuHTML += `<label>W: <input type="number" class="column-width" value="${currentWidth}" min="50" max="800"></label>`;
-        }
-        
-        menuHTML += `<label>H: <input type="number" class="row-height" placeholder="auto" min="30" max="1000"></label>`;
-
-        menu.innerHTML = menuHTML;
-
-        setupMenuEvents(cell, menu, contentWrapper);
-        setupIconClick(cell, trigger);
-
-        cell.appendChild(trigger);
-        cell.appendChild(menu);
+        // Создаем меню настроек...
+        setupCellSettingsMenu(cell);
     });
 
+    // Настраиваем глобальный клик для закрытия меню
     setupGlobalClick();
-    applyCurrentSettings();
+
+    // Применяем настройки из indexstore
+    applySettingsFromIndexStore();
 }
 
-// Функция для получения чистого содержимого ячейки
-function getCleanCellContent(cellId) {
-    const cell = document.getElementById(`${currentTabId}_${cellId}`);
-    if (!cell) return '';
-    
-    // Клонируем элемент, чтобы не повредить оригинал
-    const clone = cell.cloneNode(true);
-    
-    // Удаляем меню настроек
-    const menu = clone.querySelector('.settings-menu');
-    if (menu) menu.remove();
-    
-    // Удаляем триггер настроек
-    const trigger = clone.querySelector('.settings-trigger');
-    if (trigger) trigger.remove();
-    
-    // Получаем чистый текст
-    return clone.textContent.trim();
+// Обновление контента в indexstore
+function updateContentInIndexStore(cellId, content) {
+    window.indexstore.content[currentTabId][cellId] = content;
+    console.log(`Content updated in indexstore for ${cellId}:`, content);
 }
 
-// Обновление содержимого ячейки  
-function updateCellContent(cell, content) {
-    const cellId = getCellId(cell);
-    contentStore[currentTabId][cellId] = getCleanCellContent(cellId);
-   
-    console.log(`Content updated for ${cellId}:`, contentStore[currentTabId][cellId]);
-    //console.log(document.getElementById(`${currentTabId}_${cellId}`).textContent);
+// Применение настроек из indexstore
+function applySettingsFromIndexStore() {
+    const settings = window.indexstore.settings[currentTabId];
+    if (!settings) return;
+    
+    // Применяем настройки колонок
+    if (settings.columns) {
+        settings.columns.forEach((col, index) => {
+            if (col.width) {
+                setColumnWidth(index, col.width);
+            }
+        });
+    }
+    
+    // Применяем настройки ячеек
+    if (settings.cells) {
+        Object.keys(settings.cells).forEach(cellId => {
+            const cell = document.getElementById(cellId); // БЕЗ replace!
+            if (cell) {
+                applyCellSettings(cell, settings.cells[cellId]);
+            } else {
+                console.warn('Элемент не найден:', cellId);
+            }
+        });
+    }
 }
 
- 
-
-// Получение ID ячейки  
-function getCellId(cell) {
+// Обновление настроек ячейки в indexstore
+function updateCellSettingsInIndexStore(cell, newSettings) {
+    const settings = window.indexstore.settings[currentTabId];
+    if (!settings) return;
+    
+    let cellId;
     const rowId = cell.parentElement.id.replace(`${currentTabId}_`, '');
-    const cellType = getCellType(cell.cellIndex);
-    return `${rowId}_${cellType}`;
-}
-
-// Определяем тип ячейки по индексу
-function getCellType(cellIndex) {
-    const types = ['topic', 'content', 'other'];
-    return types[cellIndex] || cellIndex;
-}
-
-// Сохранение всех данных 
-document.getElementById('saveSettingsBtn').addEventListener('click', function() {
-    console.log('Save button clicked');
-    // Обновляем contentStore перед сохранением
-    Object.keys(contentStore[currentTabId]).forEach(cellId => {
-        contentStore[currentTabId][cellId] = getCleanCellContent(cellId);
-    });
-
-    // Сохраняем в indexstore
-    window.indexstore = window.indexstore || {};
-    window.indexstore.contentStore = contentStore;
     
-    saveSettingsToFile().then(() => {
-        console.log('Settings saved successfully');
-        console.log('Current content:', JSON.stringify(contentStore, null, 2));
+    if (cell.tagName === 'TH') {
+        cellId = `${currentTabId}_header_${getCellType(cell.cellIndex)}`;
+    } else {
+        cellId = `${currentTabId}_${rowId}_${getCellType(cell.cellIndex)}`;
+    }
+    
+    if (!settings.cells) settings.cells = {};
+    settings.cells[cellId] = { ...(settings.cells[cellId] || {}), ...newSettings };
+    
+    console.log('Updated cell settings in indexstore:', { cellId, newSettings });
+}
+
+// Сохранение данных ИЗ indexstore
+document.getElementById('saveSettingsBtn').addEventListener('click', function() {
+    console.log('Saving data from indexstore...');
+    
+    // Обновляем контент в indexstore из DOM (на случай если что-то не синхронизировалось)
+    syncContentToIndexStore();
+    
+    // Сохраняем данные из indexstore
+    saveDataFromIndexStore().then(() => {
+        console.log('Data saved successfully from indexstore');
+        console.log('Current indexstore:', window.indexstore);
         showFeedback("Все данные сохранены");
     }).catch(error => {
         console.error('Save error:', error);
@@ -466,45 +457,170 @@ document.getElementById('saveSettingsBtn').addEventListener('click', function() 
     });
 });
 
- 
+// Синхронизация контента в indexstore из DOM
+function syncContentToIndexStore() {
+    document.querySelectorAll('.data-table td').forEach(td => {
+        const cellId = getCellId(td);
+        const cleanContent = getCleanCellContent(cellId);
+        window.indexstore.content[currentTabId][cellId] = cleanContent;
+    });
+}
 
-function applyCurrentSettings() {
-    if (!tableSettings) return;
-
+// Сохранение данных из indexstore в файл репозитория
+async function saveDataFromIndexStore() {
     try {
-        const settings = JSON.parse(tableSettings);
+       // const settings = window.indexstore.settings[currentTabId];
+       // const content = window.indexstore.content[currentTabId];
         
-        if (settings.columns) {
-            settings.columns.forEach((col, index) => {
-                if (col.width) {
-                    setColumnWidth(index, col.width);
-                }
-            });
-        }
+        // Можем сохранить и настройки, и контент, или только настройки
+        // В зависимости от того, как организована ваша система сохранения
         
-        if (settings.cells) {
-            document.querySelectorAll('.data-table th').forEach((th) => {
-                const cellId = `${currentTabId}_header_${getCellType(th.cellIndex)}`;
-                if (settings.cells[cellId]) {
-                    applyCellSettings(th, settings.cells[cellId]);
-                }
-            });
-            
-            document.querySelectorAll('.data-table td').forEach((td) => {
-                const rowId = td.parentElement.id.replace(`${currentTabId}_`, '');
-                if (!rowId) return;
-                
-                const cellId = `${currentTabId}_${rowId}_${getCellType(td.cellIndex)}`;
-                if (settings.cells[cellId]) {
-                    applyCellSettings(td, settings.cells[cellId]);
-                }
-            });
-        }
+       // console.log('Saving settings:', settings);
+       // console.log('Saving content:', content);
+        
+        /* Тут отправка через Github API */
+        // Используем данные из indexstore 
+        saveToGitHub();
+        
     } catch (error) {
-        console.error("Ошибка применения настроек:", error);
+        console.error("Ошибка сохранения:", error);
+        throw error;
     }
 }
 
+// Настройка меню для ячейки
+function setupCellSettingsMenu(cell) {
+    const trigger = document.createElement('div');
+    trigger.className = 'settings-trigger';
+
+    const menu = document.createElement('div');
+    menu.className = 'settings-menu';
+    
+    const isHeader = cell.tagName === 'TH';
+    const columnIndex = cell.cellIndex;
+    const contentWrapper = cell.querySelector('.cell-content');
+    
+    let menuHTML = `
+        <label>F: <input type="number" class="font-size" value="14" min="8" max="24"></label>
+        <label>B: <input type="color" class="bg-color" value="${rgbToHex(getComputedStyle(cell).backgroundColor) || '#f9f9f9'}"></label>
+        <label>T:
+            <select class="content-type">
+                <option value="text">text</option>
+                <option value="code">code</option>
+                <option value="html">HTML</option>
+            </select>
+        </label>
+    `;
+    
+    if (isHeader) {
+        const currentWidth = getColumnWidth(columnIndex);
+        menuHTML += `<label>W: <input type="number" class="column-width" value="${currentWidth}" min="50" max="800"></label>`;
+    }
+    
+    menuHTML += `<label>H: <input type="number" class="row-height" placeholder="auto" min="30" max="1000"></label>`;
+
+    menu.innerHTML = menuHTML;
+
+    setupMenuEvents(cell, menu, contentWrapper);
+    setupIconClick(cell, trigger);
+
+    cell.appendChild(trigger);
+    cell.appendChild(menu);
+}
+
+// Настройка событий меню
+function setupMenuEvents(cell, menu, contentWrapper) {
+    menu.addEventListener('click', e => e.stopPropagation());
+    
+    const fontSizeInput = menu.querySelector('.font-size');
+    fontSizeInput.addEventListener('input', e => {
+        const value = `${e.target.value}px`;
+        contentWrapper.style.fontSize = value;
+        updateCellSettingsInIndexStore(cell, { fontSize: value });
+        showFeedback(`Размер шрифта изменен на ${e.target.value}px`);
+    });
+
+    const bgColorInput = menu.querySelector('.bg-color');
+    bgColorInput.addEventListener('input', e => {
+        cell.style.backgroundColor = e.target.value;
+        if (contentWrapper) contentWrapper.style.backgroundColor = 'transparent';
+        updateCellSettingsInIndexStore(cell, { backgroundColor: e.target.value });
+        showFeedback(`Цвет фона изменен`);
+    });
+
+    const contentTypeSelect = menu.querySelector('.content-type');
+    if (contentTypeSelect) {
+        contentTypeSelect.addEventListener('change', e => {
+            updateCellSettingsInIndexStore(cell, { contentType: e.target.value });
+            showFeedback(`Тип контента изменен на ${e.target.value}`);
+        });
+    }
+
+    const columnWidthInput = menu.querySelector('.column-width');
+    if (columnWidthInput && cell.tagName === 'TH') {
+        columnWidthInput.addEventListener('input', e => {
+            const width = parseInt(e.target.value);
+            if (width >= 50) {
+                setColumnWidth(cell.cellIndex, width);
+                updateColumnSettingsInIndexStore(cell.cellIndex, { width });
+                showFeedback(`Ширина колонки ${cell.cellIndex + 1} изменена на ${width}px`);
+            }
+        });
+    }
+
+    const rowHeightInput = menu.querySelector('.row-height');
+    if (rowHeightInput) {
+        rowHeightInput.addEventListener('input', e => {
+            const height = parseInt(e.target.value);
+            const row = cell.parentElement;
+            
+            if (height >= 30) {
+                row.style.height = `${height}px`;
+                row.style.minHeight = `${height}px`;
+                row.dataset.fixedHeight = "true";
+                showFeedback(`Высота строки установлена ${height}px`);
+            } else if (e.target.value === '') {
+                row.style.height = 'auto';
+                row.style.minHeight = 'auto';
+                delete row.dataset.fixedHeight;
+                showFeedback(`Высота строки: автоматическая`);
+            }
+            
+            updateCellSettingsInIndexStore(cell, { rowHeight: height >= 30 ? `${height}px` : 'auto' });
+        });
+    }
+
+    menu.querySelectorAll('input, select').forEach(el => {
+        el.addEventListener('click', e => e.stopPropagation());
+        el.addEventListener('focus', e => e.stopPropagation());
+    });
+}
+
+// Настройка клика по иконке настроек
+function setupIconClick(cell, trigger) {
+    trigger.addEventListener('click', e => {
+        e.stopPropagation();
+        document.querySelectorAll('.data-table td, .data-table th').forEach(c => {
+            if (c !== cell) c.classList.remove('show-settings');
+        });
+        cell.classList.toggle('show-settings');
+    });
+}
+
+// Обновление настроек колонки В indexstore
+function updateColumnSettingsInIndexStore(columnIndex, newSettings) {
+    const settings = window.indexstore.settings[currentTabId];
+    if (!settings) return;
+    
+    if (!settings.columns[columnIndex]) {
+        settings.columns[columnIndex] = {};
+    }
+    
+    settings.columns[columnIndex] = { ...settings.columns[columnIndex], ...newSettings };
+    console.log('Updated column settings in indexstore:', { columnIndex, newSettings });
+}
+
+// Применение настроек к ячейке
 function applyCellSettings(cell, settings) {
     const content = cell.querySelector('.cell-content') || cell;
     
@@ -540,61 +656,29 @@ function applyCellSettings(cell, settings) {
     }
 }
 
+// Утилитарные функции
+function getCellId(cell) {
+    const rowId = cell.parentElement.id.replace(`${currentTabId}_`, '');
+    const cellType = getCellType(cell.cellIndex);
+    return `${rowId}_${cellType}`;
+}
 
+function getCellType(cellIndex) {
+    const types = ['topic', 'content', 'other'];
+    return types[cellIndex] || cellIndex;
+}
 
-async function saveSettingsToFile() {
-    try {
-        const settings = {
-            columns: [],
-            cells: {}
-        };
-        
-        for (let i = 0; i < 3; i++) {
-            settings.columns.push({
-                width: getColumnWidth(i)
-            });
-        }
-        
-        document.querySelectorAll('.data-table th').forEach((th) => {
-            const cellType = getCellType(th.cellIndex);
-            const cellId = `${currentTabId}_header_${cellType}`;
-            
-            const menu = th.querySelector('.settings-menu');
-            if (menu) {
-                settings.cells[cellId] = {
-                    fontSize: th.querySelector('.cell-content').style.fontSize || "",
-                    backgroundColor: th.style.backgroundColor || "",
-                    rowHeight: th.parentElement.style.height || "auto",
-                    contentType: menu.querySelector('.content-type').value || "text",
-                    width: menu.querySelector('.column-width')?.value || null
-                };
-            }
-        });
-        
-        document.querySelectorAll('.data-table td').forEach((td) => {
-            const rowId = td.parentElement.id.replace(`${currentTabId}_`, '');
-            const cellType = getCellType(td.cellIndex);
-            const cellId = `${currentTabId}_${rowId}_${cellType}`;
-            
-            const menu = td.querySelector('.settings-menu');
-            if (menu) {
-                settings.cells[cellId] = {
-                    fontSize: td.querySelector('.cell-content').style.fontSize || "",
-                    backgroundColor: td.style.backgroundColor || "",
-                    rowHeight: td.parentElement.style.height || "auto",
-                    contentType: menu.querySelector('.content-type').value || "text"
-                };
-            }
-        });
-        
-        tableSettings = JSON.stringify(settings);
-        /* Тут отправка через Github API*/
-
-        
-    } catch (error) {
-        console.error("Ошибка сохранения:", error);
-        showFeedback("Ошибка сохранения", true);
-    }
+function getCleanCellContent(cellId) {
+    const cell = document.getElementById(`${currentTabId}_${cellId}`);
+    if (!cell) return '';
+    
+    const clone = cell.cloneNode(true);
+    const menu = clone.querySelector('.settings-menu');
+    if (menu) menu.remove();
+    const trigger = clone.querySelector('.settings-trigger');
+    if (trigger) trigger.remove();
+    
+    return clone.textContent.trim();
 }
 
 function rgbToHex(rgb) {
@@ -623,116 +707,6 @@ function setColumnWidth(columnIndex, width) {
     }
 }
 
-function setupMenuEvents(cell, menu, contentWrapper) {
-    menu.addEventListener('click', e => e.stopPropagation());
-    
-    const fontSizeInput = menu.querySelector('.font-size');
-    fontSizeInput.addEventListener('input', e => {
-        const value = `${e.target.value}px`;
-        contentWrapper.style.fontSize = value;
-        updateCellSettings(cell, { fontSize: value });
-        showFeedback(`Размер шрифта изменен на ${e.target.value}px`);
-    });
-
-    const bgColorInput = menu.querySelector('.bg-color');
-    bgColorInput.addEventListener('input', e => {
-        cell.style.backgroundColor = e.target.value;
-        if (contentWrapper) contentWrapper.style.backgroundColor = 'transparent';
-        updateCellSettings(cell, { backgroundColor: e.target.value });
-        showFeedback(`Цвет фона изменен`);
-    });
-
-    const contentTypeSelect = menu.querySelector('.content-type');
-    if (contentTypeSelect) {
-        contentTypeSelect.addEventListener('change', e => {
-            updateCellSettings(cell, { contentType: e.target.value });
-            showFeedback(`Тип контента изменен на ${e.target.value}`);
-        });
-    }
-
-    const columnWidthInput = menu.querySelector('.column-width');
-    if (columnWidthInput && cell.tagName === 'TH') {
-        columnWidthInput.addEventListener('input', e => {
-            const width = parseInt(e.target.value);
-            if (width >= 50) {
-                setColumnWidth(cell.cellIndex, width);
-                updateColumnSettings(cell.cellIndex, { width });
-                showFeedback(`Ширина колонки ${cell.cellIndex + 1} изменена на ${width}px`);
-            }
-        });
-    }
-
-    const rowHeightInput = menu.querySelector('.row-height');
-    if (rowHeightInput) {
-        rowHeightInput.addEventListener('input', e => {
-            const height = parseInt(e.target.value);
-            const row = cell.parentElement;
-            
-            if (height >= 30) {
-                row.style.height = `${height}px`;
-                row.style.minHeight = `${height}px`;
-                row.dataset.fixedHeight = "true";
-                showFeedback(`Высота строки установлена ${height}px`);
-            } else if (e.target.value === '') {
-                row.style.height = 'auto';
-                row.style.minHeight = 'auto';
-                delete row.dataset.fixedHeight;
-                showFeedback(`Высота строки: автоматическая`);
-            }
-            
-            updateCellSettings(cell, { rowHeight: height >= 30 ? `${height}px` : 'auto' });
-        });
-    }
-
-    menu.querySelectorAll('input, select').forEach(el => {
-        el.addEventListener('click', e => e.stopPropagation());
-        el.addEventListener('focus', e => e.stopPropagation());
-    });
-}
-
-function updateCellSettings(cell, newSettings) {
-    if (!tableSettings) initDefaultSettings();
-    
-    const settings = JSON.parse(tableSettings);
-    
-    let cellId;
-    const rowId = cell.parentElement.id.replace(`${currentTabId}_`, '');
-    
-    if (cell.tagName === 'TH') {
-        cellId = `${currentTabId}_header_${getCellType(cell.cellIndex)}`;
-    } else {
-        cellId = `${currentTabId}_${rowId}_${getCellType(cell.cellIndex)}`;
-    }
-    
-    if (!settings.cells) settings.cells = {};
-    settings.cells[cellId] = { ...(settings.cells[cellId] || {}), ...newSettings };
-    tableSettings = JSON.stringify(settings);
-    
-    console.log('Updated cell settings:', { cellId, newSettings });
-}
-
-function updateColumnSettings(columnIndex, newSettings) {
-    if (!tableSettings) initDefaultSettings();
-    
-    const settings = JSON.parse(tableSettings);
-    if (!settings.columns[columnIndex]) {
-        settings.columns[columnIndex] = {};
-    }
-    
-    settings.columns[columnIndex] = { ...settings.columns[columnIndex], ...newSettings };
-    tableSettings = JSON.stringify(settings);
-}
-
-function setupIconClick(cell, trigger) {
-    trigger.addEventListener('click', e => {
-        e.stopPropagation();
-        document.querySelectorAll('.data-table td, .data-table th').forEach(c => {
-            if (c !== cell) c.classList.remove('show-settings');
-        });
-        cell.classList.toggle('show-settings');
-    });
-}
-
 function setupGlobalClick() {
     document.addEventListener('click', (e) => {
         if (!e.target.closest('.settings-menu') && !e.target.closest('.settings-trigger')) {
@@ -755,4 +729,61 @@ function showFeedback(message, isError = false) {
         }, 2000);
     }
 }
+
+//-------------------------------------------------------------------
+ 
+    async function saveToGitHub() {
+        // const token = prompt("Введите ваш GitHub токен:");
+        const token = document.getElementById('token').value.trim();
+       
+        if (!token) {
+            console.error("Ошибка: Заполните поля GitHub token");
+            return;
+        }
+         
+        const file_settings = JSON.stringify(window.indexstore.settings, null, 2);
+
+        // Получаем текущий SHA файла (если он уже существует)
+        const sha = await getFileSha(owner,repo,path,token);
+        console.log(`sha:${sha}`);
+
+        // Отправляем файл
+        const putRes = await fetch(`https://api.github.com/repos/${owner}/${repo}/contents/${path}`,  {
+            method: 'PUT',
+            headers: {
+                Authorization: `token ${token}`,
+                Accept: "application/vnd.github.v3+json",
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                message: "Обновлено через GitHub API",
+                content: btoa(unescape(encodeURIComponent(file_settings))), // base64 encode
+                ...(sha ? { sha } : {}), // отправляем только если файл был,
+                branch: branch
+            })
+        });
+
+        if (putRes.ok) {
+            console.log("Успешно сохранено!");
+        } else {
+            const err = await putRes.json();
+            console.error("Ошибка: " + (err.message || "Неизвестная ошибка"));
+        }
+    }
+
+    // GitHub требует SHA для обновления файла — это защита от конфликтов.
+    async function getFileSha(owner, repo, path, token) {
+        const url = `https://api.github.com/repos/${owner}/${repo}/contents/${path}`; 
+        const response = await fetch(url, {
+            headers: {
+            Authorization: `token ${token}`,
+            Accept: "application/vnd.github.v3+json"
+            }
+        });
+
+        if (!response.ok) return null;
+
+        const data = await response.json();
+        return data.sha;
+    }
 </script>
