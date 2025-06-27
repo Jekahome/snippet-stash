@@ -287,7 +287,7 @@ function initIndexStore() {
     };
     
     if (!window.indexstore.settings[currentTabId]) {
-        window.indexstore.settings[currentTabId] = null;
+        window.indexstore.settings[currentTabId] = {};
     }
     
     if (!window.indexstore.content[currentTabId]) {
