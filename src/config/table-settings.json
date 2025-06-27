@@ -1,5 +1,4 @@
 {
-  "tab_2": {
     "tab_2": {
       "columns": [
         {
@@ -35,8 +34,7 @@
     },
     "cells": {
       "tab_2_header_topic": {
-        "backgroundColor": "#000000"
+        "backgroundColor": "#fafafa"
       }
     }
-  }
 }

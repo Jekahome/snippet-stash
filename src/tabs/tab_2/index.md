@@ -409,7 +409,7 @@ function applySettingsFromIndexStore() {
     // Применяем настройки ячеек
     if (settings.cells) {
         Object.keys(settings.cells).forEach(cellId => {
-            const cell = document.getElementById(cellId); // БЕЗ replace!
+            const cell = document.getElementById(cellId); 
             if (cell) {
                 applyCellSettings(cell, settings.cells[cellId]);
             } else {
@@ -424,15 +424,8 @@ function updateCellSettingsInIndexStore(cell, newSettings) {
     const settings = window.indexstore.settings[currentTabId];
     if (!settings) return;
     
-    let cellId;
-    const rowId = cell.parentElement.id.replace(`${currentTabId}_`, '');
-    
-    if (cell.tagName === 'TH') {
-        cellId = `${currentTabId}_header_${getCellType(cell.cellIndex)}`;
-    } else {
-        cellId = `${currentTabId}_${rowId}_${getCellType(cell.cellIndex)}`;
-    }
-    
+    const cellId = cell.id; // ← просто берём готовый ID
+
     if (!settings.cells) settings.cells = {};
     settings.cells[cellId] = { ...(settings.cells[cellId] || {}), ...newSettings };
     
@@ -723,7 +716,7 @@ function showFeedback(message, isError = false) {
         const file_settings = JSON.stringify(window.indexstore.settings, null, 2);
        console.log(`Вот что мы отсылаем:${file_settings}`);
        console.log(`И вот что мы отсылаем:${unescape(encodeURIComponent(file_settings))}`);
-       
+
         // Получаем текущий SHA файла (если он уже существует)
         const sha = await getFileSha(owner,repo,path,token);
         console.log(`sha:${sha}`);
