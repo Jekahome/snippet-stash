@@ -61,7 +61,7 @@
         const content = JSON.stringify(window.indexstore, null, 2);
 
         // Получаем текущий SHA файла (если он уже существует)
-        let sha = getFileSha(owner,repo,path,token);
+        const sha = await getFileSha(owner,repo,path,token);
         console.log(`sha:${sha}`);
 
         // Отправляем файл
