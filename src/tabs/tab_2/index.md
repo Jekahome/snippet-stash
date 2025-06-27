@@ -265,7 +265,7 @@ window.addEventListener('DOMContentLoaded', async () => {
         
         // 2. Загружаем настройки из файла ТОЛЬКО если их нет в indexstore
         //if (!window.indexstore.settings[currentTabId]) {
-            console.log('Загружаем настройки из файла ТОЛЬКО если их нет в indexstore');
+            console.log('Загружаем настройки из файла');
             await loadSettingsFromFile();
         //}
         
@@ -285,9 +285,10 @@ function initIndexStore() {
         settings: {}, // Настройки таблицы (размеры, цвета, шрифты)
         content: {}   // Содержимое ячеек
     };
-    
+    console.log('initIndexStore after [window.indexstore]:',window.indexstore);
     window.indexstore.settings[currentTabId] = window.indexstore.settings[currentTabId] || {};
     window.indexstore.content[currentTabId] = window.indexstore.content[currentTabId] || {};
+    console.log('initIndexStore before [window.indexstore]:',window.indexstore);
 }
 
 // 2. Загрузка настроек из файла в indexstore
@@ -306,6 +307,7 @@ async function loadSettingsFromFile() {
         };
         //window.indexstore.settings[currentTabId] = JSON.parse(settingsText);
         console.log('Settings loaded to indexstore');
+        console.log('loadSettingsFromFile [window.indexstore.settings]:',window.indexstore.settings);
     } catch (error) {
         console.warn("Используются настройки по умолчанию:", error);
         initDefaultSettingsInIndexStore();
