@@ -1,35 +1,35 @@
 {
-    "tab_2": {
-      "columns": [
-        {
-          "width": 200
-        },
-        {
-          "width": 500
-        },
-        {
-          "width": 50
-        }
-      ],
-      "cells": {
-        "tab_2_header_topic": {
-          "fontSize": "16px",
-          "backgroundColor": "#0e15cd",
-          "contentType": "text",
-          "width": 200
-        },
-        "tab_2_header_content": {
-          "fontSize": "16px",
-          "backgroundColor": "#f0f0f0",
-          "contentType": "text",
-          "width": 300
-        },
-        "tab_2_header_other": {
-          "fontSize": "16px",
-          "backgroundColor": "#f0f0f0",
-          "contentType": "text",
-          "width": 250
-        }
+  "tab_2": {
+    "columns": [
+      {
+        "width": 200
+      },
+      {
+        "width": 500
+      },
+      {
+        "width": 50
+      }
+    ],
+    "cells": {
+      "tab_2_header_topic": {
+        "fontSize": "16px",
+        "backgroundColor": "#000000",
+        "contentType": "text",
+        "width": 200
+      },
+      "tab_2_header_content": {
+        "fontSize": "16px",
+        "backgroundColor": "#f20707",
+        "contentType": "text",
+        "width": 300
+      },
+      "tab_2_header_other": {
+        "fontSize": "16px",
+        "backgroundColor": "#f0f0f0",
+        "contentType": "text",
+        "width": 250
       }
     }
+  }
 }
