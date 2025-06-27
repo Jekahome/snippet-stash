@@ -62,7 +62,7 @@
 
         // Получаем текущий SHA файла (если он уже существует)
         let sha = getFileSha(owner,repo,path,token);
-      
+        console.log(`sha:${sha}`);
 
         // Отправляем файл
         const putRes = await fetch(`https://api.github.com/repos/${owner}/${repo}/contents/${path}`,  {
