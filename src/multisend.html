@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Multisend Data to GitHub</title>
+</head>
+<body>
+  
+  <input type="password" id="token" placeholder="GitHub Token" /><br />
+  <button onclick="saveToGitHub()">Сохранить</button>
+  <p id="status"></p>
+
+  <a href="https://raw.githubusercontent.com/Jekahome/snippet-stash/main/src/config/table-settings.json">Load file: table-settings.json</a>
+
+  <script>
+        const owner = 'Jekahome';
+        const repo = 'snippet-stash';
+    
+        const branch = 'main';
+
+        const currentTabId = 'tab_2';
+
+    
+        async function commitMultipleFilesToGitHub({ owner, repo, branch, token, files, commitMessage }) {
+            const headers = {
+                Authorization: `token ${token}`,
+                Accept: 'application/vnd.github.v3+json',
+                'Content-Type': 'application/json',
+            };
+
+            // Шаг 1: Получить SHA последнего коммита на ветке
+            const refRes = await fetch(`https://api.github.com/repos/${owner}/${repo}/git/ref/heads/${branch}`, { headers });
+            const refData = await refRes.json();
+            const latestCommitSha = refData.object.sha;
+
+            // Шаг 2: Получить SHA дерева этого коммита
+            const commitRes = await fetch(`https://api.github.com/repos/${owner}/${repo}/git/commits/${latestCommitSha}`, { headers });
+            const commitData = await commitRes.json();
+            const baseTreeSha = commitData.tree.sha;
+
+            // Шаг 3: Создать новое дерево с новыми файлами
+            const tree = files.map(({ path, content }) => ({
+                path,
+                mode: '100644',
+                type: 'blob',
+                content, // plain text; если у тебя бинарные — можно blob создать отдельно
+            }));
+
+            const treeRes = await fetch(`https://api.github.com/repos/${owner}/${repo}/git/trees`, {
+                method: 'POST',
+                headers,
+                body: JSON.stringify({
+                    base_tree: baseTreeSha,
+                    tree,
+                }),
+            });
+            const treeData = await treeRes.json();
+            const newTreeSha = treeData.sha;
+
+            // Шаг 4: Создать коммит с новым деревом
+            const commitResNew = await fetch(`https://api.github.com/repos/${owner}/${repo}/git/commits`, {
+                method: 'POST',
+                headers,
+                body: JSON.stringify({
+                    message: commitMessage,
+                    tree: newTreeSha,
+                    parents: [latestCommitSha],
+                }),
+            });
+            const newCommitData = await commitResNew.json();
+            const newCommitSha = newCommitData.sha;
+
+            // Шаг 5: Обновить ссылку ветки на новый коммит
+            const updateRefRes = await fetch(`https://api.github.com/repos/${owner}/${repo}/git/refs/heads/${branch}`, {
+                method: 'PATCH',
+                headers,
+                body: JSON.stringify({
+                    sha: newCommitSha,
+                }),
+            });
+
+            if (updateRefRes.ok) {
+                console.log('✅ Успешно закоммичено!');
+            } else {
+                const err = await updateRefRes.json();
+                console.error('❌ Ошибка обновления ветки:', err.message || err);
+            }
+        }
+
+
+        async function saveToGitHub() {
+        
+            const token = document.getElementById('token').value.trim();
+            await commitMultipleFilesToGitHub({
+                owner: owner,
+                repo: repo,
+                branch: 'main',
+                token: token, 
+                commitMessage: 'Обновление нескольких файлов одним коммитом',
+                files: [
+                    {
+                        path: 'src/config/test_1.json',
+                        content: JSON.stringify(defaultSettings(10), null, 2)
+                    },
+                    {
+                        path: 'src/config/test_2.json',
+                        content:  JSON.stringify(defaultSettings(155), null, 2)
+                    }
+                ]
+            });
+        }
+
+        function defaultSettings(width) {
+            const defaultSettings = {
+                columns: [
+                    { 
+                        width: width,
+                        data:  `Лог от ${new Date().toISOString()}`,
+
+                    },
+                ],
+            };
+            
+            //tableSettings = JSON.stringify(defaultSettings);
+            //const settings = JSON.parse(tableSettings);
+            return defaultSettings;
+        }
+  </script>
+</body>
+</html>

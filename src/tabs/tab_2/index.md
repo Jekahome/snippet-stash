@@ -261,7 +261,7 @@ const branch = 'main';
 window.addEventListener('DOMContentLoaded', async () => {
     try {
         // 1. Инициализируем indexstore
-        initIndexStore();
+        initIndexStore();// ЗАЧЕМ ТУТ И в loadSettingsFromFile одно и тоже??????
         
         // 2. Загружаем настройки из файла ТОЛЬКО если их нет в indexstore
         //if (!window.indexstore.settings[currentTabId]) {
