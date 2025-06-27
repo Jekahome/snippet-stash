@@ -721,7 +721,9 @@ function showFeedback(message, isError = false) {
         }
          
         const file_settings = JSON.stringify(window.indexstore.settings, null, 2);
-
+       console.log(`Вот что мы отсылаем:${file_settings}`);
+       console.log(`И вот что мы отсылаем:${unescape(encodeURIComponent(file_settings))}`);
+       
         // Получаем текущий SHA файла (если он уже существует)
         const sha = await getFileSha(owner,repo,path,token);
         console.log(`sha:${sha}`);
