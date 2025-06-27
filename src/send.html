@@ -73,9 +73,9 @@
                 "Content-Type": "application/json"
             },
             body: JSON.stringify({
-                message: "Обновлено через localStorage",
+                message: "Обновлено через indexstore",
                 content: btoa(unescape(encodeURIComponent(content))), // base64 encode
-                sha: sha,
+                ...(sha ? { sha } : {}), // отправляем только если файл был,
                 branch: branch
             })
         });

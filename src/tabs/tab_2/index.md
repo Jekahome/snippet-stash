@@ -217,24 +217,24 @@ html, body {
         </thead>
         <tbody>
             <tr id="tab_2_1">
-                <td id="tab_2_1_topic"><div class="cell-content" contenteditable="true">{{include('src/tabs/tab_2/include/1/topic.md')}}</div></td>
-                <td id="tab_2_1_content"><div class="cell-content" contenteditable="true">{{include('src/tabs/tab_2/include/1/content.md')}}</div></td>
-                <td id="tab_2_1_other"><div class="cell-content" contenteditable="true">{{include('src/tabs/tab_2/include/1/other.md')}}</div></td>
+                <td id="tab_2_1_topic"><div class="cell-content" contenteditable="true">{{include('src/tabs/tab_2/include/tab_2_1_topic.md')}}</div></td>
+                <td id="tab_2_1_content"><div class="cell-content" contenteditable="true">{{include('src/tabs/tab_2/include/tab_2_1_content.md')}}</div></td>
+                <td id="tab_2_1_other"><div class="cell-content" contenteditable="true">{{include('src/tabs/tab_2/include/tab_2_1_other.md')}}</div></td>
             </tr>
             <tr id="tab_2_2">
-                <td id="tab_2_2_topic"><div class="cell-content" contenteditable="true">{{include('src/tabs/tab_2/include/2/topic.md')}}</div></td>
-                <td id="tab_2_2_content"><div class="cell-content" contenteditable="true">{{include('src/tabs/tab_2/include/2/content.md')}}</div></td>
-                <td id="tab_2_2_other"><div class="cell-content" contenteditable="true">{{include('src/tabs/tab_2/include/2/other.md')}}</div></td>
+                <td id="tab_2_2_topic"><div class="cell-content" contenteditable="true">{{include('src/tabs/tab_2/include/tab_2_2_topic.md')}}</div></td>
+                <td id="tab_2_2_content"><div class="cell-content" contenteditable="true">{{include('src/tabs/tab_2/include/tab_2_2_content.md')}}</div></td>
+                <td id="tab_2_2_other"><div class="cell-content" contenteditable="true">{{include('src/tabs/tab_2/include/tab_2_2_other.md')}}</div></td>
             </tr>
             <tr id="tab_2_3">
-                <td id="tab_2_3_topic"><div class="cell-content" contenteditable="true">{{include('src/tabs/tab_2/include/3/topic.md')}}</div></td>
-                <td id="tab_2_3_content"><div class="cell-content" contenteditable="true">{{include('src/tabs/tab_2/include/3/content.md')}}</div></td>
-                <td id="tab_2_3_other"><div class="cell-content" contenteditable="true">{{include('src/tabs/tab_2/include/3/other.md')}}</div></td>
+                <td id="tab_2_3_topic"><div class="cell-content" contenteditable="true">{{include('src/tabs/tab_2/include/tab_2_3_topic.md')}}</div></td>
+                <td id="tab_2_3_content"><div class="cell-content" contenteditable="true">{{include('src/tabs/tab_2/include/tab_2_3_content.md')}}</div></td>
+                <td id="tab_2_3_other"><div class="cell-content" contenteditable="true">{{include('src/tabs/tab_2/include/tab_2_3_other.md')}}</div></td>
             </tr>
             <tr id="tab_2_4">
-                <td id="tab_2_4_topic"><div class="cell-content" contenteditable="true">{{include('src/tabs/tab_2/include/4/topic.md')}}</div></td>
-                <td id="tab_2_4_content"><div class="cell-content" contenteditable="true">{{include('src/tabs/tab_2/include/4/content.md')}}</div></td>
-                <td id="tab_2_4_other"><div class="cell-content" contenteditable="true">{{include('src/tabs/tab_2/include/4/other.md')}}</div></td>
+                <td id="tab_2_4_topic"><div class="cell-content" contenteditable="true">{{include('src/tabs/tab_2/include/tab_2_4_topic.md')}}</div></td>
+                <td id="tab_2_4_content"><div class="cell-content" contenteditable="true">{{include('src/tabs/tab_2/include/tab_2_4_content.md')}}</div></td>
+                <td id="tab_2_4_other"><div class="cell-content" contenteditable="true">{{include('src/tabs/tab_2/include/tab_2_4_other.md')}}</div></td>
             </tr>
             <tr id="tab_2_5">
                 <td id="tab_2_5_topic"><div class="cell-content" contenteditable="true"></div></td>
@@ -253,7 +253,7 @@ const basePath = isGitHubPages ? '/snippet-stash' : '';
 
 const currentTabId = 'tab_2'; // Идентификатор текущей вкладки
 let tableSettings = null;     // Хранилище настроек таблицы
-let contentStore = {};       // Хранилище содержимого ячеек (ДОБАВЛЕНО)
+let contentStore = {};       // Хранилище содержимого ячеек  
 
 // Инициализация при загрузке страницы
 window.addEventListener('DOMContentLoaded', async () => {
@@ -261,7 +261,7 @@ window.addEventListener('DOMContentLoaded', async () => {
         // 1. Загружаем настройки из файла
         await loadSettingsFromFile();
         
-        // 2. Инициализируем хранилище контента (ДОБАВЛЕНО)
+        // 2. Инициализируем хранилище контента  
         initContentStore();
         
         // 3. Инициализируем таблицу
@@ -274,7 +274,53 @@ window.addEventListener('DOMContentLoaded', async () => {
     }
 });
 
-// Инициализация хранилища контента (НОВАЯ ФУНКЦИЯ)
+async function loadSettingsFromFile() {
+    console.log('Loading settings from file...');
+    try {
+        const response = await fetch(`${basePath}/config/table-settings.json`);
+        if (!response.ok) throw new Error("Файл настроек не найден");
+        
+        tableSettings = await response.text();
+        console.log('Settings loaded');
+    } catch (error) {
+        console.warn("Используются настройки по умолчанию:", error);
+        showFeedback("Ошибка загрузки настроек", true);
+        initDefaultSettings();
+    }
+}
+
+function initDefaultSettings() {
+    const defaultSettings = {
+        columns: [
+            { width: 200 },
+            { width: 500 },
+            { width: 50 }
+        ],
+        cells: {
+            [`${currentTabId}_header_topic`]: {
+                fontSize: "16px",
+                backgroundColor: "#f0f0f0",
+                contentType: "text",
+                width: 200
+            },
+            [`${currentTabId}_header_content`]: {
+                fontSize: "16px",
+                backgroundColor: "#f0f0f0",
+                contentType: "text",
+                width: 300
+            },
+            [`${currentTabId}_header_other`]: {
+                fontSize: "16px",
+                backgroundColor: "#f0f0f0",
+                contentType: "text",
+                width: 250
+            }
+        }
+    };
+    tableSettings = JSON.stringify(defaultSettings);
+}
+
+// Инициализация хранилища для нового/обновленного контента 
 function initContentStore() {
     contentStore = window.indexstore?.contentStore || {};
     if (!contentStore[currentTabId]) {
@@ -296,7 +342,7 @@ function initTableSettings() {
             cell.appendChild(contentWrapper);
         }
         
-        // Добавляем обработчики для ячеек с контентом (ДОБАВЛЕНО)
+        // Добавляем обработчики для ячеек с контентом  
         if (cell.tagName === 'TD') {
             const contentWrapper = cell.querySelector('.cell-content') || cell;
             const cellId = getCellId(cell);
@@ -494,51 +540,7 @@ function applyCellSettings(cell, settings) {
     }
 }
 
-async function loadSettingsFromFile() {
-    console.log('Loading settings from file...');
-    try {
-        const response = await fetch(`${basePath}/config/table-settings.json`);
-        if (!response.ok) throw new Error("Файл настроек не найден");
-        
-        tableSettings = await response.text();
-        console.log('Settings loaded');
-    } catch (error) {
-        console.warn("Используются настройки по умолчанию:", error);
-        showFeedback("Ошибка загрузки настроек", true);
-        initDefaultSettings();
-    }
-}
 
-function initDefaultSettings() {
-    const defaultSettings = {
-        columns: [
-            { width: 200 },
-            { width: 500 },
-            { width: 50 }
-        ],
-        cells: {
-            [`${currentTabId}_header_topic`]: {
-                fontSize: "16px",
-                backgroundColor: "#f0f0f0",
-                contentType: "text",
-                width: 200
-            },
-            [`${currentTabId}_header_content`]: {
-                fontSize: "16px",
-                backgroundColor: "#f0f0f0",
-                contentType: "text",
-                width: 300
-            },
-            [`${currentTabId}_header_other`]: {
-                fontSize: "16px",
-                backgroundColor: "#f0f0f0",
-                contentType: "text",
-                width: 250
-            }
-        }
-    };
-    tableSettings = JSON.stringify(defaultSettings);
-}
 
 async function saveSettingsToFile() {
     try {
@@ -586,17 +588,9 @@ async function saveSettingsToFile() {
         });
         
         tableSettings = JSON.stringify(settings);
-        console.log("Настройки для сохранения:", tableSettings);
+        /* Тут отправка через Github API*/
 
-        const response = await fetch('/save-table-settings', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: tableSettings
-        });
         
-        if (!response.ok) throw new Error("Ошибка сохранения");
-        
-        showFeedback("Настройки сохранены");
     } catch (error) {
         console.error("Ошибка сохранения:", error);
         showFeedback("Ошибка сохранения", true);
