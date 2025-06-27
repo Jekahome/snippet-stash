@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Send Data to GitHub</title>
+</head>
+<body>
+  <input id="input" type="text" placeholder="color"/><br />
+  <input type="password" id="token" placeholder="GitHub Token" /><br />
+  <button onclick="saveToGitHub()">Сохранить</button>
+  <p id="status"></p>
+
+  <a href="https://raw.githubusercontent.com/Jekahome/snippet-stash/main/src/config/table-settings.json">Load file: table-settings.json</a>
+
+  <script>
+    const owner = 'Jekahome';
+    const repo = 'snippet-stash';
+    const path = 'src/config/table-settings.json'; 
+    const branch = 'main';
+
+    const currentTabId = 'tab_2';
+
+
+
+    // GitHub требует SHA для обновления файла — это защита от конфликтов.
+    async function getFileSha(owner, repo, path, token) {
+        const url = `https://api.github.com/repos/${owner}/${repo}/contents/${path}`; 
+        const response = await fetch(url, {
+            headers: {
+            Authorization: `token ${token}`,
+            Accept: "application/vnd.github.v3+json"
+            }
+        });
+
+        if (!response.ok) return null;
+
+        const data = await response.json();
+        return data.sha;
+    }
+
+
+    async function saveToGitHub() {
+        // const token = prompt("Введите ваш GitHub токен:");
+        const token = document.getElementById('token').value.trim();
+        const color = document.getElementById('input').value;
+        const status = document.getElementById('status');
+
+        if (!token || !color) {
+            status.textContent = "Заполните все поля";
+            return;
+        }
+        
+        initDefaultSettings();
+        // Получаем данные из localStorage
+        /*const content = localStorage.getItem('tableSettings');
+        if (!content) {
+            console.error('Нет данных в localStorage');
+            return;
+        }*/
+        window.indexstore.cells[`${currentTabId}_header_topic`].backgroundColor = color;
+        const content = JSON.stringify(window.indexstore, null, 2);
+
+        // Получаем текущий SHA файла (если он уже существует)
+        let sha = getFileSha(owner,repo,path,token);
+      
+
+        // Отправляем файл
+        const putRes = await fetch(`https://api.github.com/repos/${owner}/${repo}/contents/${path}`,  {
+            method: 'PUT',
+            headers: {
+                Authorization: `token ${token}`,
+                Accept: "application/vnd.github.v3+json",
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                message: "Обновлено через localStorage",
+                content: btoa(unescape(encodeURIComponent(content))), // base64 encode
+                sha: sha,
+                branch: branch
+            })
+        });
+
+        if (putRes.ok) {
+            status.textContent = "✅ Успешно сохранено!";
+        } else {
+            const err = await putRes.json();
+            status.textContent = "❌ Ошибка: " + (err.message || "Неизвестная ошибка");
+        }
+    }
+
+
+    async function loadFromGitHub() {
+        const token = prompt("Введите ваш GitHub токен:");
+        const url = `https://api.github.com/repos/${owner}/${repo}/contents/${path}`; 
+
+        const res = await fetch(url, {
+            headers: {
+            Authorization: `token ${token}`,
+            Accept: "application/vnd.github.v3+json"
+            }
+        });
+
+        if (!res.ok) {
+            alert("Ошибка загрузки");
+            return;
+        }
+
+        const data = await res.json();
+        const decoded = decodeURIComponent(escape(atob(data.content)));
+        console.log(decoded);
+    }
+
+    function initDefaultSettings() {
+        const defaultSettings = {
+            columns: [
+                { width: 200 },
+                { width: 500 },
+                { width: 50 }
+            ],
+            cells: {
+                [`${currentTabId}_header_topic`]: {
+                    fontSize: "16px",
+                    backgroundColor: "#f0f0f0",
+                    contentType: "text",
+                    width: 200
+                },
+                [`${currentTabId}_header_content`]: {
+                    fontSize: "16px",
+                    backgroundColor: "#f0f0f0",
+                    contentType: "text",
+                    width: 300
+                },
+                [`${currentTabId}_header_other`]: {
+                    fontSize: "16px",
+                    backgroundColor: "#f0f0f0",
+                    contentType: "text",
+                    width: 250
+                }
+            }
+        };
+        window.indexstore = defaultSettings;
+        //tableSettings = JSON.stringify(defaultSettings);
+        //const settings = JSON.parse(tableSettings);
+    }
+
+  </script>
+</body>
+</html>

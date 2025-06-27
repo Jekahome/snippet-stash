@@ -513,8 +513,8 @@ function initDefaultSettings() {
     const defaultSettings = {
         columns: [
             { width: 200 },
-            { width: 300 },
-            { width: 250 }
+            { width: 500 },
+            { width: 50 }
         ],
         cells: {
             [`${currentTabId}_header_topic`]: {
