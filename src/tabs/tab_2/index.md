@@ -301,12 +301,12 @@ async function loadSettingsFromFile() {
         
         const settingsText = await response.text();
         // Сохраняем в indexstore
-        const fileSettings = JSON.parse(settingsText);  
+        /*const fileSettings = JSON.parse(settingsText);  
         window.indexstore.settings[currentTabId] = {
             ...fileSettings,
             ...window.indexstore.settings[currentTabId]
-        };
-        //window.indexstore.settings = JSON.parse(settingsText);
+        };*/
+        window.indexstore.settings = JSON.parse(settingsText);
 
         console.log('Settings loaded to indexstore');
         console.log('loadSettingsFromFile [window.indexstore.settings]:',window.indexstore.settings);
