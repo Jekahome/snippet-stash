@@ -23,7 +23,7 @@ html, body {
     min-width: 20px;
 }
 
-/* Стили таблицы - ОБНОВЛЕНО */
+/* Стили таблицы */
 .data-table {
     width: 100%;
     border-collapse: collapse;
@@ -35,7 +35,7 @@ html, body {
 .data-table col:nth-child(2) { width: 300px; }
 .data-table col:nth-child(3) { width: 250px; }
 
-/* Общие стили ячеек - ОБНОВЛЕНО */
+/* Общие стили ячеек */
 .data-table tr {
     height: auto; /* Автоматическая высота строки */
 }
@@ -56,7 +56,7 @@ html, body {
     height: 50px; /* Фиксированная высота для заголовков */
 }
 
-/* Контейнер содержимого ячейки - ОБНОВЛЕНО */
+/* Контейнер содержимого ячейки */
 .data-table .cell-content {
     display: block;
     width: 100%;
@@ -383,10 +383,10 @@ function initTableFromIndexStore() {
 
 // Обновление контента в indexstore
 function updateContentInIndexStore(cellId/*, content*/) {
-    console.log(`cellId=${cellId}`);
+    console.log(`updateContentInIndexStore cellId=${cellId}`);
     const cleanContent = getCleanCellContent(cellId);
     window.indexstore.content[currentTabId][cellId] = cleanContent; //content;
-    console.log(`Content updated in indexstore for ${cellId}:`, content);
+    console.log(`Content updated in indexstore for ${cellId}:`, cleanContent);
 }
 
 // Применение настроек из indexstore
@@ -404,8 +404,9 @@ function applySettingsFromIndexStore() {
     }
     
     // Применяем настройки ячеек
-    if (settings.cells) {
+    if (settings.cells) { 
         Object.keys(settings.cells).forEach(cellId => {
+            console.log(`applySettingsFromIndexStore cellId=${cellId}`);
             const cell = document.getElementById(cellId); 
             if (cell) {
                 applyCellSettings(cell, settings.cells[cellId]);
@@ -556,7 +557,7 @@ function updateCellSettingsInIndexStore(cell, newSettings) {
     const settings = window.indexstore.settings[currentTabId];
     if (!settings) return;
     
-    const cellId = cell.id; // ← просто берём готовый ID
+    const cellId = cell.id; 
 
     if (!settings.cells) settings.cells = {};
     settings.cells[cellId] = { ...(settings.cells[cellId] || {}), ...newSettings };
@@ -578,12 +579,20 @@ function updateColumnSettingsInIndexStore(columnIndex, newSettings) {
     console.log('Updated column settings in indexstore:', { columnIndex, newSettings });
 }
 
+
 // Применение настроек к ячейке
 function applyCellSettings(cell, settings) {
     const content = cell.querySelector('.cell-content') || cell;
     
     if (settings.fontSize) content.style.fontSize = settings.fontSize;
-    if (settings.backgroundColor) cell.style.backgroundColor = settings.backgroundColor;
+    if (settings.backgroundColor) {
+        const contentDiv = cell.querySelector('.cell-content[contenteditable="true"]'); 
+        if (contentDiv) {
+            contentDiv.style.setProperty('background-color', settings.backgroundColor);
+        }
+        //cell.style.setProperty('background-color', settings.backgroundColor, 'important');
+        //cell.style.backgroundColor = settings.backgroundColor; 
+    }
     
     if (settings.rowHeight && settings.rowHeight !== 'auto') {
         cell.parentElement.style.height = settings.rowHeight;
@@ -621,7 +630,7 @@ function getCellType(cellIndex) {
 }
 
 function getCleanCellContent(cellId) {
-    const cell = document.getElementById(`${currentTabId}_${cellId}`);
+    const cell = document.getElementById(cellId);
     if (!cell) return '';
     
     const clone = cell.cloneNode(true);
@@ -705,13 +714,10 @@ function showFeedback(message, isError = false) {
 
                 if (tabContent && Object.keys(tabContent).length > 0) {
                     for (const cellId in tabContent) {
-                        
                         files.push({
                             path: `src/tabs/${tabId}/include/${cellId}.md`,
                             content: JSON.stringify(tabContent[cellId], null, 2)
-                        });
-
-                            
+                        });  
                     }
                 } else {
                     console.log(`tabId "${tabId}" пустой`);
@@ -732,7 +738,6 @@ function showFeedback(message, isError = false) {
             console.error("Ошибка: Заполните поля GitHub token");
             return;
         }
-            
 
         await commitMultipleFilesToGitHub({
             owner: owner,
