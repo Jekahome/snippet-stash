@@ -248,7 +248,6 @@ html, body {
 </div>
 
 <script>
-// Глобальные переменные
 const isGitHubPages = window.location.host.includes('github.io');
 const basePath = isGitHubPages ? '/snippet-stash' : '';
 const currentTabId = 'tab_2'; // Идентификатор текущей вкладки
@@ -264,11 +263,9 @@ window.addEventListener('DOMContentLoaded', async () => {
         // 1. Инициализируем indexstore
         initIndexStore();
         
-        // 2. Загружаем настройки из файла ТОЛЬКО если их нет в indexstore
-        //if (!window.indexstore.settings[currentTabId]) {
-            console.log('Загружаем настройки из файла');
-            await loadSettingsFromFile();
-        //}
+        // 2. Загружаем настройки из файла
+        console.log('Загружаем настройки из файла');
+        await loadSettingsFromFile();
         
         // 3. Применяем настройки и контент из indexstore
         initTableFromIndexStore();
@@ -300,12 +297,6 @@ async function loadSettingsFromFile() {
         if (!response.ok) throw new Error("Файл настроек не найден");
         
         const settingsText = await response.text();
-        // Сохраняем в indexstore
-        /*const fileSettings = JSON.parse(settingsText);  
-        window.indexstore.settings[currentTabId] = {
-            ...fileSettings,
-            ...window.indexstore.settings[currentTabId]
-        };*/
         window.indexstore.settings = JSON.parse(settingsText);
 
         console.log('Settings loaded to indexstore');
@@ -366,7 +357,7 @@ function initTableFromIndexStore() {
         // Для ячеек с контентом
         if (cell.tagName === 'TD') {
             const contentWrapper = cell.querySelector('.cell-content') || cell;
-            const cellId = getCellId(cell);
+            const cellId = cell.id;
             
             // Восстанавливаем контент из indexstore
             if (window.indexstore.content[currentTabId]?.[cellId] !== undefined) {
@@ -375,7 +366,7 @@ function initTableFromIndexStore() {
             
             // Обработчик изменений - сохраняем в indexstore
             contentWrapper.addEventListener('input', (e) => {
-                updateContentInIndexStore(cellId/*, e.target.innerHTML*/);
+                updateContentInIndexStore(cellId);
             });
         }
         
@@ -392,6 +383,7 @@ function initTableFromIndexStore() {
 
 // Обновление контента в indexstore
 function updateContentInIndexStore(cellId/*, content*/) {
+    console.log(`cellId=${cellId}`);
     const cleanContent = getCleanCellContent(cellId);
     window.indexstore.content[currentTabId][cellId] = cleanContent; //content;
     console.log(`Content updated in indexstore for ${cellId}:`, content);
@@ -428,9 +420,6 @@ function applySettingsFromIndexStore() {
 document.getElementById('saveSettingsBtn').addEventListener('click', function() {
     console.log('Saving data from indexstore...');
     
-    // Обновляем контент в indexstore из DOM (на случай если что-то не синхронизировалось)
-    //syncContentToIndexStore();// ТУТ ЧТО ВЕСЬ КОНТЕНТ ЗАГОНЯЕТСЯ В indexstore?
-    
     // Сохраняем данные из indexstore в файл репозитория
     saveToGitHub().then(() => {
         console.log('Data saved successfully from indexstore');
@@ -442,16 +431,6 @@ document.getElementById('saveSettingsBtn').addEventListener('click', function() 
     });
 });
 
-// Синхронизация контента в indexstore из DOM
-/*function syncContentToIndexStore() {
-    document.querySelectorAll('.data-table td').forEach(td => {
-        const cellId = getCellId(td);
-        const cleanContent = getCleanCellContent(cellId); 
-        window.indexstore.content[currentTabId][cellId] = cleanContent;
-    });
-}*/
-
- 
 // Настройка меню для ячейки
 function setupCellSettingsMenu(cell) {
     const trigger = document.createElement('div');
@@ -636,12 +615,6 @@ function applyCellSettings(cell, settings) {
 }
 
 // Утилитарные функции
-function getCellId(cell) {
-    const rowId = cell.parentElement.id.replace(`${currentTabId}_`, '');
-    const cellType = getCellType(cell.cellIndex);
-    return `${rowId}_${cellType}`;
-}
-
 function getCellType(cellIndex) {
     const types = ['topic', 'content', 'other'];
     return types[cellIndex] || cellIndex;
@@ -769,9 +742,6 @@ function showFeedback(message, isError = false) {
             commitMessage: 'Обновление нескольких файлов одним коммитом',
             files: files
         }); 
-        
-            
-    
     }
 
 
