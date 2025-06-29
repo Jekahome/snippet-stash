@@ -252,16 +252,17 @@ html, body {
 const isGitHubPages = window.location.host.includes('github.io');
 const basePath = isGitHubPages ? '/snippet-stash' : '';
 const currentTabId = 'tab_2'; // Идентификатор текущей вкладки
+let isUpdateSettings = false;
 const owner = 'Jekahome';
 const repo = 'snippet-stash';
-const path = 'src/config/table-settings.json'; 
+const pathSettings = 'src/config/table-settings.json'; 
 const branch = 'main';
 
 // Инициализация при загрузке страницы
 window.addEventListener('DOMContentLoaded', async () => {
     try {
         // 1. Инициализируем indexstore
-        initIndexStore();// ЗАЧЕМ ТУТ И в loadSettingsFromFile одно и тоже??????
+        initIndexStore();
         
         // 2. Загружаем настройки из файла ТОЛЬКО если их нет в indexstore
         //if (!window.indexstore.settings[currentTabId]) {
@@ -300,12 +301,13 @@ async function loadSettingsFromFile() {
         
         const settingsText = await response.text();
         // Сохраняем в indexstore
-        /*const fileSettings = JSON.parse(settingsText);  
+        const fileSettings = JSON.parse(settingsText);  
         window.indexstore.settings[currentTabId] = {
             ...fileSettings,
             ...window.indexstore.settings[currentTabId]
-        };*/
-        window.indexstore.settings = JSON.parse(settingsText);
+        };
+        //window.indexstore.settings = JSON.parse(settingsText);
+
         console.log('Settings loaded to indexstore');
         console.log('loadSettingsFromFile [window.indexstore.settings]:',window.indexstore.settings);
     } catch (error) {
@@ -366,14 +368,14 @@ function initTableFromIndexStore() {
             const contentWrapper = cell.querySelector('.cell-content') || cell;
             const cellId = getCellId(cell);
             
-            // Восстанавливаем контент ИЗ indexstore
+            // Восстанавливаем контент из indexstore
             if (window.indexstore.content[currentTabId]?.[cellId] !== undefined) {
                 contentWrapper.innerHTML = window.indexstore.content[currentTabId][cellId];
             }
             
-            // Обработчик изменений - сохраняем В indexstore
+            // Обработчик изменений - сохраняем в indexstore
             contentWrapper.addEventListener('input', (e) => {
-                updateContentInIndexStore(cellId, e.target.innerHTML);
+                updateContentInIndexStore(cellId/*, e.target.innerHTML*/);
             });
         }
         
@@ -389,8 +391,9 @@ function initTableFromIndexStore() {
 }
 
 // Обновление контента в indexstore
-function updateContentInIndexStore(cellId, content) {
-    window.indexstore.content[currentTabId][cellId] = content;
+function updateContentInIndexStore(cellId/*, content*/) {
+    const cleanContent = getCleanCellContent(cellId);
+    window.indexstore.content[currentTabId][cellId] = cleanContent; //content;
     console.log(`Content updated in indexstore for ${cellId}:`, content);
 }
 
@@ -421,30 +424,17 @@ function applySettingsFromIndexStore() {
     }
 }
 
-// Обновление настроек ячейки в indexstore
-function updateCellSettingsInIndexStore(cell, newSettings) {
-    const settings = window.indexstore.settings[currentTabId];
-    if (!settings) return;
-    
-    const cellId = cell.id; // ← просто берём готовый ID
-
-    if (!settings.cells) settings.cells = {};
-    settings.cells[cellId] = { ...(settings.cells[cellId] || {}), ...newSettings };
-    
-    console.log('Updated cell settings in indexstore:', { cellId, newSettings });
-}
-
 // Сохранение данных из indexstore
 document.getElementById('saveSettingsBtn').addEventListener('click', function() {
     console.log('Saving data from indexstore...');
     
     // Обновляем контент в indexstore из DOM (на случай если что-то не синхронизировалось)
-    syncContentToIndexStore();
+    //syncContentToIndexStore();// ТУТ ЧТО ВЕСЬ КОНТЕНТ ЗАГОНЯЕТСЯ В indexstore?
     
     // Сохраняем данные из indexstore в файл репозитория
     saveToGitHub().then(() => {
         console.log('Data saved successfully from indexstore');
-        console.log('Current indexstore:', window.indexstore);
+        //console.log('Current indexstore:', window.indexstore);
         showFeedback("Все данные сохранены");
     }).catch(error => {
         console.error('Save error:', error);
@@ -453,13 +443,13 @@ document.getElementById('saveSettingsBtn').addEventListener('click', function() 
 });
 
 // Синхронизация контента в indexstore из DOM
-function syncContentToIndexStore() {
+/*function syncContentToIndexStore() {
     document.querySelectorAll('.data-table td').forEach(td => {
         const cellId = getCellId(td);
-        const cleanContent = getCleanCellContent(cellId);
+        const cleanContent = getCleanCellContent(cellId); 
         window.indexstore.content[currentTabId][cellId] = cleanContent;
     });
-}
+}*/
 
  
 // Настройка меню для ячейки
@@ -581,8 +571,23 @@ function setupIconClick(cell, trigger) {
     });
 }
 
-// Обновление настроек колонки В indexstore
+// Обновление настроек ячейки в indexstore
+function updateCellSettingsInIndexStore(cell, newSettings) {
+    isUpdateSettings = true;
+    const settings = window.indexstore.settings[currentTabId];
+    if (!settings) return;
+    
+    const cellId = cell.id; // ← просто берём готовый ID
+
+    if (!settings.cells) settings.cells = {};
+    settings.cells[cellId] = { ...(settings.cells[cellId] || {}), ...newSettings };
+    
+    console.log('Updated cell settings in indexstore:', { cellId, newSettings });
+}
+
+// Обновление настроек колонки в indexstore
 function updateColumnSettingsInIndexStore(columnIndex, newSettings) {
+    isUpdateSettings = true;
     const settings = window.indexstore.settings[currentTabId];
     if (!settings) return;
     
@@ -705,22 +710,153 @@ function showFeedback(message, isError = false) {
 }
 
 //-------------------------------------------------------------------
- 
     async function saveToGitHub() {
-        // const token = prompt("Введите ваш GitHub токен:");
-        const token = document.getElementById('token').value.trim();
+        
+        if (Object.keys(window.indexstore.content).length == 0 && isUpdateSettings === false){
+            console.warn("Данных нет");
+            return;
+        }
+        const contentStore = window.indexstore.content;
+        let files = [];
+
+        if (isUpdateSettings === true){
+            files.push({
+                path: pathSettings,
+                content: JSON.stringify(window.indexstore.settings, null, 2)
+            });
+        }
+
+        if ( Object.keys(contentStore).length > 0) {
+            for (const tabId in contentStore) {
+                const tabContent = contentStore[tabId];
+
+                if (tabContent && Object.keys(tabContent).length > 0) {
+                    for (const cellId in tabContent) {
+                        
+                        files.push({
+                            path: `src/tabs/${tabId}/include/${cellId}.md`,
+                            content: JSON.stringify(tabContent[cellId], null, 2)
+                        });
+
+                            
+                    }
+                } else {
+                    console.log(`tabId "${tabId}" пустой`);
+                }
+            }
+        } else {
+            console.log("indexstore.content пустой");
+        }
+
+        if (files.length == 0){
+            console.warn("files рустой");
+            return;
+        }
+        const token = prompt("Введите ваш GitHub токен:");
+        //const token = document.getElementById('token').value.trim();
+        
+        if (!token) {
+            console.error("Ошибка: Заполните поля GitHub token");
+            return;
+        }
+            
+
+        await commitMultipleFilesToGitHub({
+            owner: owner,
+            repo: repo,
+            branch: branch,
+            token: token, 
+            commitMessage: 'Обновление нескольких файлов одним коммитом',
+            files: files
+        }); 
+        
+            
+    
+    }
+
+
+    async function commitMultipleFilesToGitHub({ owner, repo, branch, token, files, commitMessage }) {
+        const headers = {
+            Authorization: `token ${token}`,
+            Accept: 'application/vnd.github.v3+json',
+            'Content-Type': 'application/json',
+        };
+
+        // Шаг 1: Получить SHA последнего коммита на ветке
+        const refRes = await fetch(`https://api.github.com/repos/${owner}/${repo}/git/ref/heads/${branch}`, { headers });
+        const refData = await refRes.json();
+        const latestCommitSha = refData.object.sha;
+
+        // Шаг 2: Получить SHA дерева этого коммита
+        const commitRes = await fetch(`https://api.github.com/repos/${owner}/${repo}/git/commits/${latestCommitSha}`, { headers });
+        const commitData = await commitRes.json();
+        const baseTreeSha = commitData.tree.sha;
+
+        // Шаг 3: Создать новое дерево с новыми файлами
+        const tree = files.map(({ path, content }) => ({
+            path,
+            mode: '100644',
+            type: 'blob',
+            content, // plain text; если у тебя бинарные — можно blob создать отдельно
+        }));
+
+        const treeRes = await fetch(`https://api.github.com/repos/${owner}/${repo}/git/trees`, {
+            method: 'POST',
+            headers,
+            body: JSON.stringify({
+                base_tree: baseTreeSha,
+                tree,
+            }),
+        });
+        const treeData = await treeRes.json();
+        const newTreeSha = treeData.sha;
+
+        // Шаг 4: Создать коммит с новым деревом
+        const commitResNew = await fetch(`https://api.github.com/repos/${owner}/${repo}/git/commits`, {
+            method: 'POST',
+            headers,
+            body: JSON.stringify({
+                message: commitMessage,
+                tree: newTreeSha,
+                parents: [latestCommitSha],
+            }),
+        });
+        const newCommitData = await commitResNew.json();
+        const newCommitSha = newCommitData.sha;
+
+        // Шаг 5: Обновить ссылку ветки на новый коммит
+        const updateRefRes = await fetch(`https://api.github.com/repos/${owner}/${repo}/git/refs/heads/${branch}`, {
+            method: 'PATCH',
+            headers,
+            body: JSON.stringify({
+                sha: newCommitSha,
+            }),
+        });
+
+        if (updateRefRes.ok) {
+            console.log('✅ Успешно закоммичено!');
+        } else {
+            const err = await updateRefRes.json();
+            console.error('❌ Ошибка обновления ветки:', err.message || err);
+        }
+    }
+
+
+    async function saveToGitHub_() {
+       const token = prompt("Введите ваш GitHub токен:");
+        //const token = document.getElementById('token').value.trim();
        
         if (!token) {
             console.error("Ошибка: Заполните поля GitHub token");
             return;
         }
-         
+
         const file_settings = JSON.stringify(window.indexstore.settings, null, 2);
-       console.log(`Вот что мы отсылаем:${file_settings}`);
-       console.log(`И вот что мы отсылаем:${unescape(encodeURIComponent(file_settings))}`);
+        console.log(`Вот что мы отсылаем:${file_settings}`);
+        console.log(`И вот что мы отсылаем:${unescape(encodeURIComponent(file_settings))}`);
 
         // Получаем текущий SHA файла (если он уже существует)
-        const sha = await getFileSha(owner,repo,path,token);
+        const sha = await getFileSha(owner,repo,pathSettings,token);
         console.log(`sha:${sha}`);
 
         // Отправляем файл
