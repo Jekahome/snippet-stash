@@ -29,6 +29,9 @@
         "backgroundColor": "#f0f0f0",
         "contentType": "text",
         "width": 250
+      },
+      "tab_2_2_content": {
+        "backgroundColor": "#f1ea1e"
       }
     }
   }
