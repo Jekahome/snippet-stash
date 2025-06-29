@@ -1,30 +1,26 @@
-/*window.addEventListener("load", function () {
-    document.addEventListener('keydown', function (e) {
-        if ((e.key === 's' || e.key === 'S' || e.key === 'ы') && !e.ctrlKey && !e.metaKey) {
-            console.log("тут пофиксил остановку поиска")
-            //e.preventDefault();
-            //e.stopPropagation();
-            e.stopImmediatePropagation(); 
-        }
-        if ((e.key === 'ArrowLeft' || e.key === 'ArrowRight') && !e.ctrlKey && !e.metaKey) {
-            console.log("тут пофиксил переключение tabs")
-            e.stopImmediatePropagation(); 
-         
-        }
-    },true)
 
-    if (typeof hljs !== 'undefined') {
-        // https://highlightjs.readthedocs.io/en/latest/api.html#configure
-        hljs.configure({
-            ignoreUnescapedHTML: true,
-        });
-        document.querySelectorAll('pre code').forEach((el) => {
-            hljs.highlightElement(el);
-        });
+// Основная инициализация
+document.addEventListener('DOMContentLoaded', function() {
+    setupKeyboardShortcuts();
+    
+
+
+    
+    // Проверяем, загружена ли библиотека
+    const checkHighlightJS = setInterval(() => {
+        if (typeof hljs !== 'undefined') {
+            clearInterval(checkHighlightJS);
+            initHighlightJS();
+        }
+    }, 100);
+});
+
+// Дополнительная инициализация на случай поздней загрузки
+window.addEventListener('load', function() {
+    if (typeof hljs !== 'undefined' && !document.querySelector('code.hljs')) {
+        initHighlightJS();
     }
-});*/
- 
-// ------------
+});
 
 // Обработчик клавиатуры
 function setupKeyboardShortcuts() {
@@ -63,24 +59,5 @@ function initHighlightJS() {
     }
 }
 
-// Основная инициализация
-document.addEventListener('DOMContentLoaded', function() {
-    setupKeyboardShortcuts();
-    
-    // Проверяем, загружена ли библиотека
-    const checkHighlightJS = setInterval(() => {
-        if (typeof hljs !== 'undefined') {
-            clearInterval(checkHighlightJS);
-            initHighlightJS();
-        }
-    }, 100);
-});
-
-// Дополнительная инициализация на случай поздней загрузки
-window.addEventListener('load', function() {
-    if (typeof hljs !== 'undefined' && !document.querySelector('code.hljs')) {
-        initHighlightJS();
-    }
-});
 
 
