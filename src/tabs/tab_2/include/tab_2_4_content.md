@@ -1,1 +1,12 @@
-"Пример кода:\n<code class=\"language-rust\"> \nfn main() {\n    println!(\"Hello, world1\");\n}\n</code>\n\nИ вот еще код:\n<code class=\"language-rust\"> \nfn main() {\n    println!(\"Hello, world2\");\n}\n</code>"
+Пример кода:
+<code class="language-rust"> 
+fn main() {
+    println!("Hello, world!");
+}
+</code>
+И вот еще код:
+<code class="language-rust"> 
+fn main() {
+    println!("Hello, world!");
+}
+</code>
