@@ -1045,7 +1045,7 @@ async function saveToGitHub() {
                 for (const cellId in tabContent) {
                     files.push({
                         path: `src/tabs/${tabId}/include/${cellId}.md`,
-                        content: JSON.stringify(tabContent[cellId], null, 2)
+                        content: tabContent[cellId] // JSON.stringify(tabContent[cellId], null, 2)
                     });  
                 }
             } else {
