@@ -24,6 +24,7 @@ highlight-theme = "light" # base16-ocean.dark, InspiredGitHub, monokai
 highlight-languages = ["rust", "python", "javascript", "bash"]
 #line-numbers = true
 
+
 [output.html.playground]
 editable = true
 

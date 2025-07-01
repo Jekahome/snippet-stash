@@ -197,6 +197,128 @@ html, body {
     opacity: 1;
     transition: opacity 0.3s;
 }
+
+code {
+    white-space: pre-wrap; /* Сохраняем переносы строк */
+    overflow-x: auto;
+}
+
+/* Highlight.js переопределит эти стили */
+.hljs {
+    white-space: pre-wrap;
+}
+
+/* стили для модального окна */
+
+
+        .current-text {
+            background: #f9f9f9;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            margin: 20px 0;
+            min-height: 50px;
+        }
+
+        .edit-btn {
+            background: #007bff;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .edit-btn:hover {
+            background: #0056b3;
+        }
+
+        /* Модальное окно */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+        }
+
+        .modal.show {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal-content {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            width: 90%;
+            max-width: 500px;
+            max-height: 80vh;
+        }
+
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 10px;
+        }
+
+        .close-btn {
+            background: none;
+            border: none;
+            font-size: 24px;
+            cursor: pointer;
+        }
+
+        .text-editor {
+            width: 100%;
+            height: 200px;
+            padding: 0px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-family: inherit;
+            resize: vertical;
+        }
+
+        .modal-footer {
+            display: flex;
+            gap: 10px;
+            justify-content: flex-end;
+            margin-top: 15px;
+        }
+
+        .save-btn {
+            background: #28a745;
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .cancel-btn {
+            background: #6c757d;
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .save-btn:hover {
+            background: #218838;
+        }
+
+        .cancel-btn:hover {
+            background: #5a6268;
+        }
+
+
 </style>
 <div class="container">
     <div class="controls">
@@ -239,13 +361,217 @@ html, body {
             </tr>
             <tr id="tab_2_5">
                 <td id="tab_2_5_topic"><div class="cell-content" contenteditable="true"></div></td>
-                <td id="tab_2_5_content"><div class="cell-content" contenteditable="true"></div></td>
+                <td id="tab_2_5_content"><div class="cell-content" contenteditable="true">{{include('src/tabs/tab_2/include/tab_2_5_content.md')}}</div></td>
                 <td id="tab_2_5_other"><div class="cell-content" contenteditable="true"></div></td>
             </tr>         
         </tbody>
     </table>
     <div class="status" id="tab_2_status"></div>
 </div>
+
+<!-- Модальное окно -->
+<div id="textModal" class="modal">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h3>Редактирование текста</h3>
+            <button class="close-btn" onclick="closeModal()">&times;</button>
+        </div>
+        <textarea id="textEditor" class="text-editor" placeholder="Введите ваш текст здесь..."></textarea>
+        <div class="modal-footer">
+            <button class="cancel-btn" onclick="closeModal()">Отмена</button>
+            <button class="save-btn" onclick="saveText()">Сохранить</button>
+        </div>
+    </div>
+</div>
+
+ 
+<script>
+    let editCellId=null;
+    function closeModal() {
+        const modal = document.getElementById('textModal');
+        modal.classList.remove('show');
+    }
+
+    function saveText() {
+        const editor = document.getElementById('textEditor');
+        let cell = document.getElementById(editCellId);
+        window.indexstore.content[currentTabId][cell.id] = editor.value;
+        cell.innerHTML = '';
+           
+        const temp = document.createElement('div');
+        temp.innerHTML = editor.value;
+
+        
+        const cellContentWrapper = document.createElement('div');
+        cellContentWrapper.className = 'cell-content';
+        cellContentWrapper.contentEditable = true;
+
+        Array.from(temp.childNodes).forEach(node => {
+            if (node.nodeType === Node.ELEMENT_NODE && node.tagName === 'CODE') {
+                const wrap_code = buildWrapper(node.cloneNode(true));
+
+            
+                cellContentWrapper.appendChild(wrap_code);
+            } else {
+                cellContentWrapper.appendChild(node.cloneNode(true));
+            }
+        });
+
+       
+        cell.appendChild(cellContentWrapper);
+
+        setupCellSettingsMenu(cell);
+       
+        if (typeof hljs !== 'undefined') {
+            //hljs.highlightAll();
+            const codeElements = cell.querySelectorAll('code');
+            codeElements.forEach(codeElement => {
+                console.log(codeElement)
+                hljs.highlightElement(codeElement);
+            }); 
+        }
+        closeModal();
+    }
+    function buildWrapper(node_code){
+
+        const contentWrapperPre = document.createElement('pre');
+        contentWrapperPre.className = 'playground';
+
+
+        const buttonsDiv = document.createElement('div');
+        buttonsDiv.className = 'buttons';
+
+            // Кнопка копирования
+            const copyButton = document.createElement('button');
+            copyButton.className = 'clip-button';
+            copyButton.title = 'Copy to clipboard';
+            copyButton.setAttribute('aria-label', 'Copy to clipboard');
+
+            const tooltip = document.createElement('i');
+            tooltip.className = 'tooltiptext';
+            copyButton.appendChild(tooltip);
+
+            // Кнопка запуска
+            const runButton = document.createElement('button');
+            runButton.className = 'fa fa-play play-button';
+            runButton.hidden = true;
+            runButton.title = 'Run this code';
+            runButton.setAttribute('aria-label', 'Run this code');
+
+        runButton.addEventListener('click', () => {
+            run_rust_code(contentWrapperPre);
+        });
+ 
+        // Добавление кнопок в div
+        buttonsDiv.appendChild(copyButton);
+        buttonsDiv.appendChild(runButton);
+        contentWrapperPre.appendChild(buttonsDiv);
+        contentWrapperPre.appendChild(node_code); 
+        return contentWrapperPre;
+    }
+    function fetch_with_timeout(url, options, timeout = 6000) {
+        return Promise.race([
+            fetch(url, options),
+            new Promise((_, reject) => setTimeout(() => reject(new Error('timeout')), timeout)),
+        ]);
+    }
+    function run_rust_code(code_block) {
+        let result_block = code_block.querySelector('.result');
+        if (!result_block) {
+            result_block = document.createElement('code');
+            result_block.className = 'result hljs language-bash';
+
+            code_block.append(result_block);
+        }
+
+        const text = playground_text(code_block);
+        const classes = code_block.querySelector('code').classList;
+        let edition = '2015';
+        classes.forEach(className => {
+            if (className.startsWith('edition')) {
+                edition = className.slice(7);
+            }
+        });
+        const params = {
+            version: 'stable',
+            optimize: '0',
+            code: text,
+            edition: edition,
+        };
+
+        if (text.indexOf('#![feature') !== -1) {
+            params.version = 'nightly';
+        }
+
+        result_block.innerText = 'Running...';
+
+        fetch_with_timeout('https://play.rust-lang.org/evaluate.json', {
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            method: 'POST',
+            mode: 'cors',
+            body: JSON.stringify(params),
+        })
+            .then(response => response.json())
+            .then(response => {
+                if (response.result.trim() === '') {
+                    result_block.innerText = 'No output';
+                    result_block.classList.add('result-no-output');
+                } else {
+                    result_block.innerText = response.result;
+                    result_block.classList.remove('result-no-output');
+                }
+            })
+            .catch(error => result_block.innerText = 'Playground Communication: ' + error.message);
+    }
+
+    function initCellFromIndexStore(cell){
+        if (cell.tagName === 'TH' && !cell.querySelector('.cell-content')) {
+            const contentWrapper = document.createElement('div');
+            contentWrapper.className = 'cell-content';
+            contentWrapper.contentEditable = true;
+            contentWrapper.innerHTML = cell.innerHTML;
+            cell.innerHTML = '';
+            cell.appendChild(contentWrapper);
+        }
+
+        // Для ячеек с контентом
+        if (cell.tagName === 'TD') {
+            const contentWrapper = cell.querySelector('.cell-content') || cell;
+            const cellId = cell.id;
+            
+            // Восстанавливаем контент из indexstore
+            if (window.indexstore.content[currentTabId]?.[cellId] !== undefined) {
+                contentWrapper.innerHTML = window.indexstore.content[currentTabId][cellId];
+            }
+            
+            // Обработчик изменений - сохраняем в indexstore
+            /*contentWrapper.addEventListener('input', (e) => {
+                updateContentInIndexStore(cellId);
+            });*/
+        }
+        
+        // Создаем меню настроек...
+        setupCellSettingsMenu(cell);
+    }
+
+    // Закрытие при клике вне окна
+    window.onclick = function(event) {
+        const modal = document.getElementById('textModal');
+        if (event.target === modal) {
+            closeModal();
+        }
+    }
+
+    // Закрытие по Escape
+    document.addEventListener('keydown', function(event) {
+        if (event.key === 'Escape') {
+            closeModal();
+        }
+    });
+</script>
+
 
 <script>
 const isGitHubPages = window.location.host.includes('github.io');
@@ -345,33 +671,7 @@ function initTableFromIndexStore() {
     const cells = document.querySelectorAll('.data-table td, .data-table th');
     
     cells.forEach((cell) => {
-        if (cell.tagName === 'TH' && !cell.querySelector('.cell-content')) {
-            const contentWrapper = document.createElement('div');
-            contentWrapper.className = 'cell-content';
-            contentWrapper.contentEditable = true;
-            contentWrapper.innerHTML = cell.innerHTML;
-            cell.innerHTML = '';
-            cell.appendChild(contentWrapper);
-        }
-        
-        // Для ячеек с контентом
-        if (cell.tagName === 'TD') {
-            const contentWrapper = cell.querySelector('.cell-content') || cell;
-            const cellId = cell.id;
-            
-            // Восстанавливаем контент из indexstore
-            if (window.indexstore.content[currentTabId]?.[cellId] !== undefined) {
-                contentWrapper.innerHTML = window.indexstore.content[currentTabId][cellId];
-            }
-            
-            // Обработчик изменений - сохраняем в indexstore
-            contentWrapper.addEventListener('input', (e) => {
-                updateContentInIndexStore(cellId);
-            });
-        }
-        
-        // Создаем меню настроек...
-        setupCellSettingsMenu(cell);
+        initCellFromIndexStore(cell);
     });
 
     // Настраиваем глобальный клик для закрытия меню
@@ -382,12 +682,12 @@ function initTableFromIndexStore() {
 }
 
 // Обновление контента в indexstore
-function updateContentInIndexStore(cellId/*, content*/) {
+/*function updateContentInIndexStore(cellId) {
     console.log(`updateContentInIndexStore cellId=${cellId}`);
     const cleanContent = getCleanCellContent(cellId);
     window.indexstore.content[currentTabId][cellId] = cleanContent; //content;
     console.log(`Content updated in indexstore for ${cellId}:`, cleanContent);
-}
+}*/
 
 // Применение настроек из indexstore
 function applySettingsFromIndexStore() {
@@ -445,6 +745,7 @@ function setupCellSettingsMenu(cell) {
     const contentWrapper = cell.querySelector('.cell-content');
     
     let menuHTML = `
+        <label><button onclick="editContent('${cell.id}')">E</button></label>
         <label>F: <input type="number" class="font-size" value="14" min="8" max="24"></label>
         <label>B: <input type="color" class="bg-color" value="${rgbToHex(getComputedStyle(cell).backgroundColor) || '#f9f9f9'}"></label>
         <label>T:
@@ -472,10 +773,65 @@ function setupCellSettingsMenu(cell) {
     cell.appendChild(menu);
 }
 
+async function editContent(cell_id){
+    try {
+        editCellId = cell_id;
+        const modal = document.getElementById('textModal');
+        const editor = document.getElementById('textEditor');
+         
+        let markdownContent = '';
+        if (!window.indexstore.content[currentTabId]?.[editCellId]) {
+            const response = await fetch(`${basePath}/tabs/${currentTabId}/include/${cell_id}.md`);
+            // Проверяем, что запрос был успешным
+            if (!response.ok) {
+                throw new Error(`Ошибка HTTP: ${response.status} ${response.statusText}`);
+            }
+            markdownContent = await response.text(); // Если ожидается текстовое содержимое (как для .md файлов)
+        } else {
+            markdownContent = window.indexstore.content[currentTabId][editCellId];
+        }
+
+        console.log(`Содержимое Markdown:`, markdownContent);
+
+        editor.value = markdownContent;
+        modal.classList.add('show');
+        editor.focus();
+
+        // Теперь вы можете использовать markdownContent, например, для отображения в элементе
+        // document.getElementById('markdownDisplayArea').textContent = markdownContent;
+
+    } catch (error) {
+        console.error('Ошибка при загрузке Markdown файла:', error);
+        // Здесь можно отобразить сообщение об ошибке пользователю
+    }
+}
+
 // Настройка событий меню
 function setupMenuEvents(cell, menu, contentWrapper) {
     menu.addEventListener('click', e => e.stopPropagation());
     
+    /*menu.querySelector('#editContent').addEventListener('click', async e => {
+        try {
+            const response = await fetch(`${basePath}/tabs/${currentTabId}/include/${cell.id}.md`);
+            
+            // Проверяем, что запрос был успешным
+            if (!response.ok) {
+                throw new Error(`Ошибка HTTP: ${response.status} ${response.statusText}`);
+            }
+
+            const markdownContent = await response.text(); // Если ожидается текстовое содержимое (как для .md файлов)
+            console.log(`Содержимое Markdown:`, markdownContent);
+
+            // Теперь вы можете использовать markdownContent, например, для отображения в элементе
+            // document.getElementById('markdownDisplayArea').textContent = markdownContent;
+
+        } catch (error) {
+            console.error('Ошибка при загрузке Markdown файла:', error);
+            // Здесь можно отобразить сообщение об ошибке пользователю
+        }
+    });*/
+  
+
     const fontSizeInput = menu.querySelector('.font-size');
     fontSizeInput.addEventListener('input', e => {
         const value = `${e.target.value}px`;
@@ -639,7 +995,26 @@ function getCleanCellContent(cellId) {
     const trigger = clone.querySelector('.settings-trigger');
     if (trigger) trigger.remove();
     
-    return clone.textContent.trim();
+    
+    const pre = clone.querySelector('pre');
+    const code = pre?.querySelector('code');
+
+    if (!code) {
+        return clone.textContent.trim();
+    }
+
+    const codeText = code.textContent || '';
+
+    // Экранируем спецсимволы обратно, если нужно
+    const escaped = codeText
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;');
+
+    let code_class = code.classList.length > 0 ? "class=\""+code.classList[0]+"\"" : "";
+    let gt = '>';
+    return  `<pre><code ${code_class}>${codeText}</code></pre${gt}`;
+   
 }
 
 function rgbToHex(rgb) {
@@ -692,6 +1067,7 @@ function showFeedback(message, isError = false) {
 }
 
 //-------------------------------------------------------------------
+// После отправки надо очистить indexstorage и загрузить новую версию!!!
     async function saveToGitHub() {
         
         if (Object.keys(window.indexstore.content).length == 0 && isUpdateSettings === false){
@@ -747,6 +1123,17 @@ function showFeedback(message, isError = false) {
             commitMessage: 'Обновление нескольких файлов одним коммитом',
             files: files
         }); 
+
+        console.info("Данные отправлены. Для работы с новыми данными дождитесь обновления репозитория");
+   
+        window.indexstore = window.indexstore || {
+            settings: {},  
+            content: {}  
+        };
+         
+        setTimeout(() => {
+            location.reload();  
+        }, 35000);  
     }
 
 

@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', function() {
     
 
 
-    
+
     // Проверяем, загружена ли библиотека
     const checkHighlightJS = setInterval(() => {
         if (typeof hljs !== 'undefined') {
@@ -25,6 +25,7 @@ window.addEventListener('load', function() {
 // Обработчик клавиатуры
 function setupKeyboardShortcuts() {
     document.addEventListener('keydown', function(e) {
+        // не даем mdBook обработать спец. keydown которые будут мешать вводить данные
         if ((e.key === 's' || e.key === 'S' || e.key === 'ы') && !e.ctrlKey && !e.metaKey) {
             console.log("тут пофиксил остановку поиска")
             e.stopImmediatePropagation();
@@ -32,6 +33,10 @@ function setupKeyboardShortcuts() {
         if ((e.key === 'ArrowLeft' || e.key === 'ArrowRight') && !e.ctrlKey && !e.metaKey) {
             console.log("тут пофиксил переключение tabs")
             e.stopImmediatePropagation();
+        }
+        if (e.shiftKey && e.key === '?') {
+            e.stopImmediatePropagation(); 
+            // Не отменяем e.preventDefault(), чтобы символ ? вбился
         }
     }, true);
 }

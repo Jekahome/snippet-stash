@@ -67,6 +67,9 @@ jobs:
       - name: Make mdbook binary executable
         run: chmod +x ./bin/mdbook
         
+      - name: Make copy_raw_md.sh executable
+        run: chmod +x ./copy_raw_md.sh
+
       - name: Setup Pages
         id: pages
         uses: actions/configure-pages@v5
@@ -74,7 +77,8 @@ jobs:
       - name: Build with mdBook
         run: |
           ./bin/mdbook build
-
+          ./copy_raw_md.sh
+          
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
