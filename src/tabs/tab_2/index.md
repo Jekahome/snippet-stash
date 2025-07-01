@@ -400,7 +400,6 @@ code {
            
         const temp = document.createElement('div');
         temp.innerHTML = editor.value;
-
         
         const cellContentWrapper = document.createElement('div');
         cellContentWrapper.className = 'cell-content';
@@ -416,7 +415,6 @@ code {
                 cellContentWrapper.appendChild(node.cloneNode(true));
             }
         });
-
        
         cell.appendChild(cellContentWrapper);
 
@@ -545,11 +543,6 @@ code {
             if (window.indexstore.content[currentTabId]?.[cellId] !== undefined) {
                 contentWrapper.innerHTML = window.indexstore.content[currentTabId][cellId];
             }
-            
-            // Обработчик изменений - сохраняем в indexstore
-            /*contentWrapper.addEventListener('input', (e) => {
-                updateContentInIndexStore(cellId);
-            });*/
         }
         
         // Создаем меню настроек...
@@ -681,14 +674,6 @@ function initTableFromIndexStore() {
     applySettingsFromIndexStore();
 }
 
-// Обновление контента в indexstore
-/*function updateContentInIndexStore(cellId) {
-    console.log(`updateContentInIndexStore cellId=${cellId}`);
-    const cleanContent = getCleanCellContent(cellId);
-    window.indexstore.content[currentTabId][cellId] = cleanContent; //content;
-    console.log(`Content updated in indexstore for ${cellId}:`, cleanContent);
-}*/
-
 // Применение настроек из indexstore
 function applySettingsFromIndexStore() {
     const settings = window.indexstore.settings[currentTabId];
@@ -796,13 +781,8 @@ async function editContent(cell_id){
         editor.value = markdownContent;
         modal.classList.add('show');
         editor.focus();
-
-        // Теперь вы можете использовать markdownContent, например, для отображения в элементе
-        // document.getElementById('markdownDisplayArea').textContent = markdownContent;
-
     } catch (error) {
         console.error('Ошибка при загрузке Markdown файла:', error);
-        // Здесь можно отобразить сообщение об ошибке пользователю
     }
 }
 
@@ -810,28 +790,6 @@ async function editContent(cell_id){
 function setupMenuEvents(cell, menu, contentWrapper) {
     menu.addEventListener('click', e => e.stopPropagation());
     
-    /*menu.querySelector('#editContent').addEventListener('click', async e => {
-        try {
-            const response = await fetch(`${basePath}/tabs/${currentTabId}/include/${cell.id}.md`);
-            
-            // Проверяем, что запрос был успешным
-            if (!response.ok) {
-                throw new Error(`Ошибка HTTP: ${response.status} ${response.statusText}`);
-            }
-
-            const markdownContent = await response.text(); // Если ожидается текстовое содержимое (как для .md файлов)
-            console.log(`Содержимое Markdown:`, markdownContent);
-
-            // Теперь вы можете использовать markdownContent, например, для отображения в элементе
-            // document.getElementById('markdownDisplayArea').textContent = markdownContent;
-
-        } catch (error) {
-            console.error('Ошибка при загрузке Markdown файла:', error);
-            // Здесь можно отобразить сообщение об ошибке пользователю
-        }
-    });*/
-  
-
     const fontSizeInput = menu.querySelector('.font-size');
     fontSizeInput.addEventListener('input', e => {
         const value = `${e.target.value}px`;
@@ -918,7 +876,7 @@ function updateCellSettingsInIndexStore(cell, newSettings) {
     if (!settings.cells) settings.cells = {};
     settings.cells[cellId] = { ...(settings.cells[cellId] || {}), ...newSettings };
     
-    console.log('Updated cell settings in indexstore:', { cellId, newSettings });
+   // console.log('Updated cell settings in indexstore:', { cellId, newSettings });
 }
 
 // Обновление настроек колонки в indexstore
@@ -935,7 +893,6 @@ function updateColumnSettingsInIndexStore(columnIndex, newSettings) {
     console.log('Updated column settings in indexstore:', { columnIndex, newSettings });
 }
 
-
 // Применение настроек к ячейке
 function applyCellSettings(cell, settings) {
     const content = cell.querySelector('.cell-content') || cell;
@@ -946,8 +903,6 @@ function applyCellSettings(cell, settings) {
         if (contentDiv) {
             contentDiv.style.setProperty('background-color', settings.backgroundColor);
         }
-        //cell.style.setProperty('background-color', settings.backgroundColor, 'important');
-        //cell.style.backgroundColor = settings.backgroundColor; 
     }
     
     if (settings.rowHeight && settings.rowHeight !== 'auto') {
@@ -1005,7 +960,7 @@ function getCleanCellContent(cellId) {
 
     const codeText = code.textContent || '';
 
-    // Экранируем спецсимволы обратно, если нужно
+    // Экранируем спецсимволы обратно (если нужно)
     const escaped = codeText
         .replace(/&/g, '&amp;')
         .replace(/</g, '&lt;')
@@ -1066,198 +1021,194 @@ function showFeedback(message, isError = false) {
     }
 }
 
-//-------------------------------------------------------------------
-// После отправки надо очистить indexstorage и загрузить новую версию!!!
-    async function saveToGitHub() {
-        
-        if (Object.keys(window.indexstore.content).length == 0 && isUpdateSettings === false){
-            console.warn("Данных нет");
-            return;
-        }
-        const contentStore = window.indexstore.content;
-        let files = [];
+async function saveToGitHub() {
+    
+    if (Object.keys(window.indexstore.content).length == 0 && isUpdateSettings === false){
+        console.warn("Данных нет");
+        return;
+    }
+    const contentStore = window.indexstore.content;
+    let files = [];
 
-        if (isUpdateSettings === true){
-            files.push({
-                path: pathSettings,
-                content: JSON.stringify(window.indexstore.settings, null, 2)
-            });
-        }
+    if (isUpdateSettings === true){
+        files.push({
+            path: pathSettings,
+            content: JSON.stringify(window.indexstore.settings, null, 2)
+        });
+    }
 
-        if ( Object.keys(contentStore).length > 0) {
-            for (const tabId in contentStore) {
-                const tabContent = contentStore[tabId];
+    if ( Object.keys(contentStore).length > 0) {
+        for (const tabId in contentStore) {
+            const tabContent = contentStore[tabId];
 
-                if (tabContent && Object.keys(tabContent).length > 0) {
-                    for (const cellId in tabContent) {
-                        files.push({
-                            path: `src/tabs/${tabId}/include/${cellId}.md`,
-                            content: JSON.stringify(tabContent[cellId], null, 2)
-                        });  
-                    }
-                } else {
-                    console.log(`tabId "${tabId}" пустой`);
+            if (tabContent && Object.keys(tabContent).length > 0) {
+                for (const cellId in tabContent) {
+                    files.push({
+                        path: `src/tabs/${tabId}/include/${cellId}.md`,
+                        content: JSON.stringify(tabContent[cellId], null, 2)
+                    });  
                 }
+            } else {
+                console.log(`tabId "${tabId}" пустой`);
             }
-        } else {
-            console.log("indexstore.content пустой");
         }
+    } else {
+        console.log("indexstore.content пустой");
+    }
 
-        if (files.length == 0){
-            console.warn("files рустой");
-            return;
-        }
-        const token = prompt("Введите ваш GitHub токен:");
-        //const token = document.getElementById('token').value.trim();
+    if (files.length == 0){
+        console.warn("files рустой");
+        return;
+    }
+    const token = prompt("Введите ваш GitHub токен:");
+    //const token = document.getElementById('token').value.trim();
+    
+    if (!token) {
+        console.error("Ошибка: Заполните поля GitHub token");
+        return;
+    }
+
+    await commitMultipleFilesToGitHub({
+        owner: owner,
+        repo: repo,
+        branch: branch,
+        token: token, 
+        commitMessage: 'Обновление нескольких файлов одним коммитом',
+        files: files
+    }); 
+
+    console.info("Данные отправлены. Для работы с новыми данными дождитесь обновления репозитория");
+
+    window.indexstore = window.indexstore || {
+        settings: {},  
+        content: {}  
+    };
         
-        if (!token) {
-            console.error("Ошибка: Заполните поля GitHub token");
-            return;
-        }
+    setTimeout(() => {
+        location.reload();  
+    }, 35000);  
+}
 
-        await commitMultipleFilesToGitHub({
-            owner: owner,
-            repo: repo,
-            branch: branch,
-            token: token, 
-            commitMessage: 'Обновление нескольких файлов одним коммитом',
-            files: files
-        }); 
+async function commitMultipleFilesToGitHub({ owner, repo, branch, token, files, commitMessage }) {
+    const headers = {
+        Authorization: `token ${token}`,
+        Accept: 'application/vnd.github.v3+json',
+        'Content-Type': 'application/json',
+    };
 
-        console.info("Данные отправлены. Для работы с новыми данными дождитесь обновления репозитория");
-   
-        window.indexstore = window.indexstore || {
-            settings: {},  
-            content: {}  
-        };
-         
-        setTimeout(() => {
-            location.reload();  
-        }, 35000);  
+    // Шаг 1: Получить SHA последнего коммита на ветке
+    const refRes = await fetch(`https://api.github.com/repos/${owner}/${repo}/git/ref/heads/${branch}`, { headers });
+    const refData = await refRes.json();
+    const latestCommitSha = refData.object.sha;
+
+    // Шаг 2: Получить SHA дерева этого коммита
+    const commitRes = await fetch(`https://api.github.com/repos/${owner}/${repo}/git/commits/${latestCommitSha}`, { headers });
+    const commitData = await commitRes.json();
+    const baseTreeSha = commitData.tree.sha;
+
+    // Шаг 3: Создать новое дерево с новыми файлами
+    const tree = files.map(({ path, content }) => ({
+        path,
+        mode: '100644',
+        type: 'blob',
+        content, // plain text; если у тебя бинарные — можно blob создать отдельно
+    }));
+
+    const treeRes = await fetch(`https://api.github.com/repos/${owner}/${repo}/git/trees`, {
+        method: 'POST',
+        headers,
+        body: JSON.stringify({
+            base_tree: baseTreeSha,
+            tree,
+        }),
+    });
+    const treeData = await treeRes.json();
+    const newTreeSha = treeData.sha;
+
+    // Шаг 4: Создать коммит с новым деревом
+    const commitResNew = await fetch(`https://api.github.com/repos/${owner}/${repo}/git/commits`, {
+        method: 'POST',
+        headers,
+        body: JSON.stringify({
+            message: commitMessage,
+            tree: newTreeSha,
+            parents: [latestCommitSha],
+        }),
+    });
+    const newCommitData = await commitResNew.json();
+    const newCommitSha = newCommitData.sha;
+
+    // Шаг 5: Обновить ссылку ветки на новый коммит
+    const updateRefRes = await fetch(`https://api.github.com/repos/${owner}/${repo}/git/refs/heads/${branch}`, {
+        method: 'PATCH',
+        headers,
+        body: JSON.stringify({
+            sha: newCommitSha,
+        }),
+    });
+
+    if (updateRefRes.ok) {
+        console.log('✅ Успешно закоммичено!');
+    } else {
+        const err = await updateRefRes.json();
+        console.error('Ошибка обновления ветки:', err.message || err);
+    }
+}
+
+async function saveToGitHub_() {
+    const token = prompt("Введите ваш GitHub токен:");
+    //const token = document.getElementById('token').value.trim();
+    
+    if (!token) {
+        console.error("Ошибка: Заполните поля GitHub token");
+        return;
     }
 
+    const file_settings = JSON.stringify(window.indexstore.settings, null, 2);
+    console.log(`Вот что мы отсылаем:${file_settings}`);
+    console.log(`И вот что мы отсылаем:${unescape(encodeURIComponent(file_settings))}`);
 
-    async function commitMultipleFilesToGitHub({ owner, repo, branch, token, files, commitMessage }) {
-        const headers = {
+    // Получаем текущий SHA файла (если он уже существует)
+    const sha = await getFileSha(owner,repo,pathSettings,token);
+    console.log(`sha:${sha}`);
+
+    // Отправляем файл
+    const putRes = await fetch(`https://api.github.com/repos/${owner}/${repo}/contents/${path}`,  {
+        method: 'PUT',
+        headers: {
             Authorization: `token ${token}`,
-            Accept: 'application/vnd.github.v3+json',
-            'Content-Type': 'application/json',
-        };
+            Accept: "application/vnd.github.v3+json",
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            message: "Обновлено через GitHub API",
+            content: btoa(unescape(encodeURIComponent(file_settings))), // base64 encode
+            ...(sha ? { sha } : {}), // отправляем только если файл был,
+            branch: branch
+        })
+    });
 
-        // Шаг 1: Получить SHA последнего коммита на ветке
-        const refRes = await fetch(`https://api.github.com/repos/${owner}/${repo}/git/ref/heads/${branch}`, { headers });
-        const refData = await refRes.json();
-        const latestCommitSha = refData.object.sha;
-
-        // Шаг 2: Получить SHA дерева этого коммита
-        const commitRes = await fetch(`https://api.github.com/repos/${owner}/${repo}/git/commits/${latestCommitSha}`, { headers });
-        const commitData = await commitRes.json();
-        const baseTreeSha = commitData.tree.sha;
-
-        // Шаг 3: Создать новое дерево с новыми файлами
-        const tree = files.map(({ path, content }) => ({
-            path,
-            mode: '100644',
-            type: 'blob',
-            content, // plain text; если у тебя бинарные — можно blob создать отдельно
-        }));
-
-        const treeRes = await fetch(`https://api.github.com/repos/${owner}/${repo}/git/trees`, {
-            method: 'POST',
-            headers,
-            body: JSON.stringify({
-                base_tree: baseTreeSha,
-                tree,
-            }),
-        });
-        const treeData = await treeRes.json();
-        const newTreeSha = treeData.sha;
-
-        // Шаг 4: Создать коммит с новым деревом
-        const commitResNew = await fetch(`https://api.github.com/repos/${owner}/${repo}/git/commits`, {
-            method: 'POST',
-            headers,
-            body: JSON.stringify({
-                message: commitMessage,
-                tree: newTreeSha,
-                parents: [latestCommitSha],
-            }),
-        });
-        const newCommitData = await commitResNew.json();
-        const newCommitSha = newCommitData.sha;
-
-        // Шаг 5: Обновить ссылку ветки на новый коммит
-        const updateRefRes = await fetch(`https://api.github.com/repos/${owner}/${repo}/git/refs/heads/${branch}`, {
-            method: 'PATCH',
-            headers,
-            body: JSON.stringify({
-                sha: newCommitSha,
-            }),
-        });
-
-        if (updateRefRes.ok) {
-            console.log('✅ Успешно закоммичено!');
-        } else {
-            const err = await updateRefRes.json();
-            console.error('❌ Ошибка обновления ветки:', err.message || err);
-        }
+    if (putRes.ok) {
+        console.log("Успешно сохранено!");
+    } else {
+        const err = await putRes.json();
+        console.error("Ошибка: " + (err.message || "Неизвестная ошибка"));
     }
+}
 
-
-    async function saveToGitHub_() {
-       const token = prompt("Введите ваш GitHub токен:");
-        //const token = document.getElementById('token').value.trim();
-       
-        if (!token) {
-            console.error("Ошибка: Заполните поля GitHub token");
-            return;
+// GitHub требует SHA для обновления файла — это защита от конфликтов.
+async function getFileSha(owner, repo, path, token) {
+    const url = `https://api.github.com/repos/${owner}/${repo}/contents/${path}`; 
+    const response = await fetch(url, {
+        headers: {
+        Authorization: `token ${token}`,
+        Accept: "application/vnd.github.v3+json"
         }
+    });
 
-        const file_settings = JSON.stringify(window.indexstore.settings, null, 2);
-        console.log(`Вот что мы отсылаем:${file_settings}`);
-        console.log(`И вот что мы отсылаем:${unescape(encodeURIComponent(file_settings))}`);
+    if (!response.ok) return null;
 
-        // Получаем текущий SHA файла (если он уже существует)
-        const sha = await getFileSha(owner,repo,pathSettings,token);
-        console.log(`sha:${sha}`);
-
-        // Отправляем файл
-        const putRes = await fetch(`https://api.github.com/repos/${owner}/${repo}/contents/${path}`,  {
-            method: 'PUT',
-            headers: {
-                Authorization: `token ${token}`,
-                Accept: "application/vnd.github.v3+json",
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify({
-                message: "Обновлено через GitHub API",
-                content: btoa(unescape(encodeURIComponent(file_settings))), // base64 encode
-                ...(sha ? { sha } : {}), // отправляем только если файл был,
-                branch: branch
-            })
-        });
-
-        if (putRes.ok) {
-            console.log("Успешно сохранено!");
-        } else {
-            const err = await putRes.json();
-            console.error("Ошибка: " + (err.message || "Неизвестная ошибка"));
-        }
-    }
-
-    // GitHub требует SHA для обновления файла — это защита от конфликтов.
-    async function getFileSha(owner, repo, path, token) {
-        const url = `https://api.github.com/repos/${owner}/${repo}/contents/${path}`; 
-        const response = await fetch(url, {
-            headers: {
-            Authorization: `token ${token}`,
-            Accept: "application/vnd.github.v3+json"
-            }
-        });
-
-        if (!response.ok) return null;
-
-        const data = await response.json();
-        return data.sha;
-    }
+    const data = await response.json();
+    return data.sha;
+}
 </script>
