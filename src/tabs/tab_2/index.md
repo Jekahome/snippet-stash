@@ -11,11 +11,19 @@ html, body {
     height: 100%;
 }
 
+.content main{
+    max-width: 100%; /*var(--content-max-width);*/
+}
+
 .container {
     width: 100%;
     box-sizing: border-box;
     margin: 0;
     padding: 0;
+}
+
+table{
+    margin: 0;  
 }
 
 /* Навигация (если используется) */
@@ -27,13 +35,9 @@ html, body {
 .data-table {
     width: 100%;
     border-collapse: collapse;
-    margin: 20px auto;
+    margin: 0px auto;
     table-layout: fixed;
 }
-
-.data-table col:nth-child(1) { width: 200px; }
-.data-table col:nth-child(2) { width: 300px; }
-.data-table col:nth-child(3) { width: 250px; }
 
 /* Общие стили ячеек */
 .data-table tr {
@@ -53,15 +57,16 @@ html, body {
 .data-table th {
     background-color: #eeeeee;
     font-weight: bold;
-    height: 50px; /* Фиксированная высота для заголовков */
+    /*height: 50px; /* Фиксированная высота для заголовков */
+    min-height: 25px
 }
 
 /* Контейнер содержимого ячейки */
 .data-table .cell-content {
     display: block;
     width: 100%;
-    min-height: 40px;
-    padding: 8px;
+    min-height: 25px;
+    padding: 2px;
     box-sizing: border-box;
     background-color: transparent; /* Делаем внутренний div прозрачным */
     text-align: left;
@@ -83,12 +88,12 @@ html, body {
 /* Панель управления */
 .controls {
     text-align: center;
-    margin: 20px;
+    margin: 0px;
 }
 
 .controls button {
-    margin: 5px;
-    padding: 10px 20px;
+    margin: 0px;
+    padding: 5px 10px;
     background-color: #007bff;
     color: white;
     border: none;
@@ -178,24 +183,9 @@ html, body {
     border-radius: 4px;
     overflow-x: auto;
 }
-
-.data-table .cell-content code {
-    font-family: Consolas, Monaco, 'Andale Mono', monospace;
-    font-size: 0.9em;
-}
-
-#status {
-    position: fixed;
-    bottom: 20px;
-    left: 50%;
-    transform: translateX(-50%);
-    padding: 10px 20px;
-    background: rgba(0,0,0,0.7);
-    color: white;
-    border-radius: 5px;
-    z-index: 1000;
-    opacity: 1;
-    transition: opacity 0.3s;
+pre code.hljs{
+    padding: 0px;
+    margin-top:-20px;
 }
 
 code {
@@ -210,113 +200,112 @@ code {
 
 /* стили для модального окна */
 
+.current-text {
+    background: #f9f9f9;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    margin: 20px 0;
+    min-height: 50px;
+}
 
-        .current-text {
-            background: #f9f9f9;
-            padding: 15px;
-            border: 1px solid #ddd;
-            border-radius: 4px;
-            margin: 20px 0;
-            min-height: 50px;
-        }
+.edit-btn {
+    background: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+}
 
-        .edit-btn {
-            background: #007bff;
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            border-radius: 4px;
-            cursor: pointer;
-        }
+.edit-btn:hover {
+    background: #0056b3;
+}
 
-        .edit-btn:hover {
-            background: #0056b3;
-        }
+/* Модальное окно */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+}
 
-        /* Модальное окно */
-        .modal {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.5);
-        }
+.modal.show {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 
-        .modal.show {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
+.modal-content {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    width: 90%;
+    max-width: 500px;
+    max-height: 80vh;
+}
 
-        .modal-content {
-            background: white;
-            padding: 20px;
-            border-radius: 8px;
-            width: 90%;
-            max-width: 500px;
-            max-height: 80vh;
-        }
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 10px;
+}
 
-        .modal-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 20px;
-            border-bottom: 1px solid #ddd;
-            padding-bottom: 10px;
-        }
+.modal-close-btn {
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+}
 
-        .close-btn {
-            background: none;
-            border: none;
-            font-size: 24px;
-            cursor: pointer;
-        }
+.modal-text-editor {
+    width: 100%;
+    height: 200px;
+    padding: 0px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-family: inherit;
+    resize: vertical;
+}
 
-        .text-editor {
-            width: 100%;
-            height: 200px;
-            padding: 0px;
-            border: 1px solid #ddd;
-            border-radius: 4px;
-            font-family: inherit;
-            resize: vertical;
-        }
+.modal-footer {
+    display: flex;
+    gap: 10px;
+    justify-content: flex-end;
+    margin-top: 15px;
+}
 
-        .modal-footer {
-            display: flex;
-            gap: 10px;
-            justify-content: flex-end;
-            margin-top: 15px;
-        }
+.modal-save-btn {
+    background: #28a745;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+}
 
-        .save-btn {
-            background: #28a745;
-            color: white;
-            border: none;
-            padding: 8px 16px;
-            border-radius: 4px;
-            cursor: pointer;
-        }
+.modal-cancel-btn {
+    background: #6c757d;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+}
 
-        .cancel-btn {
-            background: #6c757d;
-            color: white;
-            border: none;
-            padding: 8px 16px;
-            border-radius: 4px;
-            cursor: pointer;
-        }
+.modal-save-btn:hover {
+    background: #218838;
+}
 
-        .save-btn:hover {
-            background: #218838;
-        }
-
-        .cancel-btn:hover {
-            background: #5a6268;
-        }
+.modal-cancel-btn:hover {
+    background: #5a6268;
+}
 
 
 </style>
@@ -335,7 +324,7 @@ code {
             <tr id="tab_2_header_row">
                 <th id="tab_2_header_topic"><div class="cell-content" contenteditable="true">Тема</div></th>
                 <th id="tab_2_header_content"><div class="cell-content" contenteditable="true">Описание</div></th>
-                <th id="tab_2_header_other"><div class="cell-content" contenteditable="true">Доп. информация</div></th>
+                <th id="tab_2_header_other"><div class="cell-content" contenteditable="true">Доп.</div></th>
             </tr>
         </thead>
         <tbody>
@@ -361,12 +350,12 @@ code {
             </tr>
             <tr id="tab_2_5">
                 <td id="tab_2_5_topic"><div class="cell-content" contenteditable="true"></div></td>
-                <td id="tab_2_5_content"><div class="cell-content" contenteditable="true">{{include('src/tabs/tab_2/include/tab_2_5_content.md')}}</div></td>
+                <td id="tab_2_5_content"><div class="cell-content" contenteditable="true">{{include('src/tabs/tab_2/include/tab_2_5_other.md')}}</div></td>
                 <td id="tab_2_5_other"><div class="cell-content" contenteditable="true"></div></td>
             </tr>         
         </tbody>
     </table>
-    <div class="status" id="tab_2_status"></div>
+    
 </div>
 
 <!-- Модальное окно -->
@@ -376,24 +365,32 @@ code {
             <h3>Редактирование текста</h3>
             <button class="close-btn" onclick="closeModal()">&times;</button>
         </div>
-        <textarea id="textEditor" class="text-editor" placeholder="Введите ваш текст здесь..."></textarea>
+        <textarea id="modalTextEditor" class="modal-text-editor" placeholder="Введите ваш текст здесь..."></textarea>
         <div class="modal-footer">
-            <button class="cancel-btn" onclick="closeModal()">Отмена</button>
-            <button class="save-btn" onclick="saveText()">Сохранить</button>
+            <button class="modal-cancel-btn" onclick="closeModal()">Отмена</button>
+            <button class="modal-save-btn" onclick="saveTextModal()">Сохранить</button>
         </div>
     </div>
 </div>
 
- 
 <script>
+    const isGitHubPages = window.location.host.includes('github.io');
+    const basePath = isGitHubPages ? '/snippet-stash' : '';
+    const currentTabId = 'tab_2'; // Идентификатор текущей вкладки
+    let isUpdateSettings = false;
+    const owner = 'Jekahome';
+    const repo = 'snippet-stash';
+    const pathSettings = 'src/config/table-settings.json'; 
+    const branch = 'main';
     let editCellId=null;
+
     function closeModal() {
         const modal = document.getElementById('textModal');
         modal.classList.remove('show');
     }
 
-    function saveText() {
-        const editor = document.getElementById('textEditor');
+    function saveTextModal() {
+        const editor = document.getElementById('modalTextEditor');
         let cell = document.getElementById(editCellId);
         window.indexstore.content[currentTabId][cell.id] = editor.value;
         cell.innerHTML = '';
@@ -409,7 +406,6 @@ code {
             if (node.nodeType === Node.ELEMENT_NODE && node.tagName === 'CODE') {
                 const wrap_code = buildWrapper(node.cloneNode(true));
 
-            
                 cellContentWrapper.appendChild(wrap_code);
             } else {
                 cellContentWrapper.appendChild(node.cloneNode(true));
@@ -431,10 +427,8 @@ code {
         closeModal();
     }
     function buildWrapper(node_code){
-
         const contentWrapperPre = document.createElement('pre');
         contentWrapperPre.className = 'playground';
-
 
         const buttonsDiv = document.createElement('div');
         buttonsDiv.className = 'buttons';
@@ -467,12 +461,14 @@ code {
         contentWrapperPre.appendChild(node_code); 
         return contentWrapperPre;
     }
+    // Копия из book/book.js:23
     function fetch_with_timeout(url, options, timeout = 6000) {
         return Promise.race([
             fetch(url, options),
             new Promise((_, reject) => setTimeout(() => reject(new Error('timeout')), timeout)),
         ]);
     }
+    // Копия из book/book.js:105
     function run_rust_code(code_block) {
         let result_block = code_block.querySelector('.result');
         if (!result_block) {
@@ -563,18 +559,7 @@ code {
             closeModal();
         }
     });
-</script>
-
-
-<script>
-const isGitHubPages = window.location.host.includes('github.io');
-const basePath = isGitHubPages ? '/snippet-stash' : '';
-const currentTabId = 'tab_2'; // Идентификатор текущей вкладки
-let isUpdateSettings = false;
-const owner = 'Jekahome';
-const repo = 'snippet-stash';
-const pathSettings = 'src/config/table-settings.json'; 
-const branch = 'main';
+ 
 
 // Инициализация при загрузке страницы
 window.addEventListener('DOMContentLoaded', async () => {
@@ -589,10 +574,10 @@ window.addEventListener('DOMContentLoaded', async () => {
         // 3. Применяем настройки и контент из indexstore
         initTableFromIndexStore();
         
-        showFeedback("Таблица готова к работе");
+        console.log("Таблица готова к работе");
     } catch (error) {
         console.error("Ошибка инициализации:", error);
-        showFeedback("Ошибка загрузки таблицы", true);
+        console.log("Ошибка загрузки таблицы", true);
     }
 });
 
@@ -629,29 +614,24 @@ async function loadSettingsFromFile() {
 // Настройки по умолчанию в indexstore
 function initDefaultSettingsInIndexStore() {
     const defaultSettings = {
-        columns: [
-            { width: 200 },
-            { width: 500 },
-            { width: 50 }
-        ],
         cells: {
             [`${currentTabId}_header_topic`]: {
                 fontSize: "16px",
                 backgroundColor: "black",
                 contentType: "text",
-                width: 200
+                width: 75
             },
             [`${currentTabId}_header_content`]: {
                 fontSize: "16px",
                 backgroundColor: "#f0f0f0",
                 contentType: "text",
-                width: 300
+                width: 200
             },
             [`${currentTabId}_header_other`]: {
                 fontSize: "16px",
                 backgroundColor: "#f0f0f0",
                 contentType: "text",
-                width: 250
+                width: 50
             }
         }
     };
@@ -679,15 +659,6 @@ function applySettingsFromIndexStore() {
     const settings = window.indexstore.settings[currentTabId];
     if (!settings) return;
     
-    // Применяем настройки колонок
-    if (settings.columns) {
-        settings.columns.forEach((col, index) => {
-            if (col.width) {
-                setColumnWidth(index, col.width);
-            }
-        });
-    }
-    
     // Применяем настройки ячеек
     if (settings.cells) { 
         Object.keys(settings.cells).forEach(cellId => {
@@ -710,10 +681,10 @@ document.getElementById('saveSettingsBtn').addEventListener('click', function() 
     saveToGitHub().then(() => {
         console.log('Data saved successfully from indexstore');
         //console.log('Current indexstore:', window.indexstore);
-        showFeedback("Все данные сохранены");
+        console.log("Все данные сохранены");
     }).catch(error => {
         console.error('Save error:', error);
-        showFeedback("Ошибка сохранения", true);
+        console.log("Ошибка сохранения", true);
     });
 });
 
@@ -727,7 +698,6 @@ function setupCellSettingsMenu(cell) {
     
     const isHeader = cell.tagName === 'TH';
     const columnIndex = cell.cellIndex;
-    const contentWrapper = cell.querySelector('.cell-content');
     
     let menuHTML = `
         <label><button onclick="editContent('${cell.id}')">E</button></label>
@@ -743,7 +713,7 @@ function setupCellSettingsMenu(cell) {
     `;
     
     if (isHeader) {
-        const currentWidth = getColumnWidth(columnIndex);
+        const currentWidth = window.indexstore.settings?.[currentTabId]?.cells?.[cell.id]?.width ?? 200;
         menuHTML += `<label>W: <input type="number" class="column-width" value="${currentWidth}" min="50" max="800"></label>`;
     }
     
@@ -751,7 +721,7 @@ function setupCellSettingsMenu(cell) {
 
     menu.innerHTML = menuHTML;
 
-    setupMenuEvents(cell, menu, contentWrapper);
+    setupMenuEvents(cell, menu);
     setupIconClick(cell, trigger);
 
     cell.appendChild(trigger);
@@ -762,12 +732,11 @@ async function editContent(cell_id){
     try {
         editCellId = cell_id;
         const modal = document.getElementById('textModal');
-        const editor = document.getElementById('textEditor');
+        const editor = document.getElementById('modalTextEditor');
          
         let markdownContent = '';
         if (!window.indexstore.content[currentTabId]?.[editCellId]) {
             const response = await fetch(`${basePath}/tabs/${currentTabId}/include/${cell_id}.md`);
-            // Проверяем, что запрос был успешным
             if (!response.ok) {
                 throw new Error(`Ошибка HTTP: ${response.status} ${response.statusText}`);
             }
@@ -787,30 +756,31 @@ async function editContent(cell_id){
 }
 
 // Настройка событий меню
-function setupMenuEvents(cell, menu, contentWrapper) {
+function setupMenuEvents(cell, menu) {
     menu.addEventListener('click', e => e.stopPropagation());
     
     const fontSizeInput = menu.querySelector('.font-size');
     fontSizeInput.addEventListener('input', e => {
         const value = `${e.target.value}px`;
-        contentWrapper.style.fontSize = value;
         updateCellSettingsInIndexStore(cell, { fontSize: value });
-        showFeedback(`Размер шрифта изменен на ${e.target.value}px`);
+        applyCellSettings(cell, { fontSize: value });
+        console.log(`Размер шрифта изменен на ${e.target.value}px`);
     });
 
     const bgColorInput = menu.querySelector('.bg-color');
     bgColorInput.addEventListener('input', e => {
-        cell.style.backgroundColor = e.target.value;
-        if (contentWrapper) contentWrapper.style.backgroundColor = 'transparent';
+        //cell.style.backgroundColor = e.target.value;
+        //if (contentWrapper) contentWrapper.style.backgroundColor = 'transparent';
         updateCellSettingsInIndexStore(cell, { backgroundColor: e.target.value });
-        showFeedback(`Цвет фона изменен`);
+        applyCellSettings(cell, { backgroundColor: e.target.value });
+        console.log(`Цвет фона изменен`);
     });
 
     const contentTypeSelect = menu.querySelector('.content-type');
     if (contentTypeSelect) {
         contentTypeSelect.addEventListener('change', e => {
             updateCellSettingsInIndexStore(cell, { contentType: e.target.value });
-            showFeedback(`Тип контента изменен на ${e.target.value}`);
+            console.log(`Тип контента изменен на ${e.target.value}`);
         });
     }
 
@@ -818,10 +788,11 @@ function setupMenuEvents(cell, menu, contentWrapper) {
     if (columnWidthInput && cell.tagName === 'TH') {
         columnWidthInput.addEventListener('input', e => {
             const width = parseInt(e.target.value);
-            if (width >= 50) {
-                setColumnWidth(cell.cellIndex, width);
-                updateColumnSettingsInIndexStore(cell.cellIndex, { width });
-                showFeedback(`Ширина колонки ${cell.cellIndex + 1} изменена на ${width}px`);
+            if (width >= 25) {
+               
+                updateCellSettingsInIndexStore(cell, { width: width });
+                applyCellSettings(cell, { width: width });
+                console.log(`Ширина колонки ${cell.cellIndex + 1} изменена на ${width}px`);
             }
         });
     }
@@ -836,12 +807,12 @@ function setupMenuEvents(cell, menu, contentWrapper) {
                 row.style.height = `${height}px`;
                 row.style.minHeight = `${height}px`;
                 row.dataset.fixedHeight = "true";
-                showFeedback(`Высота строки установлена ${height}px`);
+                console.log(`Высота строки установлена ${height}px`);
             } else if (e.target.value === '') {
                 row.style.height = 'auto';
                 row.style.minHeight = 'auto';
                 delete row.dataset.fixedHeight;
-                showFeedback(`Высота строки: автоматическая`);
+                console.log(`Высота строки: автоматическая`);
             }
             
             updateCellSettingsInIndexStore(cell, { rowHeight: height >= 30 ? `${height}px` : 'auto' });
@@ -870,41 +841,33 @@ function updateCellSettingsInIndexStore(cell, newSettings) {
     isUpdateSettings = true;
     const settings = window.indexstore.settings[currentTabId];
     if (!settings) return;
-    
-    const cellId = cell.id; 
-
+     
     if (!settings.cells) settings.cells = {};
-    settings.cells[cellId] = { ...(settings.cells[cellId] || {}), ...newSettings };
-    
-   // console.log('Updated cell settings in indexstore:', { cellId, newSettings });
-}
-
-// Обновление настроек колонки в indexstore
-function updateColumnSettingsInIndexStore(columnIndex, newSettings) {
-    isUpdateSettings = true;
-    const settings = window.indexstore.settings[currentTabId];
-    if (!settings) return;
-    
-    if (!settings.columns[columnIndex]) {
-        settings.columns[columnIndex] = {};
-    }
-    
-    settings.columns[columnIndex] = { ...settings.columns[columnIndex], ...newSettings };
-    console.log('Updated column settings in indexstore:', { columnIndex, newSettings });
+    settings.cells[cell.id] = { ...(settings.cells[cell.id] || {}), ...newSettings };
+   // console.log('Updated cell settings in indexstore:', { cell.id, newSettings });
 }
 
 // Применение настроек к ячейке
 function applyCellSettings(cell, settings) {
-    const content = cell.querySelector('.cell-content') || cell;
     
-    if (settings.fontSize) content.style.fontSize = settings.fontSize;
+    if (settings.fontSize) {
+        const contentDiv = cell.querySelector('.cell-content[contenteditable="true"]');
+        if (contentDiv) {
+            contentDiv.style.fontSize = settings.fontSize;
+        }
+    }
+
     if (settings.backgroundColor) {
         const contentDiv = cell.querySelector('.cell-content[contenteditable="true"]'); 
         if (contentDiv) {
             contentDiv.style.setProperty('background-color', settings.backgroundColor);
         }
     }
-    
+
+    if (settings.width) {
+        cell.style.setProperty('width', `${settings.width}px`);
+    }
+
     if (settings.rowHeight && settings.rowHeight !== 'auto') {
         cell.parentElement.style.height = settings.rowHeight;
         cell.parentElement.dataset.fixedHeight = "true";
@@ -940,38 +903,6 @@ function getCellType(cellIndex) {
     return types[cellIndex] || cellIndex;
 }
 
-function getCleanCellContent(cellId) {
-    const cell = document.getElementById(cellId);
-    if (!cell) return '';
-    
-    const clone = cell.cloneNode(true);
-    const menu = clone.querySelector('.settings-menu');
-    if (menu) menu.remove();
-    const trigger = clone.querySelector('.settings-trigger');
-    if (trigger) trigger.remove();
-    
-    
-    const pre = clone.querySelector('pre');
-    const code = pre?.querySelector('code');
-
-    if (!code) {
-        return clone.textContent.trim();
-    }
-
-    const codeText = code.textContent || '';
-
-    // Экранируем спецсимволы обратно (если нужно)
-    const escaped = codeText
-        .replace(/&/g, '&amp;')
-        .replace(/</g, '&lt;')
-        .replace(/>/g, '&gt;');
-
-    let code_class = code.classList.length > 0 ? "class=\""+code.classList[0]+"\"" : "";
-    let gt = '>';
-    return  `<pre><code ${code_class}>${codeText}</code></pre${gt}`;
-   
-}
-
 function rgbToHex(rgb) {
     if (rgb.startsWith('#')) return rgb;
     const result = /^rgba?\((\d+),\s*(\d+),\s*(\d+)(?:,\s*\d+\.?\d*)?\)$/i.exec(rgb);
@@ -982,22 +913,6 @@ function rgbToHex(rgb) {
     return `#${r}${g}${b}`.toLowerCase();
 }
 
-function getColumnWidth(columnIndex) {
-    const col = document.getElementById(`${currentTabId}_col-${columnIndex}`);
-    if (col && col.style.width) {
-        return parseInt(col.style.width);
-    }
-    const defaultWidths = [200, 300, 250];
-    return defaultWidths[columnIndex] || 150;
-}
-
-function setColumnWidth(columnIndex, width) {
-    const col = document.getElementById(`${currentTabId}_col-${columnIndex}`);
-    if (col) {
-        col.style.width = `${width}px`;
-    }
-}
-
 function setupGlobalClick() {
     document.addEventListener('click', (e) => {
         if (!e.target.closest('.settings-menu') && !e.target.closest('.settings-trigger')) {
@@ -1006,19 +921,6 @@ function setupGlobalClick() {
             });
         }
     });
-}
-
-function showFeedback(message, isError = false) {
-    const status = document.getElementById(`${currentTabId}_status`);
-    if (status) {
-        status.textContent = message;
-        status.style.color = isError ? 'red' : '#28a745';
-        status.style.fontWeight = 'bold';
-        
-        setTimeout(() => {
-            status.textContent = '';
-        }, 2000);
-    }
 }
 
 async function saveToGitHub() {
@@ -1045,7 +947,7 @@ async function saveToGitHub() {
                 for (const cellId in tabContent) {
                     files.push({
                         path: `src/tabs/${tabId}/include/${cellId}.md`,
-                        content: tabContent[cellId] // JSON.stringify(tabContent[cellId], null, 2)
+                        content: tabContent[cellId] 
                     });  
                 }
             } else {
@@ -1086,7 +988,7 @@ async function saveToGitHub() {
         
     setTimeout(() => {
         location.reload();  
-    }, 35000);  
+    }, 45000);  
 }
 
 async function commitMultipleFilesToGitHub({ owner, repo, branch, token, files, commitMessage }) {
