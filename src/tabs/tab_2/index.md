@@ -315,11 +315,6 @@ code {
         <input type="password" id="token" placeholder="GitHub Token" />
     </div>
     <table class="data-table" id="dataTable">
-        <colgroup>
-            <col id="tab_2_col-0">
-            <col id="tab_2_col-1">
-            <col id="tab_2_col-2">
-        </colgroup>
         <thead>
             <tr id="tab_2_header_row">
                 <th id="tab_2_header_topic"><div class="cell-content" contenteditable="true">Тема</div></th>
