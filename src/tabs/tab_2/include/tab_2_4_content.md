@@ -1,12 +1,18 @@
-Пример кода:
-<code class="language-rust"> 
-fn main() {
-    println!("Hello, world!1");
-}
+    
+       
+## В формате html:
+<code class="language-python"> 
+def print_person(name, age = 18):
+    print(f"Name: {name}  Age: {age}")
+print_person("Bob")
 </code>
-И вот еще код:
-<code class="language-rust"> 
-fn main() {
-    println!("Hello, world!2");
-}
-</code>
+
+## В формате markdown:
+
+```python exec
+
+def print_person(name, age = 18):
+    print(f"Name: {name}  Age: {age}")
+print_person("Bob")
+
+```

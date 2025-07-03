@@ -2,19 +2,19 @@
   "tab_2": {
     "cells": {
       "tab_2_header_topic": {
-        "fontSize": "16px",
+        "fontSize": "14px",
         "backgroundColor": "blue",
         "contentType": "text",
         "width": 75
       },
       "tab_2_header_content": {
-        "fontSize": "16px",
+        "fontSize": "14px",
         "backgroundColor": "#f20707",
         "contentType": "text",
         "width": 200
       },
       "tab_2_header_other": {
-        "fontSize": "16px",
+        "fontSize": "14px",
         "backgroundColor": "#f0f0f0",
         "contentType": "text",
         "width": 50

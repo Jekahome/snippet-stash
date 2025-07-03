@@ -14,8 +14,11 @@ default-theme = "light"
 additional-js = [
     "js/global.js", 
     "theme/js/highlight.min.11.9.0.js",
+    "js/markdown-it.min.v14.1.0.js",
+    "js/pyodide.v0.23.4.js",
+    #"js/marked.min.v15.0.12.js",
     #"theme/js/highlightjs-line-numbers.min.2.8.0.js"
-] # ,"tab-grid-indexstorage-icon.js","js/grid-indexstorage.js"
+]  
 additional-css = [
     "theme/css/highlight.11.9.0.css",
     # "theme/css/monokai.min.11.9.0.css"

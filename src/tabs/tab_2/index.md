@@ -9,6 +9,7 @@ html, body {
     padding: 0;
     width: 100%;
     height: 100%;
+    font-size: 14px;
 }
 
 .content main{
@@ -50,7 +51,12 @@ table{
     padding: 0;
     vertical-align: top;
     background-color: #f9f9f9; /* Фон по умолчанию для всей ячейки */
+   
     height: auto;
+}
+
+.data-table td *, .data-table th *{
+    background-color: transparent !important; /* или inherit, если применимо */
 }
 
 /* Стили заголовков */
@@ -105,9 +111,6 @@ table{
     background-color: #0056b3;
 }
 
-.file-input {
-    margin: 10px;
-}
 
 /* Настройки таблицы */
 .settings-trigger {
@@ -184,7 +187,7 @@ table{
     overflow-x: auto;
 }
 pre code.hljs{
-    padding: 0px;
+    padding: 16px;
     margin-top:-20px;
 }
 
@@ -307,7 +310,16 @@ code {
     background: #5a6268;
 }
 
-
+/* makrdown */
+details h3{
+    padding-top: 1px;
+    margin-top: 1px;
+    padding-bottom: 0px;
+    margin-bottom: 0px;
+}
+h3, h2 {
+    margin-block-start: 0em;
+}
 </style>
 <div class="container">
     <div class="controls">
@@ -344,15 +356,13 @@ code {
                 <td id="tab_2_4_other"><div class="cell-content" contenteditable="true">{{include('src/tabs/tab_2/include/tab_2_4_other.md')}}</div></td>
             </tr>
             <tr id="tab_2_5">
-                <td id="tab_2_5_topic"><div class="cell-content" contenteditable="true"></div></td>
-                <td id="tab_2_5_content"><div class="cell-content" contenteditable="true">{{include('src/tabs/tab_2/include/tab_2_5_other.md')}}</div></td>
-                <td id="tab_2_5_other"><div class="cell-content" contenteditable="true"></div></td>
+                <td id="tab_2_5_topic"><div class="cell-content" contenteditable="true">{{include('src/tabs/tab_2/include/tab_2_5_topic.md')}}</div></td>
+                <td id="tab_2_5_content"><div class="cell-content" contenteditable="true">{{include('src/tabs/tab_2/include/tab_2_5_content.md')}}</div></td>
+                <td id="tab_2_5_other"><div class="cell-content" contenteditable="true">{{include('src/tabs/tab_2/include/tab_2_5_other.md')}}</div></td>
             </tr>         
         </tbody>
     </table>
-    
 </div>
-
 <!-- Модальное окно -->
 <div id="textModal" class="modal">
     <div class="modal-content">
@@ -384,6 +394,20 @@ code {
         modal.classList.remove('show');
     }
 
+    function convertMarkdownCodeBlocksToHtml(text) {
+        function escapeHtml(str) {
+            return str
+                .replace(/&/g, '&amp;')
+                .replace(/</g, '&lt;')
+                .replace(/>/g, '&gt;');
+        }
+        return text.replace(/```(\w+)\n([\s\S]*?)```/g, (match, lang, code) => {
+            const escapedCode = escapeHtml(code);
+            let gt = '>';
+            return `<code class="language-${lang}">${escapedCode}</code${gt}`;
+        });
+    }
+
     function saveTextModal() {
         const editor = document.getElementById('modalTextEditor');
         let cell = document.getElementById(editCellId);
@@ -391,7 +415,8 @@ code {
         cell.innerHTML = '';
            
         const temp = document.createElement('div');
-        temp.innerHTML = editor.value;
+        temp.innerHTML = convertMarkdownCodeBlocksToHtml(editor.value); //надо не строкой code заворачивать а как createContextualFragment
+        //temp.innerHTML = editor.value;
         
         const cellContentWrapper = document.createElement('div');
         cellContentWrapper.className = 'cell-content';
@@ -399,11 +424,40 @@ code {
 
         Array.from(temp.childNodes).forEach(node => {
             if (node.nodeType === Node.ELEMENT_NODE && node.tagName === 'CODE') {
+                console.log('CODE=',node);
                 const wrap_code = buildWrapper(node.cloneNode(true));
 
                 cellContentWrapper.appendChild(wrap_code);
+            }else if (node.nodeType === Node.ELEMENT_NODE && node.tagName === 'DETAILS') {
+              console.log('DETAILS=',node);
+              let node_details = node.cloneNode(true);
+              const summaryEl = node_details.querySelector('summary');
+              
+
+              const newNodeDetails = document.createElement('details');
+              newNodeDetails.appendChild(summaryEl.cloneNode(true));
+              node_details.removeChild(summaryEl);
+              const html = window.md.render(node_details.textContent);
+              const fragment = document.createRange().createContextualFragment(html);
+              newNodeDetails.appendChild(fragment);
+              cellContentWrapper.appendChild(newNodeDetails);
             } else {
-                cellContentWrapper.appendChild(node.cloneNode(true));
+                console.log('ELSE=',node);
+                // парсинг с помощью markdown-it
+                const html = window.md.render(node.textContent);
+                const fragment = document.createRange().createContextualFragment(html);
+                cellContentWrapper.appendChild(fragment);
+
+                // парсинг с помощью marked
+                /* const markdown = node.textContent;
+                if (markdown.length > 0) {
+                    const html = marked.parse(markdown);
+                    const fragment = document.createRange().createContextualFragment(html);
+                    cellContentWrapper.appendChild(fragment);
+                }*/
+
+               // без парсинга markdown 
+               //cellContentWrapper.appendChild(node.cloneNode(true));
             }
         });
        
@@ -421,6 +475,7 @@ code {
         }
         closeModal();
     }
+
     function buildWrapper(node_code){
         const contentWrapperPre = document.createElement('pre');
         contentWrapperPre.className = 'playground';
@@ -559,11 +614,20 @@ code {
 // Инициализация при загрузке страницы
 window.addEventListener('DOMContentLoaded', async () => {
     try {
+        if (!window.markdownit) {
+            console.error('markdown-it не загружен');
+            return;
+        }
+
+        window.md = window.markdownit({
+            html: true,       // Разрешить HTML внутри markdown
+            breaks: true,
+        });
+
         // 1. Инициализируем indexstore
         initIndexStore();
         
         // 2. Загружаем настройки из файла
-        console.log('Загружаем настройки из файла');
         await loadSettingsFromFile();
         
         // 3. Применяем настройки и контент из indexstore
@@ -582,10 +646,10 @@ function initIndexStore() {
         settings: {}, // Настройки таблицы (размеры, цвета, шрифты)
         content: {}   // Содержимое ячеек
     };
-    console.log('initIndexStore after [window.indexstore]:',window.indexstore);
+    //console.log('initIndexStore after [window.indexstore]:',window.indexstore);
     window.indexstore.settings[currentTabId] = window.indexstore.settings[currentTabId] || {};
     window.indexstore.content[currentTabId] = window.indexstore.content[currentTabId] || {};
-    console.log('initIndexStore before [window.indexstore]:',window.indexstore);
+    //console.log('initIndexStore before [window.indexstore]:',window.indexstore);
 }
 
 // 2. Загрузка настроек из файла в indexstore
@@ -657,7 +721,7 @@ function applySettingsFromIndexStore() {
     // Применяем настройки ячеек
     if (settings.cells) { 
         Object.keys(settings.cells).forEach(cellId => {
-            console.log(`applySettingsFromIndexStore cellId=${cellId}`);
+            //console.log(`applySettingsFromIndexStore cellId=${cellId}`);
             const cell = document.getElementById(cellId); 
             if (cell) {
                 applyCellSettings(cell, settings.cells[cellId]);
@@ -846,17 +910,19 @@ function updateCellSettingsInIndexStore(cell, newSettings) {
 function applyCellSettings(cell, settings) {
     
     if (settings.fontSize) {
-        const contentDiv = cell.querySelector('.cell-content[contenteditable="true"]');
+        /*const contentDiv = cell.querySelector('.cell-content[contenteditable="true"]');
         if (contentDiv) {
             contentDiv.style.fontSize = settings.fontSize;
-        }
+        }*/
+       cell.style.setProperty('font-size', settings.fontSize);
     }
 
     if (settings.backgroundColor) {
-        const contentDiv = cell.querySelector('.cell-content[contenteditable="true"]'); 
+        /*const contentDiv = cell.querySelector('.cell-content[contenteditable="true"]'); 
         if (contentDiv) {
             contentDiv.style.setProperty('background-color', settings.backgroundColor);
-        }
+        }*/
+        cell.style.setProperty('background-color', settings.backgroundColor);
     }
 
     if (settings.width) {

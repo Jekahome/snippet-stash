@@ -3,9 +3,6 @@
 document.addEventListener('DOMContentLoaded', function() {
     setupKeyboardShortcuts();
     
-
-
-
     // Проверяем, загружена ли библиотека
     const checkHighlightJS = setInterval(() => {
         if (typeof hljs !== 'undefined') {
