@@ -1,4 +1,26 @@
 {
+  "tab_1": {
+    "cells": {
+      "tab_1_header_topic": {
+        "fontSize": "14px",
+        "backgroundColor": "red",
+        "contentType": "text",
+        "width": 75
+      },
+      "tab_1_header_content": {
+        "fontSize": "14px",
+        "backgroundColor": "red",
+        "contentType": "text",
+        "width": 200
+      },
+      "tab_1_header_other": {
+        "fontSize": "14px",
+        "backgroundColor": "red",
+        "contentType": "text",
+        "width": 50
+      } 
+    }
+  },
   "tab_2": {
     "cells": {
       "tab_2_header_topic": {

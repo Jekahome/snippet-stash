@@ -1,6 +1,7 @@
 # Tabs
 
 - [task](task.md)
+- [tab_1](./tabs/tab_1/index.md)
 - [tab_2](./tabs/tab_2/index.md)
 
 

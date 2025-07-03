@@ -1,0 +1,321 @@
+:root {
+    --content-max-width: 97%;
+}
+
+/* Базовые сбросы и контейнеры */
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    font-size: 14px;
+}
+
+.content main{
+    max-width: 100%; /*var(--content-max-width);*/
+}
+
+.container {
+    width: 100%;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+table{
+    margin: 0;  
+}
+
+/* Навигация (если используется) */
+.nav-chapters {
+    min-width: 20px;
+}
+
+/* Стили таблицы */
+.data-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 0px auto;
+    table-layout: fixed;
+}
+
+/* Общие стили ячеек */
+.data-table tr {
+    height: auto; /* Автоматическая высота строки */
+}
+
+.data-table td, .data-table th {
+    border: 1px solid #ccc;
+    position: relative;
+    padding: 0;
+    vertical-align: top;
+    background-color: #f9f9f9; /* Фон по умолчанию для всей ячейки */
+   
+    height: auto;
+}
+
+.data-table td *, .data-table th *{
+    background-color: transparent !important; /* или inherit, если применимо */
+}
+
+/* Стили заголовков */
+.data-table th {
+    background-color: #eeeeee;
+    font-weight: bold;
+    /*height: 50px; /* Фиксированная высота для заголовков */
+    min-height: 25px
+}
+
+/* Контейнер содержимого ячейки */
+.data-table .cell-content {
+    display: block;
+    width: 100%;
+    min-height: 25px;
+    padding: 2px;
+    box-sizing: border-box;
+    background-color: transparent; /* Делаем внутренний div прозрачным */
+    text-align: left;
+    outline: none;
+}
+
+/* Редактируемые ячейки */
+.data-table td .cell-content[contenteditable="true"] {
+    background-color: #f9f9f9;
+    word-wrap: break-word;
+    overflow-wrap: anywhere;
+}
+
+.data-table td .cell-content[contenteditable="true"]:focus {
+    background-color: #fff;
+    box-shadow: 0 0 5px rgba(0,123,255,0.5);
+}
+
+/* Панель управления */
+.controls {
+    text-align: center;
+    margin: 0px;
+}
+
+.controls button {
+    margin: 0px;
+    padding: 5px 10px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.controls button:hover {
+    background-color: #0056b3;
+}
+
+
+/* Настройки таблицы */
+.settings-trigger {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    z-index: 10;
+    border-radius: 0 0 0 8px;
+}
+
+.settings-trigger:hover {
+    background-color: rgba(0,123,255,0.1);
+}
+
+.settings-menu {
+    display: none;
+    position: absolute;
+    top: 20px;
+    right: 2px;
+    background: #fff;
+    border: 1px solid #ccc;
+    padding: 4px;
+    border-radius: 4px;
+    white-space: nowrap;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    z-index: 100;
+    font-size: 12px;
+}
+
+.show-settings .settings-menu {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+}
+
+.settings-menu label {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.settings-menu input[type="number"],
+.settings-menu select,
+.settings-menu input[type="color"] {
+    width: 50px;
+    font-size: 12px;
+}
+
+/* Ресайзер колонок */
+.column-resizer {
+    position: absolute;
+    top: 0;
+    right: -2px;
+    width: 4px;
+    height: 100%;
+    cursor: col-resize;
+    background: transparent;
+    z-index: 5;
+}
+
+.column-resizer:hover {
+    background: rgba(0,123,255,0.3);
+}
+
+/* Стили для блоков кода */
+.data-table .cell-content pre {
+    margin: 0;
+    padding: 0px;
+    background:rgb(245, 245, 245);
+    border-radius: 4px;
+    overflow-x: auto;
+}
+pre code.hljs{
+    padding: 16px;
+    margin-top:-20px;
+}
+
+code {
+    white-space: pre-wrap; /* Сохраняем переносы строк */
+    overflow-x: auto;
+}
+
+/* Highlight.js переопределит эти стили */
+.hljs {
+    white-space: pre-wrap;
+}
+
+/* стили для модального окна */
+
+.current-text {
+    background: #f9f9f9;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    margin: 20px 0;
+    min-height: 50px;
+}
+
+.edit-btn {
+    background: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.edit-btn:hover {
+    background: #0056b3;
+}
+
+/* Модальное окно */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+}
+
+.modal.show {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-content {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    width: 90%;
+    max-width: 500px;
+    max-height: 80vh;
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 10px;
+}
+
+.modal-close-btn {
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.modal-text-editor {
+    width: 100%;
+    height: 200px;
+    padding: 0px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-family: inherit;
+    resize: vertical;
+}
+
+.modal-footer {
+    display: flex;
+    gap: 10px;
+    justify-content: flex-end;
+    margin-top: 15px;
+}
+
+.modal-save-btn {
+    background: #28a745;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.modal-cancel-btn {
+    background: #6c757d;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.modal-save-btn:hover {
+    background: #218838;
+}
+
+.modal-cancel-btn:hover {
+    background: #5a6268;
+}
+
+/* makrdown */
+details h3{
+    padding-top: 1px;
+    margin-top: 1px;
+    padding-bottom: 0px;
+    margin-bottom: 0px;
+}
+h3, h2 {
+    margin-block-start: 0em;
+}

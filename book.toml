@@ -7,8 +7,7 @@ title = "Sheets"
 
 
 [output.html]
-# Базовый URL книги (используется при генерации ссылок)
-site-url = "http://localhost:3002"
+# site-url = "http://localhost:3002" # базовый URL книги (используется при генерации ссылок)
 mathjax-support = true
 default-theme = "light"
 additional-js = [
@@ -21,8 +20,9 @@ additional-js = [
 ]  
 additional-css = [
     "theme/css/highlight.11.9.0.css",
-    # "theme/css/monokai.min.11.9.0.css"
-]  # "css/grid.css", 
+    "css/global.css",
+    #"theme/css/monokai.min.11.9.0.css"
+]    
 highlight-theme = "light" # base16-ocean.dark, InspiredGitHub, monokai
 highlight-languages = ["rust", "python", "javascript", "bash"]
 #line-numbers = true
