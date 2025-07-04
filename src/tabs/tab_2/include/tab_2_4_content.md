@@ -1,13 +1,13 @@
     
        
-## В формате html:
+## python в формате html:
 <code class="language-python"> 
 def print_person(name, age = 18):
     print(f"Name: {name}  Age: {age}")
 print_person("Bob")
 </code>
 
-## В формате markdown:
+## python в формате markdown:
 
 ```python exec
 
