@@ -44,7 +44,8 @@ document.addEventListener('DOMContentLoaded', async () => {
                     files: [
                     { name: 'main.py', content: 'print("Hello from Glot.io!")' }
                     ]
-                })
+                }),
+                mode: 'no-cors'
              })
             .then(response => response.json())
             .then(data => console.log(data))
