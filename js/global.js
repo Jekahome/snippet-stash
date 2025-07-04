@@ -440,11 +440,11 @@ function initCellFromIndexStore(cell){
         const cellId = cell.id;
         
         // Восстанавливаем контент
-        const store = getTabsStore(); 
+        /*const store = getTabsStore(); 
         if (store.content?.[currentTabId]?.[cellId] !== undefined) {
             contentWrapper.innerHTML = store.content[currentTabId][cellId];
             console.log('!!!'); 
-        }
+        }*/
     }
     
     // Создаем меню настроек...
