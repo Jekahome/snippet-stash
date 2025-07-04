@@ -435,17 +435,17 @@ function initCellFromIndexStore(cell){
     }*/
 
     // Для ячеек с контентом
-    if (cell.tagName === 'TD') {
+    /*if (cell.tagName === 'TD') {
         const contentWrapper = cell.querySelector('.cell-content') || cell;
         const cellId = cell.id;
         
         // Восстанавливаем контент
-        /*const store = getTabsStore(); 
+        const store = getTabsStore(); 
         if (store.content?.[currentTabId]?.[cellId] !== undefined) {
             contentWrapper.innerHTML = store.content[currentTabId][cellId];
             console.log('!!!'); 
-        }*/
-    }
+        }
+    }*/
     
     // Создаем меню настроек...
     setupCellSettingsMenu(cell);
