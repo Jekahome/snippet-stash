@@ -14,9 +14,6 @@ let isGlobalScriptReady = false;
 window.globalScriptReady = new Promise(resolve => {
     document.addEventListener('DOMContentLoaded', async () => {
 
-        //const tabs = getTabsStore();
-        //localStorage.setItem('tabs', JSON.stringify(tabs));
-
         await loadSettingsFromFile();
     
         if (!window.markdownit) {
@@ -62,19 +59,22 @@ function updateTabsStore(updates) {
     return newStore;
 }
 
+function cleanStorage(){
+    localStorage.setItem('tabs', JSON.stringify({}));
+}
+
 function addButtonSave(){
     let menuBar = document.getElementById("menu-bar");
  
     const button = document.createElement('button');
     button.className="right-buttons"
     button.id = 'saveSettingsBtn';
-    button.textContent = 'Save';// Сохранить настройки в файл
+    button.textContent = 'Save';
     menuBar.appendChild(button);
 
-    // Сохранение данных из indexstore
     document.getElementById('saveSettingsBtn').addEventListener('click', function() {
         console.log('Saving data from indexstore...');
-        // Сохраняем данные из indexstore в файл репозитория
+        // Сохраняем данные в файл репозитория
         saveToGitHub().then(() => {
             console.log('Data saved successfully from indexstore');
         }).catch(error => {
@@ -90,7 +90,7 @@ async function loadSettingsFromFile() {
         if (tabs.settings) {
             return;
         }
-
+        
         const response = await fetch(`${basePath}/config/table-settings.json`);
         if (!response.ok) throw new Error("Файл настроек не найден");
         
@@ -107,7 +107,6 @@ async function loadSettingsFromFile() {
         initDefaultSettingsInIndexStore();
     }
 }
- 
 
 // Дополнительная инициализация на случай поздней загрузки
 window.addEventListener('load', function() {
@@ -121,16 +120,13 @@ function setupKeyboardShortcuts() {
     document.addEventListener('keydown', function(e) {
         // не даем mdBook обработать спец. keydown которые будут мешать вводить данные
         if ((e.key === 's' || e.key === 'S' || e.key === 'ы') && !e.ctrlKey && !e.metaKey) {
-            console.log("тут пофиксил остановку поиска")
             e.stopImmediatePropagation();
         }
         if ((e.key === 'ArrowLeft' || e.key === 'ArrowRight') && !e.ctrlKey && !e.metaKey) {
-            console.log("тут пофиксил переключение tabs")
             e.stopImmediatePropagation();
         }
         if (e.shiftKey && e.key === '?') {
             e.stopImmediatePropagation(); 
-            // Не отменяем e.preventDefault(), чтобы символ ? вбился
         }
     }, true);
 }
@@ -143,13 +139,11 @@ function initHighlightJS() {
         return;
     }
 
-    // Настройки
     hljs.configure({
         ignoreUnescapedHTML: true,
         languages: ['rust', 'python', 'javascript', 'bash']
     });
 
-    // Подсветка кода
     hljs.highlightAll();
     
     // Нумерация строк (если подключен плагин)
@@ -157,11 +151,6 @@ function initHighlightJS() {
         hljs.initLineNumbersOnLoad();
     }
 }
-
-
-
-
-
 
 function closeModal() {
     const modal = document.getElementById('textModal');
@@ -361,8 +350,8 @@ async function initTab(tab){
     }
     updateTabsStore(tabs);
 
-    // 2. Применяем настройки и контент из indexstore
-    initTableFromIndexStore();
+    // 2. Применяем настройки и контент 
+    initTableFromStore();
     console.log(`initTab ${tab}`);
 }
 
@@ -381,7 +370,6 @@ document.addEventListener('keydown', function(event) {
     }
 });
 
-// Настройки по умолчанию в indexstore
 function initDefaultSettingsInIndexStore() {
     const defaultSettings = {
         cells: {
@@ -418,7 +406,7 @@ function initDefaultSettingsInIndexStore() {
 }
 
 // 2. Инициализация таблицы 
-function initTableFromIndexStore() {
+function initTableFromStore() {
     const cells = document.querySelectorAll('.data-table td, .data-table th');
     
     cells.forEach((cell) => {
@@ -451,7 +439,7 @@ function initCellFromIndexStore(cell){
         const contentWrapper = cell.querySelector('.cell-content') || cell;
         const cellId = cell.id;
         
-        // Восстанавливаем контент из indexstore
+        // Восстанавливаем контент
         const store = getTabsStore(); 
         if (store.content?.[currentTabId]?.[cellId] !== undefined) {
             contentWrapper.innerHTML = store.content[currentTabId][cellId];
@@ -530,20 +518,16 @@ async function editContent(cell_id) {
         const modal = document.getElementById('textModal');
         const editor = document.getElementById('modalTextEditor');
         
-        // Получаем текущее состояние хранилища
         const tabs = getTabsStore();
         let markdownContent = '';
 
-        // Проверяем наличие контента в localStorage
         if (!tabs.content?.[currentTabId]?.[editCellId]) {
-            // Если нет в хранилище - загружаем из файла
             const response = await fetch(`${basePath}/tabs/${currentTabId}/include/${cell_id}.md`);
             if (!response.ok) {
                 throw new Error(`Ошибка HTTP: ${response.status} ${response.statusText}`);
             }
             markdownContent = await response.text();
             
-            // Сохраняем загруженный контент в хранилище
             updateTabsStore({
                 content: {
                     ...tabs.content,
@@ -554,13 +538,11 @@ async function editContent(cell_id) {
                 }
             });
         } else {
-            // Берем контент из хранилища
             markdownContent = tabs.content[currentTabId][editCellId];
         }
 
         console.log(`Содержимое Markdown:`, markdownContent);
 
-        // Настраиваем модальное окно
         editor.value = markdownContent;
         modal.classList.add('show');
         editor.focus();
@@ -583,8 +565,6 @@ function setupMenuEvents(cell, menu) {
 
     const bgColorInput = menu.querySelector('.bg-color');
     bgColorInput.addEventListener('input', e => {
-        //cell.style.backgroundColor = e.target.value;
-        //if (contentWrapper) contentWrapper.style.backgroundColor = 'transparent';
         updateCellSettingsInLocalStore(cell, { backgroundColor: e.target.value });
         applyCellSettings(cell, { backgroundColor: e.target.value });
         console.log(`Цвет фона изменен`);
@@ -603,7 +583,6 @@ function setupMenuEvents(cell, menu) {
         columnWidthInput.addEventListener('input', e => {
             const width = parseInt(e.target.value);
             if (width >= 1) {
-               
                 updateCellSettingsInLocalStore(cell, { width: width });
                 applyCellSettings(cell, { width: width });
                 console.log(`Ширина колонки ${cell.cellIndex + 1} изменена на ${width}px`);
@@ -650,7 +629,7 @@ function setupIconClick(cell, trigger) {
     });
 }
 
-// Обновление настроек ячейки в indexstore
+// Обновление настроек ячейки
 function updateCellSettingsInLocalStore(cell, newSettings) {
     isUpdateSettings = true;
     const store = getTabsStore();
@@ -660,33 +639,22 @@ function updateCellSettingsInLocalStore(cell, newSettings) {
     if (!settings.cells) settings.cells = {};
     settings.cells[cell.id] = { ...(settings.cells[cell.id] || {}), ...newSettings };
 
-    // Обновляем локальное хранилище
     updateTabsStore({
         settings: {
             ...store.settings,
             [currentTabId]: settings
         }
     });
-
-    // console.log('Updated cell settings in localstore:', { cell.id, newSettings });
 }
 
 // Применение настроек к ячейке
 function applyCellSettings(cell, settings) {
     
     if (settings.fontSize) {
-        /*const contentDiv = cell.querySelector('.cell-content[contenteditable="true"]');
-        if (contentDiv) {
-            contentDiv.style.fontSize = settings.fontSize;
-        }*/
        cell.style.setProperty('font-size', settings.fontSize);
     }
 
     if (settings.backgroundColor) {
-        /*const contentDiv = cell.querySelector('.cell-content[contenteditable="true"]'); 
-        if (contentDiv) {
-            contentDiv.style.setProperty('background-color', settings.backgroundColor);
-        }*/
         cell.style.setProperty('background-color', settings.backgroundColor);
     }
 
@@ -723,7 +691,6 @@ function applyCellSettings(cell, settings) {
     }
 }
 
-// Утилитарные функции
 function getCellType(cellIndex) {
     const types = ['topic', 'content', 'other'];
     return types[cellIndex] || cellIndex;
@@ -809,6 +776,7 @@ async function saveToGitHub() {
 
     // Очистка isUpdateSettings и обновление localStorage
     isUpdateSettings = false;
+    cleanStorage();
 
     setTimeout(() => {
         location.reload();
