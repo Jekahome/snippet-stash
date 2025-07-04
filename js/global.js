@@ -375,19 +375,19 @@ function initDefaultSettingsInIndexStore() {
         cells: {
             [`${currentTabId}_header_topic`]: {
                 fontSize: "16px",
-                backgroundColor: "black",
+                backgroundColor: "#767676",
                 contentType: "text",
                 width: 75
             },
             [`${currentTabId}_header_content`]: {
                 fontSize: "16px",
-                backgroundColor: "#f0f0f0",
+                backgroundColor: "#767676",
                 contentType: "text",
                 width: 200
             },
             [`${currentTabId}_header_other`]: {
                 fontSize: "16px",
-                backgroundColor: "#f0f0f0",
+                backgroundColor: "#767676",
                 contentType: "text",
                 width: 25
             }

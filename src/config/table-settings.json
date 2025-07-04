@@ -3,19 +3,19 @@
     "cells": {
       "tab_1_header_topic": {
         "fontSize": "14px",
-        "backgroundColor": "red",
+        "backgroundColor": "#767676",
         "contentType": "text",
         "width": 75
       },
       "tab_1_header_content": {
         "fontSize": "14px",
-        "backgroundColor": "red",
+        "backgroundColor": "#767676",
         "contentType": "text",
         "width": 200
       },
       "tab_1_header_other": {
         "fontSize": "14px",
-        "backgroundColor": "red",
+        "backgroundColor": "#767676",
         "contentType": "text",
         "width": 50
       } 
@@ -25,19 +25,19 @@
     "cells": {
       "tab_2_header_topic": {
         "fontSize": "14px",
-        "backgroundColor": "blue",
+        "backgroundColor": "#767676",
         "contentType": "text",
         "width": 75
       },
       "tab_2_header_content": {
         "fontSize": "14px",
-        "backgroundColor": "#f20707",
+        "backgroundColor": "#767676",
         "contentType": "text",
         "width": 200
       },
       "tab_2_header_other": {
         "fontSize": "14px",
-        "backgroundColor": "#f0f0f0",
+        "backgroundColor": "#767676",
         "contentType": "text",
         "width": 50
       },
