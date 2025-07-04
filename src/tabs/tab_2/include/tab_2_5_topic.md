@@ -1,8 +1,8 @@
-Описание чего-либо
+### Проверка подсветки кода на rust
 
 <details>
 
-<summary>Tips for collapsed sections</summary>
+<summary>Большие заметки и комментарии и ссылки</summary>
 
 ### You can add a header
 
