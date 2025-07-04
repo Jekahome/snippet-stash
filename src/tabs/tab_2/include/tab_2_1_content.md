@@ -8,10 +8,3 @@
 - Конструкция if else
 - Конструкция `if let`
 
-|table|table|
-|-----|-----|
-|data |data |
-
-|table|table|
-|-----|-----|
-|data |data |

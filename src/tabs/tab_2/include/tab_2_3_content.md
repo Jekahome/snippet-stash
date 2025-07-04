@@ -1,6 +1,12 @@
-Какой-то код:
-<code class="language-rust"> 
-fn main() {
-    println!("Hello, world4!");
-}
-</code>
+
+
+**Table 1**
+|table|table|
+|-----|-----|
+|data |data |
+
+*Table 2*
+|table|table|table|table|
+|-----|-----|-----|-----|
+|data |data |data |data |
+|data |data |data |data |
