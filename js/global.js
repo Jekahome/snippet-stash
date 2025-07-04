@@ -14,8 +14,8 @@ let isGlobalScriptReady = false;
 window.globalScriptReady = new Promise(resolve => {
     document.addEventListener('DOMContentLoaded', async () => {
 
-        const tabs = getTabsStore();
-        localStorage.setItem('tabs', JSON.stringify(tabs));
+        //const tabs = getTabsStore();
+        //localStorage.setItem('tabs', JSON.stringify(tabs));
 
         await loadSettingsFromFile();
     
@@ -66,8 +66,9 @@ function addButtonSave(){
     let menuBar = document.getElementById("menu-bar");
  
     const button = document.createElement('button');
+    button.className="right-buttons"
     button.id = 'saveSettingsBtn';
-    button.title = 'Save';
+    button.textContent = 'Save';// Сохранить настройки в файл
     menuBar.appendChild(button);
 
     // Сохранение данных из indexstore
@@ -84,19 +85,29 @@ function addButtonSave(){
 
 async function loadSettingsFromFile() {
     try {
+
+        const tabs = getTabsStore();
+        if (tabs.settings) {
+            return;
+        }
+
         const response = await fetch(`${basePath}/config/table-settings.json`);
         if (!response.ok) throw new Error("Файл настроек не найден");
         
         const settingsText = await response.text();
-       
-        updateTabsStore({ settings: JSON.parse(settingsText) });
+        const loadedSettings = JSON.parse(settingsText);
 
-       
+        localStorage.setItem('tabs', JSON.stringify({
+            settings: loadedSettings,
+            content: tabs.content || {} 
+        }));
+
     } catch (error) {
         console.warn("Используются настройки по умолчанию:", error);
         initDefaultSettingsInIndexStore();
     }
 }
+ 
 
 // Дополнительная инициализация на случай поздней загрузки
 window.addEventListener('load', function() {
@@ -390,7 +401,7 @@ function initDefaultSettingsInIndexStore() {
                 fontSize: "16px",
                 backgroundColor: "#f0f0f0",
                 contentType: "text",
-                width: 50
+                width: 25
             }
         }
     };
@@ -479,7 +490,7 @@ function setupCellSettingsMenu(cell) {
     if (isHeader) {
         const store = getTabsStore();
         const currentWidth = store.settings?.[currentTabId]?.cells?.[cell.id]?.width ?? 200;
-        menuHTML += `<label>W: <input type="number" class="column-width" value="${currentWidth}" min="50" max="800"></label>`;
+        menuHTML += `<label>W: <input type="number" class="column-width" value="${currentWidth}" min="1" max="800"></label>`;
     }
     
     menuHTML += `<label>H: <input type="number" class="row-height" placeholder="auto" min="30" max="1000"></label>`;
@@ -565,7 +576,7 @@ function setupMenuEvents(cell, menu) {
     const fontSizeInput = menu.querySelector('.font-size');
     fontSizeInput.addEventListener('input', e => {
         const value = `${e.target.value}px`;
-        updateCellSettingsInIndexStore(cell, { fontSize: value });
+        updateCellSettingsInLocalStore(cell, { fontSize: value });
         applyCellSettings(cell, { fontSize: value });
         console.log(`Размер шрифта изменен на ${e.target.value}px`);
     });
@@ -574,7 +585,7 @@ function setupMenuEvents(cell, menu) {
     bgColorInput.addEventListener('input', e => {
         //cell.style.backgroundColor = e.target.value;
         //if (contentWrapper) contentWrapper.style.backgroundColor = 'transparent';
-        updateCellSettingsInIndexStore(cell, { backgroundColor: e.target.value });
+        updateCellSettingsInLocalStore(cell, { backgroundColor: e.target.value });
         applyCellSettings(cell, { backgroundColor: e.target.value });
         console.log(`Цвет фона изменен`);
     });
@@ -582,7 +593,7 @@ function setupMenuEvents(cell, menu) {
     const contentTypeSelect = menu.querySelector('.content-type');
     if (contentTypeSelect) {
         contentTypeSelect.addEventListener('change', e => {
-            updateCellSettingsInIndexStore(cell, { contentType: e.target.value });
+            updateCellSettingsInLocalStore(cell, { contentType: e.target.value });
             console.log(`Тип контента изменен на ${e.target.value}`);
         });
     }
@@ -591,9 +602,9 @@ function setupMenuEvents(cell, menu) {
     if (columnWidthInput && cell.tagName === 'TH') {
         columnWidthInput.addEventListener('input', e => {
             const width = parseInt(e.target.value);
-            if (width >= 25) {
+            if (width >= 1) {
                
-                updateCellSettingsInIndexStore(cell, { width: width });
+                updateCellSettingsInLocalStore(cell, { width: width });
                 applyCellSettings(cell, { width: width });
                 console.log(`Ширина колонки ${cell.cellIndex + 1} изменена на ${width}px`);
             }
@@ -618,7 +629,7 @@ function setupMenuEvents(cell, menu) {
                 console.log(`Высота строки: автоматическая`);
             }
             
-            updateCellSettingsInIndexStore(cell, { rowHeight: height >= 30 ? `${height}px` : 'auto' });
+            updateCellSettingsInLocalStore(cell, { rowHeight: height >= 30 ? `${height}px` : 'auto' });
         });
     }
 

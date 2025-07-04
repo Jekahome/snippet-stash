@@ -1,7 +1,7 @@
 <div class="container">
-    <div class="controls">
+    <!--<div class="controls">
         <button id="saveSettingsBtn">Сохранить настройки в файл</button>
-    </div>
+    </div>-->
     <table class="data-table" id="dataTable">
         <thead>
             <tr id="tab_2_header_row">
