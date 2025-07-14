@@ -1,0 +1,87 @@
+[book]
+authors = ["Jeka"]
+language = "en"
+multilingual = true
+src = "src"
+title = "Snippet stash"
+
+[output.html]
+site-url = "/snippet-stash/" # базовый URL книги (используется при генерации ссылок)
+mathjax-support = true
+default-theme = "light"
+additional-js = [
+    "src/js/storage.js", 
+    "src/js/global.js", 
+    #"theme/js/highlight.min.v11.9.0.js",
+    "theme/js/highlight.min.v9.18.1.js",
+    #"src/js/pyodide.v0.23.4.js", 
+    #"src/js/python-executor.js",
+    #"src/js/markdown-it.min.v14.1.0.js",
+]  
+additional-css = [
+    #"theme/css/highlight.11.9.0.css",
+    #"theme/css/highlight.v11.9.0.github.min.css",
+    #"theme/css/highlight.v9.18.1.github.min.css",
+    "theme/css/atom-one-light.min.v11.9.0.css",
+    "css/global.css",
+]    
+highlight-theme = "light" # base16-ocean.dark, InspiredGitHub, monokai
+highlight-languages = ["rust", "python", "javascript", "bash"]
+#line-numbers = true
+smart-punctuation = false
+no-section-label = false
+
+[output.html.print]
+enable = false    
+page-break = false  
+
+[output.html.fold]
+enable = true    
+level = 0         
+
+[output.html.playground]
+editable = true
+copyable = true 
+copy-js = true
+line-numbers = false
+runnable = true
+
+[output.html.highlight]
+exclude = ["mermaid"]
+
+#[preprocessor.tera]
+#command = "mdbook-tera"
+#renderers = ["html"] # html markdown
+
+#[preprocessor.mermaid]
+#command = "mdbook-mermaid"
+
+[preprocessor.include-md]
+command = "bin/mdbook-include-md"
+ 
+# Явно включить препроцессоры по умолчанию
+#[preprocessor.includes] # плохо пустые строки вставляет
+#[preprocessor.links] # заменяет {{ #playground }} и подобные шаблоны
+#[preprocessor.index] # генерирует SUMMARY.md
+
+[build]
+build-dir = "book"
+create-missing = true
+#use-default-preprocessors = true
+extra-watch-dirs = ["css/","theme/","copy_raw_other_files.sh","Makefile"]
+
+[output.html.search]
+enable = true 
+limit-results = 30
+teaser-word-count = 30 
+use-boolean-and = false
+boost-title = 2
+boost-hierarchy = 1
+boost-paragraph = 1
+expand = true
+heading-split-level = 3
+copy-js = true
+
+[output.html.search.chapter]
+# https://rust-lang.github.io/mdBook/format/configuration/renderers.html#outputhtmlsearchchapter
+"tabs" = { enable = true }

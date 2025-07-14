@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Markdown to HTML (WASM)</title>
+</head>
+<body>
+  <textarea id="md-input" rows="10" cols="60"># Hello *Markdown*</textarea>
+  <button onclick="convert('<div> # Hello *World2!* </div>')">Render</button>
+  <div id="output"></div>
+
+  <script type="module">
+    import init, { render_markdown } from "../pkg/md_wasm.js";
+
+    async function run() {
+      await init();
+
+      window.convert = () => {
+        const input = document.getElementById("md-input").value;
+        const html = render_markdown(input);
+        document.getElementById("output").innerHTML = html;
+      };
+    }
+
+    run();
+  </script>
+</body>
+</html>

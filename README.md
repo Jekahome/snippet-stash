@@ -1,0 +1,83 @@
+
+# Snipet stash
+![Build](https://github.com/jekahome/snippet-stash/actions/workflows/mdbook.yml/badge.svg)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/41622b0b-7f07-4f0d-9764-86090a26d74c/deploy-status)](https://app.netlify.com/projects/my-snippet-stash/deploys)
+
+**Snipet stash** - это хранилище кодовых заметок для использования в роли справочника. Идея возникла благодаря необходимости подсветки синтаксиса которого небыло в Google Sheets и преимуществ которые дает `mdbook`. 
+
+<details>
+
+<summary>en</summary>
+
+**Snippet Stash** is a code snippet storage system designed to serve as a personal reference or knowledge base.
+The idea was born out of the need for proper syntax highlighting (which was missing in Google Sheets) and the advantages provided by `mdBook`.
+
+</details>
+
+## Preview
+
+Скриншоты, гифки или диаграммы, которые иллюстрируют интерфейс или архитектуру.
+
+Онлайн редактирование HTML контента сохраняется в браузере клиента. При сохранении изменений выполняется запрос на Github через Github API и инициируется CI/CD сборка с запуском скриптов изменения makrdown файлов репозитория и сохранении картинок. Таким образом реализовано добавление новый страниц, ячеек таблиц, добавления картинок.
+
+Для ускорения времени сборки, исполняемый файлы такие как `bin/mdbook`, `bin/editor-md`, `bin/mdbook-include-md` предварительно скомпилированы необходимых версий. 
+
+Удаление ячеек `tr`, страниц `tab` и картинок не поддерживается через WEB
+
+<details>
+
+<summary>en</summary>
+
+Screenshots, diagrams, or GIFs that demonstrate the interface or architecture can be placed here.
+
+This project allows **live editing of HTML content directly in the browser**. Changes are saved locally, and when saved explicitly, a GitHub API request is triggered. This initiates a CI/CD pipeline that runs scripts to update Markdown files and image assets in the repository. This enables:
+
+* Adding new pages
+* Inserting new table rows (`<tr>`)
+* Uploading and embedding images
+
+To improve build performance, all executable tools (`bin/mdbook`, `bin/editor-md`, `bin/mdbook-include-md`) are precompiled in required versions and reused across builds.
+
+> ⚠️ **Note:** Deletion of table rows (`<tr>`), pages (`tab`), or images is not supported via the web interface.
+</details>
+
+
+## Features
+
+- Подсветка синтаксиса кода
+- Выполнение кода на языке Rust, Python
+- Makrdown форматирование заметок 
+- Поиск по заметкам
+- Статический сайт
+
+<details>
+
+<summary>en</summary>
+
+* Syntax highlighting for code snippets
+* Code execution support (Rust and Python)
+* Markdown-based note formatting
+* Full-text search across notes
+* Static website generation with `mdBook`
+</details>
+
+## Установка
+
+Используется bin/mdbook версии 0.4.51
+
+---
+## Resources
+
+[mdBook doc](https://docs.rs/mdbook/latest/mdbook/preprocess/struct.CmdPreprocessor.html)
+
+[mdBook Preprocessors](https://github.com/rust-lang/mdBook/wiki/Third-party-plugins)
+
+[zola альтернатива mdBook](https://www.getzola.org/documentation/getting-started/overview/) 
+
+[build mdBook](https://rust-lang.github.io/mdBook/cli/build.html)
+ 
+[mdBook Markdown](https://rust-lang.github.io/mdBook/format/markdown.html)
+
+[highlight.js doc](https://highlightjs.readthedocs.io/en/latest/api.html#configure)
+
+

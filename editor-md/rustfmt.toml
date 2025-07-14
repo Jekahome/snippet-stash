@@ -1,0 +1,7 @@
+# Полностью отключить rustfmt
+disable_all_formatting = true
+
+# Или выборочно отключить файлы
+ignore = [
+    "src/main.rs",
+]
