@@ -71,6 +71,8 @@ To improve build performance, all executable tools (`bin/mdbook`, `bin/editor-md
 
 В файле `src/js/global.js` поменять констаты репозитория
 
+Создать [personal-access-tokens](https://github.com/settings/personal-access-tokens/new) к репозиторию
+
 ---
 ## Resources
 
