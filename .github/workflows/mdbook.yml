@@ -72,8 +72,7 @@ jobs:
             rm -f ./editor-commands.json
 
             git commit -m "Apply editor-md changes from CI [skip ci]"
-            git push
-        # git push https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/Jekahome/snippet-stash.git HEAD:main
+            git push # git push https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/Jekahome/snippet-stash.git HEAD:main
           else
             echo "Нет изменений. Коммит не требуется."
             # Удаляем editor-commands.json 
