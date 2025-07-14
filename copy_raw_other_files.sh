@@ -24,27 +24,3 @@ done
 cp "src/SUMMARY.md" "book/"
 
 echo "Копирование .md файлов завершено."
-
-# --- Копирование wasm-файлов ---
-
-# SOURCE_JS_DIR="src/js"
-# DEST_JS_DIR="book/js"
-# FILES=("md_wasm.js" "md_wasm_bg.wasm")
-
-# echo "Копирование wasm-файлов из '$SOURCE_JS_DIR' в '$DEST_JS_DIR'..."
-
-# Создаем директорию book/js, если не существует
-# mkdir -p "$DEST_JS_DIR"
-
-# for file in "${FILES[@]}"; do
-#     src="$SOURCE_JS_DIR/$file"
-#     dest="$DEST_JS_DIR/$file"
-#     if [[ -f "$src" ]]; then
-#         cp "$src" "$dest"
-#         echo "$file скопирован"
-#     else
-#         echo "$file не найден в $SOURCE_JS_DIR"
-#     fi
-# done
-
-# echo "Копирование wasm-файлов завершено."

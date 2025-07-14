@@ -1,7 +1,6 @@
 
 # Snipet stash
 ![Build](https://github.com/jekahome/snippet-stash/actions/workflows/mdbook.yml/badge.svg)
-[![Netlify Status](https://api.netlify.com/api/v1/badges/41622b0b-7f07-4f0d-9764-86090a26d74c/deploy-status)](https://app.netlify.com/projects/my-snippet-stash/deploys)
 
 **Snipet stash** - это хранилище кодовых заметок для использования в роли справочника. Идея возникла благодаря необходимости подсветки синтаксиса которого небыло в Google Sheets и преимуществ которые дает `mdbook`. 
 
@@ -63,7 +62,11 @@ To improve build performance, all executable tools (`bin/mdbook`, `bin/editor-md
 
 ## Установка
 
-Используется bin/mdbook версии 0.4.51
+Склонировать, удалить содержимое папок `tabs`, `images`.
+
+В `book.toml` поменять `site-url`.
+
+В файле `src/js/global.js` поменять констаты репозитория
 
 ---
 ## Resources
