@@ -845,9 +845,9 @@ async function saveToGitHub() {
 
     // Очистка isUpdateSettings и обновление localStorage
     isUpdateSettings = false;
-    pathTabStore.drop();
-
+    
     blockScreen();
+    
 }
 
 // Функция для генерации команд editor-md на основе данных new_tr
@@ -1380,8 +1380,8 @@ function blockScreen() {
     const timer = document.getElementById('timer');
     const progressFill = document.getElementById('progressFill');
     overlay.classList.remove('hidden');// Показываем блокировку
-    let timeLeft = 50;
-    const totalTime = 50;
+    let timeLeft = 60;
+    const totalTime = 60;
     const interval = setInterval(() => {
         timeLeft--;
         timer.textContent = timeLeft;
@@ -1389,6 +1389,7 @@ function blockScreen() {
         progressFill.style.width = progress + '%';
         if (timeLeft <= 0) {
             clearInterval(interval);
+            pathTabStore.drop();
             reloadWithCacheClear();// Перезагружаем страницу с очисткой кеша
         }
     }, 1000);
