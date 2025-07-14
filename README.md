@@ -15,7 +15,12 @@ The idea was born out of the need for proper syntax highlighting (which was miss
 
 ## Preview
 
-Скриншоты, гифки или диаграммы, которые иллюстрируют интерфейс или архитектуру.
+<details>
+
+<summary>Скриншоты, гифки или диаграммы, которые иллюстрируют интерфейс или архитектуру.</summary>
+
+
+</details>
 
 Онлайн редактирование HTML контента сохраняется в браузере клиента. При сохранении изменений выполняется запрос на Github через Github API и инициируется CI/CD сборка с запуском скриптов изменения makrdown файлов репозитория и сохранении картинок. Таким образом реализовано добавление новый страниц, ячеек таблиц, добавления картинок.
 
@@ -26,8 +31,6 @@ The idea was born out of the need for proper syntax highlighting (which was miss
 <details>
 
 <summary>en</summary>
-
-Screenshots, diagrams, or GIFs that demonstrate the interface or architecture can be placed here.
 
 This project allows **live editing of HTML content directly in the browser**. Changes are saved locally, and when saved explicitly, a GitHub API request is triggered. This initiates a CI/CD pipeline that runs scripts to update Markdown files and image assets in the repository. This enables:
 
