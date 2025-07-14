@@ -7,7 +7,6 @@
     - [sub sub 1]()
     - [sub sub 2](./tabs/python_types/index.md)
 - [Что-то про Rust](./tabs/rust_types/index.md)
-    - [3333](./tabs/rust_3333/index.md)
 
 
 ---
