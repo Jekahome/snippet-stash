@@ -81,7 +81,7 @@ print_person("Bob")
 fn main() {
     println!("Hello, world!");
 }
-```
+    ```
 ```
 
 ## Установка
