@@ -52,6 +52,18 @@ To improve build performance, all executable tools (`bin/mdbook`, `bin/editor-md
 - Поиск по заметкам
 - Статический сайт
 
+<details>
+
+<summary>en</summary>
+
+* Syntax highlighting for code snippets
+* Code execution support (Rust and Python)
+* Markdown-based note formatting
+* Full-text search across notes
+* Static website generation with `mdBook`
+</details>
+
+### Оформление кода
 - Оформление кода в HTML 
 
 ```html
@@ -65,33 +77,22 @@ print_person("Bob")
 - Оформление кода в Markdown 
 
 ```code
-    ```rust
-    fn main() {
-        println!("Hello, world!");
-    }
-    ```
+```rust
+fn main() {
+    println!("Hello, world!");
+}
 ```
-
-<details>
-
-<summary>en</summary>
-
-* Syntax highlighting for code snippets
-* Code execution support (Rust and Python)
-* Markdown-based note formatting
-* Full-text search across notes
-* Static website generation with `mdBook`
-</details>
+```
 
 ## Установка
 
-Склонировать, удалить содержимое папок `tabs`, `images`.
+Склонировать и удалить содержимое папок `tabs`, `images`.
 
-В `book.toml` поменять `site-url`.
+В файле `book.toml` поменять `site-url`.
 
-В файле `src/js/global.js` поменять констаты репозитория
+В файле `src/js/global.js` поменять констаты репозитория.
 
-Создать [personal-access-tokens](https://github.com/settings/personal-access-tokens/new) к репозиторию
+Создать [personal-access-tokens](https://github.com/settings/personal-access-tokens/new) к своему репозиторию
 
 ---
 ## Resources
