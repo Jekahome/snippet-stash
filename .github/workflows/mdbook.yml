@@ -68,6 +68,7 @@ jobs:
             git add .
             echo '{}' > ./editor-commands.json
             git reset ./editor-commands.json || true
+            git rm --cached ./editor-commands.json || true
 
             # Удаляем editor-commands.json 
             rm -f ./editor-commands.json
