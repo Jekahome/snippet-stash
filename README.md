@@ -94,12 +94,10 @@ line break
 ## Установка
 
 - Склонировать и удалить содержимое папок `src/tabs`, `src/images` (кроме default picture `src/images/coming-soon.gif`).
-
 - В файле `book.toml` поменять `site-url`.
-
 - В файле `src/js/global.js` поменять констаты репозитория.
-
 - Создать [personal-access-tokens](https://github.com/settings/personal-access-tokens/new) к своему репозиторию
+- Выполнить `make` либо создать в репозитории `GitHub Page`
 
 ---
 ## Resources
