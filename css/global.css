@@ -26,6 +26,21 @@ table{
     margin: 0;  
 }
 
+/* Первая строка с id */
+th[id]:nth-of-type(1) {
+    width: 300px;
+}
+
+/* Вторая строка с id */
+th[id]:nth-of-type(2) {
+    width: 600px;
+}
+
+/* Третья строка с id */
+th[id]:nth-of-type(3) {
+    width: 100px;
+}
+
 /* Навигация (если используется) */
 .nav-chapters {
     min-width: 20px;
