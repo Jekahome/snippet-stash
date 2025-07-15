@@ -80,10 +80,13 @@ print_person("Bob")
 - Оформление кода в Markdown 
 
 ```code
+line break
+line break
 ```rust
 fn main() {
     println!("Hello, world!");
 }
+line break
 ```
 
 ## Установка
