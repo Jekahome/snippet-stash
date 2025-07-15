@@ -351,11 +351,19 @@ function buildCodeWrapper(node_code){
         runButton.hidden = true;
         runButton.title = 'Run this code';
         runButton.setAttribute('aria-label', 'Run this code');
-    runButton.addEventListener('click', () => {
-        run_rust_code(contentWrapperPre);
-    });
+        runButton.addEventListener('click', () => {
+            run_rust_code(contentWrapperPre);
+        });
+        // Кнопка отмены  
+        const undoChangesButton = document.createElement('button');
+        undoChangesButton.className = 'fa fa-history reset-button';
+        undoChangesButton.setAttribute('title', 'Undo changes');
+        undoChangesButton.setAttribute('aria-label', 'Undo changes');
+        undoChangesButton.addEventListener('click', hundlerUndoChanges);
+
     buttonsDiv.appendChild(copyButton);
     buttonsDiv.appendChild(runButton);
+    buttonsDiv.appendChild(undoChangesButton);
     contentWrapperPre.appendChild(buttonsDiv);
     contentWrapperPre.appendChild(node_code); 
     return contentWrapperPre;
@@ -1201,11 +1209,38 @@ function addRunButtonsToPythonBlocks() {
             undoChangesButton.className = 'fa fa-history reset-button';
             undoChangesButton.setAttribute('title', 'Undo changes');
             undoChangesButton.setAttribute('aria-label', 'Undo changes');
+            undoChangesButton.addEventListener('click', hundlerUndoChanges);
             buttonsDiv.appendChild(undoChangesButton);
         }
     });
 }    
  
+async function hundlerUndoChanges(event) {
+    console.log('не реализованно');
+    // взять исходные данные из файла, если нет то ничего не делать
+    // найти кусок кода согласно последовательности в td
+    const cell_id = event.target.closest('td').id;
+    console.log(`cell id=${cell_id}`);
+
+    const cellElement = document.getElementById(cell_id);
+    if (cellElement?.hasAttribute('data-new')) {
+        return;
+    }
+
+    const response = await fetch(`${basePath}/tabs/${currentTabId}/include/${cell_id}.md`);
+    if (!response.ok) {
+        throw new Error(`Ошибка HTTP: ${response.status} ${response.statusText}`);
+    }
+    let markdown_content = await response.text();
+    pathTabStore.set(`content.${currentTabId}.${cell_id}`, markdown_content);
+
+    /*const pre = undoChangesButton.closest('pre');
+    const codeBlock = pre.querySelector('code');
+    console.log(`codeBlock=${codeBlock.innerText}`);*/
+
+    convertTextToHTML(cellElement, markdown_content, true);
+}
+
 async function getPyodide() {
     try{
         if (!window.pyodide) {

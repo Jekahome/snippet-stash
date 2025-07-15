@@ -52,6 +52,26 @@ To improve build performance, all executable tools (`bin/mdbook`, `bin/editor-md
 - Поиск по заметкам
 - Статический сайт
 
+- Оформление кода в HTML 
+
+```html
+<pre><code class="language-python"> 
+def print_person(name, age = 18):
+    print(f"Name: {name}  Age: {age}")
+print_person("Bob")
+</code></pre>
+```
+
+- Оформление кода в Markdown 
+
+```code
+    ```rust
+    fn main() {
+        println!("Hello, world!");
+    }
+    ```
+```
+
 <details>
 
 <summary>en</summary>
