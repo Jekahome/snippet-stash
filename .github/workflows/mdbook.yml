@@ -66,6 +66,7 @@ jobs:
 
             # НЕ добавляем сам ./editor-commands.json, чтобы он не запускался снова
             git add .
+            echo '{}' > ./editor-commands.json
             git reset ./editor-commands.json || true
 
             # Удаляем editor-commands.json 
