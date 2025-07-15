@@ -134,13 +134,13 @@ const pathTabStore = {
   dropTab(tab){
     // pathTabStore.dropTab('tab_1')
     if (this.has(`settings.${tab}`)) { 
-       this.set(`settings.${tab}`, {}); 
+      this.set(`settings.${tab}`, {}); 
     }
     if (this.has(`content.${tab}`)) { 
-        this.set(`content.${tab}`, {});
+      this.set(`content.${tab}`, {});
     }
     if (this.has(`new_tr.${tab}`)) { 
-        this.set(`new_tr.${tab}`, {});
+      this.set(`new_tr.${tab}`, {});
     }
   },
 
