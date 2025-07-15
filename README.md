@@ -91,7 +91,7 @@ line break
 
 ## Установка
 
-- Склонировать и удалить содержимое папок `tabs`, `images`.
+- Склонировать и удалить содержимое папок `src/tabs`, `src/images` (кроме default picture `src/images/coming-soon.gif`).
 
 - В файле `book.toml` поменять `site-url`.
 
