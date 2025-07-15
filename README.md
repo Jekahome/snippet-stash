@@ -51,6 +51,8 @@ To improve build performance, all executable tools (`bin/mdbook`, `bin/editor-md
 - Makrdown форматирование заметок 
 - Поиск по заметкам
 - Статический сайт
+- Новые разделы `tab` создаются после редактирования структуры в файле `src/SUMMARY.md`
+
 
 <details>
 
@@ -61,6 +63,7 @@ To improve build performance, all executable tools (`bin/mdbook`, `bin/editor-md
 * Markdown-based note formatting
 * Full-text search across notes
 * Static website generation with `mdBook`
+* New `tab` sections are created after editing the structure in the `src/SUMMARY.md` file
 </details>
 
 ### Оформление кода
@@ -81,7 +84,6 @@ print_person("Bob")
 fn main() {
     println!("Hello, world!");
 }
-    ```
 ```
 
 ## Установка
