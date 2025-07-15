@@ -32,3 +32,9 @@ jq -r '.[] |
         exit 1
     fi
 done
+
+# Удаление файла после успешного выполнения
+if [ -f "$COMMANDS_FILE" ]; then
+    echo "Удаляем $COMMANDS_FILE после выполнения команд"
+    rm -f "$COMMANDS_FILE"
+fi

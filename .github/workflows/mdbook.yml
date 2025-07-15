@@ -55,15 +55,15 @@ jobs:
         run: ./execute_editor_commands.sh
 
       - name: Commit changes made by editor-md if any
-        if: ${{ hashFiles('./editor-commands.json') != '' }}
+        #if: ${{ hashFiles('./editor-commands.json') != '' }}
         run: |
-          git config user.name "CI Bot"
-          git config user.email "ci-bot@example.com"
 
           # Проверка на наличие изменений
           if [[ -n $(git status --porcelain) ]]; then
             echo "Есть изменения после editor-md. Добавляю их в коммит."
 
+            git config user.name "CI Bot"
+            git config user.email "ci-bot@example.com"
             # НЕ добавляем сам ./editor-commands.json, чтобы он не запускался снова
             git add .
             echo '{}' > ./editor-commands.json
@@ -78,7 +78,7 @@ jobs:
           else
             echo "Нет изменений. Коммит не требуется."
             # Удаляем editor-commands.json 
-            rm -f ./editor-commands.json
+            #rm -f ./editor-commands.json
           fi
 
       - name: Setup Pages
