@@ -6,6 +6,6 @@
         - Форматированный вывод  
     - Типаж Debug,Display,Binary,ToString
 - Конструкция if else
-- Конструкция `if let`
+- Конструкция `if let` 
 
 
