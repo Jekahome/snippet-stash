@@ -357,15 +357,15 @@ function buildCodeWrapper(node_code){
             run_rust_code(contentWrapperPre);
         });
         // Кнопка отмены  
-        const undoChangesButton = document.createElement('button');
+        /*const undoChangesButton = document.createElement('button');
         undoChangesButton.className = 'fa fa-history reset-button';
         undoChangesButton.setAttribute('title', 'Undo changes');
         undoChangesButton.setAttribute('aria-label', 'Undo changes');
-        undoChangesButton.addEventListener('click', hundlerUndoChanges);
+        undoChangesButton.addEventListener('click', hundlerUndoChanges);*/
 
     buttonsDiv.appendChild(copyButton);
     buttonsDiv.appendChild(runButton);
-    buttonsDiv.appendChild(undoChangesButton);
+    //buttonsDiv.appendChild(undoChangesButton);
     contentWrapperPre.appendChild(buttonsDiv);
     contentWrapperPre.appendChild(node_code); 
     return contentWrapperPre;
@@ -1207,19 +1207,19 @@ function addRunButtonsToPythonBlocks() {
             buttonsDiv.appendChild(runButton);
 
             // Создаем кнопку отмены
-            const undoChangesButton = document.createElement('button');
+            /*const undoChangesButton = document.createElement('button');
             undoChangesButton.className = 'fa fa-history reset-button';
             undoChangesButton.setAttribute('title', 'Undo changes');
             undoChangesButton.setAttribute('aria-label', 'Undo changes');
             undoChangesButton.addEventListener('click', hundlerUndoChanges);
-            buttonsDiv.appendChild(undoChangesButton);
+            buttonsDiv.appendChild(undoChangesButton);*/
         }
     });
 }    
  
 async function hundlerUndoChanges(event) {
-    console.log('обновляет всю ячейку');
-      
+    console.warn('обновляет всю ячейку');
+    /*
     const cell_id = event.target.closest('td').id;
     console.log(`cell id=${cell_id}`);
 
@@ -1235,14 +1235,15 @@ async function hundlerUndoChanges(event) {
     let markdown_content = await response.text();
     pathTabStore.set(`content.${currentTabId}.${cell_id}`, markdown_content);
 
-    /*  
-    const pre = undoChangesButton.closest('pre');
-    const codeBlock = pre.querySelector('code');
-    console.log(`codeBlock=${codeBlock.innerText}`);
+      
+    // const pre = undoChangesButton.closest('pre');
+    // const codeBlock = pre.querySelector('code');
+    // console.log(`codeBlock=${codeBlock.innerText}`);
     // найти кусок кода согласно последовательности в td и обновить в markdown ....
-    */
+     
 
     convertTextToHTML(cellElement, markdown_content, true);
+    */
 }
 
 function checkBacktickFormatting(text) {
