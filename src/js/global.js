@@ -55,7 +55,38 @@ window.globalScriptReady = new Promise(resolve => {
 });
 
 function addButtonSave(){
-    let menuBar = document.getElementById("menu-bar");
+    const button = document.createElement('button');
+    button.className="icon-button"
+    button.id = 'saveSettingsBtn';
+    button.title = "Save";
+    button.setAttribute('aria-label','Save')
+    button.innerHTML = '<i class="fa fa-save"></i>';
+    /*const saveIcon = document.createElement('i');
+    saveIcon.className = 'fa fa-save';
+    button.appendChild(saveIcon);*/
+
+    button.addEventListener('click', function() {
+        console.log('Saving data from indexstore...');
+        saveToGitHub().then(() => {
+            console.log('Data saved successfully from indexstore');
+        }).catch(error => {
+            console.error('Save error:', error);
+        });
+    });
+
+    const menuBar = document.getElementById('menu-bar');
+    if (menuBar) {
+        const leftButtons = menuBar.querySelector('.left-buttons');
+        if (leftButtons) {
+            leftButtons.appendChild(button);
+        } else {
+            console.error('Элемент .left-buttons не найден');
+        }
+    } else {
+        console.error('Элемент #menu-bar не найден');
+    }
+ 
+    /*let menuBar = document.getElementById("menu-bar");
     const button = document.createElement('button');
     button.className="right-buttons"
     button.id = 'saveSettingsBtn';
@@ -68,7 +99,7 @@ function addButtonSave(){
         }).catch(error => {
             console.error('Save error:', error);
         });
-    });
+    });*/
 }
  
 // Инициализация подсветки синтаксиса
@@ -432,7 +463,7 @@ function run_rust_code(code_block) {
 }
 
 // Инициализация при загрузке страницы
-async function initTab(tab) {
+async function initTab(tab) { 
     currentTabId = tab;
     // Запускаем функции, которые не зависят друг от друга, асинхронно
     await Promise.all([
@@ -487,23 +518,24 @@ function setupCellSettingsMenu(cell) {
     const columnIndex = cell.cellIndex;
     
     let menuHTML = `
-        <label><button onclick="editContent('${cell.id}')">E</button></label>
-        <label>F: <input type="number" class="font-size" value="14" min="8" max="24"></label>
-        <label>B: <input type="color" class="bg-color" value="${rgbToHex(getComputedStyle(cell).backgroundColor) || '#f9f9f9'}"></label>  
+        <label><button onclick="editContent('${cell.id}')" title="Edit content">E</button></label>
+        <label>F: <input type="number" class="font-size" value="14" title="Font size TR" min="8" max="24"></label>
+        <label>B: <input type="color" class="bg-color" title="Background color TR" value="${rgbToHex(getComputedStyle(cell).backgroundColor) || '#f9f9f9'}"></label>  
     `;
     if (!isHeader) {
-        menuHTML += `<label><button onclick="AddTRBefore('${cell.id}')" title="Add TR Before">BTR</button></label>
-        <label><button onclick="AddTRAfter('${cell.id}')" title="Add TR After">ATR</button></label>`;
+        menuHTML += `<label><button onclick="DeleteTR('${cell.id}')" title="Delete TR">D</button></label>
+        <label><button onclick="AddTRBefore('${cell.id}')" title="Add TR Before">B+</button></label>
+        <label><button onclick="AddTRAfter('${cell.id}')" title="Add TR After">A+</button></label>`;
     }
 
     if (isHeader) {
         const currentWidth = pathTabStore.get(`settings.${currentTabId}.${cell.id}.width`) ?? 200;
-        menuHTML += `<label>W: <input type="number" class="column-width" value="${currentWidth}" min="1" max="800"></label>`;
+        menuHTML += `<label>W: <input type="number" class="column-width" title="Width TR" value="${currentWidth}" min="1" max="800"></label>`;
     }
     
-    menuHTML += `<label>H: <input type="number" class="row-height" placeholder="auto" min="30" max="1000"></label>`;
+    menuHTML += `<label>H: <input type="number" class="row-height" placeholder="auto" title="Height TR" min="30" max="1000"></label>`;
     // menuHTML += `<label>H: <input type="file" class="row-height" id="imageInput" accept="image/*"></label>`;
-    menuHTML += `<label for="image_${cell.id}" class="modern-file-button">
+    menuHTML += `<label for="image_${cell.id}" class="modern-file-button" title="Upload Image">
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor">
             <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
             <polyline points="7,10 12,15 17,10"></polyline>
@@ -546,6 +578,16 @@ async function restoreNewTR(){
             await convertTextToHTML(document.getElementById(`${newTrId}_other`), pathTabStore.get(`content.${currentTabId}.${newTrId}_other`), false);   
         }
     }
+}
+
+async function DeleteTR(cell_id) {
+    
+// storage добавить ключь
+// учесть новые TR
+// учесть обновление и переход на новую страницу
+
+
+
 }
 
 function AddTRBefore(cell_id){

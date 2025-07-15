@@ -114,4 +114,4 @@ line break
 
 [highlight.js doc](https://highlightjs.readthedocs.io/en/latest/api.html#configure)
 
-
+[Icons Font Awesome 4](https://fontawesome.com/v4/icons/)
