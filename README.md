@@ -91,13 +91,13 @@ line break
 
 ## Установка
 
-Склонировать и удалить содержимое папок `tabs`, `images`.
+- Склонировать и удалить содержимое папок `tabs`, `images`.
 
-В файле `book.toml` поменять `site-url`.
+- В файле `book.toml` поменять `site-url`.
 
-В файле `src/js/global.js` поменять констаты репозитория.
+- В файле `src/js/global.js` поменять констаты репозитория.
 
-Создать [personal-access-tokens](https://github.com/settings/personal-access-tokens/new) к своему репозиторию
+- Создать [personal-access-tokens](https://github.com/settings/personal-access-tokens/new) к своему репозиторию
 
 ---
 ## Resources
