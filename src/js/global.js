@@ -327,9 +327,11 @@ async function editContent(cell_id) {
 async function saveTextModal() {
     const editor = document.getElementById('modalTextEditor');
     let cell = document.getElementById(editCellId);
-    pathTabStore.set(`content.${currentTabId}.${cell.id}`, editor.value);
-    await convertTextToHTML(cell, editor.value);
-    closeModal();
+    if (checkBacktickFormatting(editor.value)){
+        pathTabStore.set(`content.${currentTabId}.${cell.id}`, editor.value);
+        await convertTextToHTML(cell, editor.value);
+        closeModal();        
+    } 
 }
 
 function buildCodeWrapper(node_code){
@@ -1243,6 +1245,24 @@ async function hundlerUndoChanges(event) {
     convertTextToHTML(cellElement, markdown_content, true);
 }
 
+function checkBacktickFormatting(text) {
+    const codeBlockRegex = /```[\s\S]*?```/g;
+    let match;
+  
+    while ((match = codeBlockRegex.exec(text)) !== null) {
+      const end = codeBlockRegex.lastIndex;
+  
+      const restOfLine = text.slice(end).split('\n')[0];
+      const afterLineStart = end + restOfLine.length;
+  
+      if (text[afterLineStart] !== '\n') {
+        console.error('После блока кода с символами ``` должен быть перенос строки');
+        return false;
+      }
+    }
+    return true;
+}
+ 
 async function getPyodide() {
     try{
         if (!window.pyodide) {
