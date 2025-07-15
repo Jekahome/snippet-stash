@@ -1216,9 +1216,8 @@ function addRunButtonsToPythonBlocks() {
 }    
  
 async function hundlerUndoChanges(event) {
-    console.log('не реализованно');
-    // взять исходные данные из файла, если нет то ничего не делать
-    // найти кусок кода согласно последовательности в td
+    console.log('обновляет всю ячейку');
+      
     const cell_id = event.target.closest('td').id;
     console.log(`cell id=${cell_id}`);
 
@@ -1234,9 +1233,12 @@ async function hundlerUndoChanges(event) {
     let markdown_content = await response.text();
     pathTabStore.set(`content.${currentTabId}.${cell_id}`, markdown_content);
 
-    /*const pre = undoChangesButton.closest('pre');
+    /*  
+    const pre = undoChangesButton.closest('pre');
     const codeBlock = pre.querySelector('code');
-    console.log(`codeBlock=${codeBlock.innerText}`);*/
+    console.log(`codeBlock=${codeBlock.innerText}`);
+    // найти кусок кода согласно последовательности в td и обновить в markdown ....
+    */
 
     convertTextToHTML(cellElement, markdown_content, true);
 }
