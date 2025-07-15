@@ -88,6 +88,11 @@
                 <td id="tab_2_4_content"><div class="cell-content" contenteditable="true">{{include('src/tabs/tab_2/include/tab_2_4_content.md')}}</div></td>
                 <td id="tab_2_4_other"><div class="cell-content" contenteditable="true">{{include('src/tabs/tab_2/include/tab_2_4_other.md')}}</div></td>
             </tr>
+            <tr id="tab_2_ad364c3cabad25a9">
+                <td id="tab_2_ad364c3cabad25a9_topic"><div class="cell-content" contenteditable="true">{{include('src/tabs/tab_2/include/tab_2_ad364c3cabad25a9_topic.md')}}</div></td>
+                <td id="tab_2_ad364c3cabad25a9_content"><div class="cell-content" contenteditable="true">{{include('src/tabs/tab_2/include/tab_2_ad364c3cabad25a9_content.md')}}</div></td>
+                <td id="tab_2_ad364c3cabad25a9_other"><div class="cell-content" contenteditable="true">{{include('src/tabs/tab_2/include/tab_2_ad364c3cabad25a9_other.md')}}</div></td>
+            </tr>   
             <tr id="tab_2_5">
                 <td id="tab_2_5_topic"><div class="cell-content" contenteditable="true">{{include('src/tabs/tab_2/include/tab_2_5_topic.md')}}</div></td>
                 <td id="tab_2_5_content"><div class="cell-content" contenteditable="true">{{include('src/tabs/tab_2/include/tab_2_5_content.md')}}</div></td>
