@@ -99,6 +99,8 @@ line break
 - Создать [personal-access-tokens](https://github.com/settings/personal-access-tokens/new) к своему репозиторию
 - Выполнить `make` либо создать в репозитории `GitHub Page`
 
+⚠️ **Note:** Версия `mdbook v0.4.51`
+
 ---
 ## Resources
 

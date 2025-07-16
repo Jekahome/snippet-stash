@@ -17,6 +17,7 @@ additional-js = [
     #"src/js/pyodide.v0.23.4.js", 
     #"src/js/python-executor.js",
     #"src/js/markdown-it.min.v14.1.0.js",
+    "src/js/mermaid.min.js",
 ]  
 additional-css = [
     #"theme/css/highlight.11.9.0.css",
@@ -24,12 +25,14 @@ additional-css = [
     #"theme/css/highlight.v9.18.1.github.min.css",
     "theme/css/atom-one-light.min.v11.9.0.css",
     "css/global.css",
+    "css/mermaid.min.css"
 ]    
 highlight-theme = "light" # base16-ocean.dark, InspiredGitHub, monokai
-highlight-languages = ["rust", "python", "javascript", "bash"]
+highlight-languages = ["mermaid", "rust", "python", "javascript", "bash"]
 #line-numbers = true
 smart-punctuation = false
 no-section-label = false
+no_highlight = ["mermaid"]
 
 [output.html.print]
 enable = false    
@@ -53,8 +56,8 @@ exclude = ["mermaid"]
 #command = "mdbook-tera"
 #renderers = ["html"] # html markdown
 
-#[preprocessor.mermaid]
-#command = "mdbook-mermaid"
+[preprocessor.mermaid]
+command = "mdbook-mermaid"
 
 [preprocessor.include-md]
 command = "bin/mdbook-include-md"

@@ -23,6 +23,15 @@ window.globalScriptReady = new Promise(resolve => {
                 });
             }
         });
+        
+        mermaid.initialize({
+            startOnLoad: true,
+            theme: 'default',
+            flowchart: {
+                useMaxWidth: true,
+                htmlLabels: true
+            }
+        });
 
         await storageLoadSettingsFromFile(basePath, currentTabId);
         
@@ -178,7 +187,7 @@ function initHighlightJSv9_18_1() {
     }
     // Настройка языка вручную не обязательна, но можно оставить
     hljs.configure({
-        languages: ['rust', 'python', 'javascript', 'bash']
+        languages: ['mermaid','rust', 'python', 'javascript', 'bash']
     });
     // Применяем подсветку вручную
     document.querySelectorAll('pre code').forEach((block) => {

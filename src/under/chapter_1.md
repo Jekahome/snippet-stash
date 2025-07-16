@@ -50,6 +50,44 @@
   <img src="/config/img/python_logo_icon.svg" alt="Rust" width="20" height="20">
 </button>
 
+
+## Latex
+
+$${\color{red}Red}$$
+
+$${\color{green}Green}$$
+
+$${\color{lightgreen}Light \space Green}$$
+
+
+| Left-aligned | Center-aligned | Right-aligned |
+| :---               |     :---:               |                  ---: |
+| git status     | git status          | git status        |
+| git diff          | git diff               | git diff             |
+
+
+ 
+## mermaid 
+
+ 
+```mermaid
+graph TD;
+    A-->B;
+    A-->C;
+    B-->D;
+    C-->D;
+```
+ 
+
+```mermaid
+sequenceDiagram
+    Browser->> Python(client_gradio_v4.36.1.py) : Set Workspace
+    Python(client_gradio_v4.36.1.py) ->> Rust : Workspace Path
+    Rust ->> Rust : Create a list by recursively searching Workspace directories
+    Rust ->> Python(client_gradio_v4.36.1.py) : Files and Directories List
+    Python(client_gradio_v4.36.1.py) ->> Browser : Files and Directories List
+```
+
 ## Markdown javascript
 
 ```javascript
