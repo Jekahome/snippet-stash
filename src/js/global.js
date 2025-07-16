@@ -54,15 +54,71 @@ window.globalScriptReady = new Promise(resolve => {
     });
 });
 
+function resetStorage(){
+    pathTabStore.drop();
+    window.location.reload(true);
+}
+
+function resetTabStorage(){
+    pathTabStore.dropTab(currentTabId);
+    window.location.reload(true);
+}
+
+function addButtonResetStorage(){
+    // Кнопка resetStorage
+    const button_reset_storage = document.createElement('button');
+    button_reset_storage.className="icon-button";
+    button_reset_storage.type="button";
+    button_reset_storage.id="button_reset_storage";
+    button_reset_storage.title = "Undoing session changes";
+    button_reset_storage.setAttribute('aria-label','Undoing session changes');
+    button_reset_storage.setAttribute('aria-expanded','false');
+    button_reset_storage.setAttribute('aria-controls','searchbar');
+    button_reset_storage.innerHTML = '<i class="fa fa-undo"></i>'; 
+    button_reset_storage.addEventListener('click', function(e) {
+        e.preventDefault();
+        resetStorage();
+    });
+   
+    // Кнопка resetTabStorage
+    const button_reset_tab_storage = document.createElement('button');
+    button_reset_tab_storage.className="icon-button";
+    button_reset_tab_storage.type="button";
+    button_reset_tab_storage.id="button_reset_tab_storage";
+    button_reset_tab_storage.title = "Undoing TAB changes";
+    button_reset_tab_storage.setAttribute('aria-label','Undoing TAB changes');
+    button_reset_tab_storage.setAttribute('aria-expanded','false');
+    button_reset_tab_storage.setAttribute('aria-controls','searchbar');
+    button_reset_tab_storage.innerHTML = '<i class="fa fa-exchange"></i>'; 
+    button_reset_tab_storage.addEventListener('click', function(e) {
+        e.preventDefault();
+        resetTabStorage();
+    });
+    
+    const menuBar = document.getElementById('menu-bar');
+    if (menuBar) {
+        const leftButtons = menuBar.querySelector('.right-buttons');
+        if (leftButtons) {
+            leftButtons.appendChild(button_reset_storage);
+            leftButtons.appendChild(button_reset_tab_storage);
+        } else {
+            console.error('Элемент .right-buttons не найден');
+        }
+    } else {
+        console.error('Элемент #menu-bar не найден');
+    }
+}
+
 function addButtonSave(){
     const button = document.createElement('button');
     button.className="icon-button"
     button.id = 'saveSettingsBtn';
     button.title = "Save";
-    button.setAttribute('aria-label','Save')
+    button.setAttribute('aria-label','Save');
     button.innerHTML = '<i class="fa fa-save fa-lg"></i>';
 
-    button.addEventListener('click', function() {
+    button.addEventListener('click', function(e) {
+        e.preventDefault();
         saveToGitHub().then(() => {
             console.log('Data saved successfully');
         }).catch(error => {
@@ -486,8 +542,8 @@ async function initTab(tab) {
             addHTMLModalTab(); 
             insertLockOverlay();
         })(),  
-        (async () => addEditButtonTab())(),  
-        (async () => addButtonSave())(),
+        (async () => {addEditButtonTab(); })(),  
+        (async () => {addButtonSave(); addButtonResetStorage();})(),
         (async () => setupKeyboardShortcuts())()  
     ]);
      
