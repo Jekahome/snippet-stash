@@ -63,9 +63,8 @@ function addButtonSave(){
     button.innerHTML = '<i class="fa fa-save fa-lg"></i>';
 
     button.addEventListener('click', function() {
-        console.log('Saving data from indexstore...');
         saveToGitHub().then(() => {
-            console.log('Data saved successfully from indexstore');
+            console.log('Data saved successfully');
         }).catch(error => {
             console.error('Save error:', error);
         });
@@ -90,9 +89,8 @@ function addButtonSave(){
     button.textContent = 'Save';
     menuBar.appendChild(button);
     document.getElementById('saveSettingsBtn').addEventListener('click', function() {
-        console.log('Saving data from indexstore...');
         saveToGitHub().then(() => {
-            console.log('Data saved successfully from indexstore');
+            console.log('Data saved successfully');
         }).catch(error => {
             console.error('Save error:', error);
         });
