@@ -142,7 +142,7 @@ fn insert_new_tr(content: &str, tab_id: &str, tr_id: &str, pos: PositionKind, tr
 fn delete_tr(content: &str, tab_id: &str, tr_id: &str) -> Result<String, String> {
     // Шаблон удаляет строку <tr> вместе с прилегающими переносами строк, если они есть
     let pattern = format!(
-        r#"(?m)^\s*\n?\s*<tr id="{id}">.*?</tr>\s*\n?"#,
+        r#"(?ms)<tr id="{}">.*?</tr>\s*"#,
         id = regex::escape(tr_id)
     );
     let re = Regex::new(&pattern).map_err(|e| format!("Ошибка регулярного выражения: {}", e))?;

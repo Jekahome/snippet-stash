@@ -17,12 +17,7 @@
                 <td id="tab_2_4bd6e4fdbaac5925_topic"><div class="cell-content" contenteditable="true">{{include('src/tabs/tab_2/include/tab_2_4bd6e4fdbaac5925_topic.md')}}</div></td>
                 <td id="tab_2_4bd6e4fdbaac5925_content"><div class="cell-content" contenteditable="true">{{include('src/tabs/tab_2/include/tab_2_4bd6e4fdbaac5925_content.md')}}</div></td>
                 <td id="tab_2_4bd6e4fdbaac5925_other"><div class="cell-content" contenteditable="true">{{include('src/tabs/tab_2/include/tab_2_4bd6e4fdbaac5925_other.md')}}</div></td>
-            </tr>
-            <tr id="tab_2_332b830f3c2e9faf">
-                <td id="tab_2_332b830f3c2e9faf_topic"><div class="cell-content" contenteditable="true">{{include('src/tabs/tab_2/include/tab_2_332b830f3c2e9faf_topic.md')}}</div></td>
-                <td id="tab_2_332b830f3c2e9faf_content"><div class="cell-content" contenteditable="true">{{include('src/tabs/tab_2/include/tab_2_332b830f3c2e9faf_content.md')}}</div></td>
-                <td id="tab_2_332b830f3c2e9faf_other"><div class="cell-content" contenteditable="true">{{include('src/tabs/tab_2/include/tab_2_332b830f3c2e9faf_other.md')}}</div></td>
-            </tr>   
+            </tr> 
             <tr id="tab_2_2">
                 <td id="tab_2_2_topic"><div class="cell-content" contenteditable="true">{{include('src/tabs/tab_2/include/tab_2_2_topic.md')}}</div></td>
                 <td id="tab_2_2_content"><div class="cell-content" contenteditable="true">{{include('src/tabs/tab_2/include/tab_2_2_content.md')}}</div></td>
