@@ -1497,7 +1497,6 @@ function addEditButtonTab(){
                         throw new Error(`Ошибка HTTP: ${response.status} ${response.statusText}`);
                     }
                     markdownContent = await response.text();
-                    pathTabStore.set(`summary`, markdownContent);
                 }
                 editor.value = markdownContent;
                 modal.classList.add('show');
