@@ -70,8 +70,8 @@ function addButtonResetStorage(){
     button_reset_storage.className="icon-button";
     button_reset_storage.type="button";
     button_reset_storage.id="button_reset_storage";
-    button_reset_storage.title = "Undoing session changes";
-    button_reset_storage.setAttribute('aria-label','Undoing session changes');
+    button_reset_storage.title = "Undo session modifications";
+    button_reset_storage.setAttribute('aria-label','Undo session modifications');
     button_reset_storage.setAttribute('aria-expanded','false');
     button_reset_storage.setAttribute('aria-controls','searchbar');
     button_reset_storage.innerHTML = '<i class="fa fa-undo"></i>'; 
@@ -85,8 +85,8 @@ function addButtonResetStorage(){
     button_reset_tab_storage.className="icon-button";
     button_reset_tab_storage.type="button";
     button_reset_tab_storage.id="button_reset_tab_storage";
-    button_reset_tab_storage.title = "Undoing TAB changes";
-    button_reset_tab_storage.setAttribute('aria-label','Undoing TAB changes');
+    button_reset_tab_storage.title = "Undo TAB session modifications";
+    button_reset_tab_storage.setAttribute('aria-label','Undo TAB session modifications');
     button_reset_tab_storage.setAttribute('aria-expanded','false');
     button_reset_tab_storage.setAttribute('aria-controls','searchbar');
     button_reset_tab_storage.innerHTML = '<i class="fa fa-exchange"></i>'; 
