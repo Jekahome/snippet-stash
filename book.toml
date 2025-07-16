@@ -57,7 +57,7 @@ exclude = ["mermaid"]
 #renderers = ["html"] # html markdown
 
 [preprocessor.mermaid]
-command = "mdbook-mermaid"
+command = "bin/mdbook-mermaid"
 
 [preprocessor.include-md]
 command = "bin/mdbook-include-md"

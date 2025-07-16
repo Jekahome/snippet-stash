@@ -32,6 +32,12 @@ window.globalScriptReady = new Promise(resolve => {
                 htmlLabels: true
             }
         });
+        // Дополнительно: принудительный ререндер при live-reload
+        if (window.MermaidAutoReload) {
+            new EventSource('/livereload').addEventListener('change', () => {
+                mermaid.init(undefined, '.language-mermaid');
+            });
+        }
 
         await storageLoadSettingsFromFile(basePath, currentTabId);
         

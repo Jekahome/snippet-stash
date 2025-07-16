@@ -66,6 +66,11 @@ graph TD;
     C-->D;
 ```
  
+<div class="mermaid">
+graph TD
+    A --> B
+</div>
+ 
 
 ```mermaid
 sequenceDiagram
