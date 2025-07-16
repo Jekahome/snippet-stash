@@ -24,7 +24,7 @@ window.globalScriptReady = new Promise(resolve => {
             }
         });
 
-        await storageLoadSettingsFromFile(basePath);
+        await storageLoadSettingsFromFile(basePath, currentTabId);
         
         //if (!window.markdownit) {console.error('markdown-it не загружен');return; }
         //window.md = window.markdownit({ html: true, breaks: true,});

@@ -45,42 +45,42 @@ async function getSettingsFile() {
     return JSON.parse(settingsText);
 }
 
-async function storageLoadSettingsFromFile(basePath) {
+async function storageLoadSettingsFromFile(basePath, tab_id) {
     try {
         if (pathTabStore.has('settings')) {
             return;
         }
 
-        const loadedSettings = getSettingsFile();
+        const loadedSettings = await getSettingsFile();
 
         pathTabStore.set('settings', loadedSettings);
         console.log('Настройки загружены из файла');
         
     } catch (error) {
         console.warn("Используются настройки по умолчанию:", error);
-        storageInitDefaultSettingsInIndexStore();
+        storageInitDefaultSettingsInIndexStore(tab_id);
     }
 }
 
-function storageInitDefaultSettingsInIndexStore() {
+function storageInitDefaultSettingsInIndexStore(tab_id) {
     const defaultSettings = {
-        [`${currentTabId}_header_topic`]: {
+        [`${tab_id}_header_topic`]: {
             fontSize: "16px",
             backgroundColor: "#767676",
             width: 75
         },
-        [`${currentTabId}_header_content`]: {
+        [`${tab_id}_header_content`]: {
             fontSize: "16px",
             backgroundColor: "#767676",
             width: 200
         },
-        [`${currentTabId}_header_other`]: {
+        [`${tab_id}_header_other`]: {
             fontSize: "16px",
             backgroundColor: "#767676",
             width: 25
         }
     };
-    pathTabStore.set(`settings.${currentTabId}`, defaultSettings);
+    pathTabStore.set(`settings.${tab_id}`, defaultSettings);
 }
 
 function saveToStorage() {
@@ -139,16 +139,19 @@ const pathTabStore = {
     saveToStorage();
   },
 
-  dropTab(tab){
+  dropTab(tab_id){
     // pathTabStore.dropTab('tab_1')
-    if (this.has(`settings.${tab}`)) { 
-      this.set(`settings.${tab}`, {}); 
+    if (this.has(`settings.${tab_id}`)) { 
+      this.set(`settings.${tab_id}`, {}); 
     }
-    if (this.has(`content.${tab}`)) { 
-      this.set(`content.${tab}`, {});
+    if (this.has(`content.${tab_id}`)) { 
+      this.set(`content.${tab_id}`, {});
     }
-    if (this.has(`new_tr.${tab}`)) { 
-      this.set(`new_tr.${tab}`, {});
+    if (this.has(`new_tr.${tab_id}`)) { 
+      this.set(`new_tr.${tab_id}`, {});
+    }
+    if (this.has(`delete_tr.${tab_id}`)) { 
+      this.set(`delete_tr.${tab_id}`, {});
     }
   },
 
