@@ -39,8 +39,21 @@ pub enum Commands {
         #[arg(long = "position", value_name = "POSITION_KIND")] 
         position: PositionKind,
         #[arg(long = "tr-id-position", value_name = "TR_ID_POS_VALUE")]
-        tr_id_position: String,
-         
+        tr_id_position: String, 
+    }, 
+    #[command(
+        name = "delete-tr",
+        visible_alias = "dt",
+        about = "Delete TR.",
+        long_about = "Delete TR.\n\
+        Example usage:\n\n\
+        delete-tr --tab-id tab_8 --tr-id tab_8_469b61eeeb666c72" 
+    )]
+    DeleteTR {
+        #[arg(long = "tab-id", value_name = "TAB_ID")]
+        tab_id: String,
+        #[arg(long = "tr-id", value_name = "TR_ID")]
+        tr_id: String,
     }, 
     #[command(
         name = "add-tabs",
@@ -122,6 +135,36 @@ fn insert_new_tr(content: &str, tab_id: &str, tr_id: &str, pos: PositionKind, tr
     for path in &paths {
         let _ = create_if_not_exists(path);
     }
+    Ok(result)
+}
+
+#[rustfmt::skip]
+fn delete_tr(content: &str, tab_id: &str, tr_id: &str) -> Result<String, String> {
+    // Найдём весь TR-блок с нужным ID
+    let pattern = format!(r#"(?s)<tr id="{id}">.*?</tr>"#, id = regex::escape(tr_id));
+    let re = Regex::new(&pattern).map_err(|e| format!("Ошибка регулярного выражения: {}", e))?;
+
+    // Проверим наличие совпадения
+    let mat = re.find(content).ok_or_else(|| format!("tr с ID '{}' не найден в файле", tr_id))?;
+
+    // Удалим найденный TR
+    let mut result = String::new();
+    result.push_str(&content[..mat.start()]);
+    result.push_str(&content[mat.end()..]);
+
+    // Удалим файлы
+    let paths = [
+        format!("src/tabs/{}/include/{}_topic.md", tab_id, tr_id),
+        format!("src/tabs/{}/include/{}_content.md", tab_id, tr_id),
+        format!("src/tabs/{}/include/{}_other.md", tab_id, tr_id),
+    ];
+
+    for path in &paths {
+        if let Err(e) = fs::remove_file(path) {
+            eprintln!("Не удалось удалить файл '{}': {}", path, e);
+        }
+    }
+
     Ok(result)
 }
 
@@ -236,6 +279,31 @@ fn main() {
                 };  
 
                 match insert_new_tr(&content, &tab_id, &tr_id, position, &tr_id_position ) {
+                    Ok(new_content) => {
+                        if let Err(e) = fs::write(md_file, new_content) {
+                            eprintln!("Ошибка записи файла: {}", e);
+                            process::exit(1);
+                        }
+                    }
+                    Err(e) => {
+                        eprintln!("Ошибка: {}", e);
+                        process::exit(1);
+                    }
+                }
+            },
+            Commands::DeleteTR { 
+                tab_id, 
+                tr_id 
+            } => {
+                let md_file = format!("src/tabs/{tab_id}/index.md");
+                let content = match fs::read_to_string(&md_file) {
+                    Ok(content) => content,
+                    Err(e) => {
+                        eprintln!("Ошибка чтения файла '{}': {}", &md_file, e);
+                        process::exit(1);
+                    }
+                };  
+                match delete_tr(&content, &tab_id, &tr_id) {
                     Ok(new_content) => {
                         if let Err(e) = fs::write(md_file, new_content) {
                             eprintln!("Ошибка записи файла: {}", e);

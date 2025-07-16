@@ -495,12 +495,23 @@ async function initTab(tab) {
      
     // Инициализируем settings и content, если их нет
     await initStorage(currentTabId);
+    // Почистить удаленные TR
+    checkDeleteTR();
     // Загружаем локальные данные новых TR
-    await restoreNewTR(currentTabId);
+    await restoreNewTR();
     // Применяем настройки и контент 
     await initTableFromStore();
 }
-  
+
+function checkDeleteTR(){
+    const tabTrMap = pathTabStore.get(`delete_tr.${currentTabId}`);
+    if (tabTrMap) { 
+        for (const delete_tr_id in tabTrMap) {
+            document.getElementById(delete_tr_id).remove();
+        }
+    }
+}
+
 // Инициализация таблицы 
 async function initTableFromStore() {
     const table = document.querySelector('.data-table');
@@ -596,13 +607,27 @@ async function restoreNewTR(){
 }
 
 async function DeleteTR(cell_id) {
-    
-// storage добавить ключь
-// учесть новые TR
-// учесть обновление и переход на новую страницу
-
-
-
+    document.getElementById(cell_id).classList.remove('show-settings');
+    // storage добавить ключь
+    // учесть новые TR
+    // учесть обновление и переход на новую страницу
+    const cellElement = document.getElementById(cell_id);
+    const tr_id = cellElement.parentNode.id;
+    document.getElementById(tr_id).remove();
+    if (cellElement.hasAttribute('data-new')) {
+        
+        // просто удалить из DOM и из  pathTabStore. Так как файла нет. И картинка не удалится
+        pathTabStore.delete(`new_tr.${currentTabId}.${tr_id}`);
+        pathTabStore.delete(`content.${currentTabId}.${cell_id}`);
+        pathTabStore.delete(`settings.${currentTabId}.${cell_id}`);
+    }else{
+        if (!pathTabStore.has(`delete_tr.${currentTabId}.${tr_id}`)) {
+            pathTabStore.set(`delete_tr.${currentTabId}.${tr_id}`, '');
+        }
+        pathTabStore.delete(`content.${currentTabId}.${cell_id}`);
+        pathTabStore.delete(`settings.${currentTabId}.${cell_id}`);
+        // учесть - отправить команду на CI/CD
+    }
 }
 
 function AddTRBefore(cell_id){
@@ -862,9 +887,14 @@ async function saveToGitHub() {
     // Добавляем файл с командами для editor-md 
     const new_tr = pathTabStore.get('new_tr');
     if (new_tr && Object.keys(new_tr).length > 0) {
-        editorCommands = generateEditorCommands(new_tr);
+        generateAddTREditorCommands(new_tr, editorCommands);
     }
  
+    const delete_tr = pathTabStore.get('delete_tr');
+    if (delete_tr && Object.keys(delete_tr).length > 0) {
+        generateDeleteTREditorCommands(delete_tr, editorCommands);
+    }
+
     const new_tabs_summary = pathTabStore.get('summary');
     if (new_tabs_summary && Object.keys(new_tabs_summary).length > 0) {
         files.push({
@@ -918,9 +948,7 @@ async function saveToGitHub() {
 }
 
 // Функция для генерации команд editor-md на основе данных new_tr
-function generateEditorCommands(newTr) {
-    const commands = [];
-    
+function generateAddTREditorCommands(newTr, commands) {
     for (const [tab_id, tab_data] of Object.entries(newTr)) {
         for (const [new_tr_id, cell] of Object.entries(tab_data)) {
             const command = {
@@ -933,7 +961,20 @@ function generateEditorCommands(newTr) {
             commands.push(command);
         }
     }
-    return commands;
+}
+
+// Функция для генерации команд editor-md на основе данных delete_tr
+function generateDeleteTREditorCommands(delete_tr, commands) {
+    for (const [tab_id, tab_data] of Object.entries(delete_tr)) {
+        for (const [new_tr_id, cell] of Object.entries(tab_data)) {
+            const command = {
+                type: 'delete-tr',
+                tab_id: tab_id,
+                tr_id: new_tr_id,
+            };
+            commands.push(command);
+        }
+    }
 }
 
 async function commitMultipleFilesToGitHub({ owner, repo, branch, token, files, commitMessage }) {

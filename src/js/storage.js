@@ -25,6 +25,9 @@ async function initStorage(currentTabId){
     if (!pathTabStore.has(`new_tr.${currentTabId}`)) {
         pathTabStore.set(`new_tr.${currentTabId}`, {});
     }
+    if (!pathTabStore.has(`delete_tr.${currentTabId}`)) {
+      pathTabStore.set(`delete_tr.${currentTabId}`, {});
+    }
     if (!pathTabStore.has(`summary`)) {
         pathTabStore.set(`summary`, {});
     }

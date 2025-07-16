@@ -23,6 +23,8 @@ jq -r '.[] |
     "./bin/editor-md add-tabs " + (.tabs_id | map("--tabs-id " + .) | join(", "))
   elif .type == "add-tr" then
     "./bin/editor-md add-tr --tab-id " + .tab_id + " --tr-id " + .tr_id + " --position " + .position + " --tr-id-position " + .tr_id_position
+  elif .type == "delete-tr" then
+    "./bin/editor-md delete-tr --tab-id " + .tab_id + " --tr-id " + .tr_id
   else
     empty
   end' "$COMMANDS_FILE" | while IFS= read -r cmd; do
