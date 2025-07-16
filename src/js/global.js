@@ -609,15 +609,12 @@ async function restoreNewTR(){
 
 async function DeleteTR(cell_id) {
     document.getElementById(cell_id).classList.remove('show-settings');
-    // storage добавить ключь
-    // учесть новые TR
-    // учесть обновление и переход на новую страницу
+
     const cellElement = document.getElementById(cell_id);
     const tr_id = cellElement.parentNode.id;
     document.getElementById(tr_id).remove();
     if (cellElement.hasAttribute('data-new')) {
-        
-        // просто удалить из DOM и из  pathTabStore. Так как файла нет. И картинка не удалится
+        // просто удалить из DOM и из pathTabStore. Так как файла нет. Картинка не удалится
         pathTabStore.delete(`new_tr.${currentTabId}.${tr_id}`);
         pathTabStore.delete(`content.${currentTabId}.${cell_id}`);
         pathTabStore.delete(`settings.${currentTabId}.${cell_id}`);
@@ -627,8 +624,8 @@ async function DeleteTR(cell_id) {
         }
         pathTabStore.delete(`content.${currentTabId}.${cell_id}`);
         pathTabStore.delete(`settings.${currentTabId}.${cell_id}`);
-        // учесть - отправить команду на CI/CD
     }
+    isUpdateSettings=true;// удалить из файла src/config/table-settings.json
 }
 
 function AddTRBefore(cell_id){
