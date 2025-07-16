@@ -28,7 +28,7 @@ The idea was born out of the need for proper syntax highlighting (which was miss
 
 Для ускорения времени сборки, исполняемый файлы такие как `bin/mdbook`, `bin/editor-md`, `bin/mdbook-include-md` предварительно скомпилированы необходимых версий. 
 
-Удаление ячеек `tr`, страниц `tab` и картинок не поддерживается через WEB
+Удаление страниц `tab` и картинок не поддерживается через WEB
 
 <details>
 
@@ -42,7 +42,7 @@ This project allows **live editing of HTML content directly in the browser**. Ch
 
 To improve build performance, all executable tools (`bin/mdbook`, `bin/editor-md`, `bin/mdbook-include-md`) are precompiled in required versions and reused across builds.
 
-> ⚠️ **Note:** Deletion of table rows (`<tr>`), pages (`tab`), or images is not supported via the web interface.
+> ⚠️ **Note:** Deleting `tab` pages and images is not supported via WEB
 </details>
 
 
