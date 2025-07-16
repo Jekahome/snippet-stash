@@ -255,10 +255,10 @@ function addHTMLModal() {
                 <div class="modal-footer">
                     <div class="modal-footer-left">           
                         <button class="icon-button rust-icon" title="Add Rust code block" onclick="AddCodeBlockModal('rust')">
-                           <img src="/config/img/rust-logo-blk.svg" alt="Rust" width="20" height="20">
+                           <img src="${basePath}/config/img/rust-logo-blk.svg" alt="Rust" width="20" height="20">
                         </button>
                         <button class="icon-button python-icon" title="Add Python code block" onclick="AddCodeBlockModal('python')">
-                           <img src="/config/img/python_logo_icon.svg" alt="Python" width="20" height="20">
+                           <img src="${basePath}/config/img/python_logo_icon.svg" alt="Python" width="20" height="20">
                         </button>
                     </div>
                     <div class="modal-footer-right">
