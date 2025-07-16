@@ -13,10 +13,20 @@
                 <td id="tab_2_1_content"><div class="cell-content" contenteditable="true">{{include('src/tabs/tab_2/include/tab_2_1_content.md')}}</div></td>
                 <td id="tab_2_1_other"><div class="cell-content" contenteditable="true">{{include('src/tabs/tab_2/include/tab_2_1_other.md')}}</div></td>
             </tr>
+            <tr id="tab_2_088ad14a6b527602">
+                <td id="tab_2_088ad14a6b527602_topic"><div class="cell-content" contenteditable="true">{{include('src/tabs/tab_2/include/tab_2_088ad14a6b527602_topic.md')}}</div></td>
+                <td id="tab_2_088ad14a6b527602_content"><div class="cell-content" contenteditable="true">{{include('src/tabs/tab_2/include/tab_2_088ad14a6b527602_content.md')}}</div></td>
+                <td id="tab_2_088ad14a6b527602_other"><div class="cell-content" contenteditable="true">{{include('src/tabs/tab_2/include/tab_2_088ad14a6b527602_other.md')}}</div></td>
+            </tr>   
             <tr id="tab_2_4bd6e4fdbaac5925">
                 <td id="tab_2_4bd6e4fdbaac5925_topic"><div class="cell-content" contenteditable="true">{{include('src/tabs/tab_2/include/tab_2_4bd6e4fdbaac5925_topic.md')}}</div></td>
                 <td id="tab_2_4bd6e4fdbaac5925_content"><div class="cell-content" contenteditable="true">{{include('src/tabs/tab_2/include/tab_2_4bd6e4fdbaac5925_content.md')}}</div></td>
                 <td id="tab_2_4bd6e4fdbaac5925_other"><div class="cell-content" contenteditable="true">{{include('src/tabs/tab_2/include/tab_2_4bd6e4fdbaac5925_other.md')}}</div></td>
+            </tr>
+            <tr id="tab_2_6610bf3fe270bb31">
+                <td id="tab_2_6610bf3fe270bb31_topic"><div class="cell-content" contenteditable="true">{{include('src/tabs/tab_2/include/tab_2_6610bf3fe270bb31_topic.md')}}</div></td>
+                <td id="tab_2_6610bf3fe270bb31_content"><div class="cell-content" contenteditable="true">{{include('src/tabs/tab_2/include/tab_2_6610bf3fe270bb31_content.md')}}</div></td>
+                <td id="tab_2_6610bf3fe270bb31_other"><div class="cell-content" contenteditable="true">{{include('src/tabs/tab_2/include/tab_2_6610bf3fe270bb31_other.md')}}</div></td>
             </tr> 
             <tr id="tab_2_2">
                 <td id="tab_2_2_topic"><div class="cell-content" contenteditable="true">{{include('src/tabs/tab_2/include/tab_2_2_topic.md')}}</div></td>
