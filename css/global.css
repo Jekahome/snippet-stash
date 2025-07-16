@@ -182,6 +182,15 @@ th[id]:nth-of-type(3) {
     font-size: 12px;
 }
 
+.btn.btn-default {
+    color: inherit !important; /* Наследует цвет текста */
+    text-decoration: none !important; /* Убирает подчеркивание */
+}
+
+.btn.btn-default:hover {
+    opacity: 0.8; /* Легкое затемнение при наведении */
+}
+
 /* Ресайзер колонок */
 .column-resizer {
     position: absolute;
@@ -302,9 +311,21 @@ code {
 
 .modal-footer {
     display: flex;
-    gap: 5px;
-    justify-content: flex-end;
-    margin-top: 0px;
+    justify-content: space-between; 
+    align-items: center; 
+    gap: 10px;
+    margin-top: 0;
+    width: 100%;
+}
+
+.modal-footer-left {
+    display: flex;
+    gap: 5px; 
+}
+
+.modal-footer-right {
+    display: flex;
+    gap: 5px; 
 }
 
 .modal-save-btn {

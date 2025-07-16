@@ -60,10 +60,7 @@ function addButtonSave(){
     button.id = 'saveSettingsBtn';
     button.title = "Save";
     button.setAttribute('aria-label','Save')
-    button.innerHTML = '<i class="fa fa-save"></i>';
-    /*const saveIcon = document.createElement('i');
-    saveIcon.className = 'fa fa-save';
-    button.appendChild(saveIcon);*/
+    button.innerHTML = '<i class="fa fa-save fa-lg"></i>';
 
     button.addEventListener('click', function() {
         console.log('Saving data from indexstore...');
@@ -238,6 +235,10 @@ function closeModal() {
     editCellId=null;
 }
 
+function AddCodeBlockModal(language){
+    console.warn('unimplimented')
+}
+
 function addHTMLModal() {
     if (document.getElementById('textModal')) {
         console.warn('Модальное окно уже существует');
@@ -248,8 +249,18 @@ function addHTMLModal() {
             <div class="modal-content">
                 <textarea id="modalTextEditor" class="modal-text-editor" placeholder="Введите ваш текст здесь..."></textarea>
                 <div class="modal-footer">
-                    <button class="modal-cancel-btn" onclick="closeModal()">Отмена</button>
-                    <button class="modal-save-btn" onclick="saveTextModal()">Сохранить</button>
+                    <div class="modal-footer-left">           
+                        <button class="icon-button rust-icon" title="Add Rust code block" onclick="AddCodeBlockModal('rust')">
+                           <img src="/config/img/rust-logo-blk.svg" alt="Rust" width="20" height="20">
+                        </button>
+                        <button class="icon-button python-icon" title="Add Python code block" onclick="AddCodeBlockModal('python')">
+                           <img src="/config/img/python_logo_icon.svg" alt="Python" width="20" height="20">
+                        </button>
+                    </div>
+                    <div class="modal-footer-right">
+                        <button class="modal-cancel-btn" onclick="closeModal()">Отмена</button>
+                        <button class="modal-save-btn" onclick="saveTextModal()">Сохранить</button>
+                    </div>
                 </div>
             </div>
         </div>
@@ -506,8 +517,53 @@ async function restoreCellContent(cell) {
     }
 }
 
-// Настройка меню для ячейки
 function setupCellSettingsMenu(cell) {
+    const trigger = document.createElement('div');
+    trigger.className = 'settings-trigger';
+
+    const menu = document.createElement('div');
+    menu.className = 'settings-menu';
+    
+    const isHeader = cell.tagName === 'TH';
+    const columnIndex = cell.cellIndex;
+    
+    let menuHTML = `
+        <label><a class="btn btn-default" href="#" onclick="editContent('${cell.id}')" title="Edit content"><i class="fa fa-file fa-2x" aria-hidden="true"></i> </a></label>
+        <label>F: <input type="number" class="font-size" value="14" title="Font size TR" min="8" max="24"></label>
+        <label>B: <input type="color" class="bg-color" title="Background color TR" value="${rgbToHex(getComputedStyle(cell).backgroundColor) || '#f9f9f9'}"></label>  
+    `;
+    if (!isHeader) {
+        menuHTML += `<label><a class="btn btn-default" href="#" onclick="DeleteTR('${cell.id}')" title="Delete TR"> <i class="fa fa-minus-square fa-2x" aria-hidden="true"></i> </a></label>
+        <label><a class="btn btn-default" href="#" onclick="AddTRBefore('${cell.id}')" title="Add TR Before"><i class="fa fa-hand-o-up fa-2x" aria-hidden="true"></i></a></label>
+        <label><a class="btn btn-default" href="#" onclick="AddTRAfter('${cell.id}')" title="Add TR After"><i class="fa fa-hand-o-down fa-2x" aria-hidden="true"></i></a></label>`;
+    }
+
+    if (isHeader) {
+        const currentWidth = pathTabStore.get(`settings.${currentTabId}.${cell.id}.width`) ?? 200;
+        menuHTML += `<label>W: <input type="number" class="column-width" title="Width TR" value="${currentWidth}" min="1" max="800"></label>`;
+    }
+    
+    menuHTML += `<label>H: <input type="number" class="row-height" placeholder="auto" title="Height TR" min="30" max="1000"></label>`;
+    // menuHTML += `<label>H: <input type="file" class="row-height" id="imageInput" accept="image/*"></label>`;
+    menuHTML += `<label for="image_${cell.id}" class="modern-file-button" title="Upload Image">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+            <polyline points="7,10 12,15 17,10"></polyline>
+            <line x1="12" y1="15" x2="12" y2="3"></line>
+        </svg></label>
+        <input type="file" id="image_${cell.id}" accept="image/*" hidden onchange="uploadImage('${cell.id}', this.files[0])">`;
+
+    menu.innerHTML = menuHTML;
+
+    setupMenuEvents(cell, menu);
+    setupIconClick(cell, trigger);
+
+    cell.appendChild(trigger);
+    cell.appendChild(menu);
+}
+
+// Настройка меню для ячейки
+function setupCellSettingsMenu_(cell) {
     const trigger = document.createElement('div');
     trigger.className = 'settings-trigger';
 

@@ -17,6 +17,39 @@
 
 <img src="/images/5.jpg" alt="описание" style="width: 10%; height: auto;">
 
+<i class="fa fa-spinner fa-pulse fa-5x fa-fw"><span class="sr-only">Loading...</span></i>
+
+<i class="fa fa-save fa-pulse fa-2x"></i>
+
+<i class="fa fa-bars fa-3x" aria-hidden="true"></i>
+
+<div class="btn-group">
+    <a class="btn btn-default" href="#">
+        <i class="fa fa-align-justify" title="Align Justify"></i>
+    </a>
+</div>
+
+<i class="fa fa-th" aria-hidden="true"></i>
+
+<i class="fa fa-file" aria-hidden="true"></i>
+
+<i class="fa fa-minus-square" aria-hidden="true"></i>
+
+<i class="fa fa-hand-o-down" aria-hidden="true"></i>
+
+<a class="btn btn-default" href="#"><i class="fa fa-hand-o-up" aria-hidden="true"></i></a>
+
+
+<!-- Rust Button (чёрный логотип) -->
+<button class="icon-button rust-icon" title="Rust">
+  <img src="/config/img/rust-logo-blk.svg" alt="Rust" width="20" height="20">
+</button>
+
+<!-- Python (синий) -->
+<button class="icon-button rust-icon" title="Rust">
+  <img src="/config/img/python_logo_icon.svg" alt="Rust" width="20" height="20">
+</button>
+
 ## Markdown javascript
 
 ```javascript
