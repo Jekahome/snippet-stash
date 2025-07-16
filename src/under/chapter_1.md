@@ -13,7 +13,6 @@
 
 [Ссылка на tab_1 главу](/tabs/tab_1/index.md)
 
-![Резистивный элемент.](/images/5.jpg#10%){ width=10% }
 
 <img src="/images/5.jpg" alt="описание" style="width: 10%; height: auto;">
 
@@ -38,17 +37,6 @@
 <i class="fa fa-hand-o-down" aria-hidden="true"></i>
 
 <a class="btn btn-default" href="#"><i class="fa fa-hand-o-up" aria-hidden="true"></i></a>
-
-
-<!-- Rust Button (чёрный логотип) -->
-<button class="icon-button rust-icon" title="Rust">
-  <img src="/config/img/rust-logo-blk.svg" alt="Rust" width="20" height="20">
-</button>
-
-<!-- Python (синий) -->
-<button class="icon-button rust-icon" title="Rust">
-  <img src="/config/img/python_logo_icon.svg" alt="Rust" width="20" height="20">
-</button>
 
 
 ## Latex
