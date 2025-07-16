@@ -140,19 +140,21 @@ fn insert_new_tr(content: &str, tab_id: &str, tr_id: &str, pos: PositionKind, tr
 
 #[rustfmt::skip]
 fn delete_tr(content: &str, tab_id: &str, tr_id: &str) -> Result<String, String> {
-    // Найдём весь TR-блок с нужным ID
-    let pattern = format!(r#"(?s)<tr id="{id}">.*?</tr>"#, id = regex::escape(tr_id));
+    // Шаблон удаляет строку <tr> вместе с прилегающими переносами строк, если они есть
+    let pattern = format!(
+        r#"(?m)^\s*\n?\s*<tr id="{id}">.*?</tr>\s*\n?"#,
+        id = regex::escape(tr_id)
+    );
     let re = Regex::new(&pattern).map_err(|e| format!("Ошибка регулярного выражения: {}", e))?;
 
-    // Проверим наличие совпадения
-    let mat = re.find(content).ok_or_else(|| format!("tr с ID '{}' не найден в файле", tr_id))?;
+    // Найти и удалить tr
+    let new_content = re.replace(content, "").to_string();
 
-    // Удалим найденный TR
-    let mut result = String::new();
-    result.push_str(&content[..mat.start()]);
-    result.push_str(&content[mat.end()..]);
+    if new_content == content {
+        return Err(format!("tr с ID '{}' не найден в файле", tr_id));
+    }
 
-    // Удалим файлы
+    // Удаление связанных файлов
     let paths = [
         format!("src/tabs/{}/include/{}_topic.md", tab_id, tr_id),
         format!("src/tabs/{}/include/{}_content.md", tab_id, tr_id),
@@ -165,7 +167,7 @@ fn delete_tr(content: &str, tab_id: &str, tr_id: &str) -> Result<String, String>
         }
     }
 
-    Ok(result)
+    Ok(new_content)
 }
 
 fn create_if_not_exists(path: &str) -> std::io::Result<()> {

@@ -505,7 +505,10 @@ function checkDeleteTR(){
     const tabTrMap = pathTabStore.get(`delete_tr.${currentTabId}`);
     if (tabTrMap) { 
         for (const delete_tr_id in tabTrMap) {
-            document.getElementById(delete_tr_id).remove();
+            const element = document.getElementById(delete_tr_id);
+            if (element) {
+                element.remove();
+            }
         }
     }
 }
