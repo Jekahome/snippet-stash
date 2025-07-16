@@ -236,7 +236,11 @@ function closeModal() {
 }
 
 function AddCodeBlockModal(language){
-    console.warn('unimplimented')
+    const editor = document.getElementById('modalTextEditor');
+    editor.value += `
+    <pre><code class="language-${language}">
+    ...
+    </code></pre>`;
 }
 
 function addHTMLModal() {
@@ -517,6 +521,7 @@ async function restoreCellContent(cell) {
     }
 }
 
+// Настройка меню для ячейки
 function setupCellSettingsMenu(cell) {
     const trigger = document.createElement('div');
     trigger.className = 'settings-trigger';
@@ -536,52 +541,6 @@ function setupCellSettingsMenu(cell) {
         menuHTML += `<label><a class="btn btn-default" href="#" onclick="DeleteTR('${cell.id}')" title="Delete TR"> <i class="fa fa-minus-square fa-2x" aria-hidden="true"></i> </a></label>
         <label><a class="btn btn-default" href="#" onclick="AddTRBefore('${cell.id}')" title="Add TR Before"><i class="fa fa-hand-o-up fa-2x" aria-hidden="true"></i></a></label>
         <label><a class="btn btn-default" href="#" onclick="AddTRAfter('${cell.id}')" title="Add TR After"><i class="fa fa-hand-o-down fa-2x" aria-hidden="true"></i></a></label>`;
-    }
-
-    if (isHeader) {
-        const currentWidth = pathTabStore.get(`settings.${currentTabId}.${cell.id}.width`) ?? 200;
-        menuHTML += `<label>W: <input type="number" class="column-width" title="Width TR" value="${currentWidth}" min="1" max="800"></label>`;
-    }
-    
-    menuHTML += `<label>H: <input type="number" class="row-height" placeholder="auto" title="Height TR" min="30" max="1000"></label>`;
-    // menuHTML += `<label>H: <input type="file" class="row-height" id="imageInput" accept="image/*"></label>`;
-    menuHTML += `<label for="image_${cell.id}" class="modern-file-button" title="Upload Image">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
-            <polyline points="7,10 12,15 17,10"></polyline>
-            <line x1="12" y1="15" x2="12" y2="3"></line>
-        </svg></label>
-        <input type="file" id="image_${cell.id}" accept="image/*" hidden onchange="uploadImage('${cell.id}', this.files[0])">`;
-
-    menu.innerHTML = menuHTML;
-
-    setupMenuEvents(cell, menu);
-    setupIconClick(cell, trigger);
-
-    cell.appendChild(trigger);
-    cell.appendChild(menu);
-}
-
-// Настройка меню для ячейки
-function setupCellSettingsMenu_(cell) {
-    const trigger = document.createElement('div');
-    trigger.className = 'settings-trigger';
-
-    const menu = document.createElement('div');
-    menu.className = 'settings-menu';
-    
-    const isHeader = cell.tagName === 'TH';
-    const columnIndex = cell.cellIndex;
-    
-    let menuHTML = `
-        <label><button onclick="editContent('${cell.id}')" title="Edit content">E</button></label>
-        <label>F: <input type="number" class="font-size" value="14" title="Font size TR" min="8" max="24"></label>
-        <label>B: <input type="color" class="bg-color" title="Background color TR" value="${rgbToHex(getComputedStyle(cell).backgroundColor) || '#f9f9f9'}"></label>  
-    `;
-    if (!isHeader) {
-        menuHTML += `<label><button onclick="DeleteTR('${cell.id}')" title="Delete TR">D</button></label>
-        <label><button onclick="AddTRBefore('${cell.id}')" title="Add TR Before">B+</button></label>
-        <label><button onclick="AddTRAfter('${cell.id}')" title="Add TR After">A+</button></label>`;
     }
 
     if (isHeader) {
