@@ -56,7 +56,7 @@ window.globalScriptReady = new Promise(resolve => {
 
 function resetStorage(){
     pathTabStore.drop();
-    window.location.reload(true);
+    reloadWithCacheClear();
 }
 
 function resetTabStorage(){
@@ -1606,18 +1606,18 @@ function blockScreen() {
 
 function reloadWithCacheClear() {
     // Способ 1: Принудительная перезагрузка с очисткой кеша
-    window.location.reload(true);
+    // window.location.reload(true);
     
     // Способ 2: Альтернативный вариант
     // window.location.href = window.location.href + '?t=' + new Date().getTime();
     
     // Способ 3: Для более агрессивной очистки
-    // if ('caches' in window) {
-    //     caches.keys().then(names => {
-    //         names.forEach(name => {
-    //             caches.delete(name);
-    //         });
-    //     });
-    // }
-    // window.location.reload(true);
+    if ('caches' in window) {
+        caches.keys().then(names => {
+            names.forEach(name => {
+                caches.delete(name);
+            });
+        });
+    }
+    window.location.reload(true);
 }
