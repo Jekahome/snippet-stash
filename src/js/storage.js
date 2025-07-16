@@ -5,7 +5,9 @@ function loadFromStorage() {
   return JSON.parse(localStorage.getItem('tabs')) || {
     settings: {},
     content: {},
-    new_tr: {}
+    new_tr: {},
+    delete_tr: {},
+    summary: {}
   };
 }
 
