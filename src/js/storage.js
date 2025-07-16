@@ -10,14 +10,16 @@ function loadFromStorage() {
 }
 
 async function initStorage(currentTabId){
-    if (!pathTabStore.has(`settings.${currentTabId}`)) {
+    if (!pathTabStore.has("settings")) {
         const loadedSettings = await getSettingsFile();
-        const tabSettings = loadedSettings[currentTabId];
-        if (tabSettings !== undefined) {
-            pathTabStore.set(`settings.${currentTabId}`, tabSettings); 
-        }else{
-           pathTabStore.set(`settings.${currentTabId}`, {}); 
-        }
+        pathTabStore.set("settings", loadedSettings);
+    }
+
+    // Убедимся, что настройки для текущего таба хотя бы пустой объект
+    const allSettings = pathTabStore.get("settings");
+    if (!allSettings[currentTabId]) {
+        allSettings[currentTabId] = {};
+        pathTabStore.set("settings", allSettings); 
     }
     if (!pathTabStore.has(`content.${currentTabId}`)) {
         pathTabStore.set(`content.${currentTabId}`, {});
