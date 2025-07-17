@@ -54,7 +54,7 @@ To improve build performance, all executable tools (`bin/mdbook`, `bin/editor-md
 - Поиск по заметкам
 - Статический сайт
 - Новые разделы `tab` создаются после редактирования структуры в файле `src/SUMMARY.md`
-
+- Mermaid диаграммы
 
 <details>
 
@@ -66,6 +66,7 @@ To improve build performance, all executable tools (`bin/mdbook`, `bin/editor-md
 * Full-text search across notes
 * Static website generation with `mdBook`
 * New `tab` sections are created after editing the structure in the `src/SUMMARY.md` file
+* Mermaid Diagramming
 </details>
 
 ### Оформление кода
