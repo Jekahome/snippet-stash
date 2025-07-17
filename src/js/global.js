@@ -8,6 +8,7 @@ const pathSettings = 'src/config/table-settings.json';
 const branch = 'main';
 let editCellId=null;
 let isGlobalScriptReady = false;
+let isReloadMermaid = false;
 
 // Основная инициализация
 window.globalScriptReady = new Promise(resolve => {
@@ -15,11 +16,11 @@ window.globalScriptReady = new Promise(resolve => {
         document.querySelectorAll("img").forEach((img) => {
             if (img.complete && img.naturalWidth === 0) {
                 // Картинка уже загрузилась, но с ошибкой
-                img.src = `${basePath}/images/coming-soon.gif`;
+                img.src = `${basePath}/config/img/coming-soon.gif`;
             } else {
                 img.addEventListener("error", (e) => {
                     e.preventDefault(); 
-                    img.src = `${basePath}/images/coming-soon.gif`;
+                    img.src = `${basePath}/config/img/coming-soon.gif`;
                 });
             }
         });
@@ -27,17 +28,23 @@ window.globalScriptReady = new Promise(resolve => {
         mermaid.initialize({
             startOnLoad: true,
             theme: 'default',
+            // Настройки размеров:
             flowchart: {
-                useMaxWidth: true,
-                htmlLabels: true
+                useMaxWidth: false,    // true - ограничивает ширину, false - растягивается
+                htmlLabels: true,      // использовать HTML-элементы для текста
+                curve: 'basis',        // стиль кривых линий
+                diagramPadding: 10,    // отступы вокруг диаграммы (px)
+            },
+            sequence: {
+                diagramMarginX: 50,    // горизонтальные отступы (px)
+                diagramMarginY: 10,    // вертикальные отступы (px)
+                actorMargin: 50,       // отступ между участниками (px)
+            },
+            gantt: {
+                barHeight: 20,         // высота строк (px)
+                axisFormat: '%Y-%m-%d' // формат оси времени
             }
         });
-        // Дополнительно: принудительный ререндер при live-reload
-        if (window.MermaidAutoReload) {
-            new EventSource('/livereload').addEventListener('change', () => {
-                mermaid.init(undefined, '.language-mermaid');
-            });
-        }
 
         await storageLoadSettingsFromFile(basePath, currentTabId);
         
@@ -213,9 +220,37 @@ function convertMarkdownCodeBlocksToHtml(text) {
             .replace(/>/g, '&gt;');
     }
     return text.replace(/```(\w+)\n([\s\S]*?)```/g, (match, lang, code) => {
-        const escapedCode = escapeHtml(code);
         let gt = '>';
-        return `<code class="language-${lang}">${escapedCode}</code${gt}`;
+        if (lang == 'mermaid'){
+            const escapedCode = escapeHtml(code);
+            // по атрибуту 'data-reload-mermaid' будет пост обработка mermaid
+            return `<div class="mermaid" data-reload-mermaid>${code}</div${gt}`;
+        }else{
+            const escapedCode = escapeHtml(code);
+            return `<code class="language-${lang}">${escapedCode}</code${gt}`;
+        }
+    });
+}
+
+function reloadMermaidDiagrams() {
+    const diagrams = document.querySelectorAll('.mermaid[data-reload-mermaid]');
+    if (diagrams.length === 0) {
+      return;
+    }
+    diagrams.forEach(diagram => {
+      try {
+        // Сохраняем оригинальное содержимое
+        const originalContent = diagram.textContent;
+        diagram.innerHTML = '';
+        // Восстанавливаем содержимое (это важно для Mermaid)
+        diagram.textContent = originalContent;
+        diagram.removeAttribute('data-reload-mermaid');
+        // Инициализируем рендеринг только для этого элемента
+        mermaid.init(undefined, [diagram]);
+      } catch (error) {
+        console.error('Error reloading Mermaid diagram:', error, diagram);
+        diagram.innerHTML = `<div class="mermaid-error">Error: ${error.message}</div>`;
+      }
     });
 }
 
@@ -223,13 +258,18 @@ async function convertNodeToHTML(node, cellContentWrapper) {
     if (node.nodeType === Node.ELEMENT_NODE && node.tagName === 'CODE') {
         console.log(`CODE=`,node);
         const wrap_code = buildCodeWrapper(node.cloneNode(true));
-        cellContentWrapper.appendChild(wrap_code).cloneNode(true);  
+        cellContentWrapper.appendChild(wrap_code).cloneNode(true);              
     } else if (node.nodeType === Node.ELEMENT_NODE && node.tagName === 'PRE' && node.querySelector('code')) {
         const inner_node = node.querySelector('code').cloneNode(true);
         console.log(`PRE CODE=`,inner_node);
         const wrap_code = buildCodeWrapper(inner_node);
         cellContentWrapper.appendChild(wrap_code).cloneNode(true); 
-    } else if (node.nodeType === Node.ELEMENT_NODE && node.tagName === 'DETAILS') {
+    } else if (node.nodeType === Node.ELEMENT_NODE && node.tagName === 'DIV' && node.classList.contains('mermaid')){
+        isReloadMermaid = true;
+        console.log(`MERMAID=`,node);
+        cellContentWrapper.appendChild(node).cloneNode(true);
+    }
+    else if (node.nodeType === Node.ELEMENT_NODE && node.tagName === 'DETAILS') {
         console.log(`DETAILS=`,node);
         let node_details = node.cloneNode(true);
         const summaryEl = node_details.querySelector('summary');
@@ -266,6 +306,8 @@ async function convertNodeToHTML(node, cellContentWrapper) {
 }
 
 async function convertTextToHTML(cell, content, is_add_setting_menu=true){
+    isReloadMermaid = false;
+
     cell.innerHTML = '';
     const temp = document.createElement('div');
     temp.innerHTML = content?convertMarkdownCodeBlocksToHtml(content):'';  
@@ -278,7 +320,11 @@ async function convertTextToHTML(cell, content, is_add_setting_menu=true){
     }
     cell.appendChild(cellContentWrapper); 
     if (is_add_setting_menu){setupCellSettingsMenu(cell);}
-    
+    if (isReloadMermaid) {
+        reloadMermaidDiagrams();
+        isReloadMermaid = false;
+    }
+
     /* 
         // highlight.js v11.9.0 
         if (typeof hljs !== 'undefined') {
@@ -312,6 +358,16 @@ function AddCodeBlockModal(language){
     </code></pre>`;
 }
 
+function AddBlockMermaidModal(){
+    const editor = document.getElementById('modalTextEditor');
+    editor.value +="\n\
+    ```mermaid\n\
+    graph TD\n\
+        A --> B\n\
+    ```\n\
+    ";
+}
+
 function addHTMLModal() {
     if (document.getElementById('textModal')) {
         console.warn('Модальное окно уже существует');
@@ -328,6 +384,9 @@ function addHTMLModal() {
                         </button>
                         <button class="icon-button python-icon" title="Add Python code block" onclick="AddCodeBlockModal('python')">
                            <img src="${basePath}/config/img/python_logo_icon.svg" alt="Python" width="20" height="20">
+                        </button>
+                        <button class="icon-button mermaid-icon" title="Add Mermaid block" onclick="AddBlockMermaidModal()">
+                           <img src="${basePath}/config/img/mermaid.svg" alt="Mermaid" width="20" height="20">
                         </button>
                     </div>
                     <div class="modal-footer-right">
@@ -918,10 +977,10 @@ window.addEventListener('error', function(e) {
           // избежать бесконечного цикла
           return false; 
       }
-      e.preventDefault();  
-      e.target.dataset.errorHandled = 'true'; // Устанавливаем флаг, что ошибка обработана
-      e.target.src = `${basePath}/images/coming-soon.gif`; 
-      return false; // Останавливаем дальнейшую обработку ошибки
+      e.preventDefault();
+      e.target.dataset.errorHandled = 'true';
+      e.target.src = `${basePath}/config/img/coming-soon.gif`; 
+      return false;
     }
 }, true);
 

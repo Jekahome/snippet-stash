@@ -93,13 +93,13 @@ line break
 
 ## Установка
 
-- Склонировать и удалить содержимое папок `src/tabs`, `src/images` (кроме default picture `src/images/coming-soon.gif`).
+- Склонировать и удалить содержимое папок `src/tabs`, `src/images`.
 - В файле `book.toml` поменять `site-url`.
 - В файле `src/js/global.js` поменять констаты репозитория.
 - Создать [personal-access-tokens](https://github.com/settings/personal-access-tokens/new) к своему репозиторию
 - Выполнить `make` либо создать в репозитории `GitHub Page`
 
-⚠️ **Note:** Версия `mdbook v0.4.51`
+⚠️ **Note:** Версии `bin/mdbook v0.4.51`, `bin/mdbook-mermaid v0.15.0`
 
 ---
 ## Resources
@@ -117,3 +117,5 @@ line break
 [highlight.js doc](https://highlightjs.readthedocs.io/en/latest/api.html#configure)
 
 [Icons Font Awesome 4](https://fontawesome.com/v4/icons/)
+
+[Mermaid Diagramming](http://mermaid.js.org/)
