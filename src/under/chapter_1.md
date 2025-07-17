@@ -66,6 +66,12 @@ graph TD
     style B stroke-width:2px,width:50px,height:50px
 ```
 
+```mermaid
+graph TD
+    A[Ширина 100px] -->|Толщина 2px| B(Круг 50px)
+    style A width:100px,height:50px
+    style B stroke-width:2px,width:50px,height:50px
+```
 
 ```mermaid
 graph TD;

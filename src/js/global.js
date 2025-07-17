@@ -232,26 +232,41 @@ function convertMarkdownCodeBlocksToHtml(text) {
     });
 }
 
-function reloadMermaidDiagrams() {
+async function reloadMermaidDiagrams() {
     const diagrams = document.querySelectorAll('.mermaid[data-reload-mermaid]');
     if (diagrams.length === 0) {
       return;
     }
-    diagrams.forEach(diagram => {
+    let originalContent = "";
+    for (const diagram of diagrams) {
       try {
         // Сохраняем оригинальное содержимое
-        const originalContent = diagram.textContent;
+        originalContent = diagram.textContent;
         diagram.innerHTML = '';
         // Восстанавливаем содержимое (это важно для Mermaid)
         diagram.textContent = originalContent;
         diagram.removeAttribute('data-reload-mermaid');
         // Инициализируем рендеринг только для этого элемента
-        mermaid.init(undefined, [diagram]);
+        await mermaid.init(undefined, [diagram]);
+ 
+        // Проверяем результат рендеринга
+        await new Promise((resolve, reject) => {
+            setTimeout(() => {
+                if (!diagram.querySelector('svg')) {
+                    reject(new Error('Mermaid не сгенерировал SVG'));
+                } else {
+                    resolve();
+                }
+            }, 100); // Даем время на рендеринг
+        });
+
       } catch (error) {
+         
         console.error('Error reloading Mermaid diagram:', error, diagram);
-        diagram.innerHTML = `<div class="mermaid-error">Error: ${error.message}</div>`;
+        //diagram.innerHTML = `<div class="mermaid-error">Error: ${error.message}</div>`;
+        //diagram.innerHTML = originalContent;
       }
-    });
+    } 
 }
 
 async function convertNodeToHTML(node, cellContentWrapper) {
@@ -321,7 +336,7 @@ async function convertTextToHTML(cell, content, is_add_setting_menu=true){
     cell.appendChild(cellContentWrapper); 
     if (is_add_setting_menu){setupCellSettingsMenu(cell);}
     if (isReloadMermaid) {
-        reloadMermaidDiagrams();
+        await reloadMermaidDiagrams();
         isReloadMermaid = false;
     }
 
@@ -501,11 +516,52 @@ async function editContent(cell_id) {
 async function saveTextModal() {
     const editor = document.getElementById('modalTextEditor');
     let cell = document.getElementById(editCellId);
-    if (checkBacktickFormatting(editor.value)){
-        pathTabStore.set(`content.${currentTabId}.${cell.id}`, editor.value);
+    if (checkBacktickFormatting(editor.value) && await checkMermaidFormatting(editor.value)){
         await convertTextToHTML(cell, editor.value);
+        pathTabStore.set(`content.${currentTabId}.${cell.id}`, editor.value);
         closeModal();        
-    } 
+    }
+}
+
+async function checkMermaidFormatting(value) {
+    if(!value.includes('```mermaid')){
+        return true;
+    }
+
+    const testNode = document.createElement('div');
+    testNode.innerHTML = convertMarkdownCodeBlocksToHtml(value);
+    testNode.style.position = 'absolute';
+    testNode.style.visibility = 'hidden';
+    document.body.appendChild(testNode);
+
+    const diagrams = testNode.querySelectorAll('.mermaid[data-reload-mermaid]');
+    if (diagrams.length === 0) {
+        document.body.removeChild(testNode);
+        return true;
+    }
+
+    for (const diagram of diagrams) {
+        try {
+          await mermaid.init(undefined, [diagram]);
+          await new Promise((resolve, reject) => {
+              setTimeout(() => {
+                  if (!diagram.querySelector('svg')) {
+                      reject(new Error('Mermaid failed to generate diagram'));
+                  } else {
+                      resolve();
+                  }
+              }, 100);
+          });
+  
+        } catch (error) {
+          console.error('checkMermaidFormatting error message:',error)
+          alert('Invalid Mermaid diagram format. Please check browser developer console for details.')
+          document.body.removeChild(testNode);
+          return false;
+        }
+    }
+    document.body.removeChild(testNode);
+    return true;
 }
 
 function buildCodeWrapper(node_code){
@@ -1483,6 +1539,7 @@ function checkBacktickFormatting(text) {
       const afterLineStart = end + restOfLine.length;
   
       if (text[afterLineStart] !== '\n') {
+        alert('После блока кода с символами ``` должен быть перенос строки');
         console.error('После блока кода с символами ``` должен быть перенос строки');
         return false;
       }
