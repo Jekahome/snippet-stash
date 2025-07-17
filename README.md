@@ -23,6 +23,12 @@ The idea was born out of the need for proper syntax highlighting (which was miss
 
 ![Basic functionality](promo/Peek-2025-07-17-1.gif)
 
+</details>
+
+<details>
+
+<summary>Скриншоты, гифки или диаграммы, которые иллюстрируют интерфейс или архитектуру.</summary>
+
 ![Basic functionality](promo/Peek-2025-07-17-2.gif)
 
 </details>
