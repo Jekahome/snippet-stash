@@ -240,16 +240,12 @@ async function reloadMermaidDiagrams() {
     let originalContent = "";
     for (const diagram of diagrams) {
       try {
-        // Сохраняем оригинальное содержимое
         originalContent = diagram.textContent;
         diagram.innerHTML = '';
         // Восстанавливаем содержимое (это важно для Mermaid)
         diagram.textContent = originalContent;
         diagram.removeAttribute('data-reload-mermaid');
-        // Инициализируем рендеринг только для этого элемента
         await mermaid.init(undefined, [diagram]);
- 
-        // Проверяем результат рендеринга
         await new Promise((resolve, reject) => {
             setTimeout(() => {
                 if (!diagram.querySelector('svg')) {
@@ -257,27 +253,30 @@ async function reloadMermaidDiagrams() {
                 } else {
                     resolve();
                 }
-            }, 100); // Даем время на рендеринг
+            }, 100); 
         });
-
       } catch (error) {
-         
         console.error('Error reloading Mermaid diagram:', error, diagram);
-        //diagram.innerHTML = `<div class="mermaid-error">Error: ${error.message}</div>`;
-        //diagram.innerHTML = originalContent;
       }
     } 
 }
 
+function extractLanguage(classString) {
+    console.log('extractLanguage=',classString)
+    const match = classString.match(/language-([\w-]+)/);
+    return match ? match[1] : null;
+ }
+
 async function convertNodeToHTML(node, cellContentWrapper) {
     if (node.nodeType === Node.ELEMENT_NODE && node.tagName === 'CODE') {
         console.log(`CODE=`,node);
-        const wrap_code = buildCodeWrapper(node.cloneNode(true));
+
+        const wrap_code = buildCodeWrapper(node.cloneNode(true), extractLanguage(node.className));
         cellContentWrapper.appendChild(wrap_code).cloneNode(true);              
     } else if (node.nodeType === Node.ELEMENT_NODE && node.tagName === 'PRE' && node.querySelector('code')) {
         const inner_node = node.querySelector('code').cloneNode(true);
         console.log(`PRE CODE=`,inner_node);
-        const wrap_code = buildCodeWrapper(inner_node);
+        const wrap_code = buildCodeWrapper(inner_node, extractLanguage(inner_node.className));
         cellContentWrapper.appendChild(wrap_code).cloneNode(true); 
     } else if (node.nodeType === Node.ELEMENT_NODE && node.tagName === 'DIV' && node.classList.contains('mermaid')){
         isReloadMermaid = true;
@@ -564,7 +563,7 @@ async function checkMermaidFormatting(value) {
     return true;
 }
 
-function buildCodeWrapper(node_code){
+function buildCodeWrapper(node_code, language){
     const contentWrapperPre = document.createElement('pre');
     contentWrapperPre.className = 'playground';
     const buttonsDiv = document.createElement('div');
@@ -584,7 +583,16 @@ function buildCodeWrapper(node_code){
         runButton.title = 'Run this code';
         runButton.setAttribute('aria-label', 'Run this code');
         runButton.addEventListener('click', () => {
-            run_rust_code(contentWrapperPre);
+            switch (language) {
+                case "python":
+                  hundlerExecutePython(contentWrapperPre);
+                  break;
+                case "rust":
+                  run_rust_code(contentWrapperPre);
+                  break;
+                default:
+                  console.log("Неизвестный язык");
+            } 
         });
         // Кнопка отмены  
         /*const undoChangesButton = document.createElement('button');
@@ -1455,6 +1463,18 @@ function readFileAsBase64(file) {
     });
 }
 
+async function hundlerExecutePython(preBlock){
+    let outputCode = preBlock.querySelector('.result');
+    let codeBlock = preBlock.querySelector('code.language-python');
+    if (!outputCode) {
+        outputCode = document.createElement('code');
+        outputCode.className = 'result hljs language-bash';
+        preBlock.appendChild(outputCode);
+    }
+    const res = await execute_python(codeBlock.textContent);
+    outputCode.textContent = res || "no result";
+}
+
 function addRunButtonsToPythonBlocks() {
     // Находим все блоки кода python
     const jsCodeBlocks = document.querySelectorAll('code.language-python');
@@ -1475,16 +1495,9 @@ function addRunButtonsToPythonBlocks() {
             runButton.className = 'fa fa-play play-button';
             runButton.setAttribute('title', 'Run this code');
             runButton.setAttribute('aria-label', 'Run this code');
-            runButton.addEventListener('click', async () => {
-                // Создаем область вывода
-                let outputCode = preBlock.querySelector('.result');
-                if (!outputCode) {
-                    outputCode = document.createElement('code');
-                    outputCode.className = 'result hljs language-bash';
-                    preBlock.appendChild(outputCode);
-                }
-                const res = await execute_python(codeBlock.textContent);
-                outputCode.textContent = res || "Hello";
+            
+            runButton.addEventListener('click', () => {
+                hundlerExecutePython(preBlock);
             });
             buttonsDiv.appendChild(runButton);
 
