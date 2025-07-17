@@ -222,8 +222,7 @@ function convertMarkdownCodeBlocksToHtml(text) {
         let gt = '>';
         if (lang == 'mermaid'){
             const escapedCode = escapeHtml(code);
-            // по атрибуту 'data-reload-mermaid' будет пост обработка mermaid
-            return `<div class="mermaid" data-reload-mermaid>${code}</div${gt}`;
+            return `<div class="mermaid">${code}</div${gt}`;
         }else{
             const escapedCode = escapeHtml(code);
             return `<code class="language-${lang}">${escapedCode}</code${gt}`;
@@ -232,7 +231,8 @@ function convertMarkdownCodeBlocksToHtml(text) {
 }
 
 async function reloadMermaidDiagrams() {
-    const diagrams = document.querySelectorAll('.mermaid[data-reload-mermaid]');
+    const diagrams = Array.from(document.querySelectorAll('.mermaid')).filter(el => !el.querySelector('svg'));
+
     if (diagrams.length === 0) {
       return;
     }
@@ -243,7 +243,6 @@ async function reloadMermaidDiagrams() {
         diagram.innerHTML = '';
         // Восстанавливаем содержимое (это важно для Mermaid)
         diagram.textContent = originalContent;
-        diagram.removeAttribute('data-reload-mermaid');
         await mermaid.init(undefined, [diagram]);
         await new Promise((resolve, reject) => {
             setTimeout(() => {
@@ -264,7 +263,7 @@ function extractLanguage(classString) {
     console.log('extractLanguage=',classString)
     const match = classString.match(/language-([\w-]+)/);
     return match ? match[1] : null;
- }
+}
 
 async function convertNodeToHTML(node, cellContentWrapper) {
     if (node.nodeType === Node.ELEMENT_NODE && node.tagName === 'CODE') {
@@ -355,6 +354,7 @@ async function convertTextToHTML(cell, content, is_add_setting_menu=true){
             hljs.highlightBlock(codeElement);  
         }); 
     }
+    //return content;
 }
 
 function closeModal() {
@@ -366,19 +366,18 @@ function closeModal() {
 function AddCodeBlockModal(language){
     const editor = document.getElementById('modalTextEditor');
     editor.value += `
-    <pre><code class="language-${language}">
-    ...
-    </code></pre>`;
+<pre><code class="language-${language}">
+...
+</code></pre>`;
 }
 
 function AddBlockMermaidModal(){
     const editor = document.getElementById('modalTextEditor');
     editor.value +="\n\
-    ```mermaid\n\
-    graph TD\n\
-        A --> B\n\
-    ```\n\
-    ";
+<div class=\"mermaid\">\n\
+graph TD\n\
+    A --> B\n\
+</div>";
 }
 
 function addHTMLModal() {
@@ -518,7 +517,7 @@ async function saveTextModal() {
 }
 
 async function checkMermaidFormatting(value) {
-    if(!value.includes('```mermaid')){
+    if(!value.includes('```mermaid') && !value.includes('class="mermaid"')){
         return true;
     }
     const testNode = document.createElement('div');
@@ -526,7 +525,7 @@ async function checkMermaidFormatting(value) {
     testNode.style.position = 'absolute';
     testNode.style.visibility = 'hidden';
     document.body.appendChild(testNode);
-    const diagrams = testNode.querySelectorAll('.mermaid[data-reload-mermaid]');
+    const diagrams = Array.from(document.querySelectorAll('.mermaid')).filter(el => !el.querySelector('svg'));
     if (diagrams.length === 0) {
         document.body.removeChild(testNode);
         return true;
