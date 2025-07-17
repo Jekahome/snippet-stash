@@ -178,7 +178,7 @@ th[id]:nth-of-type(3) {
 .settings-menu input[type="number"],
 .settings-menu select,
 .settings-menu input[type="color"] {
-    width: 30px;
+    width: 40px;
     font-size: 12px;
 }
 

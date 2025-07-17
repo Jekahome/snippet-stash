@@ -724,7 +724,8 @@ function setupCellSettingsMenu(cell) {
     let menuHTML = `
         <label><a class="btn btn-default" href="#" onclick="editContent('${cell.id}')" title="Edit content"><i class="fa fa-file fa-2x" aria-hidden="true"></i> </a></label>
         <label>F: <input type="number" class="font-size" value="14" title="Font size TR" min="8" max="24"></label>
-        <label>B: <input type="color" class="bg-color" title="Background color TR" value="${rgbToHex(getComputedStyle(cell).backgroundColor) || '#f9f9f9'}"></label>  
+        <label>B: <input type="color" class="bg-color" title="Background color TR" value="${rgbToHex(getComputedStyle(cell).backgroundColor) || '#f9f9f9'}"></label>
+        <label><a class="btn btn-default" href="#" onclick="hundlerUndoChangesCell('${cell.id}')" title="Undo cell modifications"><i class="fa fa-undo fa-2x" aria-hidden="true"></i></a></label>   
     `;
     if (!isHeader) {
         menuHTML += `<label><a class="btn btn-default" href="#" onclick="DeleteTR('${cell.id}')" title="Delete TR"> <i class="fa fa-minus-square fa-2x" aria-hidden="true"></i> </a></label>
@@ -1472,33 +1473,24 @@ function addRunButtonsToPythonBlocks() {
     });
 }    
  
-async function hundlerUndoChanges(event) {
-    console.warn('обновляет всю ячейку');
-    /*
-    const cell_id = event.target.closest('td').id;
-    console.log(`cell id=${cell_id}`);
-
+async function hundlerUndoChangesCell(cell_id) { 
     const cellElement = document.getElementById(cell_id);
     if (cellElement?.hasAttribute('data-new')) {
         return;
     }
-
     const response = await fetch(`${basePath}/tabs/${currentTabId}/include/${cell_id}.md`);
     if (!response.ok) {
         throw new Error(`Ошибка HTTP: ${response.status} ${response.statusText}`);
     }
     let markdown_content = await response.text();
     pathTabStore.set(`content.${currentTabId}.${cell_id}`, markdown_content);
-
-      
-    // const pre = undoChangesButton.closest('pre');
-    // const codeBlock = pre.querySelector('code');
-    // console.log(`codeBlock=${codeBlock.innerText}`);
-    // найти кусок кода согласно последовательности в td и обновить в markdown ....
-     
-
-    convertTextToHTML(cellElement, markdown_content, true);
-    */
+    await convertTextToHTML(cellElement, markdown_content, true);
+    
+    console.warn('отмена настроек не реализованна');
+    // настройки
+    // загрузить файл настроек
+    // если нет данных то установить по умолчанию
+    // стереть в storage настройки если они есть 
 }
 
 function checkBacktickFormatting(text) {
