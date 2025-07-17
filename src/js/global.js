@@ -1,12 +1,12 @@
 const isGitHubPages = window.location.host.includes('github.io');
-const basePath =   isGitHubPages ? '/snippet-stash' : '';  
+const basePath = isGitHubPages ? '/snippet-stash' : '';  
 let currentTabId = null; 
 let isUpdateSettings = false;
 const owner = 'Jekahome';
 const repo = 'snippet-stash';
-const pathSettings = 'src/config/table-settings.json'; 
 const branch = 'main';
-let editCellId=null;
+const pathSettings = 'src/config/table-settings.json'; 
+let editCellId = null;
 let isGlobalScriptReady = false;
 let isReloadMermaid = false;
 
@@ -51,7 +51,7 @@ window.globalScriptReady = new Promise(resolve => {
         //if (!window.markdownit) {console.error('markdown-it не загружен');return; }
         //window.md = window.markdownit({ html: true, breaks: true,});
          
-        initHighlightJSv9_18_1();//initHighlightJS();
+        initHighlightJSv9_18_1();// initHighlightJS();
         
         addRunButtonsToPythonBlocks();
         
@@ -60,18 +60,17 @@ window.globalScriptReady = new Promise(resolve => {
         window.render_markdown = md_wasm.render_markdown;
         console.log("md_wasm.js loaded");*/
 
-        // Объявляем render_markdown как функцию, которая лениво загружает md_wasm
+        // лениво загружает md_wasm
         window.render_markdown = async function(...args) {
             if (!window._md_wasm_loaded) {  
                 const md_wasm = await import(`${basePath}/js/md_wasm.js`);
                 await md_wasm.default();
                 window._md_wasm_loaded = true;  
-                window.render_markdown = md_wasm.render_markdown; // Переопределяем функцию на настоящую
+                window.render_markdown = md_wasm.render_markdown;
                 console.log("md_wasm.js loaded (lazy)");
             }
             return window.render_markdown(...args);  
         };
- 
         resolve();
     });
 });
@@ -206,7 +205,7 @@ function initHighlightJSv9_18_1() {
     document.querySelectorAll('pre code').forEach((block) => {
         hljs.highlightBlock(block);
     });
-    // Нумерация строк (если ты используешь highlightjs-line-numbers.js)
+    // Нумерация строк (если используется highlightjs-line-numbers.js)
     if (typeof hljs.initLineNumbersOnLoad === 'function') {
         hljs.initLineNumbersOnLoad();
     }
@@ -470,21 +469,17 @@ async function editContent(cell_id) {
         const modal = document.getElementById('textModal');
         const editor = document.getElementById('modalTextEditor');
         document.getElementById(editCellId).classList.remove('show-settings');
-
         editor.addEventListener('keydown', function(e) {
             if (e.key === 'Tab') {
                 e.preventDefault();  
-                
                 const start = this.selectionStart;
                 const end = this.selectionEnd;
                 const spaces = '    ';  
-                
                 // Вставляем пробелы в позицию курсора
                 this.value = this.value.substring(0, start) + spaces + this.value.substring(end);
                 this.selectionStart = this.selectionEnd = start + spaces.length;
             }
         });
-
         editor.addEventListener('wheel', function(e) {
             e.preventDefault(); 
             this.scrollTop += e.deltaY; // Скроллим содержимое textarea
@@ -526,19 +521,16 @@ async function checkMermaidFormatting(value) {
     if(!value.includes('```mermaid')){
         return true;
     }
-
     const testNode = document.createElement('div');
     testNode.innerHTML = convertMarkdownCodeBlocksToHtml(value);
     testNode.style.position = 'absolute';
     testNode.style.visibility = 'hidden';
     document.body.appendChild(testNode);
-
     const diagrams = testNode.querySelectorAll('.mermaid[data-reload-mermaid]');
     if (diagrams.length === 0) {
         document.body.removeChild(testNode);
         return true;
     }
-
     for (const diagram of diagrams) {
         try {
           await mermaid.init(undefined, [diagram]);
@@ -551,7 +543,6 @@ async function checkMermaidFormatting(value) {
                   }
               }, 100);
           });
-  
         } catch (error) {
           console.error('checkMermaidFormatting error message:',error)
           alert('Invalid Mermaid diagram format. Please check browser developer console for details.')
@@ -568,7 +559,6 @@ function buildCodeWrapper(node_code, language){
     contentWrapperPre.className = 'playground';
     const buttonsDiv = document.createElement('div');
     buttonsDiv.className = 'buttons';
-        // Кнопка копирования
         const copyButton = document.createElement('button');
         copyButton.className = 'clip-button';
         copyButton.title = 'Copy to clipboard';
@@ -576,7 +566,6 @@ function buildCodeWrapper(node_code, language){
         const tooltip = document.createElement('i');
         tooltip.className = 'tooltiptext';
         copyButton.appendChild(tooltip);
-        // Кнопка запуска
         const runButton = document.createElement('button');
         runButton.className = 'fa fa-play play-button';
         runButton.hidden = true;
@@ -600,7 +589,6 @@ function buildCodeWrapper(node_code, language){
         undoChangesButton.setAttribute('title', 'Undo changes');
         undoChangesButton.setAttribute('aria-label', 'Undo changes');
         undoChangesButton.addEventListener('click', hundlerUndoChanges);*/
-
     buttonsDiv.appendChild(copyButton);
     buttonsDiv.appendChild(runButton);
     //buttonsDiv.appendChild(undoChangesButton);
@@ -684,7 +672,6 @@ async function initTab(tab) {
         (async () => {addButtonSave(); addButtonResetStorage();})(),
         (async () => setupKeyboardShortcuts())()  
     ]);
-     
     // Инициализируем settings и content, если их нет
     await initStorage(currentTabId);
     // Почистить удаленные TR
@@ -731,13 +718,10 @@ async function restoreCellContent(cell) {
 function setupCellSettingsMenu(cell) {
     const trigger = document.createElement('div');
     trigger.className = 'settings-trigger';
-
     const menu = document.createElement('div');
     menu.className = 'settings-menu';
-    
     const isHeader = cell.tagName === 'TH';
     const columnIndex = cell.cellIndex;
-    
     let menuHTML = `
         <label><a class="btn btn-default" href="#" onclick="editContent('${cell.id}')" title="Edit content"><i class="fa fa-file fa-2x" aria-hidden="true"></i> </a></label>
         <label>F: <input type="number" class="font-size" value="14" title="Font size TR" min="8" max="24"></label>
@@ -748,12 +732,10 @@ function setupCellSettingsMenu(cell) {
         <label><a class="btn btn-default" href="#" onclick="AddTRBefore('${cell.id}')" title="Add TR Before"><i class="fa fa-hand-o-up fa-2x" aria-hidden="true"></i></a></label>
         <label><a class="btn btn-default" href="#" onclick="AddTRAfter('${cell.id}')" title="Add TR After"><i class="fa fa-hand-o-down fa-2x" aria-hidden="true"></i></a></label>`;
     }
-
     if (isHeader) {
         const currentWidth = pathTabStore.get(`settings.${currentTabId}.${cell.id}.width`) ?? 200;
         menuHTML += `<label>W: <input type="number" class="column-width" title="Width TR" value="${currentWidth}" min="1" max="800"></label>`;
     }
-    
     menuHTML += `<label>H: <input type="number" class="row-height" placeholder="auto" title="Height TR" min="30" max="1000"></label>`;
     // menuHTML += `<label>H: <input type="file" class="row-height" id="imageInput" accept="image/*"></label>`;
     menuHTML += `<label for="image_${cell.id}" class="modern-file-button" title="Upload Image">
@@ -763,12 +745,9 @@ function setupCellSettingsMenu(cell) {
             <line x1="12" y1="15" x2="12" y2="3"></line>
         </svg></label>
         <input type="file" id="image_${cell.id}" accept="image/*" hidden onchange="uploadImage('${cell.id}', this.files[0])">`;
-
     menu.innerHTML = menuHTML;
-
     setupMenuEvents(cell, menu);
     setupIconClick(cell, trigger);
-
     cell.appendChild(trigger);
     cell.appendChild(menu);
 }
@@ -793,7 +772,6 @@ async function restoreNewTR(){
         for (const newTrId in tabTrMap) {
             const trData = tabTrMap[newTrId];
             insertNewTr(trData.tr_id_position, newTrId, trData.position, false);
-  
             await convertTextToHTML(document.getElementById(`${newTrId}_topic`), pathTabStore.get(`content.${currentTabId}.${newTrId}_topic`), false);
             await convertTextToHTML(document.getElementById(`${newTrId}_content`), pathTabStore.get(`content.${currentTabId}.${newTrId}_content`), false);
             await convertTextToHTML(document.getElementById(`${newTrId}_other`), pathTabStore.get(`content.${currentTabId}.${newTrId}_other`), false);   
@@ -803,12 +781,11 @@ async function restoreNewTR(){
 
 async function DeleteTR(cell_id) {
     document.getElementById(cell_id).classList.remove('show-settings');
-
     const cellElement = document.getElementById(cell_id);
     const tr_id = cellElement.parentNode.id;
     document.getElementById(tr_id).remove();
     if (cellElement.hasAttribute('data-new')) {
-        // просто удалить из DOM и из pathTabStore. Так как файла нет. Картинка не удалится
+        // TODO: images не удалится
         pathTabStore.delete(`new_tr.${currentTabId}.${tr_id}`);
         pathTabStore.delete(`content.${currentTabId}.${cell_id}`);
         pathTabStore.delete(`settings.${currentTabId}.${cell_id}`);
@@ -850,11 +827,9 @@ function insertNewTr(current_td_id, new_tr_id, position = 'after',is_add_setting
         console.error(`tr с ID "${current_td_id}" не найден`);
         return;
     }
-
     const div_cell_content = document.createElement('div');
     div_cell_content.className = 'cell-content';
     div_cell_content.contentEditable = 'true';
-
     const new_tr = document.createElement('tr');
     new_tr.id = new_tr_id;
     const td_topic = document.createElement('td');
@@ -863,21 +838,18 @@ function insertNewTr(current_td_id, new_tr_id, position = 'after',is_add_setting
     td_topic.appendChild(div_cell_content.cloneNode(false)); 
     if (is_add_setting_menu){setupCellSettingsMenu(td_topic);}
     new_tr.appendChild(td_topic);
-
     const td_content = document.createElement('td');
     td_content.id = `${new_tr_id}_content`;
     td_content.setAttribute('data-new', 'true');
     td_content.appendChild(div_cell_content.cloneNode(false)); 
     if (is_add_setting_menu){setupCellSettingsMenu(td_content);}
     new_tr.appendChild(td_content);
-
     const td_other = document.createElement('td');
     td_other.id = `${new_tr_id}_other`;
     td_other.setAttribute('data-new', 'true');
     td_other.appendChild(div_cell_content.cloneNode(false)); 
     if (is_add_setting_menu){setupCellSettingsMenu(td_other);}
     new_tr.appendChild(td_other);
- 
     if (position === 'before') {
         target_tr.parentNode.insertBefore(new_tr, target_tr);
     } else if (position === 'after') {
@@ -885,7 +857,6 @@ function insertNewTr(current_td_id, new_tr_id, position = 'after',is_add_setting
     } else {
         console.error('Позиция должна быть before или after');
     }
-    console.warn('сохранить данные ячейки до перехода на другой TAB');
 }
 
 // Настройка событий меню
@@ -1038,7 +1009,7 @@ function setupGlobalClick() {
 window.addEventListener('error', function(e) {
     if (e.target.tagName === 'IMG') {
       if (e.target.dataset.errorHandled) {
-          // избежать бесконечного цикла
+          // TODO: избежать бесконечного цикла
           return false; 
       }
       e.preventDefault();
@@ -1068,8 +1039,6 @@ async function saveToGitHub() {
               content: tabContent[cellId]
             });
           }
-        } else {
-          console.log(`tabId "${tabId}" пустой`);
         }
       }
     } 
@@ -1132,11 +1101,8 @@ async function saveToGitHub() {
         files: files
     });
 
-    // Очистка isUpdateSettings и обновление localStorage
     isUpdateSettings = false;
-    
     blockScreen();
-    
 }
 
 // Функция для генерации команд editor-md на основе данных new_tr
@@ -1476,21 +1442,16 @@ async function hundlerExecutePython(preBlock){
 }
 
 function addRunButtonsToPythonBlocks() {
-    // Находим все блоки кода python
     const jsCodeBlocks = document.querySelectorAll('code.language-python');
     jsCodeBlocks.forEach(codeBlock => {
         const preBlock = codeBlock.closest('pre');
         if (preBlock) {
-            // Проверяем, есть ли уже кнопка
             const existingButton = preBlock.querySelector('.play-button');
             if (existingButton) return;
-            
-            // Находим контейнер для кнопок
             let buttonsDiv = preBlock.querySelector('div.buttons');
             if (!buttonsDiv) {
                 return;
             }
-            // Создаем кнопку запуска
             const runButton = document.createElement('button');
             runButton.className = 'fa fa-play play-button';
             runButton.setAttribute('title', 'Run this code');
@@ -1544,13 +1505,10 @@ async function hundlerUndoChanges(event) {
 function checkBacktickFormatting(text) {
     const codeBlockRegex = /```[\s\S]*?```/g;
     let match;
-  
     while ((match = codeBlockRegex.exec(text)) !== null) {
       const end = codeBlockRegex.lastIndex;
-  
       const restOfLine = text.slice(end).split('\n')[0];
       const afterLineStart = end + restOfLine.length;
-  
       if (text[afterLineStart] !== '\n') {
         alert('После блока кода с символами ``` должен быть перенос строки');
         console.error('После блока кода с символами ``` должен быть перенос строки');
@@ -1580,7 +1538,7 @@ async function execute_python(code) {
     try {
         await getPyodide();
         let stdout = "";
-        // Устанавливаем перехват stdout
+        // TODO: перехват stdout
         window.pyodide.setStdout({
           batched: (text) => {
             stdout += text;
@@ -1594,12 +1552,10 @@ async function execute_python(code) {
 }
 
 function formatTitle(title) {
-    // Заменяем нижние подчеркивания на пробелы
     let formattedText = title.replace(/_/g, ' ');
     if (formattedText.length > 0) {
       formattedText = formattedText[0].toUpperCase() + formattedText.slice(1);
     }
-    // Вставляем отформатированный текст в элемент с классом menu-title
     const menuTitleElement = document.querySelector('.menu-title');
     if (menuTitleElement) {
       menuTitleElement.textContent = formattedText;
@@ -1655,7 +1611,6 @@ function addEditButtonTab(){
                     range.moveStart('character', 0);
                     range.select();
                 }
-               
             } catch (error) {
                 console.error('Ошибка при загрузке Markdown файла:', error);
             }
