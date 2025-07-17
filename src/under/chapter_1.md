@@ -39,7 +39,7 @@
 <a class="btn btn-default" href="#"><i class="fa fa-hand-o-up" aria-hidden="true"></i></a>
 
 
-## Latex
+# Latex
 
 $${\color{red}Red}$$
 
@@ -48,6 +48,8 @@ $${\color{green}Green}$$
 $${\color{lightgreen}Light \space Green}$$
 
 
+# Table
+
 | Left-aligned | Center-aligned | Right-aligned |
 | :---               |     :---:               |                  ---: |
 | git status     | git status          | git status        |
@@ -55,9 +57,179 @@ $${\color{lightgreen}Light \space Green}$$
 
 
  
-## mermaid 
+# Mermaid 
 
- 
+## XYchart
+
+```mermaid
+xychart-beta
+  title "Training progress"
+  x-axis [mon, tues, wed, thur, fri, sat, sun]
+  y-axis "Time trained (minutes)" 0 --> 300
+  bar [60, 0, 120, 180, 230, 300, 0]
+  line [60, 0, 120, 180, 230, 300, 0]
+```
+
+## Journey
+
+```mermaid
+journey
+    title My working day
+    section Go to work
+      Make tea: 5: Me
+      Go upstairs: 3: Me
+      Do work: 1: Me, Cat
+    section Go home
+      Go downstairs: 5: Me
+      Sit down: 5: Me
+```
+
+
+## Sequence
+
+```mermaid
+sequenceDiagram
+  Actor Customer as User
+  participant LoginPage as Log in page
+  participant P1 as Log in details storage
+  participant P2 as Security Department
+
+  Customer ->>+ LoginPage: Input: Username
+  Customer ->>+ LoginPage: Input: Password
+  LoginPage ->> P1: Username and password
+  P1 ->> P1: Authenticate
+  alt Successful Authentication
+    LoginPage ->> LoginPage: Redirect to welcome page
+    LoginPage ->> Customer: Log in successful, stand by
+  else Failed Authentication
+  P1 ->> LoginPage: If rejected
+  Customer ->> Customer: I forgot my password...
+  LoginPage ->> Customer: Password Hint
+  Customer ->> Customer: I still can't remember...
+end
+
+LoginPage ->> Customer: Do you wish to reset your password
+opt Password Reset Flow
+  Customer ->> LoginPage: Yes
+  LoginPage ->> P2: New password request
+  P2 ->> P2: Validate email address
+  P2 ->> Customer: Email sent with a reset link
+  Customer ->> P2: Input new password
+  P2 ->> P2: Process new password
+  P2 ->> P1: Store new password
+  P2 ->> P2: Redirect user to log in page
+end
+```
+
+
+```mermaid
+sequenceDiagram
+    Browser->> Python(client_gradio_v4.36.1.py) : Set Workspace
+    Python(client_gradio_v4.36.1.py) ->> Rust : Workspace Path
+    Rust ->> Rust : Create a list by recursively searching Workspace directories
+    Rust ->> Python(client_gradio_v4.36.1.py) : Files and Directories List
+    Python(client_gradio_v4.36.1.py) ->> Browser : Files and Directories List
+```
+
+
+### State
+
+```mermaid
+stateDiagram
+    [*] --> Still
+    Still --> [*]
+    Still --> Moving
+    Moving --> Still
+    Moving --> Crash
+    Crash --> [*]
+```
+
+## Mindmap
+
+```mermaid
+mindmap
+  root((mindmap))
+    Origins
+      Long history
+      ::icon(fa fa-book)
+      Popularization
+        British popular psychology author Tony Buzan
+    Research
+      On effectiveness<br/>and features
+      On Automatic creation
+        Uses
+            Creative techniques
+            Strategic planning
+            Argument mapping
+    Tools
+      Pen and paper
+      Mermaid
+```
+
+## Architecture
+
+```mermaid
+architecture-beta
+    group api(cloud)[API]
+
+    service db(database)[Database] in api
+    service disk1(disk)[Storage] in api
+    service disk2(disk)[Storage] in api
+    service server(server)[Server] in api
+
+    db:L -- R:server
+    disk1:T -- B:server
+    disk2:T -- B:db
+```
+
+## Git
+
+```mermaid
+gitGraph
+        commit
+        commit
+        branch develop
+        checkout develop
+        commit
+        commit
+        checkout main
+        merge develop
+        commit
+        commit
+```
+
+## Pie
+
+```mermaid
+%%{init: {"pie": {"textPosition": 0.5}, "themeVariables": {"pieOuterStrokeWidth": "5px"}} }%%
+pie showData
+    title Key elements in Product X
+    "Calcium" : 42.96
+    "Potassium" : 50.05
+    "Magnesium" : 10.01
+    "Iron" :  5
+```
+
+## QuadrantChart
+
+```mermaid
+quadrantChart
+    title Reach and engagement of campaigns
+    x-axis Low Reach --> High Reach
+    y-axis Low Engagement --> High Engagement
+    quadrant-1 We should expand
+    quadrant-2 Need to promote
+    quadrant-3 Re-evaluate
+    quadrant-4 May be improved
+    Campaign A: [0.3, 0.6]
+    Campaign B: [0.45, 0.23]
+    Campaign C: [0.57, 0.69]
+    Campaign D: [0.78, 0.34]
+    Campaign E: [0.40, 0.34]
+    Campaign F: [0.35, 0.78]
+```
+
+
 
 ```mermaid
 graph TD
@@ -87,16 +259,9 @@ graph TD
 </div>
 
 
-```mermaid
-sequenceDiagram
-    Browser->> Python(client_gradio_v4.36.1.py) : Set Workspace
-    Python(client_gradio_v4.36.1.py) ->> Rust : Workspace Path
-    Rust ->> Rust : Create a list by recursively searching Workspace directories
-    Rust ->> Python(client_gradio_v4.36.1.py) : Files and Directories List
-    Python(client_gradio_v4.36.1.py) ->> Browser : Files and Directories List
-```
 
-## Markdown javascript
+
+# Markdown javascript
 
 ```javascript
 // javascript codeblock
@@ -107,7 +272,7 @@ sequenceDiagram
 
 ```
 
-## HTML javascript
+# HTML javascript
 
 <pre><code class="language-javascript"> 
     // javascript codeblock
@@ -119,7 +284,7 @@ sequenceDiagram
 
 ---
 
-## Markdown python
+# Markdown python
 
 ```python
 # python codeblock
@@ -129,7 +294,7 @@ print_person("Bob")
 
 ```
 
-## HTML python
+# HTML python
 
 <pre><code class="language-python"> 
 # python codeblock
@@ -142,14 +307,14 @@ print_person("Bob")
 
  
 
-## Markdown C
+# Markdown C
 
 ```c
 #include <stdio.h>
 int main() { printf("Hello WASI!"); return 0; }
 ```
 
-## HTML C
+# HTML C
 
 <pre><code class="language-c"> 
 #include <stdio.h>
