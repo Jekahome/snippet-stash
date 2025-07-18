@@ -39,6 +39,14 @@
 <a class="btn btn-default" href="#"><i class="fa fa-hand-o-up" aria-hidden="true"></i></a>
 
 
+I get 10 times more traffic from [Google][] than from
+[Yahoo][] or [MSN][].
+
+  [google]: http://google.com/        "Google"
+  [yahoo]:  http://search.yahoo.com/  "Yahoo Search"
+  [msn]:    http://search.msn.com/    "MSN Search"
+  
+
 # Latex
 
 $${\color{red}Red}$$

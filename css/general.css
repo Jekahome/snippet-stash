@@ -479,3 +479,14 @@ h3, h2 {
 .modern-file-button:hover svg {
     transform: translateY(-2px);
 }
+
+
+/* Жёстко прописываем стили для всех ссылок */
+a {
+  color: #0066cc !important;
+  text-decoration: underline !important;
+  cursor: pointer !important;
+}
+a:hover {
+  opacity: 0.8;
+}

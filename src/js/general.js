@@ -399,10 +399,7 @@ editor.value +="\n\
 </details>\n\
 ";
     }
-
-
 }
-
 
 function addHTMLModal() {
     if (document.getElementById('textModal')) {
@@ -1041,6 +1038,11 @@ function setupGlobalClick() {
             document.querySelectorAll('.data-table td, .data-table th').forEach(c => {
                 c.classList.remove('show-settings');
             });
+        }
+        // Если кликнули на ссылку
+        if (e.target.tagName === 'A' && e.target.href) {
+            e.preventDefault(); 
+            window.open(e.target.href, '_blank');
         }
     });
 }
