@@ -17,7 +17,7 @@ additional-js = [
     #"src/js/pyodide.v0.23.4.js", 
     #"src/js/python-executor.js",
     #"src/js/markdown-it.min.v14.1.0.js",
-    "src/js/mermaid.min.js",
+    "src/js/mermaid.min.v10.6.1.js",
 ]  
 additional-css = [
     #"theme/css/highlight.11.9.0.css",
@@ -25,7 +25,7 @@ additional-css = [
     #"theme/css/highlight.v9.18.1.github.min.css",
     "theme/css/atom-one-light.min.v11.9.0.css",
     "css/general.css",
-    "css/mermaid.min.css"
+    "css/mermaid.min.v10.6.1.css"
 ]    
 highlight-theme = "light" # base16-ocean.dark, InspiredGitHub, monokai
 highlight-languages = ["mermaid", "rust", "python", "javascript", "bash"]

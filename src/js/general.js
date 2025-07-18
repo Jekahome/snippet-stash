@@ -29,21 +29,80 @@ window.globalScriptReady = new Promise(resolve => {
         mermaid.initialize({
             startOnLoad: true,
             theme: 'default',
-            // Настройки размеров:
+            
+            // Общие настройки (применяются ко всем типам диаграмм)
+            fontFamily: 'Arial, sans-serif',
+            securityLevel: 'loose', // для разрешения HTML-тегов и других функций
+
+            // Настройки для конкретных типов диаграмм:
             flowchart: {
-                useMaxWidth: false,    // true - ограничивает ширину, false - растягивается
-                htmlLabels: true,      // использовать HTML-элементы для текста
-                curve: 'basis',        // стиль кривых линий
-                diagramPadding: 10,    // отступы вокруг диаграммы (px)
+                useMaxWidth: false,
+                htmlLabels: true,
+                curve: 'basis',
+                diagramPadding: 10,
             },
             sequence: {
-                diagramMarginX: 50,    // горизонтальные отступы (px)
-                diagramMarginY: 10,    // вертикальные отступы (px)
-                actorMargin: 50,       // отступ между участниками (px)
+                diagramMarginX: 50,
+                diagramMarginY: 10,
+                actorMargin: 50,
             },
             gantt: {
-                barHeight: 20,         // высота строк (px)
-                axisFormat: '%Y-%m-%d' // формат оси времени
+                barHeight: 20,
+                axisFormat: '%Y-%m-%d'
+            },
+            mindmap: {
+                spacingFactor: 1.5,    // множитель расстояния между узлами
+                padding: 1,           // отступы вокруг диаграммы (px)
+                nodeTextMargin: 3,     // отступ текста от границы узла
+            },
+            er: { // Диаграммы сущность-связь (Entity-Relationship)
+                diagramPadding: 20,    // отступы вокруг диаграммы
+                layoutDirection: 'TB', // направление: TB (сверху вниз), LR (слева направо)
+                stroke: '#333',        // цвет линий
+                fill: 'lightyellow',   // цвет заливки сущностей
+            },
+            state: {
+                diagramPadding: 20,    // отступы вокруг диаграммы
+                useMaxWidth: false,
+                noteMargin: 10,        // отступ для заметок
+            },
+            journey: {
+                diagramMarginX: 50,    // горизонтальные отступы
+                diagramMarginY: 20,     // вертикальные отступы
+                actorMargin: 30,       // отступ между участниками
+            },
+            xychart: {
+                width: 600,            // ширина диаграммы (px)
+                height: 400,           // высота диаграммы (px)
+                xAxis: {
+                    title: 'X Axis',   // заголовок оси X
+                    labelPadding: 10,
+                },
+                yAxis: {
+                    title: 'Y Axis',   // заголовок оси Y
+                    labelPadding: 10,
+                },
+            },
+            git: { // Git-граф (график ветвления)
+                diagramPadding: 20,
+                nodeLabel: {
+                    width: 75,        // ширина блока коммита
+                    height: 30,       // высота блока коммита
+                },
+                mainBranchName: 'main', // название основной ветки
+            },
+            pie: {
+                width: 400,           // ширина диаграммы
+                height: 400,          // высота диаграммы
+                textPosition: 0.8,     // позиция текста (0.8 = 80% радиуса)
+            },
+            quadrantChart: {
+                chartWidth: 600,       // ширина диаграммы
+                chartHeight: 600,      // высота диаграммы
+                axisPadding: 100,      // отступ осей от краев
+                quadrantPadding: 20,    // отступ между квадрантами
+                xAxisPosition: 'middle', // положение оси X ('middle' или 'top'/'bottom')
+                yAxisPosition: 'middle', // положение оси Y ('middle' или 'left'/'right')
             }
         });
 
@@ -363,13 +422,206 @@ function AddCodeBlockModal(language){
 </code></pre>`;
 }
 
-function AddBlockMermaidModal(){
+function AddBlockMermaidModal(key){
     const editor = document.getElementById('modalTextEditor');
+
+
+    switch (key) {
+    case 'flowchart':
+    editor.value +="\n\
+<div class=\"mermaid\">\n\
+flowchart TD\n\
+    A[Start] o--o B{Is it?}\n\
+    B -- Yes --> C[OK]\n\
+    C --o D[Rethink]\n\
+    D x--x B\n\
+    B ==> No ----> E[End]\n\
+</div>";
+        break;
+    case 'mindmap':
+    editor.value +="\n\
+<div class=\"mermaid\">\n\
+mindmap\n\
+  root((mindmap))\n\
+    Origins\n\
+      Long history\n\
+      ::icon(fa fa-book)\n\
+      Popularization\n\
+        British popular psychology author Tony Buzan\n\
+    Research\n\
+      On effectiveness<br/>and features\n\
+      On Automatic creation\n\
+        Uses\n\
+            Creative techniques\n\
+            Strategic planning\n\
+            Argument mapping\n\
+    Tools\n\
+      Pen and paper\n\
+      Mermaid\n\
+</div>";
+        break;
+    case 'pie':
+    editor.value +="\n\
+<div class=\"mermaid\">\n\
+%%{init: {\"pie\": {\"textPosition\": 0.5}, \"themeVariables\": {\"pieOuterStrokeWidth\": \"5px\"}} }%%\n\
+pie showData\n\
+    title Key elements in Product X\n\
+    \"Calcium\" : 42.96\n\
+    \"Potassium\" : 50.05\n\
+    \"Magnesium\" : 10.01\n\
+    \"Iron\" :  5\n\
+</div>";
+        break; 
+    case 'git':
+    editor.value +="\n\
+<div class=\"mermaid\">\n\
+gitGraph\n\
+        commit\n\
+        commit\n\
+        branch develop\n\
+        checkout develop\n\
+        commit\n\
+        commit\n\
+        checkout main\n\
+        merge develop\n\
+        commit\n\
+        commit\n\
+</div>";
+        break;
+    case 'architecture':
+    editor.value +="\n\
+<div class=\"mermaid\">\n\
+architecture-beta\n\
+    group api(cloud)[API]\n\
+\n\
+    service db(database)[Database] in api\n\
+    service disk1(disk)[Storage] in api\n\
+    service disk2(disk)[Storage] in api\n\
+    service server(server)[Server] in api\n\
+\n\
+    db:L -- R:server\n\
+    disk1:T -- B:server\n\
+    disk2:T -- B:db\n\
+</div>";
+        break;
+    case 'state':
+    editor.value +="\n\
+<div class=\"mermaid\">\n\
+stateDiagram\n\
+    [*] --> Still\n\
+    Still --> [*]\n\
+    Still --> Moving\n\
+    Moving --> Still\n\
+    Moving --> Crash\n\
+    Crash --> [*]\n\
+</div>";
+        break;
+    case 'sequence':
+    editor.value +="\n\
+<div class=\"mermaid\">\n\
+sequenceDiagram\n\
+    Browser->> Python : Do work 1\n\
+    Python ->> Rust : Workspace Path\n\
+    Rust ->> Rust : Do work 2\n\
+    Rust ->> Python : Do work 3\n\
+    Python ->> Browser : Do work 4\n\
+</div>";
+        break;   
+    case 'journey':   
+    editor.value +="\n\
+<div class=\"mermaid\">\n\
+journey\n\
+    title My working day\n\
+    section Go to work\n\
+      Make tea: 5: Me\n\
+      Go upstairs: 3: Me\n\
+      Do work: 1: Me, Cat\n\
+    section Go home\n\
+      Go downstairs: 5: Me\n\
+      Sit down: 5: Me\n\
+</div>";     
+        break;
+    case 'xychart':   
+    editor.value +="\n\
+<div class=\"mermaid\">\n\
+xychart-beta\n\
+  title \"Training progress\"\n\
+  x-axis [mon, tues, wed, thur, fri, sat, sun]\n\
+  y-axis \"Time trained (minutes)\" 0 --> 300\n\
+  bar [60, 0, 120, 180, 230, 300, 0]\n\
+  line [60, 0, 120, 180, 230, 300, 0]\n\
+</div>";  
+        break;
+    case 'class':
+    editor.value +="\n\
+<div class=\"mermaid\">\n\
+classDiagram\n\
+class Square~Shape~{\n\
+    int id\n\
+    List~int~ position\n\
+    setPoints(List~int~ points)\n\
+    getPoints() List~int~\n\
+}\n\
+\n\
+Square : -List~string~ messages\n\
+Square : +setMessages(List~string~ messages)\n\
+Square : +getMessages() List~string~\n\
+Square : +getDistanceMatrix() List~List~int~~\n\
+\n\
+</div>";       
+        break;
+    case 'timeline':
+    editor.value +="\n\
+<div class=\"mermaid\">\n\
+timeline\n\
+    title History of Social Media Platform\n\
+    2002 : LinkedIn\n\
+    2004 : Facebook\n\
+         : Google\n\
+    2005 : YouTube\n\
+    2006 : Twitter\n\
+\n\
+</div>";       
+        break;
+    case 'kanban':
+    editor.value +="\n\
+<div class=\"mermaid\">\n\
+---\n\
+config:\n\
+  kanban:\n\
+    ticketBaseUrl: 'https://mermaidchart.atlassian.net/browse/#TICKET#'\n\
+---\n\
+kanban\n\
+  Todo\n\
+    [Create Documentation]\n\
+    docs[Create Blog about the new diagram]\n\
+  [In progress]\n\
+    id6[Create renderer so that it works in all cases. We also add some extra text here for testing purposes. And some more just for the extra flare.]\n\
+  id9[Ready for deploy]\n\
+    id8[Design grammar]@{ assigned: 'knsv' }\n\
+  id10[Ready for test]\n\
+    id4[Create parsing tests]@{ ticket: MC-2038, assigned: 'K.Sveidqvist', priority: 'High' }\n\
+    id66[last item]@{ priority: 'Very Low', assigned: 'knsv' }\n\
+  id11[Done]\n\
+    id5[define getData]\n\
+    id2[Title of diagram is more than 100 chars when user duplicates diagram with 100 char]@{ ticket: MC-2036, priority: 'Very High'}\n\
+    id3[Update DB function]@{ ticket: MC-2037, assigned: knsv, priority: 'High' }\n\
+\n\
+  id12[Can't reproduce]\n\
+    id3[Weird flickering in Firefox]\n\
+\n\
+</div>";     
+        break; 
+    default:
     editor.value +="\n\
 <div class=\"mermaid\">\n\
 graph TD\n\
     A --> B\n\
 </div>";
+    }    
+
+
+
 }
 
 function AddBlockMarkdownModal(key){
@@ -398,6 +650,32 @@ Are you still using [Yahoo][] or [MSN][] search?\n\
 [msn]:    http://search.msn.com/    \"MSN Search\"\n\
 [yahoo]:  http://search.yahoo.com/  \"Yahoo Search\"\n\
 ";
+        break;
+    case 'checkbox':
+    editor.value +="\n\
+- [x] Основная задача\n\
+  - [ ] Подзадача 1\n\
+  - [ ] Подзадача 2\n\
+    - [x] Подзадача 2.1\n\
+";        
+        break;
+    case 'line':
+    editor.value +="\n\
+---\n\
+\n\
+";        
+        break;  
+    case 'list':
+    editor.value +="\n\
+1. Пункт 1\n\
+    - Подпункт A\n\
+    - Подпункт Б\n\
+1. Пункт 2\n\
+1. Пункт 3\n\
+    1. Подпункт A\n\
+    1. Подпункт Б\n\
+    1. Подпункт B\n\
+";   
         break;
     default:
     editor.value +="\n\
@@ -439,7 +717,18 @@ function addHTMLModal() {
                                 <img src="${basePath}/config/img/mermaid.svg" alt="Mermaid" width="23" height="23">
                             </button>
                             <div class="dropdown-content-edit-modal">
-                                <label class="dropdown-item-edit-modal" title="Add Mermaid block" onclick="AddBlockMermaidModal()" style="cursor: pointer;">Mermaid</label>
+                                <label class="dropdown-item-edit-modal" title="Add Mermaid block" onclick="AddBlockMermaidModal('flowchart')" style="cursor: pointer;">Flowchart</label>
+                                <label class="dropdown-item-edit-modal" title="Add Mermaid block" onclick="AddBlockMermaidModal('mindmap')" style="cursor: pointer;">Mindmap</label>
+                                <label class="dropdown-item-edit-modal" title="Add Mermaid block" onclick="AddBlockMermaidModal('pie')" style="cursor: pointer;">Pie</label>
+                                <label class="dropdown-item-edit-modal" title="Add Mermaid block" onclick="AddBlockMermaidModal('git')" style="cursor: pointer;">Git</label>
+                                <label class="dropdown-item-edit-modal" title="Add Mermaid block" onclick="AddBlockMermaidModal('architecture')" style="cursor: pointer;">Architecture</label>
+                                <label class="dropdown-item-edit-modal" title="Add Mermaid block" onclick="AddBlockMermaidModal('state')" style="cursor: pointer;">State</label>
+                                <label class="dropdown-item-edit-modal" title="Add Mermaid block" onclick="AddBlockMermaidModal('sequence')" style="cursor: pointer;">Sequence</label>
+                                <label class="dropdown-item-edit-modal" title="Add Mermaid block" onclick="AddBlockMermaidModal('journey')" style="cursor: pointer;">Journey</label>
+                                <label class="dropdown-item-edit-modal" title="Add Mermaid block" onclick="AddBlockMermaidModal('timeline')" style="cursor: pointer;">Timeline</label>
+                                <label class="dropdown-item-edit-modal" title="Add Mermaid block" onclick="AddBlockMermaidModal('xychart')" style="cursor: pointer;">XYchart</label>
+                                <label class="dropdown-item-edit-modal" title="Add Mermaid block" onclick="AddBlockMermaidModal('class')" style="cursor: pointer;">Class</label>
+                                <label class="dropdown-item-edit-modal" title="Add Mermaid block" onclick="AddBlockMermaidModal('kanban')" style="cursor: pointer;">Kanban</label>
                             </div>
                         </div>
                         <div class="dropdown-menu-edit-modal" onclick="toggleEditModal(this)">
@@ -447,9 +736,12 @@ function addHTMLModal() {
                                 <i class="fa fa-code fa-lg" aria-hidden="true"></i>
                             </button>
                             <div class="dropdown-content-edit-modal">
-                                <label class="dropdown-item-edit-modal" title="Add Markdown details block" onclick="AddBlockMarkdownModal('details')" style="cursor: pointer;">details</label>
-                                <label class="dropdown-item-edit-modal" title="Add Markdown table block" onclick="AddBlockMarkdownModal('table')" style="cursor: pointer;">table</label>
-                                <label class="dropdown-item-edit-modal" title="Add Markdown link block" onclick="AddBlockMarkdownModal('link')" style="cursor: pointer;">link</label>
+                                <label class="dropdown-item-edit-modal" title="Add Markdown details block" onclick="AddBlockMarkdownModal('details')" style="cursor: pointer;">Details</label>
+                                <label class="dropdown-item-edit-modal" title="Add Markdown line block" onclick="AddBlockMarkdownModal('list')" style="cursor: pointer;">List</label>
+                                <label class="dropdown-item-edit-modal" title="Add Markdown table block" onclick="AddBlockMarkdownModal('table')" style="cursor: pointer;">Table</label>
+                                <label class="dropdown-item-edit-modal" title="Add Markdown link block" onclick="AddBlockMarkdownModal('link')" style="cursor: pointer;">Link</label>
+                                <label class="dropdown-item-edit-modal" title="Add Markdown checkbox block" onclick="AddBlockMarkdownModal('checkbox')" style="cursor: pointer;">Checkbox</label>
+                                <label class="dropdown-item-edit-modal" title="Add Markdown line block" onclick="AddBlockMarkdownModal('line')" style="cursor: pointer;">Line</label>
                             </div>
                         </div>
                     </div>

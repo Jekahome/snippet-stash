@@ -45,7 +45,7 @@ I get 10 times more traffic from [Google][] than from
   [google]: http://google.com/        "Google"
   [yahoo]:  http://search.yahoo.com/  "Yahoo Search"
   [msn]:    http://search.msn.com/    "MSN Search"
-  
+
 
 # Latex
 
@@ -128,17 +128,6 @@ opt Password Reset Flow
   P2 ->> P2: Redirect user to log in page
 end
 ```
-
-
-```mermaid
-sequenceDiagram
-    Browser->> Python(client_gradio_v4.36.1.py) : Set Workspace
-    Python(client_gradio_v4.36.1.py) ->> Rust : Workspace Path
-    Rust ->> Rust : Create a list by recursively searching Workspace directories
-    Rust ->> Python(client_gradio_v4.36.1.py) : Files and Directories List
-    Python(client_gradio_v4.36.1.py) ->> Browser : Files and Directories List
-```
-
 
 ### State
 
