@@ -11,7 +11,7 @@ mathjax-support = true
 default-theme = "light"
 additional-js = [
     "src/js/storage.js", 
-    "src/js/global.js", 
+    "src/js/general.js", 
     #"theme/js/highlight.min.v11.9.0.js",
     "theme/js/highlight.min.v9.18.1.js",
     #"src/js/pyodide.v0.23.4.js", 
@@ -24,7 +24,7 @@ additional-css = [
     #"theme/css/highlight.v11.9.0.github.min.css",
     #"theme/css/highlight.v9.18.1.github.min.css",
     "theme/css/atom-one-light.min.v11.9.0.css",
-    "css/global.css",
+    "css/general.css",
     "css/mermaid.min.css"
 ]    
 highlight-theme = "light" # base16-ocean.dark, InspiredGitHub, monokai

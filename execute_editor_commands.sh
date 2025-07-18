@@ -20,7 +20,7 @@ fi
 # Читаем JSON и выполняем команды
 jq -r '.[] | 
   if .type == "add-tabs" then
-    "./bin/editor-md add-tabs " + (.tabs_id | map("--tabs-id " + .) | join(", "))
+    "./bin/editor-md add-tabs --count-tr " + .count_tr + " " + (.tabs_id | map("--tabs-id " + .) | join(", "))
   elif .type == "add-tr" then
     "./bin/editor-md add-tr --tab-id " + .tab_id + " --tr-id " + .tr_id + " --position " + .position + " --tr-id-position " + .tr_id_position
   elif .type == "delete-tr" then

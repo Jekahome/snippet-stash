@@ -5,6 +5,7 @@ let isUpdateSettings = false;
 const owner = 'Jekahome';
 const repo = 'snippet-stash';
 const branch = 'main';
+const generate_count_tr = 100;
 const pathSettings = 'src/config/table-settings.json'; 
 let editCellId = null;
 let isGlobalScriptReady = false;
@@ -98,6 +99,9 @@ function addButtonResetStorage(){
     button_reset_storage.innerHTML = '<i class="fa fa-undo"></i>'; 
     button_reset_storage.addEventListener('click', function(e) {
         e.preventDefault();
+        if (!confirm("Confirm undo session modifications?")) {
+         return;
+        }
         resetStorage();
     });
    
@@ -113,6 +117,9 @@ function addButtonResetStorage(){
     button_reset_tab_storage.innerHTML = '<i class="fa fa-exchange"></i>'; 
     button_reset_tab_storage.addEventListener('click', function(e) {
         e.preventDefault();
+        if (!confirm("Confirm undo TAB session modifications?")) {
+         return;
+        }
         resetTabStorage();
     });
     
@@ -795,6 +802,9 @@ async function restoreNewTR(){
 
 async function DeleteTR(cell_id) {
     document.getElementById(cell_id).classList.remove('show-settings');
+    if (!confirm("Confirm deletion?")) {
+      return;
+    }
     const cellElement = document.getElementById(cell_id);
     const tr_id = cellElement.parentNode.id;
     document.getElementById(tr_id).remove();
@@ -1084,6 +1094,7 @@ async function saveToGitHub() {
         const new_tabs = findNewTabIds(origin_tabs_summary, new_tabs_summary);
         editorCommands.push({
             type: 'add-tabs',
+            count_tr: generate_count_tr,
             tabs_id: new_tabs
         });            
     }

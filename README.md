@@ -105,7 +105,7 @@ line break
 
 - Склонировать, удалить содержимое папок `src/tabs`, `src/images`.
 - В файле `book.toml` поменять `site-url`.
-- В файле `src/js/global.js` поменять константы репозитория.
+- В файле `src/js/general.js` поменять константы репозитория.
 - Создать [personal-access-tokens](https://github.com/settings/personal-access-tokens/new) к своему репозиторию
 - Выполнить `make` для отправки первого push и создания `GitHub Page`
 

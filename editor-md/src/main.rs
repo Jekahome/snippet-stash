@@ -60,10 +60,12 @@ pub enum Commands {
         about = "Add Tab.",
         long_about = "Add Tab.\n\
         Example usage:\n\n\
-        add-tabs --tabs-id tab_1, tab_2
+        add-tabs --count-tr 100 --tabs-id tab_1, tab_2
         "
     )]
     AddTabs{
+        #[arg(long = "count-tr", value_name = "COUNT_TR")]
+        count_tr: u16,
         #[arg(long = "tabs-id", value_name = "TAB_ID", value_delimiter = ',')]
         tabs_id: Vec<String>,
     }
@@ -186,9 +188,9 @@ fn generate_hash_crypto() -> String {
 }
 
 #[rustfmt::skip]
-pub fn insert_new_tab(new_tab: &str, tab_id: &str) -> io::Result<()> {
+pub fn insert_new_tab(new_tab: &str, count_tr: u16, tab_id: &str) -> io::Result<()> {
     let base_path = Path::new(new_tab);
-    let count_files = 10;
+    let count_tr = if count_tr==0 {1}else{count_tr};
     // 1. Создаем основную папку
     fs::create_dir_all(&base_path)?;
     // 2. Создаем вложенную папку include
@@ -207,9 +209,9 @@ pub fn insert_new_tab(new_tab: &str, tab_id: &str) -> io::Result<()> {
         <tbody>
             "#);
 
-    for n in 1..=count_files  {
+    for n in 1..=count_tr  {
     let tr_id = format!("{tab_id}_{}", generate_hash_crypto());
-    if n==count_files{
+    if n==count_tr{
     let tr = format!(
         r#"<tr id="{tr_id}">
                 <td id="{tr_id}_topic"><div class="cell-content" contenteditable="true">{{{{include('src/tabs/{tab_id}/include/{tr_id}_topic.md')}}}}</div></td>
@@ -228,7 +230,7 @@ pub fn insert_new_tab(new_tab: &str, tab_id: &str) -> io::Result<()> {
             "#);
             index_content.push_str(&tr); 
     }
-            // 3. Генерируем файлы include/{tab_id}_{suffix}.md
+            // 3. Генерируем файлы ячеек
             let _ = File::create(&format!("src/tabs/{tab_id}/include/{tr_id}_topic.md"));
             let _ = File::create(&format!("src/tabs/{tab_id}/include/{tr_id}_content.md"));
             let _ = File::create(&format!("src/tabs/{tab_id}/include/{tr_id}_other.md"));    
@@ -319,12 +321,13 @@ fn main() {
                 }
             },
             Commands::AddTabs {
+                count_tr,
                 tabs_id
             } => {
                 for tab_id in tabs_id {
                     if is_valid_folder_name(&tab_id){
                         let new_tab = format!("src/tabs/{tab_id}");
-                        match insert_new_tab(&new_tab, &tab_id){
+                        match insert_new_tab(&new_tab, count_tr, &tab_id){
                             Ok(()) => {}
                             Err(_) =>{}
                         }
