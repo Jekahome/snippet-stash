@@ -25,7 +25,7 @@ build:
 
 # Запуск локального сервера mdbook
 serve:
-	mdbook serve --hostname 127.0.0.1 --port $(PORT) &
+	./bin/mdbook serve --hostname 127.0.0.1 --port $(PORT) &
 
 # Последовательный запуск build и serve
 run: serve build 

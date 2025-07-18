@@ -1,5 +1,5 @@
 fn main() {
-    let markdown_input = r#"<div class="container">
+    let _markdown_input = r#"<div class="container">
     <table class="data-table" id="dataTable">
         <tbody>
             <tr id="tab_2_1">
@@ -11,7 +11,7 @@ fn main() {
     </table>
 </div>"#;
 
-let markdown_input = "<div> 
+let _markdown_input = "<div> 
 
 # Hello 
 </div>";
