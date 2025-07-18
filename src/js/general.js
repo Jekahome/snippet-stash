@@ -412,7 +412,7 @@ function addHTMLModal() {
     const modalHTML = `
         <div id="textModal" class="modal">
             <div class="modal-content">
-                <textarea id="modalTextEditor" class="modal-text-editor" placeholder="Введите ваш текст здесь..."></textarea>
+                <textarea id="modalTextEditor" class="modal-text-editor" placeholder="..."></textarea>
                 <div class="modal-footer">
                     <div class="modal-footer-left">           
                         <button class="icon-button rust-icon" title="Add Rust code block" onclick="AddCodeBlockModal('rust')" style="cursor: pointer;">
