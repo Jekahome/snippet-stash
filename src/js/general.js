@@ -391,6 +391,14 @@ editor.value +="\n\
 | git diff     | git diff       | git diff      |\n\
 ";
         break;
+    case 'link':
+editor.value +="\n\
+Are you still using [Yahoo][] or [MSN][] search?\n\
+\n\
+[msn]:    http://search.msn.com/    \"MSN Search\"\n\
+[yahoo]:  http://search.yahoo.com/  \"Yahoo Search\"\n\
+";
+        break;
     default:
     editor.value +="\n\
 <details>\n\
@@ -399,6 +407,11 @@ editor.value +="\n\
 </details>\n\
 ";
     }
+}
+
+function toggleEditModal(menu){
+  const content = menu.querySelector('.dropdown-content-edit-modal');
+  content.style.display = content.style.display === 'flex' ? 'none' : 'flex';
 }
 
 function addHTMLModal() {
@@ -413,23 +426,32 @@ function addHTMLModal() {
                 <div class="modal-footer">
                     <div class="modal-footer-left">           
                         <button class="icon-button rust-icon" title="Add Rust code block" onclick="AddCodeBlockModal('rust')" style="cursor: pointer;">
-                           <img src="${basePath}/config/img/rust-logo-blk.svg" alt="Rust" width="20" height="20">
+                           <img src="${basePath}/config/img/rust-logo-blk.svg" alt="Rust" width="25" height="25">
                         </button>
                         <button class="icon-button python-icon" title="Add Python code block" onclick="AddCodeBlockModal('python')" style="cursor: pointer;">
-                           <img src="${basePath}/config/img/python_logo_icon.svg" alt="Python" width="20" height="20">
+                           <img src="${basePath}/config/img/python_logo_icon.svg" alt="Python" width="25" height="25">
                         </button>
                         <button class="icon-button c-icon" title="Add C code block" onclick="AddCodeBlockModal('c')" style="cursor: pointer;">
-                           <img src="${basePath}/config/img/c-programming.png" alt="C" width="20" height="20">
+                           <img src="${basePath}/config/img/c-programming.png" alt="C" width="25" height="25">
                         </button>
-                        <button class="icon-button mermaid-icon" title="Add Mermaid block" onclick="AddBlockMermaidModal()" style="cursor: pointer;">
-                           <img src="${basePath}/config/img/mermaid.svg" alt="Mermaid" width="20" height="20">
-                        </button>
-                        <button class="icon-button mermaid-icon" title="Add Markdown details block" onclick="AddBlockMarkdownModal('details')" style="cursor: pointer;">
-                           <i class="fa fa-code fa-lg" aria-hidden="true"></i>
-                        </button>
-                        <button class="icon-button mermaid-icon" title="Add Markdown table block" onclick="AddBlockMarkdownModal('table')" style="cursor: pointer;">
-                           <i class="fa fa-code fa-lg" aria-hidden="true"></i>
-                        </button>
+                        <div class="dropdown-menu-edit-modal" onclick="toggleEditModal(this)">
+                            <button class="icon-button mermaid-icon" title="Add Mermaid block" style="cursor: pointer;">
+                                <img src="${basePath}/config/img/mermaid.svg" alt="Mermaid" width="23" height="23">
+                            </button>
+                            <div class="dropdown-content-edit-modal">
+                                <label class="dropdown-item-edit-modal" title="Add Mermaid block" onclick="AddBlockMermaidModal()" style="cursor: pointer;">Mermaid</label>
+                            </div>
+                        </div>
+                        <div class="dropdown-menu-edit-modal" onclick="toggleEditModal(this)">
+                            <button class="dropdown-toggle-edit-modal icon-button mermaid-icon" title="Add Markdown block" style="cursor: pointer;">
+                                <i class="fa fa-code fa-lg" aria-hidden="true"></i>
+                            </button>
+                            <div class="dropdown-content-edit-modal">
+                                <label class="dropdown-item-edit-modal" title="Add Markdown details block" onclick="AddBlockMarkdownModal('details')" style="cursor: pointer;">details</label>
+                                <label class="dropdown-item-edit-modal" title="Add Markdown table block" onclick="AddBlockMarkdownModal('table')" style="cursor: pointer;">table</label>
+                                <label class="dropdown-item-edit-modal" title="Add Markdown link block" onclick="AddBlockMarkdownModal('link')" style="cursor: pointer;">link</label>
+                            </div>
+                        </div>
                     </div>
                     <div class="modal-footer-right">
                         <button class="modal-cancel-btn" onclick="closeModal()">Отмена</button>
