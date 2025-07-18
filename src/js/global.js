@@ -1476,6 +1476,9 @@ function addRunButtonsToPythonBlocks() {
 async function hundlerUndoChangesCell(cell_id) { 
     const cellElement = document.getElementById(cell_id);
     if (cellElement?.hasAttribute('data-new')) {
+        pathTabStore.set(`content.${currentTabId}.${cell_id}`, '');
+        cellElement.parentElement.removeAttribute('style');
+        cellElement.removeAttribute('style');
         return;
     }
     const response = await fetch(`${basePath}/tabs/${currentTabId}/include/${cell_id}.md`);
@@ -1485,12 +1488,12 @@ async function hundlerUndoChangesCell(cell_id) {
     let markdown_content = await response.text();
     pathTabStore.set(`content.${currentTabId}.${cell_id}`, markdown_content);
     await convertTextToHTML(cellElement, markdown_content, true);
-    
-    console.warn('отмена настроек не реализованна');
-    // настройки
-    // загрузить файл настроек
-    // если нет данных то установить по умолчанию
-    // стереть в storage настройки если они есть 
+    cellElement.parentElement.removeAttribute('style');
+    cellElement.removeAttribute('style');    
+    const loadedSettings = await getSettingsFile();
+    if (loadedSettings?.[currentTabId]?.[cell_id]) {
+        applyCellSettings(cellElement, loadedSettings[currentTabId][cell_id]); 
+    }
 }
 
 function checkBacktickFormatting(text) {
