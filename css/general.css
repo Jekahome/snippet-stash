@@ -360,6 +360,17 @@ textarea {
   border-left: 2px solid black; /* Более жирная левая граница для имитации */
 }
 
+.result {
+    background-color: #f6f8fa;
+    border: 1px solid #a733aa;
+    border-radius: 6px;
+    font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+    font-size: 14px;
+    line-height: 1.5;
+    color: #24292f;
+    overflow-x: auto;
+}
+
 /* makrdown */
 details h3{
     padding-top: 1px;

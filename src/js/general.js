@@ -165,20 +165,6 @@ function addButtonSave(){
     } else {
         console.error('Элемент #menu-bar не найден');
     }
- 
-    /*let menuBar = document.getElementById("menu-bar");
-    const button = document.createElement('button');
-    button.className="right-buttons"
-    button.id = 'saveSettingsBtn';
-    button.textContent = 'Save';
-    menuBar.appendChild(button);
-    document.getElementById('saveSettingsBtn').addEventListener('click', function() {
-        saveToGitHub().then(() => {
-            console.log('Data saved successfully');
-        }).catch(error => {
-            console.error('Save error:', error);
-        });
-    });*/
 }
  
 // Инициализация подсветки синтаксиса
@@ -345,14 +331,14 @@ async function convertTextToHTML(cell, content, is_add_setting_menu=true){
     }
 
     /* 
-        // highlight.js v11.9.0 
-        if (typeof hljs !== 'undefined') {
-            //hljs.highlightAll();
-            const codeElements = cell.querySelectorAll('code');
-            codeElements.forEach(codeElement => {
-                hljs.highlightElement(codeElement);
-            }); 
-        }
+    // highlight.js v11.9.0 
+    if (typeof hljs !== 'undefined') {
+        //hljs.highlightAll();
+        const codeElements = cell.querySelectorAll('code');
+        codeElements.forEach(codeElement => {
+            hljs.highlightElement(codeElement);
+        }); 
+    }
     */
     // highlight.js v9.18.1
     if (typeof hljs !== 'undefined') {
@@ -361,7 +347,6 @@ async function convertTextToHTML(cell, content, is_add_setting_menu=true){
             hljs.highlightBlock(codeElement);  
         }); 
     }
-    //return content;
 }
 
 function closeModal() {
@@ -387,14 +372,35 @@ graph TD\n\
 </div>";
 }
 
-function AddBlockMarkdownModal(){
+function AddBlockMarkdownModal(key){
     const editor = document.getElementById('modalTextEditor');
+    switch (key) {
+    case 'details':
     editor.value +="\n\
 <details>\n\
 <summary>Summary</summary>\n\
 \n\
 </details>\n\
 ";
+        break;
+    case 'table':
+editor.value +="\n\
+| Left-aligned | Center-aligned | Right-aligned |\n\
+| :---         |     :---:      |   ---:        |\n\
+| git status   | git status     | git status    |\n\
+| git diff     | git diff       | git diff      |\n\
+";
+        break;
+    default:
+    editor.value +="\n\
+<details>\n\
+<summary>Summary</summary>\n\
+\n\
+</details>\n\
+";
+    }
+
+
 }
 
 
@@ -415,10 +421,16 @@ function addHTMLModal() {
                         <button class="icon-button python-icon" title="Add Python code block" onclick="AddCodeBlockModal('python')" style="cursor: pointer;">
                            <img src="${basePath}/config/img/python_logo_icon.svg" alt="Python" width="20" height="20">
                         </button>
+                        <button class="icon-button c-icon" title="Add C code block" onclick="AddCodeBlockModal('c')" style="cursor: pointer;">
+                           <img src="${basePath}/config/img/c-programming.png" alt="C" width="20" height="20">
+                        </button>
                         <button class="icon-button mermaid-icon" title="Add Mermaid block" onclick="AddBlockMermaidModal()" style="cursor: pointer;">
                            <img src="${basePath}/config/img/mermaid.svg" alt="Mermaid" width="20" height="20">
                         </button>
-                        <button class="icon-button mermaid-icon" title="Add Markdown details block" onclick="AddBlockMarkdownModal()" style="cursor: pointer;">
+                        <button class="icon-button mermaid-icon" title="Add Markdown details block" onclick="AddBlockMarkdownModal('details')" style="cursor: pointer;">
+                           <i class="fa fa-code fa-lg" aria-hidden="true"></i>
+                        </button>
+                        <button class="icon-button mermaid-icon" title="Add Markdown table block" onclick="AddBlockMarkdownModal('table')" style="cursor: pointer;">
                            <i class="fa fa-code fa-lg" aria-hidden="true"></i>
                         </button>
                     </div>
@@ -600,7 +612,8 @@ function buildCodeWrapper(node_code, language){
                   run_rust_code(contentWrapperPre);
                   break;
                 default:
-                  console.log("Неизвестный язык");
+                  alert(`${language} execution is not implemented`);
+                  console.warn(`${language} execution is not implemented`);
             } 
         });
         // Кнопка отмены  
@@ -752,6 +765,8 @@ function setupCellSettingsMenu(cell) {
         menuHTML += `<label><a class="btn btn-default" href="#" onclick="DeleteTR('${cell.id}')" title="Delete TR"> <i class="fa fa-minus-square fa-2x" aria-hidden="true"></i> </a></label>
         <label><a class="btn btn-default" href="#" onclick="AddTRBefore('${cell.id}')" title="Add TR Before"><i class="fa fa-hand-o-up fa-2x" aria-hidden="true"></i></a></label>
         <label><a class="btn btn-default" href="#" onclick="AddTRAfter('${cell.id}')" title="Add TR After"><i class="fa fa-hand-o-down fa-2x" aria-hidden="true"></i></a></label>`;
+    }else{
+        menuHTML += `<label><a class="btn btn-default" href="#" onclick="AddTRAfter('${cell.id}')" title="Add TR After"><i class="fa fa-hand-o-down fa-2x" aria-hidden="true"></i></a></label>`;
     }
     if (isHeader) {
         const currentWidth = pathTabStore.get(`settings.${currentTabId}.${cell.id}.width`) ?? 200;
