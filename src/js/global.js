@@ -290,7 +290,7 @@ async function convertNodeToHTML(node, cellContentWrapper) {
         newNodeDetails.appendChild(summaryEl.cloneNode(true));
         node_details.removeChild(summaryEl);
         //const html = window.md.render(node_details.textContent);
-        const html = await render_markdown(node.textContent);
+        const html = await render_markdown(node_details.textContent);
         const fragment = document.createRange().createContextualFragment(html);
         newNodeDetails.appendChild(fragment);
         cellContentWrapper.appendChild(newNodeDetails.cloneNode(true));
@@ -380,6 +380,17 @@ graph TD\n\
 </div>";
 }
 
+function AddBlockMarkdownModal(){
+    const editor = document.getElementById('modalTextEditor');
+    editor.value +="\n\
+<details>\n\
+<summary>Summary</summary>\n\
+\n\
+</details>\n\
+";
+}
+
+
 function addHTMLModal() {
     if (document.getElementById('textModal')) {
         console.warn('Модальное окно уже существует');
@@ -391,14 +402,17 @@ function addHTMLModal() {
                 <textarea id="modalTextEditor" class="modal-text-editor" placeholder="Введите ваш текст здесь..."></textarea>
                 <div class="modal-footer">
                     <div class="modal-footer-left">           
-                        <button class="icon-button rust-icon" title="Add Rust code block" onclick="AddCodeBlockModal('rust')">
+                        <button class="icon-button rust-icon" title="Add Rust code block" onclick="AddCodeBlockModal('rust')" style="cursor: pointer;">
                            <img src="${basePath}/config/img/rust-logo-blk.svg" alt="Rust" width="20" height="20">
                         </button>
-                        <button class="icon-button python-icon" title="Add Python code block" onclick="AddCodeBlockModal('python')">
+                        <button class="icon-button python-icon" title="Add Python code block" onclick="AddCodeBlockModal('python')" style="cursor: pointer;">
                            <img src="${basePath}/config/img/python_logo_icon.svg" alt="Python" width="20" height="20">
                         </button>
-                        <button class="icon-button mermaid-icon" title="Add Mermaid block" onclick="AddBlockMermaidModal()">
+                        <button class="icon-button mermaid-icon" title="Add Mermaid block" onclick="AddBlockMermaidModal()" style="cursor: pointer;">
                            <img src="${basePath}/config/img/mermaid.svg" alt="Mermaid" width="20" height="20">
+                        </button>
+                        <button class="icon-button mermaid-icon" title="Add Markdown details block" onclick="AddBlockMarkdownModal()" style="cursor: pointer;">
+                           <i class="fa fa-code fa-lg" aria-hidden="true"></i>
                         </button>
                     </div>
                     <div class="modal-footer-right">
@@ -723,8 +737,8 @@ function setupCellSettingsMenu(cell) {
     const columnIndex = cell.cellIndex;
     let menuHTML = `
         <label><a class="btn btn-default" href="#" onclick="editContent('${cell.id}')" title="Edit content"><i class="fa fa-file fa-2x" aria-hidden="true"></i> </a></label>
-        <label>F: <input type="number" class="font-size" value="14" title="Font size TR" min="8" max="24"></label>
-        <label>B: <input type="color" class="bg-color" title="Background color TR" value="${rgbToHex(getComputedStyle(cell).backgroundColor) || '#f9f9f9'}"></label>
+        <label><input type="number" class="font-size" value="14" title="Font size TR" min="8" max="24"></label>
+        <label><input type="color" class="bg-color" title="Background color TR" value="${rgbToHex(getComputedStyle(cell).backgroundColor) || '#f9f9f9'}"></label>
         <label><a class="btn btn-default" href="#" onclick="hundlerUndoChangesCell('${cell.id}')" title="Undo cell modifications"><i class="fa fa-undo fa-2x" aria-hidden="true"></i></a></label>   
     `;
     if (!isHeader) {
@@ -736,7 +750,7 @@ function setupCellSettingsMenu(cell) {
         const currentWidth = pathTabStore.get(`settings.${currentTabId}.${cell.id}.width`) ?? 200;
         menuHTML += `<label>W: <input type="number" class="column-width" title="Width TR" value="${currentWidth}" min="1" max="800"></label>`;
     }
-    menuHTML += `<label>H: <input type="number" class="row-height" placeholder="auto" title="Height TR" min="30" max="1000"></label>`;
+    menuHTML += `<label><input type="number" class="row-height" placeholder="auto" title="Height TR" min="30" max="1000"></label>`;
     // menuHTML += `<label>H: <input type="file" class="row-height" id="imageInput" accept="image/*"></label>`;
     menuHTML += `<label for="image_${cell.id}" class="modern-file-button" title="Upload Image">
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor">
@@ -785,7 +799,7 @@ async function DeleteTR(cell_id) {
     const tr_id = cellElement.parentNode.id;
     document.getElementById(tr_id).remove();
     if (cellElement.hasAttribute('data-new')) {
-        // TODO: images не удалится
+        // TODO: images не удалятся
         pathTabStore.delete(`new_tr.${currentTabId}.${tr_id}`);
         pathTabStore.delete(`content.${currentTabId}.${cell_id}`);
         pathTabStore.delete(`settings.${currentTabId}.${cell_id}`);
