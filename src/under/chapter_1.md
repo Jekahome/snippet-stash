@@ -1,5 +1,17 @@
 # Chapter 1
 
+
+
+
+```console
+<!-- cmdrun ls -l . -->
+```
+
+<!-- cmdrun seq 1 10 -->
+
+
+
+
 # Example heading { #first .class1 .class2 }
 
 <div>

@@ -92,3 +92,5 @@ copy-js = true
 [output.html.search.chapter]
 # https://rust-lang.github.io/mdBook/format/configuration/renderers.html#outputhtmlsearchchapter
 "tabs" = { enable = true }
+
+ 

@@ -106,6 +106,7 @@ line break
 - Склонировать, удалить содержимое папок `src/tabs`, `src/images`.
 - В файле `book.toml` поменять `output.html.site-url`.
 - В файле `src/js/general.js` поменять константы репозитория (`owner,repo,branch`).
+  - вариант горячей замены констант при сборке книги, использовать preprocessor `cmdrun` (`[preprocessor.cmdrun] after = ["include-md"]`), в каждом `src/tabs/.../index.md` добавить в javascript команду: `<!-- cmdrun cat ../../config/setting.js -->`. В этом файле установить константы `window.repo='...'; ...`
 - Редактировать файл `src/SUMMARY.md`
 - Создать [personal-access-tokens](https://github.com/settings/personal-access-tokens/new) к своему репозиторию
 - Выполнить `make`, для запуска CI/CD создания `GitHub Page`

@@ -16,8 +16,6 @@ let isUpdateSettings = false;
 // Основная инициализация
 window.globalScriptReady = new Promise(resolve => {
     document.addEventListener('DOMContentLoaded', async () => {
-        console.warn(`API_URL=${API_URL}`);
-        console.warn(`ENV=${ENV}`);
         document.querySelectorAll("img").forEach((img) => {
             if (img.complete && img.naturalWidth === 0) {
                 // Картинка уже загрузилась, но с ошибкой
@@ -29,7 +27,7 @@ window.globalScriptReady = new Promise(resolve => {
                 });
             }
         });
-        
+
         mermaid.initialize({
             startOnLoad: true,
             theme: 'default',
@@ -623,9 +621,6 @@ graph TD\n\
     A --> B\n\
 </div>";
     }    
-
-
-
 }
 
 function AddBlockMarkdownModal(key){
@@ -1010,7 +1005,7 @@ async function initTab(tab) {
     currentTabId = tab;
     // Запускаем функции, которые не зависят друг от друга, асинхронно
     await Promise.all([
-        (async () => formatTitle(currentTabId))(),  
+        (async () => await formatTitle(currentTabId))(),  
         (async () => {
             addHTMLModal(); 
             addHTMLModalTab(); 
@@ -1905,8 +1900,24 @@ async function execute_python(code) {
     }
 }
 
-function formatTitle(title) {
-    let formattedText = title.replace(/_/g, ' ');
+// Устанавливает заголовок Tab используя имя ссылки из SUMMARY.md
+async function formatTitle(tab_id) {
+    async function getLinkTextByTabId(tab_id) {
+        const response = await fetch(`${basePath}/SUMMARY.md`);
+        if (!response.ok) {
+            throw new Error(`Ошибка HTTP: ${response.status} ${response.statusText}`);
+        }
+        const markdown = await response.text();
+
+        const regex = new RegExp(`\\[(.*?)\\]\\(\\.\\/tabs\\/${tab_id}\/index\\.md\\)`);
+        const match = markdown.match(regex);
+        if (match && match[1]) {
+            return match[1];
+        }
+        return null;
+    }
+    let formattedText = await getLinkTextByTabId(tab_id);
+    if (formattedText==null){formattedText = tab_id.replace(/_/g, ' ');}
     if (formattedText.length > 0) {
       formattedText = formattedText[0].toUpperCase() + formattedText.slice(1);
     }
