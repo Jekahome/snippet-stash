@@ -1,15 +1,16 @@
 const isGitHubPages = window.location.host.includes('github.io');
-const basePath = isGitHubPages ? '/snippet-stash' : '';  
-let currentTabId = null; 
-let isUpdateSettings = false;
+const basePath = isGitHubPages ? '/snippet-stash' : ''; // для возможности тестирования на localhost  
 const owner = 'Jekahome';
 const repo = 'snippet-stash';
 const branch = 'main';
-const generate_count_tr = 100;
+
+const generate_count_tr = 100; // количество создаваемых TR в новом TAB
 const pathSettings = 'src/config/table-settings.json'; 
 let editCellId = null;
 let isGlobalScriptReady = false;
 let isReloadMermaid = false;
+let currentTabId = null; 
+let isUpdateSettings = false;
 
 // Основная инициализация
 window.globalScriptReady = new Promise(resolve => {
