@@ -1425,7 +1425,7 @@ async function saveToGitHub() {
         const new_tabs = findNewTabIds(origin_tabs_summary, new_tabs_summary);
         editorCommands.push({
             type: 'add-tabs',
-            count_tr: generate_count_tr,
+            count_tr: `${generate_count_tr}`,
             tabs_id: new_tabs
         });            
     }
