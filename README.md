@@ -104,10 +104,10 @@ line break
 ## Установка
 
 - Склонировать, удалить содержимое папок `src/tabs`, `src/images`.
-- В файле `book.toml` поменять `site-url`.
-- В файле `src/js/general.js` поменять константы репозитория.
+- В файле `book.toml` поменять `output.html.site-url`.
+- В файле `src/js/general.js` поменять константы репозитория (`owner,repo,branch`).
 - Создать [personal-access-tokens](https://github.com/settings/personal-access-tokens/new) к своему репозиторию
-- Выполнить `make` для отправки первого push и создания `GitHub Page`
+- Выполнить `make`, для запуска CI/CD создания `GitHub Page`
 
 ⚠️ **Note:** Версии `bin/mdbook v0.4.51`, `bin/mdbook-mermaid v0.15.0`
 

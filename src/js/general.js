@@ -1,8 +1,9 @@
-const isGitHubPages = window.location.host.includes('github.io');
-const basePath = isGitHubPages ? '/snippet-stash' : ''; // для возможности тестирования на localhost  
 const owner = 'Jekahome';
 const repo = 'snippet-stash';
 const branch = 'main';
+
+const isGitHubPages = window.location.host.includes('github.io');
+const basePath = isGitHubPages ? `/${repo}` : ''; // для возможности тестирования на localhost 
 
 const generate_count_tr = 100; // количество создаваемых TR в новом TAB
 const pathSettings = 'src/config/table-settings.json'; 
@@ -15,6 +16,8 @@ let isUpdateSettings = false;
 // Основная инициализация
 window.globalScriptReady = new Promise(resolve => {
     document.addEventListener('DOMContentLoaded', async () => {
+        console.warn(`API_URL=${API_URL}`);
+        console.warn(`ENV=${ENV}`);
         document.querySelectorAll("img").forEach((img) => {
             if (img.complete && img.naturalWidth === 0) {
                 // Картинка уже загрузилась, но с ошибкой

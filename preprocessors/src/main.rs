@@ -14,12 +14,13 @@ impl Preprocessor for IncludeMd {
     }
 
     fn run(&self, _ctx: &PreprocessorContext, mut book: Book) -> Result<Book, Error> {
+        
         book.for_each_mut(|item| {
             if let BookItem::Chapter(ch) = item {
                 if ch.is_draft_chapter() {
                     return;
                 }
-                
+
                 match process_includes(&ch.content) {
                     Ok(new_content) => {
                         ch.content = new_content;

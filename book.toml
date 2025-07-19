@@ -1,9 +1,10 @@
 [book]
 authors = ["Jeka"]
-language = "en"
+language = "ru"
 multilingual = true
 src = "src"
 title = "Snippet stash"
+
 
 [output.html]
 site-url = "/snippet-stash/" # базовый URL книги (используется при генерации ссылок)
@@ -34,6 +35,7 @@ smart-punctuation = false
 no-section-label = false
 no_highlight = ["mermaid"]
 
+
 [output.html.print]
 enable = false    
 page-break = false  
@@ -61,7 +63,8 @@ command = "bin/mdbook-mermaid"
 
 [preprocessor.include-md]
 command = "bin/mdbook-include-md"
- 
+
+
 # Явно включить препроцессоры по умолчанию
 #[preprocessor.includes] # плохо пустые строки вставляет
 #[preprocessor.links] # заменяет {{ #playground }} и подобные шаблоны
@@ -72,6 +75,7 @@ build-dir = "book"
 create-missing = true
 #use-default-preprocessors = true
 extra-watch-dirs = ["css/","theme/","copy_raw_other_files.sh","Makefile"]
+
 
 [output.html.search]
 enable = true 
