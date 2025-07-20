@@ -5,10 +5,13 @@ multilingual = true
 src = "src"
 title = "Snippet stash"
 
+[rust]
+edition = "2021"
 
 [output.html]
 site-url = "/snippet-stash/" # базовый URL книги (используется при генерации ссылок)
 mathjax-support = true
+input-404 = "404.md"
 default-theme = "light"
 additional-js = [
     "src/js/storage.js", 
@@ -19,6 +22,16 @@ additional-js = [
     #"src/js/python-executor.js",
     #"src/js/markdown-it.min.v14.1.0.js",
     "src/js/mermaid.min.v10.6.1.js",
+    
+
+   
+
+    "src/js/viz.v2.1.2.js",
+    "src/js/full.render.viz.v2.1.2.js"
+    
+ 
+   
+    
 ]  
 additional-css = [
     #"theme/css/highlight.11.9.0.css",
@@ -63,6 +76,11 @@ command = "bin/mdbook-mermaid"
 
 [preprocessor.include-md]
 command = "bin/mdbook-include-md"
+
+[preprocessor.graphviz]
+command = "bin/mdbook-graphviz"
+after = ["include-md"]
+output-to-file = false 
 
 
 # Явно включить препроцессоры по умолчанию

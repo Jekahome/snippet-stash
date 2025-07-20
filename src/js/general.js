@@ -28,6 +28,8 @@ window.globalScriptReady = new Promise(resolve => {
             }
         });
 
+        window.viz = new Viz();
+
         mermaid.initialize({
             startOnLoad: true,
             theme: 'default',
@@ -277,6 +279,9 @@ function convertMarkdownCodeBlocksToHtml(text) {
         if (lang == 'mermaid'){
             const escapedCode = escapeHtml(code);
             return `<div class="mermaid">${code}</div${gt}`;
+        }else if (lang == 'dot'){
+            const escapedCode = escapeHtml(code);
+            return `<div class="mdbook-graphviz-output">${code}</div${gt}`;
         }else{
             const escapedCode = escapeHtml(code);
             return `<code class="language-${lang}">${escapedCode}</code${gt}`;
@@ -319,6 +324,21 @@ function extractLanguage(classString) {
     return match ? match[1] : null;
 }
 
+async function buildGraphvizWraper(node){
+    try {
+        const dotCode = node.textContent.trim();
+        const svg = await viz.renderString(dotCode); 
+        node.innerHTML = svg;
+    } catch (error) {
+    node.innerHTML = `
+        <div style="color:red; border:1px solid red; padding:8px;">
+        Ошибка рендеринга: ${error.message}
+        <pre>${node.textContent.trim()}</pre>
+        </div>
+    `;
+    }
+}
+
 async function convertNodeToHTML(node, cellContentWrapper) {
     if (node.nodeType === Node.ELEMENT_NODE && node.tagName === 'CODE') {
         console.log(`CODE=`,node);
@@ -333,6 +353,10 @@ async function convertNodeToHTML(node, cellContentWrapper) {
     } else if (node.nodeType === Node.ELEMENT_NODE && node.tagName === 'DIV' && node.classList.contains('mermaid')){
         isReloadMermaid = true;
         console.log(`MERMAID=`,node);
+        cellContentWrapper.appendChild(node).cloneNode(true);
+    } else if (node.nodeType === Node.ELEMENT_NODE && node.tagName === 'DIV' && node.classList.contains('mdbook-graphviz-output') && !node.querySelector('svg')){
+        console.log(`GRAPHVIZ=`,node);
+        await buildGraphvizWraper(node);
         cellContentWrapper.appendChild(node).cloneNode(true);
     }
     else if (node.nodeType === Node.ELEMENT_NODE && node.tagName === 'DETAILS') {
@@ -686,6 +710,222 @@ Are you still using [Yahoo][] or [MSN][] search?\n\
     }
 }
 
+function AddBlockGraphvizModal(key){
+const editor = document.getElementById('modalTextEditor');
+    switch (key) {
+    case 'state':
+    editor.value +="\n\
+<div class=\"mdbook-graphviz-output\">\n\
+digraph FSM {\n\
+  rankdir=LR;\n\
+  node [shape = circle];\n\
+  Idle -> Processing [ label = \"start\" ];\n\
+  Processing -> Done [ label = \"finish\" ];\n\
+  Done -> Idle [ label = \"reset\" ];\n\
+}\n\
+</div>\n\
+";
+        break;
+    case 'fancy':
+    editor.value +="\n\
+<div class=\"mdbook-graphviz-output\">\n\
+digraph G {\n\
+ size =\"4,4\";\n\
+ main [shape=box];\n\
+ main -> parse [weight=8];\n\
+ parse -> execute;\n\
+ main -> init [style=dotted];\n\
+ main -> cleanup;\n\
+ execute -> { make_string; printf}\n\
+ init -> make_string;\n\
+ edge [color=red];\n\
+ main -> printf [style=bold,label=\"100 times\"];\n\
+ make_string [label=\"make a\nstring\"];\n\
+ node [shape=box,style=filled,color=\".7 .3 1.0\"];\n\
+ execute -> compare;\n\
+}\n\
+</div>\n\
+";
+        break; 
+    case 'tree':
+    editor.value +="\n\
+<div class=\"mdbook-graphviz-output\">\n\
+digraph g {\n\
+ node [shape = record,height=.1];\n\
+ node0[label = \"<f0> |<f1> G|<f2> \"];\n\
+ node1[label = \"<f0> |<f1> E|<f2> \"];\n\
+ node2[label = \"<f0> |<f1> B|<f2> \"];\n\
+ node3[label = \"<f0> |<f1> F|<f2> \"];\n\
+ node4[label = \"<f0> |<f1> R|<f2> \"];\n\
+ node5[label = \"<f0> |<f1> H|<f2> \"];\n\
+ node6[label = \"<f0> |<f1> Y|<f2> \"];\n\
+ node7[label = \"<f0> |<f1> A|<f2> \"];\n\
+ node8[label = \"<f0> |<f1> C|<f2> \"];\n\
+ \"node0\":f2 -> \"node4\":f1;\n\
+ \"node0\":f0 -> \"node1\":f1;\n\
+ \"node1\":f0 -> \"node2\":f1;\n\
+ \"node1\":f2 -> \"node3\":f1;\n\
+ \"node2\":f2 -> \"node8\":f1;\n\
+ \"node2\":f0 -> \"node7\":f1;\n\
+ \"node4\":f2 -> \"node6\":f1;\n\
+ \"node4\":f0 -> \"node5\":f1;\n\
+}\n\
+</div>\n\
+";
+        break;
+    case 'hash_map':
+    editor.value +="\n\
+<div class=\"mdbook-graphviz-output\">\n\
+digraph G {\n\
+ nodesep=.05;\n\
+ rankdir=LR;\n\
+ node [shape=record,width=.1,height=.1];\n\
+\n\
+ node0 [label = \"<f0> |<f1> |<f2> |<f3> |<f4> |<f5> |<f6> | \",height=2.5];\n\
+ node [width = 1.5];\n\
+ node1 [label = \"{<n> n14 | 719 |<p> }\"];\n\
+ node2 [label = \"{<n> a1 | 805 |<p> }\"];\n\
+ node3 [label = \"{<n> i9 | 718 |<p> }\"];\n\
+ node4 [label = \"{<n> e5 | 989 |<p> }\"];\n\
+ node5 [label = \"{<n> t20 | 959 |<p> }\"];\n\
+ node6 [label = \"{<n> o15 | 794 |<p> }\"];\n\
+ node7 [label = \"{<n> s19 | 659 |<p> }\"];\n\
+\n\
+ node0:f0 -> node1:n;\n\
+ node0:f1 -> node2:n;\n\
+ node0:f2 -> node3:n;\n\
+ node0:f5 -> node4:n;\n\
+ node0:f6 -> node5:n;\n\
+ node2:p -> node6:n;\n\
+ node4:p -> node7:n;\n\
+}\n\
+</div>\n\
+";
+
+        break;
+    case 'edges_clusters':
+    editor.value +="\n\
+<div class=\"mdbook-graphviz-output\">\n\
+digraph G {\n\
+    compound=true;\n\
+    subgraph cluster0 {\n\
+        a -> b;\n\
+        a -> c;\n\
+        b -> d;\n\
+        c -> d;\n\
+    }\n\
+    subgraph cluster1 {\n\
+        e -> g;\n\
+        e -> f;\n\
+    }\n\
+    b -> f [lhead=cluster1];\n\
+    d -> e;\n\
+    c -> g [ltail=cluster0, lhead=cluster1];\n\
+    c -> e [ltail=cluster0];\n\
+    d -> h;\n\
+}\n\
+</div>\n\
+";
+        break;  
+    case 'structs':
+    editor.value +="\n\
+<div class=\"mdbook-graphviz-output\">\n\
+digraph structs {\n\
+ node [shape=record];\n\
+ struct1 [shape=record,label=\"<f0> left|<f1> middle|<f2> right\"];\n\
+ struct2 [shape=record,label=\"<f0> one|<f1> two\"];\n\
+ struct3 [shape=record,label=\"hello\nworld |{ b |{c|<here> d|e}| f}| g | h\"];\n\
+ struct1:f1 -> struct2:f0;\n\
+ struct1:f2 -> struct3:here;\n\
+}\n\
+</div>\n\
+";      
+        break; 
+    case 'mind_map':
+    editor.value +="\n\
+<div class=\"mdbook-graphviz-output\">\n\
+graph happiness {\n\
+	labelloc=\"t\"\n\
+	label=\"Mind map of Happiness.\nTwopi radial graph.\"\n\
+	fontname=\"URW Chancery L, Apple Chancery, Comic Sans MS, cursive\"\n\
+	layout=twopi; graph [ranksep=1.1;];\n\
+	edge [penwidth=3 color=\"#000000\"]\n\
+	node [fontname=\"URW Chancery L, Apple Chancery, Comic Sans MS, cursive\"]\n\
+	node [style=\"filled\" penwidth=1 fillcolor=\"#f0f0ffA0\" fontcolor=indigo]\n\
+	Happiness [fontsize=20 fontcolor=red URL=\"https://en.wikipedia.org/wiki/Category:Happiness\"]\n\
+	node [fontsize=15]\n\
+	Happiness -- {\n\
+		Peace\n\
+		Love\n\
+		Life\n\
+	}\n\
+ 	Life [fontcolor=seagreen]\n\
+	node [fontsize=10]\n\
+	Love [fontcolor=orchid URL=\"https://en.wikipedia.org/wiki/Category:Love\"]\n\
+	Love -- {\n\
+		Giving\n\
+		People\n\
+		Beauty\n\
+	}\n\
+	Beauty[fontcolor=mediumvioletred]\n\
+    Success [fontcolor=goldenrod]\n\
+	Life -- {\n\
+		Nature\n\
+		Wellbeing\n\
+		Success\n\
+	}\n\
+    Success -- {\n\
+		Creation\n\
+		Profit\n\
+		Win\n\
+		Career\n\
+	}\n\
+}\n\
+</div>\n\
+";      
+        break;
+    case 'network_map':
+    editor.value +="\n\
+<div class=\"mdbook-graphviz-output\">\n\
+digraph G {\n\
+ layout=twopi\n\
+ ranksep=1.1;\n\
+ ratio=auto;\n\
+\"1\" [ label=\"Happiness\",shape=\"hexagon\",style=\"filled\",color=\"green\" ];\n\
+\"2\" [ label=\"Peace\",shape=\"hexagon\",style=\"filled\",color=\"green\" ];\n\
+\"3\" [ label=\"Love\",shape=\"hexagon\",style=\"filled\",color=\"green\" ];\n\
+\"4\" [ label=\"Life\",shape=\"hexagon\",style=\"filled\",color=\"green\" ];\n\
+\"5\" [ label=\"Giving\",shape=\"hexagon\",style=\"filled\",color=\"green\" ];\n\
+\"6\" [ label=\"People\",shape=\"hexagon\",style=\"filled\",color=\"green\" ];\n\
+\"7\" [ label=\"Beauty\",shape=\"hexagon\",style=\"filled\",color=\"green\" ];\n\
+\"8\" [ label=\"Nature\",shape=\"hexagon\",style=\"filled\",color=\"green\" ];\n\
+\"9\" [ label=\"Success\",shape=\"hexagon\",style=\"filled\",color=\"green\" ];\n\
+\n\
+\"1\" -> \"2\" [ label=\" \",color=\"blue\",arrowhead=\"dot\" ];\n\
+\"1\" -> \"3\" [ label=\" \",color=\"blue\",arrowhead=\"dot\" ];\n\
+\"1\" -> \"4\" [ label=\" \",color=\"blue\",arrowhead=\"dot\" ];\n\
+\"3\" -> \"5\" [ label=\" \",color=\"blue\",arrowhead=\"dot\" ];\n\
+\"3\" -> \"6\" [ label=\" \",color=\"blue\",arrowhead=\"dot\" ];\n\
+\"3\" -> \"7\" [ label=\" \",color=\"blue\",arrowhead=\"dot\" ];\n\
+\"4\" -> \"8\" [ label=\" \",color=\"blue\",arrowhead=\"dot\" ];\n\
+\"4\" -> \"9\" [ label=\" \",color=\"blue\",arrowhead=\"dot\" ];\n\
+}\n\
+</div>\n\
+";     
+        break;
+    default:
+    editor.value +="\n\
+<div class=\"mdbook-graphviz-output\">\n\
+digraph G {\n\
+    A -> B;\n\
+    B -> C;\n\
+    C -> A;\n\
+}\n\
+</div>\n\
+";
+    }
+}
+
 function toggleEditModal(menu){
   const content = menu.querySelector('.dropdown-content-edit-modal');
   content.style.display = content.style.display === 'flex' ? 'none' : 'flex';
@@ -741,6 +981,22 @@ function addHTMLModal() {
                                 <label class="dropdown-item-edit-modal" title="Add Markdown link block" onclick="AddBlockMarkdownModal('link')" style="cursor: pointer;">Link</label>
                                 <label class="dropdown-item-edit-modal" title="Add Markdown checkbox block" onclick="AddBlockMarkdownModal('checkbox')" style="cursor: pointer;">Checkbox</label>
                                 <label class="dropdown-item-edit-modal" title="Add Markdown line block" onclick="AddBlockMarkdownModal('line')" style="cursor: pointer;">Line</label>
+                            </div>
+                        </div>
+
+                        <div class="dropdown-menu-edit-modal" onclick="toggleEditModal(this)">
+                            <button class="icon-button graphviz-icon" title="Add Graphviz block" style="cursor: pointer;">
+                                <img src="${basePath}/config/img/graphviz.png" alt="Mermaid" width="23" height="23">
+                            </button>
+                            <div class="dropdown-content-edit-modal">
+                                <label class="dropdown-item-edit-modal" title="Add Graphviz Layout Dot block" onclick="AddBlockGraphvizModal('state')" style="cursor: pointer;">State</label>
+                                <label class="dropdown-item-edit-modal" title="Add Graphviz Layout Dot block" onclick="AddBlockGraphvizModal('fancy')" style="cursor: pointer;">Fancy</label> 
+                                <label class="dropdown-item-edit-modal" title="Add Graphviz Layout Dot block" onclick="AddBlockGraphvizModal('tree')" style="cursor: pointer;">Tree</label> 
+                                <label class="dropdown-item-edit-modal" title="Add Graphviz Layout Dot block" onclick="AddBlockGraphvizModal('hash_map')" style="cursor: pointer;">HashMap</label>
+                                <label class="dropdown-item-edit-modal" title="Add Graphviz Layout Dot block" onclick="AddBlockGraphvizModal('edges_clusters')" style="cursor: pointer;">EdgesClusters</label>
+                                <label class="dropdown-item-edit-modal" title="Add Graphviz Layout Dot block" onclick="AddBlockGraphvizModal('structs')" style="cursor: pointer;">Structs</label>
+                                <label class="dropdown-item-edit-modal" title="Add Graphviz Layout Twopi block" onclick="AddBlockGraphvizModal('mind_map')" style="cursor: pointer;">MindMap</label>
+                                <label class="dropdown-item-edit-modal" title="Add Graphviz Layout Twopi block" onclick="AddBlockGraphvizModal('network_map')" style="cursor: pointer;">NetworkMap</label>
                             </div>
                         </div>
                     </div>
@@ -1023,6 +1279,15 @@ async function initTab(tab) {
     await restoreNewTR();
     // Применяем настройки и контент 
     await initTableFromStore();
+
+    // Проверка корректных graphviz
+    // TODO: так как mdbook преобразует код ```dot до препроцессора mdbook-graphviz, то обработка всего кода
+    // graphviz будет происходить в браузере при просмотрете страницы
+    const elements = [...document.querySelectorAll('.mdbook-graphviz-output')]
+        .filter(el => !el.querySelector('svg'));
+    for (const element of elements) {
+        await buildGraphvizWraper(element);
+    } 
 }
 
 function checkDeleteTR(){
@@ -1040,12 +1305,15 @@ function checkDeleteTR(){
 // Инициализация таблицы 
 async function initTableFromStore() {
     const table = document.querySelector('.data-table');
-    const rows = Array.from(table.rows); // только основная таблица
-    const cells = rows.flatMap(row => Array.from(row.cells)); // без вложенных td и th 
-    for (const cell of cells) {
-        await restoreCellContent(cell);// Подгружаем обновленный контент
-        setupCellSettingsMenu(cell);// Создаем меню настроек...
+    if (table){
+        const rows = Array.from(table.rows); // только основная таблица
+        const cells = rows.flatMap(row => Array.from(row.cells)); // без вложенных td и th 
+        for (const cell of cells) {
+            await restoreCellContent(cell);// Подгружаем обновленный контент
+            setupCellSettingsMenu(cell);// Создаем меню настроек...
+        }        
     }
+
     setupGlobalClick(); // Настраиваем глобальный клик для закрытия меню
     applySettingsFromStorage();// Применяем настройки  
 }
@@ -1900,22 +2168,24 @@ async function execute_python(code) {
     }
 }
 
+async function getLinkTextByTabId(tab_id) {
+    const response = await fetch(`${basePath}/SUMMARY.md`);
+    if (!response.ok) {
+        throw new Error(`Ошибка HTTP: ${response.status} ${response.statusText}`);
+    }
+    const markdown = await response.text();
+
+    const regex = new RegExp(`\\[(.*?)\\]\\(\\.\\/tabs\\/${tab_id}\/index\\.md\\)`);
+    const match = markdown.match(regex);
+    if (match && match[1]) {
+        return match[1];
+    }
+    return null;
+}
+
 // Устанавливает заголовок Tab используя имя ссылки из SUMMARY.md
 async function formatTitle(tab_id) {
-    async function getLinkTextByTabId(tab_id) {
-        const response = await fetch(`${basePath}/SUMMARY.md`);
-        if (!response.ok) {
-            throw new Error(`Ошибка HTTP: ${response.status} ${response.statusText}`);
-        }
-        const markdown = await response.text();
-
-        const regex = new RegExp(`\\[(.*?)\\]\\(\\.\\/tabs\\/${tab_id}\/index\\.md\\)`);
-        const match = markdown.match(regex);
-        if (match && match[1]) {
-            return match[1];
-        }
-        return null;
-    }
+    if (tab_id=="404")return;
     let formattedText = await getLinkTextByTabId(tab_id);
     if (formattedText==null){formattedText = tab_id.replace(/_/g, ' ');}
     if (formattedText.length > 0) {

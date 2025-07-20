@@ -482,12 +482,12 @@ h3, h2 {
 
 
 /* Жёстко прописываем стили для всех ссылок */
-a {
+a:not([tabindex]) {
   color: #0066cc !important;
   text-decoration: underline !important;
   cursor: pointer !important;
 }
-a:hover {
+a:not([tabindex]):hover {
   opacity: 0.8;
 }
 

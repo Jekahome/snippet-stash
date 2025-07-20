@@ -111,7 +111,7 @@ line break
 - Создать [personal-access-tokens](https://github.com/settings/personal-access-tokens/new) к своему репозиторию
 - Выполнить `make`, для запуска CI/CD создания `GitHub Page`
 
-⚠️ **Note:** Версии `bin/mdbook v0.4.51`, `bin/mdbook-mermaid v0.15.0`
+⚠️ **Note:** Версии `bin/mdbook v0.4.51`, `bin/mdbook-mermaid v0.15.0`, `bin/mdbook-graphviz v0.2.1`
 
 ---
 ## Resources
@@ -135,3 +135,8 @@ line break
 [Mermaid Diagramming xyChart](http://mermaid.js.org/syntax/xyChart.html)
 
 [Mermaid Diagramming Playground](https://www.mermaidchart.com/play?utm_source=mermaid_live_editor&utm_medium=toggle#pako:eNpdkMFOw0AMRH_Fyik5IO4VQmq5glqVcuvF3Tgbi8RevLuVUsS_k5KmQH3zm_Fo5M_CaU3FouhZ6h7DXgBMNZXlBVTVGQGsjT1LnBaAZxUPLcekNsxssWCnUjYIDd4dVN-rWdloyB0anzCxykwBVsaJYwth0iHEwbXaqR8Ac2rVYKcywCqf8HK1pUhorp0z1gLUNOQSH0koxoeD3T-i1NAQpmwU_xiXOWk_NnDgjG6avMVf6zRPP54jQSLXCn_kW8NrMkzkx7jQoQiL_68vzeeeJMH4xXBVd6rdNWhDAueyAQPZDF_IeuR6L8XXN7kLgpw)
+
+[Graphviz Diagramming](https://graphviz.org/Gallery/directed/), [Layout Dot pdf](https://graphviz.org/pdf/dotguide.pdf), 
+[A Network Map. Layout twopi](https://graphviz.org/Gallery/twopi/twopi2.html), [Mind map of Happiness. Layout twopi](https://graphviz.org/Gallery/twopi/happiness.html)
+
+[Graphviz Visual Editor Playground](https://magjac.com/graphviz-visual-editor/)
