@@ -533,3 +533,8 @@ a:not([tabindex]):hover {
 .dropdown-item-edit-modal:hover {
   background: #f5f5f5;
 }
+
+/* скрыть автодобавление графика Matplotlib*/
+body > div:has(canvas.mpl-canvas):last-of-type {
+  display: none !important;
+}

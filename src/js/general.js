@@ -319,7 +319,6 @@ async function reloadMermaidDiagrams() {
 }
 
 function extractLanguage(classString) {
-    console.log('extractLanguage=',classString)
     const match = classString.match(/language-([\w-]+)/);
     return match ? match[1] : null;
 }
@@ -926,6 +925,32 @@ digraph G {\n\
     }
 }
 
+function AddMatplotlibCodeBlockModal(){
+const editor = document.getElementById('modalTextEditor');
+    editor.value +=`
+<pre><code class="language-python">\n\
+import micropip\n\
+await micropip.install("matplotlib")\n\
+import matplotlib.pyplot as plt\n\
+import js\n\
+# Данные\n\
+x = [1, 2, 3, 4, 5]\n\
+y = [i**2 for i in x]  # [1, 4, 9, 16, 25]\n\
+\n\
+# Построение графика\n\
+plt.plot(x, y, label="y = x²", color='blue', marker='o')\n\
+\n\
+# Добавление подписей\n\
+plt.title("График функции y = x²")\n\
+plt.xlabel("x")\n\
+plt.ylabel("y")\n\
+plt.legend()\n\
+\n\
+# Показать график\n\
+plt.show()\n\
+</code></pre>`;
+}
+
 function toggleEditModal(menu){
   const content = menu.querySelector('.dropdown-content-edit-modal');
   content.style.display = content.style.display === 'flex' ? 'none' : 'flex';
@@ -999,6 +1024,9 @@ function addHTMLModal() {
                                 <label class="dropdown-item-edit-modal" title="Add Graphviz Layout Twopi block" onclick="AddBlockGraphvizModal('network_map')" style="cursor: pointer;">NetworkMap</label>
                             </div>
                         </div>
+                        <button class="icon-button python-icon" title="Add Matplotlib code block" onclick="AddMatplotlibCodeBlockModal()" style="cursor: pointer;">
+                           <img src="${basePath}/config/img/matplotlib.svg" alt="Matplotlib" width="25" height="25">
+                        </button> 
                     </div>
                     <div class="modal-footer-right">
                         <button class="modal-cancel-btn" onclick="closeModal()">Отмена</button>
@@ -2060,8 +2088,9 @@ async function hundlerExecutePython(preBlock){
         outputCode.className = 'result hljs language-bash';
         preBlock.appendChild(outputCode);
     }
-    const res = await execute_python(codeBlock.textContent);
-    outputCode.textContent = res || "no result";
+    console.log('outputCode=',outputCode);
+    await execute_python(codeBlock.textContent, outputCode);
+    //outputCode.textContent = res || "no result";
 }
 
 function addRunButtonsToPythonBlocks() {
@@ -2142,7 +2171,8 @@ async function getPyodide() {
             await import(`${basePath}/js/pyodide.full.v0.28.0.js`);
             window.pyodide = await loadPyodide({
                 indexURL: "https://cdn.jsdelivr.net/pyodide/v0.28.0/full/"
-            });
+            }); 
+            await pyodide.loadPackage("micropip");// Загрузка micropip
           }
     }catch (e) {
         console.error(`Ошибка: ${e}`);
@@ -2151,9 +2181,10 @@ async function getPyodide() {
 
 // Execute python
 // see https://pyodide.org/en/stable/usage/quickstart.html
-async function execute_python(code) {
+async function execute_python(code, outputCode) {
     try {
         await getPyodide();
+        
         let stdout = "";
         // TODO: перехват stdout
         window.pyodide.setStdout({
@@ -2161,8 +2192,24 @@ async function execute_python(code) {
             stdout += text;
           }
         });
+       
         const result = await window.pyodide.runPythonAsync(code);
-        return stdout.trim() || String(result) || "Код выполнен";
+
+        setTimeout(() => {
+            outputCode.innerHTML="";
+            const plotDiv = document.body.querySelector('div:has(canvas.mpl-canvas)');
+            if (plotDiv && outputCode) {
+                // Переместить — не клонировать
+                outputCode.innerHTML = "";
+                outputCode.appendChild(plotDiv);
+            } else if (stdout.trim()) {
+                outputCode.innerHTML = "stdout:\n" + stdout.trim();
+            } else if (result) {
+                outputCode.innerHTML = "result:\n" + String(result);
+            } else {
+                outputCode.innerHTML = "Код выполнен";
+            }
+        }, 500);;
     } catch (e) {
       return `Ошибка: ${e}`;
     }
