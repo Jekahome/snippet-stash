@@ -1025,7 +1025,7 @@ function addHTMLModal() {
                             </div>
                         </div>
                         <button class="icon-button python-icon" title="Add Matplotlib code block" onclick="AddMatplotlibCodeBlockModal()" style="cursor: pointer;">
-                           <img src="${basePath}/config/img/matplotlib.svg" alt="Matplotlib" width="25" height="25">
+                           <img src="${basePath}/config/img/matplotlib.svg" alt="Matplotlib" height="20">
                         </button> 
                     </div>
                     <div class="modal-footer-right">
@@ -2197,7 +2197,14 @@ async function execute_python(code, outputCode) {
 
         setTimeout(() => {
             outputCode.innerHTML="";
-            const plotDiv = document.body.querySelector('div:has(canvas.mpl-canvas)');
+             
+            const plotDivs = Array.from(document.body.children).filter(el =>
+                el.tagName === 'DIV' &&
+                el.querySelector('canvas.mpl-canvas') &&            
+                !el.querySelector('.cell-content canvas.mpl-canvas')  
+            );
+            const plotDiv = plotDivs[0] ?? null;
+            
             if (plotDiv && outputCode) {
                 // Переместить — не клонировать
                 outputCode.innerHTML = "";

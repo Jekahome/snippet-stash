@@ -59,11 +59,14 @@ To improve build performance, all executable tools (`bin/mdbook`, `bin/editor-md
 
 - Подсветка синтаксиса кода
 - Выполнение кода на языке Rust, Python
+- Mermaid диаграммы
+- Graphviz диаграммы
+- Matplotlib графики
 - Makrdown форматирование заметок 
 - Поиск по заметкам
 - Статический сайт
 - Новые разделы `tab` создаются после редактирования структуры в файле `src/SUMMARY.md`
-- Mermaid диаграммы
+
 
 <details>
 
@@ -72,10 +75,12 @@ To improve build performance, all executable tools (`bin/mdbook`, `bin/editor-md
 * Syntax highlighting for code snippets
 * Code execution support (Rust and Python)
 * Markdown-based note formatting
+* Matplotlib charts
 * Full-text search across notes
 * Static website generation with `mdBook`
 * New `tab` sections are created after editing the structure in the `src/SUMMARY.md` file
 * Mermaid Diagramming
+* Graphviz Diagramming
 </details>
 
 ### Оформление кода
@@ -89,24 +94,12 @@ print_person("Bob")
 </code></pre>
 ```
 
-- Оформление кода в Markdown 
-
-```code
-line break
-line break
-```rust
-fn main() {
-    println!("Hello, world!");
-}
-line break
-```
 
 ## Установка
 
 - Склонировать, удалить содержимое папок `src/tabs`, `src/images`.
 - В файле `book.toml` поменять `output.html.site-url`.
 - В файле `src/js/general.js` поменять константы репозитория (`owner,repo,branch`).
-  - вариант горячей замены констант при сборке книги, использовать preprocessor `cmdrun` (`[preprocessor.cmdrun] after = ["include-md"]`), в каждом `src/tabs/.../index.md` добавить в javascript команду: `<!-- cmdrun cat ../../config/setting.js -->`. В этом файле установить константы `window.repo='...'; ...`
 - Редактировать файл `src/SUMMARY.md`
 - Создать [personal-access-tokens](https://github.com/settings/personal-access-tokens/new) к своему репозиторию
 - Выполнить `make`, для запуска CI/CD создания `GitHub Page`
