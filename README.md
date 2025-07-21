@@ -17,11 +17,11 @@ The idea was born out of the need for proper syntax highlighting (which was miss
 
 ## Preview
 
+**Скриншоты, гифки или диаграммы, которые иллюстрируют интерфейс или архитектуру.**
+
 <details>
 
-<summary>Скриншоты, гифки или диаграммы, которые иллюстрируют интерфейс или архитектуру.</summary>
-
-Форматы отрисовки
+<summary>Features</summary>
 
 ![Basic functionality](promo/Peek_2025_07_21.gif)
 
@@ -29,9 +29,13 @@ The idea was born out of the need for proper syntax highlighting (which was miss
 
 <details>
 
-<summary>Скриншоты, гифки или диаграммы, которые иллюстрируют интерфейс или архитектуру.</summary>
+<summary>Create Tabs</summary>
 
-Создание Tabs
+```
+Important! Path format:
+
+- [NAME YOUR TAB](./tabs/<NEW_TAB_ID>/index.md)
+```
 
 ![Basic functionality](promo/Peek_2025_07_21_tabs.gif)
 
@@ -39,17 +43,25 @@ The idea was born out of the need for proper syntax highlighting (which was miss
 
 <details>
 
-<summary>Скриншоты, гифки или диаграммы, которые иллюстрируют интерфейс или архитектуру.</summary>
-
-Форматирование ячеек
+<summary>Formatting cells</summary>
 
 ![Basic functionality](promo/Peek_2025_07_21_face.gif)
 
 </details>
 
+<details>
+
+<summary>Matplotlib: Visualization with Python.</summary>
+
+![Basic functionality](promo/Peek_2025_07_21_matplotlib.gif)
+
+</details>
+
+
+
 Онлайн редактирование контента сохраняется в `localStorage` браузере пользователя. При сохранении изменений выполняется запрос на Github через Github API и инициируется CI/CD сборка с запуском скриптов изменения makrdown файлов репозитория. Таким образом реализовано добавление новый страниц, ячеек таблиц, добавления картинок.
 
-Для ускорения времени сборки, исполняемые файлы, такие как: `bin/mdbook`, `bin/editor-md`, `bin/mdbook-include-md` предварительно скомпилированы. 
+Для ускорения времени сборки, исполняемые файлы, такие как: `bin/mdbook`, `bin/editor-md`, `bin/mdbook-include-md`, `bin/mdbook-graphviz`, `bin/mdbook-mermaid` предварительно скомпилированы. 
 
 Удаление страниц `tab` и картинок не поддерживается через WEB
 
@@ -63,7 +75,7 @@ This project allows **live editing of HTML content directly in the browser**. Ch
 * Inserting new table rows (`<tr>`)
 * Uploading and embedding images
 
-To improve build performance, all executable tools (`bin/mdbook`, `bin/editor-md`, `bin/mdbook-include-md`) are precompiled in required versions and reused across builds.
+To improve build performance, all executable tools (`bin/mdbook`, `bin/editor-md`, `bin/mdbook-include-md`, `bin/mdbook-graphviz`, `bin/mdbook-mermaid`) are precompiled in required versions and reused across builds.
 
 > ⚠️ **Note:** Deleting `tab` pages and images is not supported via WEB
 </details>
