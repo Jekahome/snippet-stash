@@ -2400,12 +2400,21 @@ function reloadWithCacheClear() {
     // window.location.href = window.location.href + '?t=' + new Date().getTime();
     
     // Способ 3: Для более агрессивной очистки
-    if ('caches' in window) {
-        caches.keys().then(names => {
-            names.forEach(name => {
-                caches.delete(name);
-            });
+    if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.getRegistrations().then(registrations => {
+            for (let registration of registrations) {
+                registration.unregister();
+            }
         });
     }
-    window.location.reload(true);
+    if ('caches' in window) {
+        caches.keys().then(names => {
+            for (let name of names) {
+                caches.delete(name);
+            }
+        });
+    }
+
+    // Форсим загрузку новой версии
+    window.location.href = window.location.href.split('?')[0] + '?t=' + new Date().getTime();
 }
