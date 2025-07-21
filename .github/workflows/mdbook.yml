@@ -47,6 +47,8 @@ jobs:
       - name: Make binaries executable
         run: |
           chmod +x ./bin/mdbook
+          chmod +x ./bin/mdbook-mermaid
+          chmod +x ./bin/mdbook-graphviz
           chmod +x ./bin/editor-md
           chmod +x ./copy_raw_other_files.sh
           chmod +x ./execute_editor_commands.sh

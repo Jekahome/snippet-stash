@@ -135,6 +135,30 @@ print_person("Bob")
 ```
 
 
+## Как устроен CI/CD на GitHub Actions
+
+Workflow, описанный в `.github/workflows/mdbook.yml`, запускается при событии `push` в ветку `main`.
+
+Процесс сборки занимает около 25–35 секунд благодаря использованию предварительно собранных исполняемых файлов. Поскольку работа с заметками не требует частых коммитов, обычно инициировать push (то бишь нажимать сохранить) происходит лишь по окончанию работы и ожидать минуту для завершения сборки новой версии не придется. Исключение составляет загрузка изображений: так как сайт работает без сервера, изображения отправляются сразу после выбора и загружаются в репозиторий через GitHub API, это автоматически инициирует запуск GitHub Actions Workflow.
+
+Во время выполнения Workflow запускаются скрипты `copy_raw_other_files.sh` и `execute_editor_commands.sh`, которые изменяют содержимое файлов и директорий в репозитории. Это может привести к дополнительному внутреннему push от CI-бота.
+
+
+<details>
+
+<summary>How GitHub Actions CI/CD Works</summary>
+
+The workflow defined in `.github/workflows/mdbook.yml` is triggered by a `push` event to the `main` branch.
+
+The build process takes approximately 25–35 seconds, thanks to the use of precompiled binaries. Since working with notes doesn't require frequent commits, pushes (i.e. saving changes) are usually done only at the end of a session, so there’s no need to wait for a full minute while a new version is built.
+
+An exception is image uploads: because the site is serverless, images are uploaded immediately after selection and pushed to the repository via the GitHub API. This automatically triggers the GitHub Actions workflow.
+
+During workflow execution, the scripts `copy_raw_other_files.sh` and `execute_editor_commands.sh` are run. These modify the contents of files and directories in the repository, which may result in an additional internal push by the CI bot.
+
+</details>
+
+
 ## Установка
 
 - Склонировать, удалить содержимое папок `src/tabs`, `src/images`.
@@ -149,7 +173,28 @@ print_person("Bob")
 - `bin/mdbook-mermaid v0.15.0`
 - `bin/mdbook-graphviz v0.2.1`
 
----
+
+<details>
+
+<summary>Install</summary>
+
+* Clone the repository and delete the contents of the `src/tabs` and `src/images` folders.
+* In the `book.toml` file, update the `output.html.site-url` value.
+* In `src/js/general.js`, update the repository constants (`owner`, `repo`, `branch`).
+* Edit the `src/SUMMARY.md` file as needed.
+* Create a [personal access token](https://github.com/settings/personal-access-tokens/new) for your repository.
+* Run `make` to trigger the CI/CD process and deploy the GitHub Page.
+
+⚠️ **Note:** Required tool versions:
+
+* `bin/mdbook v0.4.51`
+* `bin/mdbook-mermaid v0.15.0`
+* `bin/mdbook-graphviz v0.2.1`
+
+
+</details>
+
+
 ## Resources
 
 - [mdBook doc](https://docs.rs/mdbook/latest/mdbook/preprocess/struct.CmdPreprocessor.html)
