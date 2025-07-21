@@ -6,13 +6,28 @@
 
 Идея возникла как вариант более удобного использования `Google Sheets`, который имеет структуру таблицы, но не имеет подсветки синтаксиса. Вариант с форматом Markdown (`mdbook`) значительно лучше для форматирования кода, и возможность применения `Javascript` позволяет пользователю взаимодействовать с контентом.
 
+Сайт представляет собой статически сгенерированные страницы и размещается через GitHub Pages.
+Это удобно для публичных заметок — все файлы доступны напрямую.
+
+Если вы хотите хранить приватные заметки, вам потребуется либо:
+- платный GitHub-аккаунт с приватным репозиторием и включённым GitHub Pages;
+- либо расширить CI/CD-пайплайн и настроить деплой на собственный сервер или хостинг.
+
 <details>
 <summary>en</summary>
 
 **Snippet Stash** is a code snippet storage system designed to serve as a personal reference or knowledge base.  
 The idea was born out of the need for proper syntax highlighting (which was missing in Google Sheets) and the advantages provided by `mdBook`.
 
+The site is a static website hosted via GitHub Pages.
+This is ideal for public notes, as all files are openly accessible.
+
+If you want to keep your notes private, you’ll need either:
+
+- a paid GitHub account with a private repository and GitHub Pages enabled;
+- or extend the CI/CD pipeline to deploy the site to your own server or hosting provider.
 </details>
+
 
 ## Preview
 
@@ -31,7 +46,7 @@ The idea was born out of the need for proper syntax highlighting (which was miss
 <summary>Create Tabs</summary>
 
 ```
-Important! Path format:
+⚠️ Important! Path format:
 
 - [NAME YOUR TAB](./tabs/<NEW_TAB_ID>/index.md)
 ```
