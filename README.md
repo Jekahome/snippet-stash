@@ -91,7 +91,7 @@ To improve build performance, all executable tools (`bin/mdbook`, `bin/editor-md
 - Makrdown форматирование заметок 
 - Поиск по заметкам
 - Статический сайт
-- Новые разделы `tab` создаются после редактирования структуры в файле `src/SUMMARY.md`
+- Новые разделы `tab` создаются после редактирования структуры `src/SUMMARY.md` через WEB
 
 
 <details>
