@@ -21,7 +21,9 @@ The idea was born out of the need for proper syntax highlighting (which was miss
 
 <summary>Скриншоты, гифки или диаграммы, которые иллюстрируют интерфейс или архитектуру.</summary>
 
-![Basic functionality](promo/Peek-2025-07-17-1.gif)
+Форматы отрисовки
+
+![Basic functionality](promo/Peek_2025_07_21.gif)
 
 </details>
 
@@ -29,7 +31,19 @@ The idea was born out of the need for proper syntax highlighting (which was miss
 
 <summary>Скриншоты, гифки или диаграммы, которые иллюстрируют интерфейс или архитектуру.</summary>
 
-![Basic functionality](promo/Peek-2025-07-17-2.gif)
+Создание Tabs
+
+![Basic functionality](promo/Peek_2025_07_21_tabs.gif)
+
+</details>
+
+<details>
+
+<summary>Скриншоты, гифки или диаграммы, которые иллюстрируют интерфейс или архитектуру.</summary>
+
+Форматирование ячеек
+
+![Basic functionality](promo/Peek_2025_07_21_face.gif)
 
 </details>
 
