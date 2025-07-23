@@ -13,6 +13,8 @@
 - платный GitHub-аккаунт с приватным репозиторием и включённым GitHub Pages;
 - либо расширить CI/CD-пайплайн и настроить деплой на собственный сервер или хостинг.
 
+[Show Actions Linux (Usage breakdown)](https://github.com/settings/billing/usage?period=3&group=4&customer=14034757)
+
 <details>
 <summary>en</summary>
 
