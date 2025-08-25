@@ -20,3 +20,4 @@ fn main() {
     let x =  42;
     println!("{}", x); // Выводит 42
 </code></pre>
+

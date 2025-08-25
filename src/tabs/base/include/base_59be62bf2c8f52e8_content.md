@@ -1,4 +1,5 @@
 
+
 <pre><code class="language-rust">
 fn main(){
     let country = String::from("Austria");
