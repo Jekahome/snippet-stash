@@ -1091,6 +1091,9 @@ async function loadContent(cell_id) {
 
 async function editContent(cell_id) {
     try {
+        // Сохраняем текущий скролл
+        const scrollY = window.scrollY;
+
         editCellId = cell_id;
         const modal = document.getElementById('textModal');
         const editor = document.getElementById('modalTextEditor');
@@ -1117,9 +1120,16 @@ async function editContent(cell_id) {
           editor.value = markdown_content;  
         }
         modal.classList.add('show');
-        editor.focus();
+
+        // Ставим фокус без изменения скролла
+        editor.focus({ preventScroll: true });
+
+        // Ставим курсор в начало без прокрутки страницы
         editor.setSelectionRange(0, 0);
-        editor.scrollTop = 0;
+
+        // Восстанавливаем позицию страницы
+        window.scrollTo(0, scrollY);
+         
         // Дополнительная проверка для браузеров
         if (editor.createTextRange) {
             const range = editor.createTextRange();
