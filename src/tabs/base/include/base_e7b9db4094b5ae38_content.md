@@ -21,6 +21,7 @@ fn main() {
 ```
 
 Можно проще:
+
 ```
 use std::io::Write;
 writeln!(std::io::stdout(), "{}", "hello");

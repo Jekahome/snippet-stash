@@ -1,7 +1,6 @@
 
 
 * Позиция для каждого аргумента.
-
 <pre><code class="language-rust">
 fn main(){
  println!("{0}, это {1}. {1}, это {0}", "Алиса", "Боб");
@@ -11,7 +10,6 @@ fn main(){
 </code></pre>
 
 * Именованные аргументы.
-
 <pre><code class="language-rust">
 fn main(){
 println!("{subject} {verb} {object}",
@@ -21,15 +19,13 @@ println!("{subject} {verb} {object}",
 }
 </code></pre>
  
-* Двоичные типы чисел 
-  * Бинарный
+* Бинарный
     <pre><code class="language-rust">
      fn main(){  println!("{} из {:b} людей знают, что такое двоичный код, а остальные нет.", 1, 2); 
      }
    </code></pre>
 
-  * Число в двоичном формате
-
+* Число в двоичном формате
    <pre><code class="language-rust">
      fn main(){
       let x = 42; // 42 is '101010' in binary
@@ -46,8 +42,7 @@ println!("{subject} {verb} {object}",
      }
      </code></pre>
 
-  * Вывод байт 
-
+* Вывод байт 
     <pre><code class="language-rust">
       fn main(){
         println!("binary -127={:08b}",-127_i8);// -127=10000001
@@ -55,7 +50,6 @@ println!("{subject} {verb} {object}",
      </code></pre>
 
 * Вывод f64
-
     <pre><code class="language-rust">
       fn main(){
        let mut money = 100.99999;
@@ -91,7 +85,6 @@ fn main(){
 
 Реализуйте эти черты для любого числового типа, с которым вы могли бы подумать о побитовых манипуляциях, таких как | или &
 
-
 * Можно выравнивать текст, сдвигая его на указанную ширину.
    Данный макрос отобразит в консоли
 
@@ -122,4 +115,3 @@ fn main(){
 }
 </code></pre>
 
- 
