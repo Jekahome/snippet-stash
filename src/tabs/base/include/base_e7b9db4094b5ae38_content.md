@@ -1,3 +1,5 @@
+
+
 ```
 fn main() {
     use std::io::{self, stdin, stdout, Write};
