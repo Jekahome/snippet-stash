@@ -1,4 +1,5 @@
 
+
 **Формат**: `{ [argument] ':' [[fill] align] [sign] ['#'] [width [$]] ['.' precision [$]] [type] }` 
 
 

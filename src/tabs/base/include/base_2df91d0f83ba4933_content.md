@@ -18,7 +18,7 @@ fn main(){
 }
 </code></pre>
 
-Точность
+* Точность
 
 <pre><code class="language-rust">
 fn main(){
@@ -32,7 +32,7 @@ fn main(){
 }
 </code></pre>
 
-Выравнивание второй колонки
+* Выравнивание второй колонки
 
 <pre><code class="language-rust">
 fn main(){
@@ -47,7 +47,7 @@ fn main(){
 }
 </code></pre>
 
-Выравнивание и ширина
+* Выравнивание и ширина
 
 <pre><code class="language-rust">
 fn main(){
