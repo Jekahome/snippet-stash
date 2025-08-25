@@ -1136,7 +1136,7 @@ async function editContent(cell_id) {
 async function saveTextModal() {
     const editor = document.getElementById('modalTextEditor');
     let cell = document.getElementById(editCellId);
-    if (checkBacktickFormatting(editor.value) && await checkMermaidFormatting(editor.value)){
+    if (checkSpaces(editor.value) && checkBacktickFormatting(editor.value) && await checkMermaidFormatting(editor.value)){
         await convertTextToHTML(cell, editor.value);
         pathTabStore.set(`content.${currentTabId}.${cell.id}`, editor.value);
         closeModal();        
@@ -2148,6 +2148,18 @@ async function hundlerUndoChangesCell(cell_id) {
     }
 }
 
+function checkSpaces(text) {
+    if (typeof text == 'string') {
+        let res = /^ {2,}.* {1,}$/.test(text);
+        if (!res) {
+            alert('Необходимо два отсупа от верхнего края и один после контента');
+            console.error('Необходимо два отсупа от верхнего края и один после контента');
+            return false;
+        }        
+    }
+    return true;
+}
+
 function checkBacktickFormatting(text) {
     const codeBlockRegex = /```[\s\S]*?```/g;
     let match;
@@ -2216,7 +2228,7 @@ async function execute_python(code, outputCode) {
             } else {
                 outputCode.innerHTML = "Код выполнен";
             }
-        }, 500);;
+        }, 500);
     } catch (e) {
       return `Ошибка: ${e}`;
     }
