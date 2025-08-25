@@ -1,3 +1,13 @@
 {
-
+  "base": {
+    "base_d3113d84a9bd172c_topic": {
+      "backgroundColor": "#eeeeee"
+    },
+    "base_7f62612edef48672_topic": {
+      "backgroundColor": "#eeeeee"
+    },
+    "base_0a4253842bd08148_topic": {
+      "backgroundColor": "#eeeeee"
+    }
+  }
 }
