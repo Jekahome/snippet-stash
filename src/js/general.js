@@ -1136,7 +1136,7 @@ async function editContent(cell_id) {
 async function saveTextModal() {
     const editor = document.getElementById('modalTextEditor');
     let cell = document.getElementById(editCellId);
-    if (checkSpaces(editor.value) && checkBacktickFormatting(editor.value) && await checkMermaidFormatting(editor.value)){
+    if (checkNewlines(editor.value) && checkBacktickFormatting(editor.value) && await checkMermaidFormatting(editor.value)){
         await convertTextToHTML(cell, editor.value);
         pathTabStore.set(`content.${currentTabId}.${cell.id}`, editor.value);
         closeModal();        
@@ -2148,14 +2148,17 @@ async function hundlerUndoChangesCell(cell_id) {
     }
 }
 
-function checkSpaces(text) {
-    if (typeof text == 'string') {
-        let res = /^ {2,}.* {1,}$/.test(text);
+function checkNewlines(text) {
+    if (typeof text === 'string') {
+        // ^(\r?\n){2,} — минимум 2 переноса строки в начале
+        // [\s\S]* — любой контент (включая переносы)
+        // (\r?\n){1,}$ — минимум 1 перенос строки в конце
+        const res = /^(\r?\n){2,}[\s\S]*(\r?\n){1,}$/.test(text);
         if (!res) {
-            alert('Необходимо два отсупа от верхнего края и один после контента');
-            console.error('Необходимо два отсупа от верхнего края и один после контента');
+            alert('Необходимо два переноса строки в начале и один в конце');
+            console.error('Необходимо два переноса строки в начале и один в конце');
             return false;
-        }        
+        }
     }
     return true;
 }
