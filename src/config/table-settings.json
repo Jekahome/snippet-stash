@@ -1,6 +1,6 @@
 {
   "base": {
-    "base_d3113d84a9bd172c_topic": {
+    "base_3378ea4c8e1151da_topic": {
       "backgroundColor": "#eeeeee"
     },
     "base_7f62612edef48672_topic": {
@@ -9,5 +9,6 @@
     "base_0a4253842bd08148_topic": {
       "backgroundColor": "#eeeeee"
     }
-  }
+  },
+  "generic": {}
 }
