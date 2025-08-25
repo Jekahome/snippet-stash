@@ -1,5 +1,7 @@
 
-Формат: **{ [argument] ':' [[fill] align] [sign] ['#'] [width [$]] ['.' precision [$]] [type] }**
+**Формат**: `{ [argument] ':' [[fill] align] [sign] ['#'] [width [$]] ['.' precision [$]] [type] }` 
+
+
 
 | Элемент     | Описание |
 |-------------|----------|

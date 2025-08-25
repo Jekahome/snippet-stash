@@ -22,8 +22,18 @@ html, body {
     padding: 0;
 }
 
+ul {
+    display: block;
+    list-style-type: disc;
+    margin-block-start: 0.3em;
+    margin-block-end: 0.1em;
+    padding-inline-start: 15px;
+    unicode-bidi: isolate;
+}
+
 table{
     margin: 0;  
+    border-collapse: collapse;
 }
 
 /* Первая строка с id */
@@ -216,8 +226,8 @@ th[id]:nth-of-type(3) {
     overflow-x: auto;
 }
 pre code.hljs{
-    padding: 16px;
-    /*margin-top:-20px;*/
+    padding: 0px;
+    margin-top:-10px;
 }
 
 code {
