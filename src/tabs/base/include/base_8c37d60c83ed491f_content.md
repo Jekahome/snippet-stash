@@ -20,59 +20,53 @@ println!("{subject} {verb} {object}",
 </code></pre>
  
 * Бинарный
-    <pre><code class="language-rust">
-     fn main(){  println!("{} из {:b} людей знают, что такое двоичный код, а остальные нет.", 1, 2); 
-     }
-   </code></pre>
+<pre><code class="language-rust">
+ fn main(){  println!("{} из {:b} людей знают, что такое двоичный код, а остальные нет.", 1, 2); }
+</code></pre>
 
 * Число в двоичном формате
-   <pre><code class="language-rust">
-     fn main(){
-      let x = 42; // 42 is '101010' in binary
-      println!("{:b}", x);// 101010
-      println!("{:#b}", x);// 0b101010
-    }
-   </code></pre>
+<pre><code class="language-rust">
+fn main(){
+ let x = 42; // 42 is '101010' in binary
+ println!("{:b}", x);// 101010
+ println!("{:#b}", x);// 0b101010
+}
+</code></pre>
 
-  * Вместе RAW и байты
-
-     <pre><code class="language-rust">
-      fn main(){
-       println!("{:?}", br##"I like to write "#"."##);
-     }
-     </code></pre>
+* Вместе RAW и байты
+<pre><code class="language-rust">
+fn main(){ println!("{:?}", br##"I like to write "#"."##);}
+</code></pre>
 
 * Вывод байт 
-    <pre><code class="language-rust">
-      fn main(){
-        println!("binary -127={:08b}",-127_i8);// -127=10000001
-      }
-     </code></pre>
+<pre><code class="language-rust">
+fn main(){
+ println!("binary -127={:08b}",-127_i8);// -127=10000001
+}
+</code></pre>
 
 * Вывод f64
-    <pre><code class="language-rust">
-      fn main(){
-       let mut money = 100.99999;
-       loop{
-         money=money-0.00001f64;
-         println!("Money: {0:.5}", money); // Money: 100.99998
-         sleep(Duration::new(3, 0));
-       }
-      }
-     </code></pre>
+<pre><code class="language-rust">
+fn main(){
+ let mut money = 100.99999;
+ loop{
+  money=money-0.00001f64;
+  println!("Money: {0:.5}", money); // Money: 100.99998
+  sleep(Duration::new(3, 0));
+ }
+}
+</code></pre>
 
 * Hex, Octal, Binary форматирование 
 
-`std::fmt::UpperHex`
-
-`std::fmt::LowerHex`
-
-`std::fmt::Octal`
-
-`std::fmt::Binary`
+```
+std::fmt::UpperHex
+std::fmt::LowerHex
+std::fmt::Octal
+std::fmt::Binary
+```
  
 Эти черты контролировать представление типа под `{:X}`, `{:x}`, `{:o}` и `{:b}` спецификаторов формата.
-
 <pre><code class="language-rust">
 fn main(){
  // число в шестнадцатеричном формате с A до F
@@ -90,11 +84,11 @@ fn main(){
 
 <pre><code class="language-rust">
 fn main(){
-   // "     1". 5 пробелов и "1".
-   println!("{number:>width$}", number=1, width=6);
+  // "     1". 5 пробелов и "1".
+  println!("{number:>width$}", number=1, width=6);
 
-   // Отступ 5 пробелов
-   println!("{:<5} {}",1,2);
+  // Отступ 5 пробелов
+  println!("{:<5} {}",1,2);
 }
 </code></pre>
  

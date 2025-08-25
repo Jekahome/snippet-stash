@@ -1,4 +1,5 @@
 
+
 `"{:b}"   {integer | identifier : [[character]< |^| >][+|-][#][0][width]['.' $|integer|*][identifier | ? | ''] }`
 
 <pre><code class="language-rust">
@@ -19,7 +20,6 @@ fn main(){
 </code></pre>
 
 * Точность
-
 <pre><code class="language-rust">
 fn main(){
     println!("|{number:>0width$}|", number=1, width=5);// |00001| добили нулями до 5 символов
@@ -33,7 +33,6 @@ fn main(){
 </code></pre>
 
 * Выравнивание второй колонки
-
 <pre><code class="language-rust">
 fn main(){
     for (k,v) in [("key1","fffff"),("keyyy1","gg"),("keyyyyyyy1","hhhhhhhhhhh")]{
@@ -48,7 +47,6 @@ fn main(){
 </code></pre>
 
 * Выравнивание и ширина
-
 <pre><code class="language-rust">
 fn main(){
     println!( "Hello {1:0$}!" , 5 , "x" );// Hello x    !
