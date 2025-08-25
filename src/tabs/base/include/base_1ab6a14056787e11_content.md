@@ -1,3 +1,5 @@
+
+
 * Затенение переменной
 
 <pre><code class="language-rust">
