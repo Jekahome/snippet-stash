@@ -13,7 +13,7 @@
 * [Function Pointers](#Function-Pointers)
 * [Функции `Fn, FnOnce, FnMut`](#Функции)
 * [Closures (a lambda expression)](#Closures)
-* Паттерны изменчивости (`Arc, RefCell`)
+* [Паттерны изменчивости (`Arc, RefCell`)](#Паттерны-изменчивости)
 * Типаж `Copy, Clone`
 * Владение (Ownership)
 * Ссылки

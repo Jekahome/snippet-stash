@@ -1,44 +1,16 @@
 {
   "base": {
-    "base_3378ea4c8e1151da_topic": {
+    "base_c2aa09311c917f89_topic": {
       "backgroundColor": "#b4b4b4"
     },
-    "base_7f62612edef48672_topic": {
+    "base_94c9f59960a8f7dc_topic": {
       "backgroundColor": "#b4b4b4"
     },
-    "base_0a4253842bd08148_topic": {
+    "base_d8be0609a147ff39_topic": {
       "backgroundColor": "#b4b4b4"
     },
-    "base_ca58a2633bdd80bb_topic": {
-      "backgroundColor": "#b4b4b4"
-    },
-    "base_d3113d84a9bd172c_topic": {
-      "backgroundColor": "#b4b4b4"
-    },
-    "base_a78ba10e6ebcf298_topic": {
-      "backgroundColor": "#b4b4b4"
-    },
-    "base_09700fe718596df6_topic": {
-      "backgroundColor": "#b4b4b4"
-    },
-    "base_84113023f7a6d09c_topic": {
-      "backgroundColor": "#b6b4b4"
-    },
-    "base_b4376c17b34fd598_topic": {
-      "backgroundColor": "#b4b4b4"
-    },
-    "base_1a8cc110c20895fa_topic": {
-      "backgroundColor": "#b4b4b4"
-    },
-    "base_4fa10c13e8520e8c_topic": {
-      "backgroundColor": "#b4b4b4"
-    },
-    "base_344a6bceb1cab850_topic": {
-      "backgroundColor": "#b4b4b4"
-    },
-    "base_4e63634e97f58b60_topic": {
+    "base_6e21f4f2929c181e_topic": {
       "backgroundColor": "#b4b4b4"
     }
-  },
-  "generic": {}
+  }
 }
