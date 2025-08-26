@@ -1111,7 +1111,7 @@ async function loadContent(cell_id) {
 async function editContent(cell_id) {
     try {
         // Сохраняем текущий скролл
-        scrollY = window.scrollY;
+        scrollY = window.scrollY;console.log(`scrollY=${scrollY}`);
 
         editCellId = cell_id;
         const modal = document.getElementById('textModal');
