@@ -9,9 +9,9 @@
 * [Конструкция `if let`](#Конструкция-if-let)
 * [Конструкция `while let`](#Конструкция-while-let)
 * [Циклы](#Циклы)
-* `match` (switch)
-* Function Pointers
-* Функции `Fn, FnOnce, FnMut`
+* [`match`](#match)
+* [Function Pointers](#Function-Pointers)
+* [Функции `Fn, FnOnce, FnMut`](#Функции)
 * Closures (a lambda expression) 
 * Паттерны изменчивости (`Arc, RefCell`)
 * Типаж `Copy, Clone`
