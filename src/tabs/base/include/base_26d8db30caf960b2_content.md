@@ -1,0 +1,59 @@
+
+
+Инструкция `for in` неявно вызывает для коллекции реализацию  `into_iter` которая потребляет коллекцию и она после недоступна т.е. после `for in` коллекции нет
+
+```
+let v = vec![1,2,3];
+for i in v{} => for i in v.into_iter(){}
+```
+
+0..10 это  выражение возвращает итератор, до 10 (не включая), аналогично `std::ops::Range { start: 0, end: 10 }`
+ и только диапазон с начальным значением может итерироваться ("..end" не итерируется )
+<pre><code class="language-rust">
+fn main(){
+ for x in 0..10 {
+    print!("{}", x); // x: i32
+ }
+}
+</code></pre>
+
+---
+
+1..=5 диапазон с включая последнее значение
+<pre><code class="language-rust">
+fn main(){
+ for n in 1..=5  {
+   println ! ("{}", n);
+ }
+}
+</code></pre>
+
+---
+<pre><code class="language-rust">
+fn main(){
+ // let array:[i32;10]=[1,2,3,4,5,6,7,8,9,10];
+ let mut array:[i32;10]= [2;10];
+
+ for x in &array {
+    print!("{} ", x);
+ }
+}
+</code></pre>
+
+---
+```
+for n in 0.. {} // бесконечный цикл
+```
+
+---
+<pre><code class="language-rust">
+fn main(){
+ for city in [
+    City { name: "Дублин", lat: 53.347778, lon: -6.259722 },
+    City { name: "Осло", lat: 59.95, lon: 10.75 },
+    City { name: "Ванкувер", lat: 49.25, lon: -123.1 },
+ ].iter() {
+    println!("{}", *city);
+ }
+}
+</code></pre>
