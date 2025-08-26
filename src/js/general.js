@@ -1659,7 +1659,7 @@ function setupGlobalClick() {
             });
         }
         // Если кликнули на ссылку
-        if (e.target.tagName === 'A' && e.target.href && (!e.target.hasAttribute('tabindex') && !e.classList.contains('header') )) {
+        if (e.target.tagName === 'A' && e.target.href && (!e.target.hasAttribute('tabindex') && !e.target.classList.contains('header') )) {
             e.preventDefault(); 
             window.open(e.target.href, '_blank');
         }
