@@ -1,0 +1,3 @@
+
+
+Висячие указатели, dangling pointers 
