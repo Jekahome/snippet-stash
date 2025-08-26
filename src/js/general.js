@@ -443,8 +443,11 @@ function AddCodeBlockModal(language){
     const editor = document.getElementById('modalTextEditor');
     editor.value += `
 <pre><code class="language-${language}">
-...
-</code></pre>`;
+fn main(){
+ ...
+}
+</code></pre>
+`;
 }
 
 function AddBlockMermaidModal(key){
@@ -667,6 +670,11 @@ editor.value +="\n\
         break;
     case 'link':
 editor.value +="\n\
+[Yahoo](http://search.msn.com/#)\n\
+"; 
+    break;       
+    case 'link2':
+editor.value +="\n\
 Are you still using [Yahoo][] or [MSN][] search?\n\
 \n\
 [msn]:    http://search.msn.com/    \"MSN Search\"\n\
@@ -688,6 +696,12 @@ Are you still using [Yahoo][] or [MSN][] search?\n\
 ";        
         break;  
     case 'list':
+    editor.value +="\n\
+* Пункт 1\n\
+* Пункт 2\n\
+";   
+        break;        
+    case 'list2':
     editor.value +="\n\
 1. Пункт 1\n\
     - Подпункт A\n\
@@ -1002,8 +1016,10 @@ function addHTMLModal() {
                             <div class="dropdown-content-edit-modal">
                                 <label class="dropdown-item-edit-modal" title="Add Markdown details block" onclick="AddBlockMarkdownModal('details')" style="cursor: pointer;">Details</label>
                                 <label class="dropdown-item-edit-modal" title="Add Markdown line block" onclick="AddBlockMarkdownModal('list')" style="cursor: pointer;">List</label>
+                                <label class="dropdown-item-edit-modal" title="Add Markdown line block" onclick="AddBlockMarkdownModal('list2')" style="cursor: pointer;">List2</label>
                                 <label class="dropdown-item-edit-modal" title="Add Markdown table block" onclick="AddBlockMarkdownModal('table')" style="cursor: pointer;">Table</label>
                                 <label class="dropdown-item-edit-modal" title="Add Markdown link block" onclick="AddBlockMarkdownModal('link')" style="cursor: pointer;">Link</label>
+                                <label class="dropdown-item-edit-modal" title="Add Markdown link block" onclick="AddBlockMarkdownModal('link2')" style="cursor: pointer;">Link2</label>
                                 <label class="dropdown-item-edit-modal" title="Add Markdown checkbox block" onclick="AddBlockMarkdownModal('checkbox')" style="cursor: pointer;">Checkbox</label>
                                 <label class="dropdown-item-edit-modal" title="Add Markdown line block" onclick="AddBlockMarkdownModal('line')" style="cursor: pointer;">Line</label>
                             </div>
@@ -1659,7 +1675,7 @@ function setupGlobalClick() {
             });
         }
         // Если кликнули на ссылку
-        if (e.target.tagName === 'A' && e.target.href && (!e.target.hasAttribute('tabindex') && !e.target.classList.contains('header') )) {
+        if (e.target.tagName === 'A' && e.target.href && (!e.target.hasAttribute('tabindex') && !e.target.href.startsWith('#') )) {
             e.preventDefault(); 
             window.open(e.target.href, '_blank');
         }
