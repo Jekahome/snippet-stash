@@ -12,6 +12,7 @@ let isGlobalScriptReady = false;
 let isReloadMermaid = false;
 let currentTabId = null; 
 let isUpdateSettings = false;
+let scrollY = 0;
 
 // Основная инициализация
 window.globalScriptReady = new Promise(resolve => {
@@ -437,6 +438,8 @@ function closeModal() {
     const modal = document.getElementById('textModal');
     modal.classList.remove('show');
     editCellId=null;
+    // Восстанавливаем позицию страницы
+    window.scrollTo(0, scrollY);
 }
 
 function AddCodeBlockModal(language){
@@ -1108,7 +1111,7 @@ async function loadContent(cell_id) {
 async function editContent(cell_id) {
     try {
         // Сохраняем текущий скролл
-        const scrollY = window.scrollY;
+        scrollY = window.scrollY;
 
         editCellId = cell_id;
         const modal = document.getElementById('textModal');
@@ -1167,6 +1170,8 @@ async function saveTextModal() {
         pathTabStore.set(`content.${currentTabId}.${cell.id}`, editor.value);
         closeModal();        
     }
+    // Восстанавливаем позицию страницы
+    window.scrollTo(0, scrollY);
 }
 
 async function checkMermaidFormatting(value) {
