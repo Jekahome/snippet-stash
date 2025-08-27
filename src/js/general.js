@@ -439,7 +439,9 @@ function closeModal() {
     modal.classList.remove('show');
     editCellId=null;
     // Восстанавливаем позицию страницы
-    window.scrollTo(0, scrollY);
+    setTimeout(() => {
+        window.scrollTo(0, scrollY);
+    }, 100); 
 }
 
 function AddCodeBlockModal(language){
@@ -1110,9 +1112,6 @@ async function loadContent(cell_id) {
 
 async function editContent(cell_id) {
     try {
-        // Сохраняем текущий скролл
-        scrollY = window.scrollY;console.log(`scrollY=${scrollY}`);
-
         editCellId = cell_id;
         const modal = document.getElementById('textModal');
         const editor = document.getElementById('modalTextEditor');
@@ -1147,7 +1146,9 @@ async function editContent(cell_id) {
         editor.setSelectionRange(0, 0);
 
         // Восстанавливаем позицию страницы
-        window.scrollTo(0, scrollY);
+        setTimeout(() => {
+            window.scrollTo(0, scrollY);
+        }, 100); 
          
         // Дополнительная проверка для браузеров
         if (editor.createTextRange) {
@@ -1171,7 +1172,9 @@ async function saveTextModal() {
         closeModal();        
     }
     // Восстанавливаем позицию страницы
-    window.scrollTo(0, scrollY);
+    setTimeout(() => {
+        window.scrollTo(0, scrollY);
+    }, 100); 
 }
 
 async function checkMermaidFormatting(value) {
@@ -1473,6 +1476,10 @@ async function DeleteTR(cell_id) {
         pathTabStore.delete(`settings.${currentTabId}.${cell_id}`);
     }
     isUpdateSettings=true;// удалить из файла src/config/table-settings.json
+    // Восстанавливаем позицию страницы
+    setTimeout(() => {
+        window.scrollTo(0, scrollY);
+    }, 100); 
 }
 
 function AddTRBefore(cell_id){
@@ -1484,6 +1491,10 @@ function AddTRBefore(cell_id){
     };
     pathTabStore.set(`new_tr.${currentTabId}.${new_tr_id}`, new_tr);
     insertNewTr(tr_id_position, new_tr_id, 'before',true);
+    // Восстанавливаем позицию страницы
+    setTimeout(() => {
+        window.scrollTo(0, scrollY);
+    }, 100); 
 }
 
 function AddTRAfter(cell_id){
@@ -1495,6 +1506,10 @@ function AddTRAfter(cell_id){
     };
     pathTabStore.set(`new_tr.${currentTabId}.${new_tr_id}`, new_tr);
     insertNewTr(tr_id_position, new_tr_id, 'after',true);
+    // Восстанавливаем позицию страницы
+    setTimeout(() => {
+        window.scrollTo(0, scrollY);
+    }, 100); 
 }
 
 function insertNewTr(current_td_id, new_tr_id, position = 'after',is_add_setting_menu=false) {
@@ -1596,6 +1611,7 @@ function setupMenuEvents(cell, menu) {
 function setupIconClick(cell, trigger) {
     trigger.addEventListener('click', e => {
         e.stopPropagation();
+        scrollY = window.scrollY;
         document.querySelectorAll('.data-table td, .data-table th').forEach(c => {
             if (c !== cell) c.classList.remove('show-settings');
         });
@@ -2177,6 +2193,10 @@ async function hundlerUndoChangesCell(cell_id) {
     if (loadedSettings?.[currentTabId]?.[cell_id]) {
         applyCellSettings(cellElement, loadedSettings[currentTabId][cell_id]); 
     }
+    // Восстанавливаем позицию страницы
+    setTimeout(() => {
+        window.scrollTo(0, scrollY);
+    }, 100);     
 }
 
 function checkNewlines(text) {
