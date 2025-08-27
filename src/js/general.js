@@ -268,6 +268,18 @@ function initHighlightJSv9_18_1() {
     }
 }
 
+function escapeAlligatorsInBackticks(text) {
+  const regex = /`([^`]*?)`/g;
+  return text.replace(regex, (match, content) => {
+    // Заменяем `<` на `&lt;` и `>` на `&gt;` только внутри найденного содержимого.
+    const escapedContent = content
+      .replace(/</g, "&lt;")
+      .replace(/>/g, "&gt;");
+ 
+    return `\`${escapedContent}\``;
+  });
+}
+
 function convertMarkdownCodeBlocksToHtml(text) {
     function escapeHtml(str) {
         return str
@@ -275,7 +287,7 @@ function convertMarkdownCodeBlocksToHtml(text) {
             .replace(/</g, '&lt;')
             .replace(/>/g, '&gt;');
     }
-    return text.replace(/```(\w+)\n([\s\S]*?)```/g, (match, lang, code) => {
+    return text.replace(/```(\w+)[\s]*\r?\n([\s\S]*?)```/g, (match, lang, code) => {
         let gt = '>';
         if (lang == 'mermaid'){
             const escapedCode = escapeHtml(code);
@@ -395,12 +407,23 @@ async function convertNodeToHTML(node, cellContentWrapper) {
     }
 }
 
+function escapeAlligatorsInCodeTags(text) {
+    return text.replace(/<code\b[^>]*>([\s\S]*?)<\/code>/gi, (match, content) => {
+        const escaped = content
+            .replace(/</g, "&lt;")
+            .replace(/>/g, "&gt;");
+        return match.replace(content, escaped);
+    });
+}
+
 async function convertTextToHTML(cell, content, is_add_setting_menu=true){
     isReloadMermaid = false;
 
     cell.innerHTML = '';
     const temp = document.createElement('div');
-    temp.innerHTML = content?convertMarkdownCodeBlocksToHtml(content):'';  
+    let prepare_content = content?convertMarkdownCodeBlocksToHtml(content):'';  
+    prepare_content = escapeAlligatorsInBackticks(prepare_content);
+    temp.innerHTML = escapeAlligatorsInCodeTags(prepare_content);
     const cellContentWrapper = document.createElement('div');
     cellContentWrapper.className = 'cell-content';
     cellContentWrapper.contentEditable = true;
