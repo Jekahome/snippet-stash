@@ -444,6 +444,19 @@ function closeModal() {
     }, 100); 
 }
 
+
+function AddRustCodeBlockModal(){
+    const editor = document.getElementById('modalTextEditor');
+    editor.value +="\n\
+\n\
+```rust\n\
+fn main(){\n\
+ ...\n\
+}\n\
+```\n\
+";
+}
+
 function AddCodeBlockModal(language){
     const editor = document.getElementById('modalTextEditor');
     editor.value += `
@@ -987,6 +1000,9 @@ function addHTMLModal() {
                 <div class="modal-footer">
                     <div class="modal-footer-left">           
                         <button class="icon-button rust-icon" title="Add Rust code block" onclick="AddCodeBlockModal('rust')" style="cursor: pointer;">
+                           <img src="${basePath}/config/img/rust-logo-blk.svg" alt="Rust" width="25" height="25">
+                        </button>
+                        <button class="icon-button rust-icon" title="Add Rust code block use quotes" onclick="AddRustCodeBlockModal()" style="cursor: pointer;">
                            <img src="${basePath}/config/img/rust-logo-blk.svg" alt="Rust" width="25" height="25">
                         </button>
                         <button class="icon-button python-icon" title="Add Python code block" onclick="AddCodeBlockModal('python')" style="cursor: pointer;">
