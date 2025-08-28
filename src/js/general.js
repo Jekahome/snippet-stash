@@ -1727,6 +1727,8 @@ function setupGlobalClick() {
         if (e.target.tagName === 'A' && e.target.href && (!e.target.hasAttribute('tabindex') && !e.target.href.includes(`${repo}`) )) {
             e.preventDefault(); 
             window.open(e.target.href, '_blank');
+        }else{
+            window.location.href = e.target.href;
         }
     });
 }
