@@ -15,4 +15,6 @@ rsync -a --include='*/' --include='*.md' --exclude='*' "$SOURCE_BASE_DIR/" "$DES
 
 cp "src/SUMMARY.md" "book/"
 
+cp "src/config/table-settings.json" "book/config/"
+
 echo "Копирование .md файлов завершено."
