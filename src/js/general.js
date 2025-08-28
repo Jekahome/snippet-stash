@@ -467,22 +467,9 @@ function closeModal() {
     }, 100); 
 }
 
-
-function AddRustCodeBlockModal(){
-    const editor = document.getElementById('modalTextEditor');
-    editor.value +="\n\
-\n\
-```rust\n\
-fn main(){\n\
- ...\n\
-}\n\
-```\n\
-";
-}
-
 function AddCodeBlockModal(language){
     const editor = document.getElementById('modalTextEditor');
-    editor.value += `
+    editor.value += `\n\n
 <pre><code class="language-${language}">
 fn main(){
  ...
@@ -494,7 +481,6 @@ fn main(){
 function AddBlockMermaidModal(key){
     const editor = document.getElementById('modalTextEditor');
 
-
     switch (key) {
     case 'flowchart':
     editor.value +="\n\
@@ -505,7 +491,7 @@ flowchart TD\n\
     C --o D[Rethink]\n\
     D x--x B\n\
     B ==> No ----> E[End]\n\
-</div>";
+</div>\n";
         break;
     case 'mindmap':
     editor.value +="\n\
@@ -527,7 +513,7 @@ mindmap\n\
     Tools\n\
       Pen and paper\n\
       Mermaid\n\
-</div>";
+</div>\n";
         break;
     case 'pie':
     editor.value +="\n\
@@ -539,7 +525,7 @@ pie showData\n\
     \"Potassium\" : 50.05\n\
     \"Magnesium\" : 10.01\n\
     \"Iron\" :  5\n\
-</div>";
+</div>\n";
         break; 
     case 'git':
     editor.value +="\n\
@@ -555,7 +541,7 @@ gitGraph\n\
         merge develop\n\
         commit\n\
         commit\n\
-</div>";
+</div>\n";
         break;
     case 'architecture':
     editor.value +="\n\
@@ -571,7 +557,7 @@ architecture-beta\n\
     db:L -- R:server\n\
     disk1:T -- B:server\n\
     disk2:T -- B:db\n\
-</div>";
+</div>\n";
         break;
     case 'state':
     editor.value +="\n\
@@ -583,7 +569,7 @@ stateDiagram\n\
     Moving --> Still\n\
     Moving --> Crash\n\
     Crash --> [*]\n\
-</div>";
+</div>\n";
         break;
     case 'sequence':
     editor.value +="\n\
@@ -594,7 +580,7 @@ sequenceDiagram\n\
     Rust ->> Rust : Do work 2\n\
     Rust ->> Python : Do work 3\n\
     Python ->> Browser : Do work 4\n\
-</div>";
+</div>\n";
         break;   
     case 'journey':   
     editor.value +="\n\
@@ -608,7 +594,7 @@ journey\n\
     section Go home\n\
       Go downstairs: 5: Me\n\
       Sit down: 5: Me\n\
-</div>";     
+</div>\n";     
         break;
     case 'xychart':   
     editor.value +="\n\
@@ -619,7 +605,7 @@ xychart-beta\n\
   y-axis \"Time trained (minutes)\" 0 --> 300\n\
   bar [60, 0, 120, 180, 230, 300, 0]\n\
   line [60, 0, 120, 180, 230, 300, 0]\n\
-</div>";  
+</div>\n";  
         break;
     case 'class':
     editor.value +="\n\
@@ -637,7 +623,7 @@ Square : +setMessages(List~string~ messages)\n\
 Square : +getMessages() List~string~\n\
 Square : +getDistanceMatrix() List~List~int~~\n\
 \n\
-</div>";       
+</div>\n";       
         break;
     case 'timeline':
     editor.value +="\n\
@@ -650,7 +636,7 @@ timeline\n\
     2005 : YouTube\n\
     2006 : Twitter\n\
 \n\
-</div>";       
+</div>\n";       
         break;
     case 'kanban':
     editor.value +="\n\
@@ -679,14 +665,14 @@ kanban\n\
   id12[Can't reproduce]\n\
     id3[Weird flickering in Firefox]\n\
 \n\
-</div>";     
+</div>\n";     
         break; 
     default:
     editor.value +="\n\
 <div class=\"mermaid\">\n\
 graph TD\n\
     A --> B\n\
-</div>";
+</div>\n";
     }    
 }
 
@@ -754,6 +740,11 @@ Are you still using [Yahoo][] or [MSN][] search?\n\
     1. Подпункт B\n\
 ";   
         break;
+    case 'icons':    
+    editor.value +="\n\
+❌ ERROR ✅ OK ⚠️ ❗ 📌 📎 \n\
+";   
+        break;        
     default:
     editor.value +="\n\
 <details>\n\
@@ -1003,7 +994,7 @@ plt.legend()\n\
 \n\
 # Показать график\n\
 plt.show()\n\
-</code></pre>`;
+</code></pre>\n`;
 }
 
 function toggleEditModal(menu){
@@ -1023,9 +1014,6 @@ function addHTMLModal() {
                 <div class="modal-footer">
                     <div class="modal-footer-left">           
                         <button class="icon-button rust-icon" title="Add Rust code block" onclick="AddCodeBlockModal('rust')" style="cursor: pointer;">
-                           <img src="${basePath}/config/img/rust-logo-blk.svg" alt="Rust" width="25" height="25">
-                        </button>
-                        <button class="icon-button rust-icon" title="Add Rust code block use quotes" onclick="AddRustCodeBlockModal()" style="cursor: pointer;">
                            <img src="${basePath}/config/img/rust-logo-blk.svg" alt="Rust" width="25" height="25">
                         </button>
                         <button class="icon-button python-icon" title="Add Python code block" onclick="AddCodeBlockModal('python')" style="cursor: pointer;">
@@ -1059,13 +1047,14 @@ function addHTMLModal() {
                             </button>
                             <div class="dropdown-content-edit-modal">
                                 <label class="dropdown-item-edit-modal" title="Add Markdown details block" onclick="AddBlockMarkdownModal('details')" style="cursor: pointer;">Details</label>
-                                <label class="dropdown-item-edit-modal" title="Add Markdown line block" onclick="AddBlockMarkdownModal('list')" style="cursor: pointer;">List</label>
-                                <label class="dropdown-item-edit-modal" title="Add Markdown line block" onclick="AddBlockMarkdownModal('list2')" style="cursor: pointer;">List2</label>
+                                <label class="dropdown-item-edit-modal" title="Add Markdown list block" onclick="AddBlockMarkdownModal('list')" style="cursor: pointer;">List</label>
+                                <label class="dropdown-item-edit-modal" title="Add Markdown list block" onclick="AddBlockMarkdownModal('list2')" style="cursor: pointer;">List2</label>
                                 <label class="dropdown-item-edit-modal" title="Add Markdown table block" onclick="AddBlockMarkdownModal('table')" style="cursor: pointer;">Table</label>
                                 <label class="dropdown-item-edit-modal" title="Add Markdown link block" onclick="AddBlockMarkdownModal('link')" style="cursor: pointer;">Link</label>
                                 <label class="dropdown-item-edit-modal" title="Add Markdown link block" onclick="AddBlockMarkdownModal('link2')" style="cursor: pointer;">Link2</label>
                                 <label class="dropdown-item-edit-modal" title="Add Markdown checkbox block" onclick="AddBlockMarkdownModal('checkbox')" style="cursor: pointer;">Checkbox</label>
                                 <label class="dropdown-item-edit-modal" title="Add Markdown line block" onclick="AddBlockMarkdownModal('line')" style="cursor: pointer;">Line</label>
+                                <label class="dropdown-item-edit-modal" title="Add Markdown icons block" onclick="AddBlockMarkdownModal('icons')" style="cursor: pointer;">Icons</label>
                             </div>
                         </div>
 
@@ -2519,7 +2508,8 @@ function reloadWithCacheClear() {
             }
         });
     }
-
+    const overlay = document.getElementById('lockOverlay');
+    overlay.classList.add('hidden');
     // Форсим загрузку новой версии
     window.location.href = window.location.href.split('?')[0] + '?t=' + new Date().getTime();
 }
