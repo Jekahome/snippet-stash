@@ -1,0 +1,3 @@
+
+
+PhantomData для уточнения lifetime
