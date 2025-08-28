@@ -1724,7 +1724,7 @@ function setupGlobalClick() {
             });
         }
         // Если кликнули на ссылку
-        if (e.target.tagName === 'A' && e.target.href && (!e.target.hasAttribute('tabindex') && !e.target.href.startsWith('#') )) {
+        if (e.target.tagName === 'A' && e.target.href && (!e.target.hasAttribute('tabindex') && !e.target.href.includes(`${repo}`) )) {
             e.preventDefault(); 
             window.open(e.target.href, '_blank');
         }
