@@ -14,13 +14,13 @@
 * [Функции `Fn, FnOnce, FnMut`](#Функции)
 * [Closures (a lambda expression)](#Closures)
 * [Паттерны изменчивости (`Arc, RefCell`)](#Паттерны-изменчивости)
-* Типаж `Copy, Clone`
-* Владение (Ownership)
-* Ссылки
-* Заимствование (borrow)
-* Типаж `AsRef, AsMut`
-* Типаж `Borrow`
-* lifetimes Время жизни (только у ссылок)
+* [Типаж `Copy, Clone`](#Типаж-copy-clone)
+* [Владение (Ownership)](#Владение-ownership)
+* [Ссылки](#Ссылки)
+* [Заимствование (borrow)](#Заимствование-borrow)
+* [Типаж `AsRef, AsMut`](#Типаж-asref-asmut)
+* [Типаж `Borrow`](#Типаж-borrow)
+* [lifetimes Время жизни](#lifetimes-Время-жизни)
 * Типаж `Deref, DerefMut`
 * Типаж `Drop`
 * Типаж `Default`
