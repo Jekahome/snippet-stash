@@ -10,14 +10,14 @@ struct Post<S> {
     user: User,
     title: String,
     body: String,
-    state: PhantomData<S>,
+    state: PhantomData<S>
 }
 
 /// Состояния
 struct New;
 struct Unmoderated;
 
-///Вариант основан на преобразованим From and PhantomData
+/// Вариант основан на преобразованим From and PhantomData
 
 /// New -- Unmoderated
 impl From<Post<New>> for Post<Unmoderated> {
@@ -44,21 +44,17 @@ fn new(user: User, title: String, body: String) -> Post<New> {
     };
     post
 }
-
 fn publish(post: Post<New>) -> Post<Unmoderated> {
     println!("New -- \"publish()\" --> Unmoderated");
     post.into()
 }
-
 fn main() {
     let user = User {
         user_id: 1u64,
         full_name: String::from("Egor Egorov"),
         email: String::from("email@mail.ru"),
     };
-
     let post_new:Post<New> = new(user, String::from("title"), String::from("body"));
-    
     let post_unmoderated:Post<Unmoderated> = publish(post_new);// переход в другое состояние
 }
 </code></pre>

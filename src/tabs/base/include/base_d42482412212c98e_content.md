@@ -26,10 +26,10 @@
 * [Типаж `Default`](#Типаж-default)
 * [Типаж `Into, From, FromStr, TryFrom`](#Типаж-into-from-fromstr-tryfrom)
 * [Реализация `impl`](#Реализация-impl)
-* Перегрузка операций `Add, Ordering`
-* Фантомный тип `std::marker::PhantomData`
-* Атрибуты (Условная компиляция)
-* Функции для работы с памятью  `std::mem`
-* Типажи `PartialEq, Eq, Ord, PartialOrd`
+* [Перегрузка операций `Add, Ordering`](#Перегрузка-операций-add-ordering)
+* [Фантомный тип `std::marker::PhantomData`](#Фантомный-тип-stdmarkerphantomdata)
+* [Атрибуты (Условная компиляция)](#Атрибуты-Условная-компиляция)
+* [Функции для работы с памятью  `std::mem`](#Функции-для-работы-с-памятью--stdmem)
+* [Типажи `PartialEq, Eq, Ord, PartialOrd`](#Типажи-partialeq-eq-ord-partialord)
 * Типаж `Hash`
 * Типаж `Index, IndexMut`
