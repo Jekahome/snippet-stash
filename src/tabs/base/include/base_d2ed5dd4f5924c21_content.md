@@ -1,0 +1,44 @@
+
+
+Атрибут derive позволяет автоматически генерировать новые элементы для структур данных.
+Ниже приводится список выводимых типажей:
+
+  Типажи сравнения: `Eq, PartialEq, Ord, PartialOrd`
+
+  Clone, для создания `T` из `&T` с помощью копии.
+
+  Copy, чтобы создать тип семантикой копирования, вместо семантики перемещения.
+
+  Hash, чтобы вычислить хеш из `&T`.
+
+  Default, чтобы создать пустой экземпляр типа данных.
+
+  Zero, для создания нулевого экземпляра числового типа данных.
+
+  Debug, чтобы отформатировать значение с помощью `{:?}`.
+
+<pre><code class="language-rust">
+#[derive(PartialEq, Clone)]
+struct Foo<T> {
+    a: i32,
+    b: T,
+}
+</code></pre>
+
+Вы можете реализовать derive собственные трейты с помощью процедурных макросов:
+
+proc_macro_derive производные макросы , которые позволяют предоставлять настраиваемые реализации для атрибута `#[derive(Trait)]`:
+
+Идиоматично, `proc_macro_derive` следует использовать только для получения реализаций признаков 
+<pre><code class="language-rust">
+#[proc_macro_derive(AnswerFn)]
+pub fn derive_answer_fn(_: TokenStream) -> TokenStream {
+    "impl Struct{ fn answer() -> u32 { 42 } }".parse().unwrap()
+}
+#[derive(AnswerFn)]
+struct Struct;
+</code></pre>
+
+
+
+

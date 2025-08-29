@@ -21,11 +21,11 @@
 * [Типаж `AsRef, AsMut`](#Типаж-asref-asmut)
 * [Типаж `Borrow`](#Типаж-borrow)
 * [lifetimes Время жизни](#lifetimes-Время-жизни)
-* Типаж `Deref, DerefMut`
-* Типаж `Drop`
-* Типаж `Default`
-* Типаж `Into, From, FromStr, TryFrom`
-* Реализация `impl`
+* [Типаж `Deref, DerefMut`](#Типаж-deref-derefmut)
+* [Типаж `Drop`](#Типаж-drop)
+* [Типаж `Default`](#Типаж-default)
+* [Типаж `Into, From, FromStr, TryFrom`](#Типаж-into-from-fromstr-tryfrom)
+* [Реализация `impl`](#Реализация-impl)
 * Перегрузка операций `Add, Ordering`
 * Фантомный тип `std::marker::PhantomData`
 * Атрибуты (Условная компиляция)
