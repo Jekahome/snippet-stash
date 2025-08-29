@@ -23,6 +23,7 @@ async function initStorage(currentTabId, basePath){
     if (!(currentTabId in allSettings)) {
       allSettings[currentTabId] = {};
       pathTabStore.set("settings", allSettings); 
+      storageInitDefaultSettingsInIndexStore(currentTabId);
     }
     if (!pathTabStore.has(`content.${currentTabId}`)) {
         pathTabStore.set(`content.${currentTabId}`, {});
@@ -45,21 +46,16 @@ async function getSettingsFile(basePath) {
     return JSON.parse(settingsText);
 }
 
-async function storageLoadSettingsFromFile(basePath, tab_id) {
-    try {
-        if (pathTabStore.has('settings')) {
-            return;
-        }
-
-        const loadedSettings = await getSettingsFile(basePath);
-
-        pathTabStore.set('settings', loadedSettings);
-        console.log('Настройки загружены из файла');
-        
-    } catch (error) {
-        console.warn("Используются настройки по умолчанию:", error);
-        storageInitDefaultSettingsInIndexStore(tab_id);
+async function storageLoadSettingsFromFile(basePath) {
+    if (pathTabStore.has('settings')) {
+      console.log(`storageLoadSettingsFromFile настройки уже есть`);
+      return;
     }
+
+    const loadedSettings = await getSettingsFile(basePath);
+
+    pathTabStore.set('settings', loadedSettings);
+    console.log('Настройки загружены из файла');
 }
 
 function storageInitDefaultSettingsInIndexStore(tab_id) {

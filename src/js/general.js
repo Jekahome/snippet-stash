@@ -111,7 +111,7 @@ window.globalScriptReady = new Promise(resolve => {
             }
         });
 
-        await storageLoadSettingsFromFile(basePath, currentTabId);
+        await storageLoadSettingsFromFile(basePath);
         
         //if (!window.markdownit) {console.error('markdown-it не загружен');return; }
         //window.md = window.markdownit({ html: true, breaks: true,});
@@ -141,6 +141,7 @@ window.globalScriptReady = new Promise(resolve => {
 });
 
 function resetStorage(){
+    console.info(`resetStorage`);
     pathTabStore.drop();
     reloadWithCacheClear();
 }
