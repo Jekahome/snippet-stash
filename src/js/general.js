@@ -467,6 +467,17 @@ function closeModal() {
     }, 100); 
 }
 
+function AddRustNoRunCodeBlockModal(){
+    const editor = document.getElementById('modalTextEditor');
+    editor.value += `\n\n
+<pre><code class="language-rust no_run edition2021">
+fn main(){
+ ...
+}
+</code></pre>
+`;
+}
+
 function AddCodeBlockModal(language){
     const editor = document.getElementById('modalTextEditor');
     editor.value += `\n\n
@@ -1016,6 +1027,9 @@ function addHTMLModal() {
                         <button class="icon-button rust-icon" title="Add Rust code block" onclick="AddCodeBlockModal('rust')" style="cursor: pointer;">
                            <img src="${basePath}/config/img/rust-logo-blk.svg" alt="Rust" width="25" height="25">
                         </button>
+                        <button class="icon-button rust-icon" title="Add Rust code block no_run" onclick="AddRustNoRunCodeBlockModal()" style="cursor: pointer;">
+                           <img src="${basePath}/config/img/rust-logo-blk.svg" alt="Rust" width="25" height="25">
+                        </button>
                         <button class="icon-button python-icon" title="Add Python code block" onclick="AddCodeBlockModal('python')" style="cursor: pointer;">
                            <img src="${basePath}/config/img/python_logo_icon.svg" alt="Python" width="25" height="25">
                         </button>
@@ -1362,7 +1376,7 @@ async function initTab(tab) {
         (async () => setupKeyboardShortcuts())()  
     ]);
     // Инициализируем settings и content, если их нет
-    await initStorage(currentTabId);
+    await initStorage(currentTabId, basePath);
     // Почистить удаленные TR
     checkDeleteTR();
     // Загружаем локальные данные новых TR

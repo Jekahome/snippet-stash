@@ -11,11 +11,11 @@ function loadFromStorage() {
   };
 }
 
-async function initStorage(currentTabId){
+async function initStorage(currentTabId, basePath){
     let allSettings = pathTabStore.get("settings");  
     if (Object.keys(allSettings).length === 0) {
         // загружаем весь файл, так как при сохранении файл перезаписывается полностью 
-        const loadedSettings = await getSettingsFile();
+        const loadedSettings = await getSettingsFile(basePath);
         pathTabStore.set("settings", loadedSettings);
         allSettings = loadedSettings;
     }
@@ -38,7 +38,7 @@ async function initStorage(currentTabId){
     }
 }
 
-async function getSettingsFile() {
+async function getSettingsFile(basePath) {
     const response = await fetch(`${basePath}/config/table-settings.json`);
     if (!response.ok) throw new Error("Файл настроек не найден");
     const settingsText = await response.text();
@@ -51,7 +51,7 @@ async function storageLoadSettingsFromFile(basePath, tab_id) {
             return;
         }
 
-        const loadedSettings = await getSettingsFile();
+        const loadedSettings = await getSettingsFile(basePath);
 
         pathTabStore.set('settings', loadedSettings);
         console.log('Настройки загружены из файла');

@@ -19,3 +19,10 @@ digraph G {
 }
 </div>
 
+
+```rust,no_run
+fn main(){
+    print!("hello");
+}
+```
+
