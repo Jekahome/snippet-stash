@@ -13,6 +13,16 @@
                 <td id="questions_ece41b918d105c59_content"><div class="cell-content" contenteditable="true">{{include('src/tabs/questions/include/questions_ece41b918d105c59_content.md')}}</div></td>
                 <td id="questions_ece41b918d105c59_other"><div class="cell-content" contenteditable="true">{{include('src/tabs/questions/include/questions_ece41b918d105c59_other.md')}}</div></td>
             </tr>   
+            <tr id="questions_dbf8ce2a8b9d1250">
+                <td id="questions_dbf8ce2a8b9d1250_topic"><div class="cell-content" contenteditable="true">{{include('src/tabs/questions/include/questions_dbf8ce2a8b9d1250_topic.md')}}</div></td>
+                <td id="questions_dbf8ce2a8b9d1250_content"><div class="cell-content" contenteditable="true">{{include('src/tabs/questions/include/questions_dbf8ce2a8b9d1250_content.md')}}</div></td>
+                <td id="questions_dbf8ce2a8b9d1250_other"><div class="cell-content" contenteditable="true">{{include('src/tabs/questions/include/questions_dbf8ce2a8b9d1250_other.md')}}</div></td>
+            </tr>   
+            <tr id="questions_1323b56e4ceed213">
+                <td id="questions_1323b56e4ceed213_topic"><div class="cell-content" contenteditable="true">{{include('src/tabs/questions/include/questions_1323b56e4ceed213_topic.md')}}</div></td>
+                <td id="questions_1323b56e4ceed213_content"><div class="cell-content" contenteditable="true">{{include('src/tabs/questions/include/questions_1323b56e4ceed213_content.md')}}</div></td>
+                <td id="questions_1323b56e4ceed213_other"><div class="cell-content" contenteditable="true">{{include('src/tabs/questions/include/questions_1323b56e4ceed213_other.md')}}</div></td>
+            </tr>   
             <tr id="questions_2da9a324db1d8867">
                 <td id="questions_2da9a324db1d8867_topic"><div class="cell-content" contenteditable="true">{{include('src/tabs/questions/include/questions_2da9a324db1d8867_topic.md')}}</div></td>
                 <td id="questions_2da9a324db1d8867_content"><div class="cell-content" contenteditable="true">{{include('src/tabs/questions/include/questions_2da9a324db1d8867_content.md')}}</div></td>
