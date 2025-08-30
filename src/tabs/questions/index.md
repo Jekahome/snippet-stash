@@ -8,6 +8,11 @@
             </tr>
         </thead>
         <tbody>
+            <tr id="questions_6948c75942d4a958">
+                <td id="questions_6948c75942d4a958_topic"><div class="cell-content" contenteditable="true">{{include('src/tabs/questions/include/questions_6948c75942d4a958_topic.md')}}</div></td>
+                <td id="questions_6948c75942d4a958_content"><div class="cell-content" contenteditable="true">{{include('src/tabs/questions/include/questions_6948c75942d4a958_content.md')}}</div></td>
+                <td id="questions_6948c75942d4a958_other"><div class="cell-content" contenteditable="true">{{include('src/tabs/questions/include/questions_6948c75942d4a958_other.md')}}</div></td>
+            </tr>   
             <tr id="questions_ece41b918d105c59">
                 <td id="questions_ece41b918d105c59_topic"><div class="cell-content" contenteditable="true">{{include('src/tabs/questions/include/questions_ece41b918d105c59_topic.md')}}</div></td>
                 <td id="questions_ece41b918d105c59_content"><div class="cell-content" contenteditable="true">{{include('src/tabs/questions/include/questions_ece41b918d105c59_content.md')}}</div></td>
