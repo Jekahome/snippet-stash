@@ -1,0 +1,58 @@
+[
+  {
+    "type": "add-tr",
+    "tab_id": "types",
+    "tr_id": "types_6d058effbccdcf1a",
+    "tr_id_position": "types_a8c03bae1651a9b6",
+    "position": "before"
+  },
+  {
+    "type": "add-tr",
+    "tab_id": "types",
+    "tr_id": "types_95c153fba4f50200",
+    "tr_id_position": "types_a8c03bae1651a9b6",
+    "position": "before"
+  },
+  {
+    "type": "add-tr",
+    "tab_id": "types",
+    "tr_id": "types_dfe0dd12b8dd62f4",
+    "tr_id_position": "types_a8c03bae1651a9b6",
+    "position": "before"
+  },
+  {
+    "type": "add-tr",
+    "tab_id": "types",
+    "tr_id": "types_f2fe35145b92f589",
+    "tr_id_position": "types_a8c03bae1651a9b6",
+    "position": "before"
+  },
+  {
+    "type": "add-tr",
+    "tab_id": "types",
+    "tr_id": "types_8cb556df648eccca",
+    "tr_id_position": "types_0d2b6a185344349a",
+    "position": "before"
+  },
+  {
+    "type": "add-tr",
+    "tab_id": "types",
+    "tr_id": "types_cc542cceef3aaab4",
+    "tr_id_position": "types_baedb9bf1b6b4b00",
+    "position": "after"
+  },
+  {
+    "type": "add-tr",
+    "tab_id": "types",
+    "tr_id": "types_f41ec8c36f069128",
+    "tr_id_position": "types_36c69223873d7c10",
+    "position": "before"
+  },
+  {
+    "type": "add-tr",
+    "tab_id": "types",
+    "tr_id": "types_005ea1cb9d9b7c55",
+    "tr_id_position": "types_2d3bab51319f27a5",
+    "position": "before"
+  }
+]

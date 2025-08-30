@@ -11,7 +11,7 @@
 * Коллекции
 * Псевдонимы типов
 * Void Empty Types
-* Turple Кортеж  (0,)
+* Tuples Кортеж  (0,)
 * Пользовательские типы enum,struct
 * struct Структура
 * trait Типаж
