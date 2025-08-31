@@ -1,0 +1,22 @@
+
+
+Для вызова метода трейт должен быть импортирован
+
+При коллизии inherent метода и трейта, побеждает метод
+
+При коллизии двух трейтов — ошибка компиляции
+<pre><code class="language-rust">
+struct S { ... }
+trait T {
+  fn foo(&self);
+}
+
+impl T for S { ... }
+
+fn bar(s: &S) {
+    s.foo();
+    S::foo(s)
+    T::foo(s);
+    <S as T>::foo(s);
+}
+</code></pre>
