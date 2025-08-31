@@ -1,0 +1,27 @@
+
+
+Макрос это ф-ция которая принимает кусок кода и возвращает кусок кода
+
+Почему `println!` это макрос? Потому-то произвольное количество аргументов Rust функции не могут принимать.
+
+Пример:
+<pre><code class="language-rust">
+macro_rules! console_log {
+    ($($t:tt)*) => (log(&format_args!($($t)*).to_string()))
+}
+
+// Простая реализация функции `log` если нет `crate log`
+fn log(s: &str) {
+    println!("{}", s);
+}
+
+fn main() {
+    let name = "Rustacean";
+    let age = 42;
+
+    // Вызов макроса с разными аргументами
+    console_log!("Привет из Rust!");
+    console_log!("Привет, {}! Тебе {} лет.", name, age);
+    console_log!("Ответ: {}.", 42);
+}
+</code></pre>

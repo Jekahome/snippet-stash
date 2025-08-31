@@ -1,0 +1,3 @@
+
+
+**Patterns and Designators (Указатели)**

@@ -156,5 +156,34 @@
     "cargo_0583401cb95780a9_topic": {
       "backgroundColor": "#b4b4b4"
     }
+  },
+  "macro": {
+    "macro_header_topic": {
+      "fontSize": "16px",
+      "backgroundColor": "#767676",
+      "width": 75
+    },
+    "macro_header_content": {
+      "fontSize": "16px",
+      "backgroundColor": "#767676",
+      "width": 200
+    },
+    "macro_header_other": {
+      "fontSize": "16px",
+      "backgroundColor": "#767676",
+      "width": 25
+    },
+    "macro_c3360b370b5ab3bb_topic": {
+      "backgroundColor": "#b4b4b4"
+    },
+    "macro_6242ee0a356157d1_topic": {
+      "backgroundColor": "#b4b4b4"
+    },
+    "macro_a3d8a72678d02221_topic": {
+      "backgroundColor": "#b4b4b4"
+    },
+    "macro_374797312fe287b8_topic": {
+      "backgroundColor": "#b4b4b4"
+    }
   }
 }
