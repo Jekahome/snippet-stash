@@ -1,0 +1,53 @@
+
+
+
+<pre><code class="language-rust">
+use std::fmt;
+
+// этот внешний блок ссылается на библиотеку libm
+#[link(name = "m")]
+extern {
+    // Это внешняя функция 
+    // которая вычисляет квадратный корень комплексного числа одинарной точности
+    fn csqrtf(z: Complex) -> Complex;
+
+    fn ccosf(z: Complex) -> Complex;
+}
+
+// Поскольку вызов внешних функций считается небезопасным, 
+// для них часто пишут безопасные обёртки.
+fn cos(z: Complex) -> Complex {
+    unsafe { ccosf(z) }
+}
+
+fn main() {
+    // z = -1 + 0i
+    let z = Complex { re: -1., im: 0. };
+
+    // вызов внешней функции — небезопасная операция
+    let z_sqrt = unsafe { csqrtf(z) };
+
+    println!("the square root of {:?} is {:?}", z, z_sqrt);
+
+    // вызов безопасного API, обернутого вокруг небезопасной операции
+    println!("cos({:?}) = {:?}", z, cos(z));
+}
+
+// Минимальная реализация комплексных чисел одинарной точности
+#[repr(C)]
+#[derive(Clone, Copy)]
+struct Complex {
+    re: f32,
+    im: f32,
+}
+
+impl fmt::Debug for Complex {
+    fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
+        if self.im < 0. {
+            write!(f, "{}-{}i", self.re, -self.im)
+        } else {
+            write!(f, "{}+{}i", self.re, self.im)
+        }
+    }
+}
+</code></pre>

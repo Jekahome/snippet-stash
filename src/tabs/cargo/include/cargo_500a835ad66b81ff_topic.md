@@ -1,0 +1,5 @@
+
+
+Настройка в файлах
+
+[See full lints list at](https://rust-lang.github.io/rust-clippy/master/index.html)

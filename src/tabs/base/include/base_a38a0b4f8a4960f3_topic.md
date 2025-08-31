@@ -6,6 +6,8 @@
 
 [effective-rust/features](https://www.lurklurk.org/effective-rust/features.html)
 
+[tooling-directives/#cfg](https://cheats.rs/#tooling-directives)
+
 чи можу я ввімкнути якось умовну компіляцію? 
 Типу:
 
@@ -16,6 +18,8 @@ fn test() {
 } 
 $ RUSTFLAGS='--cfg my_flag'
 ```
+
+
 
 
 

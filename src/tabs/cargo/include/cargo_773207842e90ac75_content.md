@@ -1,0 +1,39 @@
+
+
+
+Все три библиотеки одно и тоже из разных источников
+Для поддержки этого Cargo поддерживает package ключ в `[dependencies]` разделе, от которого должен зависеть пакет:
+т.е. явно с помощью package ключа указать как называется библиотека который мы хотим получить, а то как мы ее назовем тут `baz = {...`
+
+```toml
+[package]
+name = "mypackage"
+version = "0.0.1"
+
+[dependencies]
+foo = "0.1"
+bar = { git = "https://github.com/example/project", package = "foo" }
+baz = { version = "0.1", registry = "custom", package = "foo" }
+```
+
+В этом примере три ящика теперь доступны в вашем коде Rust:
+<pre><code class="language-rust no_run edition2021">
+extern crate foo; // crates.io
+extern crate bar; // git repository
+extern crate baz; // registry `custom`
+</code></pre>
+
+
+Все три из этих ящиков имеют название пакета foo в своем собственном Cargo.toml, так что мы явно с помощью package ключа , чтобы сообщить Cargo , что мы хотим , чтобы foo пакет , даже если мы называем это что-то еще на месте. 
+Если package ключ не указан, по умолчанию используется имя запрашиваемой зависимости.
+
+Обратите внимание, что если у вас есть необязательная зависимость, например:
+
+```toml
+[dependencies]
+foo = { version = "0.1", package = 'bar', optional = true }
+```
+
+Вы `bar` зависите от ящика от crates.io, но у вашего ящика есть `foo` функция вместо `bar` функции. То есть имена функций принимают после имени зависимости, а не имени пакета, при переименовании.
+
+ 

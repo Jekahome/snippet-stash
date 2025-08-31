@@ -1,21 +1,21 @@
 
 
-* ADT - алгебраические типы данных
-* type safety
-* Общие концепции
-* Приведение типов as, transmute
-* Boolean
-* Числовые типы
-* Строки
-* Массив
-* Коллекции
-* Псевдонимы типов
-* Void Empty Types
-* Tuples Кортеж  (0,)
-* Пользовательские типы enum,struct
-* struct Структура
-* trait Типаж
-* Associated types
-* константа const 
-* константа static
-* union Союзы, объединения
+* [ADT - алгебраические типы данных](#adt---алгебраические-типы-данных)
+* [type safety](#type-safety)
+* [Общие концепции](#Общие-концепции)
+* [Приведение типов as, transmute](#Приведение-типов-as--transmute)
+* [Boolean](#boolean)
+* [Числовые типы](#Числовые-типы)
+* [Строки](https://jekahome.github.io/snippet-stash/tabs/string_types/index.html)
+* [Массив](https://jekahome.github.io/snippet-stash/tabs/arrays/index.html)
+* [Коллекции](https://jekahome.github.io/snippet-stash/tabs/collections/index.html)
+* [Псевдонимы типов](#Псевдонимы-типов)
+* [Void Empty Types](#void-empty-types)
+* [Tuples Кортеж  (0,)](#tuples-Кортеж--0)
+* [enum Перечисления](#enum-Перечисления) 
+* [struct Структура](#struct-Структура)
+* [trait Типаж](#traits-Типаж)
+* [Associated types](#Ассоциированные-типы-семейства-типа-type-n)
+* [константа const ](#константа-const)
+* [константа static](#константа-static)
+* [union Союзы, объединения](#union-Союзы-объединения)

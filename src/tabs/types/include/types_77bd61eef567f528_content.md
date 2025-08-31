@@ -102,13 +102,17 @@ fn main(){
     a.base(1_i32);
 
     <A as Base<u32>>::default_static(1_u32);// Base default 1 // т.е. отработает реализация Base по умолчанию
+
     <A as Base<i32>>::default_static(1_i32);// Base for A rhs:i32 = 1 //  т.е. отработает реализация A так как i32 реализованно для Base
+
     <A as Base<&str>>::default_static("str");// Base for A rhs:&str = "str" //  т.е. отработает реализация A так как &str реализованно для Base
 
     a.default(1_i32);// Base for A rhs:i32 = 1 //  т.е. отработает реализация A так как i32 реализованно для Base
 
     a.default(1_u32);// Base default 1 // т.е. отработает реализация Base по умолчанию потому что мы не реализовали для u32 вариант а u32 есть по умолчанию
+
     a.default("str");// Base default "str"// т.е. отработает реализация Base по умолчанию но с типом &str
+
     a.default(String::from("String"));// Base for A rhs:String = "String" // а у String реализации есть метод default ,поэтому отработает переопределенный метод String
     // Получается если тип реализован то он заменяет тип типажа по умолчанию даже если сам метод трейта не переопределен в реализации !
 }

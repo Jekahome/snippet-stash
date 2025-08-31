@@ -1,0 +1,86 @@
+
+
+
+<details>
+<summary>File .clippy.toml</summary>
+
+```
+# See full lints list at:
+# https://rust-lang.github.io/rust-clippy/master/index.html
+
+absolute-paths-allowed-crates = [
+    "backoff",
+    "fantoccini",
+    "log",
+    "proto",
+    "reqwest",
+    "syn",
+    "time",
+    "tonic",
+    "web_sys",
+]
+
+doc-valid-idents = [
+    "KiB", "MiB", "GiB", "TiB", "PiB", "EiB",
+    "DirectX", "ECMAScript",
+    "GPLv2", "GPLv3", "GitHub", "GitLab",
+    "IPv4", "IPv6", "JavaScript", "NaN", "NaNs",
+    "OAuth", "OpenGL", "OpenSSH", "OpenSSL", "OpenStreetMap", "TrueType",
+    "iOS", "macOS", "TeX", "LaTeX", "BibTeX", "BibLaTeX", "MinGW",
+    "BigInt64Array", "BigUint64Array",
+    "ConstrainDOMString", "ConstrainULong",
+    "DisplayMediaStreamConstraints",
+    "DOMHighResTimeStamp",
+    "getDisplayMedia", "getUserMedia", "gRPC",
+    "MediaDevices", "MediaDeviceKind", "MediaDeviceInfo",
+    "MediaStream", "MediaStreamConstraints",
+    "MediaStreamTrack", "MediaStreamTrackState",
+    "MediaTrackConstraints",
+    "MessageEvent",
+    "RESTful",
+    "RTCAudioSenderStats", "RTCSenderAudioTrackAttachmentStats",
+    "RTCConfiguration",
+    "RTCDataChannel",
+    "RTCDtlsTransport",
+    "RTCIceCandidate", "RTCIceCandidateInit", "RTCIceCandidateType",
+    "RTCIceServer", "RTCIceTransport",
+    "RTCPeerConnection", "RTCPeerConnectionIceEvent",
+    "RTCRtpCodecCapability",
+    "RTCRtpParameters",
+    "RTCRtpSender", "RTCSenderVideoTrackAttachmentStats",
+    "RTCRtpTransceiver", "RTCRtpTransceiverDirection",
+    "RTCSctpTransport",
+    "RTCSdpType",
+    "RTCStats", "RTCStatsReport",
+    "RTCTrackEvent",
+    "RTCVideoSenderStats",
+    "VideoFacingModeEnum",
+    "WebAPI", "WebDriver", "WebRTC", "WebSocket",
+]
+
+standard-macro-braces = [
+    { name = "assert", brace = "(" },
+    { name = "assert_eq", brace = "(" },
+    { name = "assert_ne", brace = "(" },
+    { name = "debug_assert", brace = "(" },
+    { name = "debug_assert_eq", brace = "(" },
+    { name = "debug_assert_ne", brace = "(" },
+    { name = "format", brace = "(" },
+    { name = "format_args", brace = "(" },
+    { name = "format_ident", brace = "(" },
+    { name = "json", brace = "(" },
+    { name = "matches", brace = "(" },
+    { name = "panic", brace = "(" },
+    { name = "parse_quote", brace = "{" },
+    { name = "print", brace = "(" },
+    { name = "println", brace = "(" },
+    { name = "quote", brace = "{" },
+    { name = "quote_spanned", brace = "{" },
+    { name = "Token", brace = "[" },
+    { name = "vec", brace = "[" },
+    { name = "write", brace = "(" },
+    { name = "writeln", brace = "(" },
+]
+```
+
+</details>

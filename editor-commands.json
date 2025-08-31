@@ -1,0 +1,37 @@
+[
+  {
+    "type": "add-tr",
+    "tab_id": "ffi",
+    "tr_id": "ffi_38b3dbf716257d6a",
+    "tr_id_position": "ffi_1df9ca0ed2a47271",
+    "position": "before"
+  },
+  {
+    "type": "add-tr",
+    "tab_id": "ffi",
+    "tr_id": "ffi_c22a65908f257d22",
+    "tr_id_position": "ffi_5a4f3009fccfeb5c",
+    "position": "before"
+  },
+  {
+    "type": "add-tr",
+    "tab_id": "cargo",
+    "tr_id": "cargo_4717d4dc38b6472b",
+    "tr_id_position": "cargo_c6f2faae33f20ee1",
+    "position": "before"
+  },
+  {
+    "type": "add-tr",
+    "tab_id": "cargo",
+    "tr_id": "cargo_8c84246dcbc30ceb",
+    "tr_id_position": "cargo_a5bd39222be0f444",
+    "position": "after"
+  },
+  {
+    "type": "add-tr",
+    "tab_id": "cargo",
+    "tr_id": "cargo_2da5b44ff07a1936",
+    "tr_id_position": "cargo_421fc13d522f8ef9",
+    "position": "before"
+  }
+]
