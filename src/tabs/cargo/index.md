@@ -342,6 +342,11 @@
                 <td id="cargo_a5bd39222be0f444_topic"><div class="cell-content" contenteditable="true">{{include('src/tabs/cargo/include/cargo_a5bd39222be0f444_topic.md')}}</div></td>
                 <td id="cargo_a5bd39222be0f444_content"><div class="cell-content" contenteditable="true">{{include('src/tabs/cargo/include/cargo_a5bd39222be0f444_content.md')}}</div></td>
                 <td id="cargo_a5bd39222be0f444_other"><div class="cell-content" contenteditable="true">{{include('src/tabs/cargo/include/cargo_a5bd39222be0f444_other.md')}}</div></td>
+            </tr>
+            <tr id="cargo_8c84246dcbc30ceb">
+                <td id="cargo_8c84246dcbc30ceb_topic"><div class="cell-content" contenteditable="true">{{include('src/tabs/cargo/include/cargo_8c84246dcbc30ceb_topic.md')}}</div></td>
+                <td id="cargo_8c84246dcbc30ceb_content"><div class="cell-content" contenteditable="true">{{include('src/tabs/cargo/include/cargo_8c84246dcbc30ceb_content.md')}}</div></td>
+                <td id="cargo_8c84246dcbc30ceb_other"><div class="cell-content" contenteditable="true">{{include('src/tabs/cargo/include/cargo_8c84246dcbc30ceb_other.md')}}</div></td>
             </tr>   
             <tr id="cargo_cc2c8dea0a74f621">
                 <td id="cargo_cc2c8dea0a74f621_topic"><div class="cell-content" contenteditable="true">{{include('src/tabs/cargo/include/cargo_cc2c8dea0a74f621_topic.md')}}</div></td>
@@ -362,6 +367,11 @@
                 <td id="cargo_4336617d26b6090a_topic"><div class="cell-content" contenteditable="true">{{include('src/tabs/cargo/include/cargo_4336617d26b6090a_topic.md')}}</div></td>
                 <td id="cargo_4336617d26b6090a_content"><div class="cell-content" contenteditable="true">{{include('src/tabs/cargo/include/cargo_4336617d26b6090a_content.md')}}</div></td>
                 <td id="cargo_4336617d26b6090a_other"><div class="cell-content" contenteditable="true">{{include('src/tabs/cargo/include/cargo_4336617d26b6090a_other.md')}}</div></td>
+            </tr>   
+            <tr id="cargo_4717d4dc38b6472b">
+                <td id="cargo_4717d4dc38b6472b_topic"><div class="cell-content" contenteditable="true">{{include('src/tabs/cargo/include/cargo_4717d4dc38b6472b_topic.md')}}</div></td>
+                <td id="cargo_4717d4dc38b6472b_content"><div class="cell-content" contenteditable="true">{{include('src/tabs/cargo/include/cargo_4717d4dc38b6472b_content.md')}}</div></td>
+                <td id="cargo_4717d4dc38b6472b_other"><div class="cell-content" contenteditable="true">{{include('src/tabs/cargo/include/cargo_4717d4dc38b6472b_other.md')}}</div></td>
             </tr>   
             <tr id="cargo_c6f2faae33f20ee1">
                 <td id="cargo_c6f2faae33f20ee1_topic"><div class="cell-content" contenteditable="true">{{include('src/tabs/cargo/include/cargo_c6f2faae33f20ee1_topic.md')}}</div></td>
@@ -432,6 +442,11 @@
                 <td id="cargo_936e11e3263d100d_topic"><div class="cell-content" contenteditable="true">{{include('src/tabs/cargo/include/cargo_936e11e3263d100d_topic.md')}}</div></td>
                 <td id="cargo_936e11e3263d100d_content"><div class="cell-content" contenteditable="true">{{include('src/tabs/cargo/include/cargo_936e11e3263d100d_content.md')}}</div></td>
                 <td id="cargo_936e11e3263d100d_other"><div class="cell-content" contenteditable="true">{{include('src/tabs/cargo/include/cargo_936e11e3263d100d_other.md')}}</div></td>
+            </tr>   
+            <tr id="cargo_2da5b44ff07a1936">
+                <td id="cargo_2da5b44ff07a1936_topic"><div class="cell-content" contenteditable="true">{{include('src/tabs/cargo/include/cargo_2da5b44ff07a1936_topic.md')}}</div></td>
+                <td id="cargo_2da5b44ff07a1936_content"><div class="cell-content" contenteditable="true">{{include('src/tabs/cargo/include/cargo_2da5b44ff07a1936_content.md')}}</div></td>
+                <td id="cargo_2da5b44ff07a1936_other"><div class="cell-content" contenteditable="true">{{include('src/tabs/cargo/include/cargo_2da5b44ff07a1936_other.md')}}</div></td>
             </tr>   
             <tr id="cargo_421fc13d522f8ef9">
                 <td id="cargo_421fc13d522f8ef9_topic"><div class="cell-content" contenteditable="true">{{include('src/tabs/cargo/include/cargo_421fc13d522f8ef9_topic.md')}}</div></td>
