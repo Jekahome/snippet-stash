@@ -69,6 +69,21 @@
       "fontSize": "16px",
       "backgroundColor": "#767676",
       "width": 25
+    },
+    "string_types_029842abbf2a50db_topic": {
+      "backgroundColor": "#b4b4b4"
+    },
+    "string_types_cb342ab199e10827_topic": {
+      "backgroundColor": "#b4b4b4"
+    },
+    "string_types_6abd12f12f6af481_topic": {
+      "backgroundColor": "#b4b4b4"
+    },
+    "string_types_0022f7a18f1b2f3a_topic": {
+      "backgroundColor": "#b4b4b4"
+    },
+    "string_types_77d9ac3aed4df845_topic": {
+      "backgroundColor": "#b4b4b4"
     }
   },
   "arrays": {
@@ -184,6 +199,23 @@
     },
     "macro_374797312fe287b8_topic": {
       "backgroundColor": "#b4b4b4"
+    }
+  },
+  "questions": {
+    "questions_header_topic": {
+      "fontSize": "16px",
+      "backgroundColor": "#767676",
+      "width": 75
+    },
+    "questions_header_content": {
+      "fontSize": "16px",
+      "backgroundColor": "#767676",
+      "width": 200
+    },
+    "questions_header_other": {
+      "fontSize": "16px",
+      "backgroundColor": "#767676",
+      "width": 25
     }
   }
 }

@@ -11,3 +11,39 @@ Rust по умолчанию не использует строки с заве�
 Для этой цели есть два типа. `std::ffi::CStr и std::ffi::CString`.
 
 Документация по Rust довольно хороша, если вы хотите узнать о них больше.
+
+
+**Создания C-совместимых строк, которые используются в Foreign Function Interface (FFI)**
+
+C string - создаёт статический массив байтов, который всегда оканчивается нулевым байтом (`\0`). Этот нулевой байт — это так называемый null-terminator, который служит признаком конца строки в языке C. Обычные строки в Rust не имеют такого завершающего символа, поэтому при передаче в C-функции без `\0` может произойти чтение некорректных данных или краш программы.
+
+<pre><code class="language-rust edition2024">
+use std::ffi::CStr;
+
+// Обычная C-функция, которая принимает C-строку.
+// #[link(name = "my_c_lib")]
+// extern "C" {
+//     fn print_from_c(s: *const i8);
+// }
+
+fn main() {
+    let c_str_literal = c"hello"; // Тип &CStr
+
+    // print_from_c(c_str_literal.as_ptr());
+    println!("{:?}", c_str_literal); // Выведет CStr::from_bytes_with_nul(...)
+}
+</code></pre>
+
+<pre><code class="language-rust edition2024">
+// "raw" C string. Эта форма используется, когда в строке есть символы, которые могли бы быть восприняты как escape-последовательности, например, \n, \t или \.
+
+use std::ffi::CStr;
+
+fn main() {
+    let path_str = cr#"C:\Users\John\file.txt"#; // Обычный c"\t" стал бы символом табуляции
+    println!("{:?}", path_str); 
+}
+</code></pre>
+
+
+ 

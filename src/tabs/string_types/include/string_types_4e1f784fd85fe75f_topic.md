@@ -1,0 +1,3 @@
+
+
+**Splitting to iterator**

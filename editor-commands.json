@@ -1,0 +1,23 @@
+[
+  {
+    "type": "add-tr",
+    "tab_id": "string_types",
+    "tr_id": "string_types_9731be76823d5000",
+    "tr_id_position": "string_types_aa09d96fe0a5e8a7",
+    "position": "before"
+  },
+  {
+    "type": "add-tr",
+    "tab_id": "string_types",
+    "tr_id": "string_types_2cc181e5a99797f7",
+    "tr_id_position": "string_types_7772bf9a26ff4152",
+    "position": "before"
+  },
+  {
+    "type": "add-tr",
+    "tab_id": "string_types",
+    "tr_id": "string_types_97aee0cdcdda60de",
+    "tr_id_position": "string_types_516f881b592e9567",
+    "position": "before"
+  }
+]
