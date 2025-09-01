@@ -1,0 +1,16 @@
+
+
+
+<pre><code class="language-rust">
+fn main(){
+    #![feature(split_array)]
+
+    let mut v = [1, 0, 3, 0, 5, 6];
+    let (left, right) = v.split_array_mut::<2>();
+    assert_eq!(left, &mut [1, 0][..]);
+    assert_eq!(right, &mut [3, 0, 5, 6]);
+    left[1] = 2;
+    right[1] = 4;
+    assert_eq!(v, [1, 2, 3, 4, 5, 6]);
+}
+</code></pre>
