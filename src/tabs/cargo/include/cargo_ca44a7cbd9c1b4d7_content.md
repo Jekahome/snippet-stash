@@ -2,10 +2,10 @@
 
 * crate cargo-udeps
 * crate cargo-deny
-* Cargo
+* [Cargo](#cargo)
 * Файл rust-toolchain.toml
-* Содержите свой код в чистоте
-* Clippy Lints
-* rustfmt
-* rust-analyzer в VScode IntelliSense
-* Стиль кода
+* [Содержите свой код в чистоте](#Содержите-свой-код-в-чистоте)
+* [Clippy Lints](#clippy-lints)
+* [rustfmt](#rustfmt)
+* [rust-analyzer в VScode IntelliSense](#rust-analyzer-в-vscode-intellisense)
+* [Стиль кода](#Стиль-кода)

@@ -1,6 +1,6 @@
 
 
-**char**
+#### char
 
 Primitive Type [primitive.char](https://doc.rust-lang.org/std/primitive.char.html)
 

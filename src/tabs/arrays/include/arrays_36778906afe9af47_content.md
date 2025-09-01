@@ -1,7 +1,7 @@
 
 
-* Trait Index, IndexMut
-* Вектор `vec!`, `Vec<T>`
-* Slice срез &[T]
-* Массив [T; N]
-* Методы через Deref
+* [Trait Index, IndexMut](#trait-index-indexmut)
+* [Вектор `vec!`, `Vec<T>`](#Вектор-vec-vect)
+* [Slice срез &[T]](#slice-срез-t-mut-t)
+* [Массив [T; N]](#Массив-t-n)
+* [Методы через Deref](#Методы-через-deref-для)

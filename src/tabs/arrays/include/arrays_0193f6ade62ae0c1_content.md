@@ -28,10 +28,10 @@ fn make_array<A, T>(slice: &[T]) -> A
     let mut a = Default::default();
     // the type cannot be inferred!
     // a.as_mut().copy_from_slice(slice);
+
     <A as AsMut<[T]>>::as_mut(&mut a).copy_from_slice(slice);
     a
 }
-
 fn main(){
  let original = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
     let a: [u8; 4] = make_array(&original[0..4]);

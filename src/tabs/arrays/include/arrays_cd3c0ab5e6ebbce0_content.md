@@ -1,12 +1,13 @@
 
 
 
+
 <pre><code class="language-rust">
 use std::marker::PhantomData;
 use std::ops::Index;
 
 #[derive(Debug)]
-struct IndexVertex<S>(usize,PhantomData<S>);
+struct IndexVertex<S>(usize, PhantomData<S>);
 impl IndexVertex<FromIndex>{
     fn new(index:usize)->Self{
         Self(index,PhantomData)
@@ -15,23 +16,23 @@ impl IndexVertex<FromIndex>{
 
 #[derive(Debug)]
 struct Vertexes<W>{
-    indexes: Vec<Option<Vec<(W,IndexVertex<FromIndex>)>>>
+    indexes: Vec<Option<Vec<(W, Index Vertex<FromIndex>)>>>
 }
 impl<W> Vertexes<W>{
-    fn new(data: Vec<Option<Vec<(W,IndexVertex<FromIndex>)>>>) -> Self{
+    fn new(data: Vec<Option<Vec<(W, IndexVertex<FromIndex>)>>>) -> Self{
         Self{// from -> to
            indexes: data
         }
     }
 }
 impl<W> Index<IndexVertex<FromIndex>> for Vertexes<W> {
-    type Output = Option<Vec<(W,IndexVertex<FromIndex>)>>;
+    type Output = Option<Vec<(W, IndexVertex<FromIndex>)>>;
     fn index(&self, index: IndexVertex<FromIndex>) -> &Self::Output {
        &self.indexes[index.0]
     }
 }
 impl<W> Index<IndexVertex<ToIndex>> for Vertexes<W> {
-    type Output = Option<Vec<(W,IndexVertex<ToIndex>)>>;
+    type Output = Option<Vec<(W, IndexVertex<ToIndex>)>>;
 
     fn index(&self, index: IndexVertex<ToIndex>) -> &Self::Output {
     
