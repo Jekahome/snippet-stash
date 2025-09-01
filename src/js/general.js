@@ -465,13 +465,13 @@ function closeModal() {
     // Восстанавливаем позицию страницы
     setTimeout(() => {
         window.scrollTo(0, scrollY);
-    }, 100); 
+    }, 200); 
 }
 
 function AddRustNoRunCodeBlockModal(){
     const editor = document.getElementById('modalTextEditor');
     editor.value += `\n\n
-<pre><code class="language-rust no_run edition2021">
+<pre><code class="language-rust no_run edition2024">
 fn main(){
  ...
 }
@@ -754,7 +754,7 @@ Are you still using [Yahoo][] or [MSN][] search?\n\
         break;
     case 'icons':    
     editor.value +="\n\
-❌ ERROR ✅ OK ⚠️ ❗ 📌 📎 \n\
+❌ ERROR ✅ OK ⚠️ ❗ 📌 📎 👾\n\
 ";   
         break;        
     default:
@@ -1191,7 +1191,7 @@ async function editContent(cell_id) {
         // Восстанавливаем позицию страницы
         setTimeout(() => {
             window.scrollTo(0, scrollY);
-        }, 100); 
+        }, 200); 
          
         // Дополнительная проверка для браузеров
         if (editor.createTextRange) {
@@ -1217,7 +1217,7 @@ async function saveTextModal() {
     // Восстанавливаем позицию страницы
     setTimeout(() => {
         window.scrollTo(0, scrollY);
-    }, 100); 
+    }, 200); 
 }
 
 async function checkMermaidFormatting(value) {
@@ -1522,7 +1522,7 @@ async function DeleteTR(cell_id) {
     // Восстанавливаем позицию страницы
     setTimeout(() => {
         window.scrollTo(0, scrollY);
-    }, 100); 
+    }, 200); 
 }
 
 function AddTRBefore(cell_id){
@@ -1537,7 +1537,7 @@ function AddTRBefore(cell_id){
     // Восстанавливаем позицию страницы
     setTimeout(() => {
         window.scrollTo(0, scrollY);
-    }, 100); 
+    }, 200); 
 }
 
 function AddTRAfter(cell_id){
@@ -1552,7 +1552,7 @@ function AddTRAfter(cell_id){
     // Восстанавливаем позицию страницы
     setTimeout(() => {
         window.scrollTo(0, scrollY);
-    }, 100); 
+    }, 200); 
 }
 
 function insertNewTr(current_td_id, new_tr_id, position = 'after',is_add_setting_menu=false) {
@@ -2242,7 +2242,7 @@ async function hundlerUndoChangesCell(cell_id) {
     // Восстанавливаем позицию страницы
     setTimeout(() => {
         window.scrollTo(0, scrollY);
-    }, 100);     
+    }, 200);     
 }
 
 function checkNewlines(text) {
