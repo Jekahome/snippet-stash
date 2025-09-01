@@ -492,6 +492,76 @@
                 <td id="arrays_bbc4dc5becd03312_topic"><div class="cell-content" contenteditable="true">{{include('src/tabs/arrays/include/arrays_bbc4dc5becd03312_topic.md')}}</div></td>
                 <td id="arrays_bbc4dc5becd03312_content"><div class="cell-content" contenteditable="true">{{include('src/tabs/arrays/include/arrays_bbc4dc5becd03312_content.md')}}</div></td>
                 <td id="arrays_bbc4dc5becd03312_other"><div class="cell-content" contenteditable="true">{{include('src/tabs/arrays/include/arrays_bbc4dc5becd03312_other.md')}}</div></td>
+            </tr>
+            <tr id="arrays_b13d2da4d35d3d79">
+                <td id="arrays_b13d2da4d35d3d79_topic"><div class="cell-content" contenteditable="true">{{include('src/tabs/arrays/include/arrays_b13d2da4d35d3d79_topic.md')}}</div></td>
+                <td id="arrays_b13d2da4d35d3d79_content"><div class="cell-content" contenteditable="true">{{include('src/tabs/arrays/include/arrays_b13d2da4d35d3d79_content.md')}}</div></td>
+                <td id="arrays_b13d2da4d35d3d79_other"><div class="cell-content" contenteditable="true">{{include('src/tabs/arrays/include/arrays_b13d2da4d35d3d79_other.md')}}</div></td>
+            </tr>
+            <tr id="arrays_20ca17af2a799a14">
+                <td id="arrays_20ca17af2a799a14_topic"><div class="cell-content" contenteditable="true">{{include('src/tabs/arrays/include/arrays_20ca17af2a799a14_topic.md')}}</div></td>
+                <td id="arrays_20ca17af2a799a14_content"><div class="cell-content" contenteditable="true">{{include('src/tabs/arrays/include/arrays_20ca17af2a799a14_content.md')}}</div></td>
+                <td id="arrays_20ca17af2a799a14_other"><div class="cell-content" contenteditable="true">{{include('src/tabs/arrays/include/arrays_20ca17af2a799a14_other.md')}}</div></td>
+            </tr>
+            <tr id="arrays_292b979f2daab51b">
+                <td id="arrays_292b979f2daab51b_topic"><div class="cell-content" contenteditable="true">{{include('src/tabs/arrays/include/arrays_292b979f2daab51b_topic.md')}}</div></td>
+                <td id="arrays_292b979f2daab51b_content"><div class="cell-content" contenteditable="true">{{include('src/tabs/arrays/include/arrays_292b979f2daab51b_content.md')}}</div></td>
+                <td id="arrays_292b979f2daab51b_other"><div class="cell-content" contenteditable="true">{{include('src/tabs/arrays/include/arrays_292b979f2daab51b_other.md')}}</div></td>
+            </tr>
+            <tr id="arrays_4dc9824b3b54c84c">
+                <td id="arrays_4dc9824b3b54c84c_topic"><div class="cell-content" contenteditable="true">{{include('src/tabs/arrays/include/arrays_4dc9824b3b54c84c_topic.md')}}</div></td>
+                <td id="arrays_4dc9824b3b54c84c_content"><div class="cell-content" contenteditable="true">{{include('src/tabs/arrays/include/arrays_4dc9824b3b54c84c_content.md')}}</div></td>
+                <td id="arrays_4dc9824b3b54c84c_other"><div class="cell-content" contenteditable="true">{{include('src/tabs/arrays/include/arrays_4dc9824b3b54c84c_other.md')}}</div></td>
+            </tr>
+            <tr id="arrays_a5c160f0334fa513">
+                <td id="arrays_a5c160f0334fa513_topic"><div class="cell-content" contenteditable="true">{{include('src/tabs/arrays/include/arrays_a5c160f0334fa513_topic.md')}}</div></td>
+                <td id="arrays_a5c160f0334fa513_content"><div class="cell-content" contenteditable="true">{{include('src/tabs/arrays/include/arrays_a5c160f0334fa513_content.md')}}</div></td>
+                <td id="arrays_a5c160f0334fa513_other"><div class="cell-content" contenteditable="true">{{include('src/tabs/arrays/include/arrays_a5c160f0334fa513_other.md')}}</div></td>
+            </tr>
+            <tr id="arrays_3f751c3fc2d3037e">
+                <td id="arrays_3f751c3fc2d3037e_topic"><div class="cell-content" contenteditable="true">{{include('src/tabs/arrays/include/arrays_3f751c3fc2d3037e_topic.md')}}</div></td>
+                <td id="arrays_3f751c3fc2d3037e_content"><div class="cell-content" contenteditable="true">{{include('src/tabs/arrays/include/arrays_3f751c3fc2d3037e_content.md')}}</div></td>
+                <td id="arrays_3f751c3fc2d3037e_other"><div class="cell-content" contenteditable="true">{{include('src/tabs/arrays/include/arrays_3f751c3fc2d3037e_other.md')}}</div></td>
+            </tr>
+            <tr id="arrays_525709bb5199735a">
+                <td id="arrays_525709bb5199735a_topic"><div class="cell-content" contenteditable="true">{{include('src/tabs/arrays/include/arrays_525709bb5199735a_topic.md')}}</div></td>
+                <td id="arrays_525709bb5199735a_content"><div class="cell-content" contenteditable="true">{{include('src/tabs/arrays/include/arrays_525709bb5199735a_content.md')}}</div></td>
+                <td id="arrays_525709bb5199735a_other"><div class="cell-content" contenteditable="true">{{include('src/tabs/arrays/include/arrays_525709bb5199735a_other.md')}}</div></td>
+            </tr>
+            <tr id="arrays_f528214b3815c852">
+                <td id="arrays_f528214b3815c852_topic"><div class="cell-content" contenteditable="true">{{include('src/tabs/arrays/include/arrays_f528214b3815c852_topic.md')}}</div></td>
+                <td id="arrays_f528214b3815c852_content"><div class="cell-content" contenteditable="true">{{include('src/tabs/arrays/include/arrays_f528214b3815c852_content.md')}}</div></td>
+                <td id="arrays_f528214b3815c852_other"><div class="cell-content" contenteditable="true">{{include('src/tabs/arrays/include/arrays_f528214b3815c852_other.md')}}</div></td>
+            </tr>
+            <tr id="arrays_4681c7e0a82a0ec5">
+                <td id="arrays_4681c7e0a82a0ec5_topic"><div class="cell-content" contenteditable="true">{{include('src/tabs/arrays/include/arrays_4681c7e0a82a0ec5_topic.md')}}</div></td>
+                <td id="arrays_4681c7e0a82a0ec5_content"><div class="cell-content" contenteditable="true">{{include('src/tabs/arrays/include/arrays_4681c7e0a82a0ec5_content.md')}}</div></td>
+                <td id="arrays_4681c7e0a82a0ec5_other"><div class="cell-content" contenteditable="true">{{include('src/tabs/arrays/include/arrays_4681c7e0a82a0ec5_other.md')}}</div></td>
+            </tr>
+            <tr id="arrays_3419db03970cf30f">
+                <td id="arrays_3419db03970cf30f_topic"><div class="cell-content" contenteditable="true">{{include('src/tabs/arrays/include/arrays_3419db03970cf30f_topic.md')}}</div></td>
+                <td id="arrays_3419db03970cf30f_content"><div class="cell-content" contenteditable="true">{{include('src/tabs/arrays/include/arrays_3419db03970cf30f_content.md')}}</div></td>
+                <td id="arrays_3419db03970cf30f_other"><div class="cell-content" contenteditable="true">{{include('src/tabs/arrays/include/arrays_3419db03970cf30f_other.md')}}</div></td>
+            </tr>
+            <tr id="arrays_e25b9b8fc5b2630c">
+                <td id="arrays_e25b9b8fc5b2630c_topic"><div class="cell-content" contenteditable="true">{{include('src/tabs/arrays/include/arrays_e25b9b8fc5b2630c_topic.md')}}</div></td>
+                <td id="arrays_e25b9b8fc5b2630c_content"><div class="cell-content" contenteditable="true">{{include('src/tabs/arrays/include/arrays_e25b9b8fc5b2630c_content.md')}}</div></td>
+                <td id="arrays_e25b9b8fc5b2630c_other"><div class="cell-content" contenteditable="true">{{include('src/tabs/arrays/include/arrays_e25b9b8fc5b2630c_other.md')}}</div></td>
+            </tr>
+            <tr id="arrays_fba398fbacfc4a5a">
+                <td id="arrays_fba398fbacfc4a5a_topic"><div class="cell-content" contenteditable="true">{{include('src/tabs/arrays/include/arrays_fba398fbacfc4a5a_topic.md')}}</div></td>
+                <td id="arrays_fba398fbacfc4a5a_content"><div class="cell-content" contenteditable="true">{{include('src/tabs/arrays/include/arrays_fba398fbacfc4a5a_content.md')}}</div></td>
+                <td id="arrays_fba398fbacfc4a5a_other"><div class="cell-content" contenteditable="true">{{include('src/tabs/arrays/include/arrays_fba398fbacfc4a5a_other.md')}}</div></td>
+            </tr>
+            <tr id="arrays_7fc9e372e453a432">
+                <td id="arrays_7fc9e372e453a432_topic"><div class="cell-content" contenteditable="true">{{include('src/tabs/arrays/include/arrays_7fc9e372e453a432_topic.md')}}</div></td>
+                <td id="arrays_7fc9e372e453a432_content"><div class="cell-content" contenteditable="true">{{include('src/tabs/arrays/include/arrays_7fc9e372e453a432_content.md')}}</div></td>
+                <td id="arrays_7fc9e372e453a432_other"><div class="cell-content" contenteditable="true">{{include('src/tabs/arrays/include/arrays_7fc9e372e453a432_other.md')}}</div></td>
+            </tr>
+            <tr id="arrays_9debb1da961e03f3">
+                <td id="arrays_9debb1da961e03f3_topic"><div class="cell-content" contenteditable="true">{{include('src/tabs/arrays/include/arrays_9debb1da961e03f3_topic.md')}}</div></td>
+                <td id="arrays_9debb1da961e03f3_content"><div class="cell-content" contenteditable="true">{{include('src/tabs/arrays/include/arrays_9debb1da961e03f3_content.md')}}</div></td>
+                <td id="arrays_9debb1da961e03f3_other"><div class="cell-content" contenteditable="true">{{include('src/tabs/arrays/include/arrays_9debb1da961e03f3_other.md')}}</div></td>
             </tr>   
             <tr id="arrays_443470115ebc0e2b">
                 <td id="arrays_443470115ebc0e2b_topic"><div class="cell-content" contenteditable="true">{{include('src/tabs/arrays/include/arrays_443470115ebc0e2b_topic.md')}}</div></td>
