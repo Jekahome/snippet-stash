@@ -217,5 +217,16 @@
       "backgroundColor": "#767676",
       "width": 25
     }
+  },
+  "iterator": {
+    "iterator_c5e08505d0feed93_topic": {
+      "backgroundColor": "#b4b4b4"
+    },
+    "iterator_337d981312b1f7d9_topic": {
+      "backgroundColor": "#b4b4b4"
+    },
+    "iterator_c06160593f15fb83_topic": {
+      "backgroundColor": "#b4b4b4"
+    }
   }
 }
