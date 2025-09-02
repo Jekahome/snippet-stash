@@ -103,5 +103,91 @@
     "unsafe_d3eadba0218a1b2a_topic": {
       "backgroundColor": "#b4b4b4"
     }
+  },
+  "debugging": {
+    "debugging_header_topic": {
+      "fontSize": "16px",
+      "backgroundColor": "#767676",
+      "width": 75
+    },
+    "debugging_header_content": {
+      "fontSize": "16px",
+      "backgroundColor": "#767676",
+      "width": 200
+    },
+    "debugging_header_other": {
+      "fontSize": "16px",
+      "backgroundColor": "#767676",
+      "width": 25
+    },
+    "debugging_af7ef5df188a4ced_topic": {
+      "backgroundColor": "#b4b4b4"
+    }
+  },
+  "no_std": {
+    "no_std_header_topic": {
+      "fontSize": "16px",
+      "backgroundColor": "#767676",
+      "width": 75
+    },
+    "no_std_header_content": {
+      "fontSize": "16px",
+      "backgroundColor": "#767676",
+      "width": 200
+    },
+    "no_std_header_other": {
+      "fontSize": "16px",
+      "backgroundColor": "#767676",
+      "width": 25
+    }
+  },
+  "error": {
+    "error_header_topic": {
+      "fontSize": "16px",
+      "backgroundColor": "#767676",
+      "width": 75
+    },
+    "error_header_content": {
+      "fontSize": "16px",
+      "backgroundColor": "#767676",
+      "width": 200
+    },
+    "error_header_other": {
+      "fontSize": "16px",
+      "backgroundColor": "#767676",
+      "width": 25
+    },
+    "error_85d03db1068e0e7e_topic": {
+      "backgroundColor": "#b4b4b4"
+    },
+    "error_c8dbfc395d61e15b_topic": {
+      "backgroundColor": "#b4b4b4"
+    },
+    "error_264f8e559fcaefe7_topic": {
+      "backgroundColor": "#b4b4b4"
+    },
+    "error_813a3aec474df7f2_topic": {
+      "backgroundColor": "#b4b4b4"
+    }
+  },
+  "types": {
+    "types_header_topic": {
+      "fontSize": "16px",
+      "backgroundColor": "#767676",
+      "width": 75
+    },
+    "types_header_content": {
+      "fontSize": "16px",
+      "backgroundColor": "#767676",
+      "width": 200
+    },
+    "types_header_other": {
+      "fontSize": "16px",
+      "backgroundColor": "#767676",
+      "width": 25
+    },
+    "types_8e27840b8bcece30_topic": {
+      "backgroundColor": "#b4b4b4"
+    }
   }
 }

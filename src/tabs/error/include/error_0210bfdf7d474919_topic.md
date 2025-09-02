@@ -1,0 +1,3 @@
+
+
+panic! или не panic!
