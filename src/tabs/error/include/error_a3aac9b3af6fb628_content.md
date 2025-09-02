@@ -1,8 +1,8 @@
 
 
-* [Trait std::error::Error]()
-* [crate thiserror]()
-* [crate anyhow]()
-* [panic!]()
-* [std::option::Option]()
-* [std::result::Result]()
+* [Trait std::error::Error](#trait-stderrorerror)
+* [crate thiserror](#thiserror)
+* [crate anyhow, color-eyre, eyre](#anyhow)
+* [panic!](#panic)
+* [std::option::Option](#stdoptionoption)
+* [std::result::Result](#stdresultresult)

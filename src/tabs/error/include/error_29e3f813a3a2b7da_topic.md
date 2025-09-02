@@ -1,5 +1,7 @@
 
 
+#### thiserror
+
 Свой тип ошибки с помощью **thiserror**
 
 [docs.rs/thiserror](https://docs.rs/thiserror/1.0.47/thiserror/)
