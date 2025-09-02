@@ -1,6 +1,6 @@
 
 
-std::ops::Range
+#### std::ops::Range
 
 (Полуоткрытый) диапазон
 

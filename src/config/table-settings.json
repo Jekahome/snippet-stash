@@ -14,6 +14,65 @@
     },
     "iterator_951e04134d1a095f_topic": {
       "backgroundColor": "#b4b4b4"
+    },
+    "iterator_c06160593f15fb83_topic": {
+      "backgroundColor": "#b4b4b4"
+    },
+    "iterator_337d981312b1f7d9_topic": {
+      "backgroundColor": "#b4b4b4"
+    },
+    "iterator_fa5de5fb0ec9e984_topic": {
+      "backgroundColor": "#b4b4b4"
+    },
+    "iterator_e8c4872e94a45594_topic": {
+      "backgroundColor": "#b4b4b4"
+    }
+  },
+  "collections": {
+    "collections_header_topic": {
+      "fontSize": "16px",
+      "backgroundColor": "#767676",
+      "width": 75
+    },
+    "collections_header_content": {
+      "fontSize": "16px",
+      "backgroundColor": "#767676",
+      "width": 200
+    },
+    "collections_header_other": {
+      "fontSize": "16px",
+      "backgroundColor": "#767676",
+      "width": 25
+    },
+    "collections_c9dc8c59f9ff49c7_topic": {
+      "backgroundColor": "#b4b4b4"
+    },
+    "collections_ff242639219c4fb3_topic": {
+      "backgroundColor": "#b4b4b4"
+    },
+    "collections_e52bf9c12ae99354_topic": {
+      "backgroundColor": "#b4b4b4"
+    },
+    "collections_e5684b113da94e37_topic": {
+      "backgroundColor": "#b4b4b4"
+    },
+    "collections_dd1e95e029ac1158_topic": {
+      "backgroundColor": "#b4b4b4"
+    },
+    "collections_916fe27a54a7ede0_topic": {
+      "backgroundColor": "#b4b4b4"
+    },
+    "collections_3d889f333bbaec0c_topic": {
+      "backgroundColor": "#b4b4b4"
+    },
+    "collections_fcd2b93808ddbddc_topic": {
+      "backgroundColor": "#b4b4b4"
+    },
+    "collections_5eda2bd478de7693_topic": {
+      "backgroundColor": "#b4b4b4"
+    },
+    "collections_1715248c388eec14_topic": {
+      "backgroundColor": "#b4b4b4"
     }
   }
 }
