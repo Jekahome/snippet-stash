@@ -73,6 +73,35 @@
     },
     "collections_1715248c388eec14_topic": {
       "backgroundColor": "#b4b4b4"
+    },
+    "collections_b3cdb418199d17a9_topic": {
+      "backgroundColor": "#b4b4b4"
+    }
+  },
+  "unsafe": {
+    "unsafe_header_topic": {
+      "fontSize": "16px",
+      "backgroundColor": "#767676",
+      "width": 75
+    },
+    "unsafe_header_content": {
+      "fontSize": "16px",
+      "backgroundColor": "#767676",
+      "width": 200
+    },
+    "unsafe_header_other": {
+      "fontSize": "16px",
+      "backgroundColor": "#767676",
+      "width": 25
+    },
+    "unsafe_79333cb8e8b6d707_topic": {
+      "backgroundColor": "#b4b4b4"
+    },
+    "unsafe_3dfa025bb98101ad_topic": {
+      "backgroundColor": "#b4b4b4"
+    },
+    "unsafe_d3eadba0218a1b2a_topic": {
+      "backgroundColor": "#b4b4b4"
     }
   }
 }
