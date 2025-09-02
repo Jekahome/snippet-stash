@@ -137,6 +137,16 @@
                 <td id="collections_ace59d48368c97db_topic"><div class="cell-content" contenteditable="true">{{include('src/tabs/collections/include/collections_ace59d48368c97db_topic.md')}}</div></td>
                 <td id="collections_ace59d48368c97db_content"><div class="cell-content" contenteditable="true">{{include('src/tabs/collections/include/collections_ace59d48368c97db_content.md')}}</div></td>
                 <td id="collections_ace59d48368c97db_other"><div class="cell-content" contenteditable="true">{{include('src/tabs/collections/include/collections_ace59d48368c97db_other.md')}}</div></td>
+            </tr>
+            <tr id="collections_b3cdb418199d17a9">
+                <td id="collections_b3cdb418199d17a9_topic"><div class="cell-content" contenteditable="true">{{include('src/tabs/collections/include/collections_b3cdb418199d17a9_topic.md')}}</div></td>
+                <td id="collections_b3cdb418199d17a9_content"><div class="cell-content" contenteditable="true">{{include('src/tabs/collections/include/collections_b3cdb418199d17a9_content.md')}}</div></td>
+                <td id="collections_b3cdb418199d17a9_other"><div class="cell-content" contenteditable="true">{{include('src/tabs/collections/include/collections_b3cdb418199d17a9_other.md')}}</div></td>
+            </tr>
+            <tr id="collections_1dada1ae40500d93">
+                <td id="collections_1dada1ae40500d93_topic"><div class="cell-content" contenteditable="true">{{include('src/tabs/collections/include/collections_1dada1ae40500d93_topic.md')}}</div></td>
+                <td id="collections_1dada1ae40500d93_content"><div class="cell-content" contenteditable="true">{{include('src/tabs/collections/include/collections_1dada1ae40500d93_content.md')}}</div></td>
+                <td id="collections_1dada1ae40500d93_other"><div class="cell-content" contenteditable="true">{{include('src/tabs/collections/include/collections_1dada1ae40500d93_other.md')}}</div></td>
             </tr>   
             <tr id="collections_e5684b113da94e37">
                 <td id="collections_e5684b113da94e37_topic"><div class="cell-content" contenteditable="true">{{include('src/tabs/collections/include/collections_e5684b113da94e37_topic.md')}}</div></td>
