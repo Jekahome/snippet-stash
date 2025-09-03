@@ -1,8 +1,8 @@
 
 
-* [std::cell::RefCell]()
-* [std::cell::Cell]()
-* [std::cell::OnceCell]()
 * [std::sync::OnceLock]()
+* [std::cell::Cell](#stdcellcellt)
+* [std::cell::RefCell](#stdcellrefcell)
 * [std::cell::{Ref, RefMut}]()
-* [std::cell::UnsafeCell]()
+* [std::cell::OnceCell](#stdcelloncecell)
+* [std::cell::UnsafeCell](#stdcellunsafecell)

@@ -8,5 +8,7 @@
 
 **std::cell::OnceCell**
 
+**std::cell::UnsafeCell**
+
 
 [cheats.rs/#cells](https://cheats.rs/#cells)

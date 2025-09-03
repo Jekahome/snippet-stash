@@ -6,7 +6,7 @@ Atomics
 Locks
 RefCell
 Mutex
-RW lock
+RWlock
 Reentrant Mutex
 OnceCell (unsync)
 OnceCell (sync)
