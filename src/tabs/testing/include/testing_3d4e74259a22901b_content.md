@@ -5,7 +5,7 @@
 wasm-bindgen-test = "0.3.0"
 ```
 
-File: <you crate>/tests/web.rs
+File: `<you crate>/tests/web.rs`:
 <pre><code class="language-rust">
 #[cfg(test)]
 mod test {
