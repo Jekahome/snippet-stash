@@ -1,0 +1,16 @@
+[
+  {
+    "type": "add-tr",
+    "tab_id": "testing",
+    "tr_id": "testing_4d09c6836ac5eee6",
+    "tr_id_position": "testing_802903c07a369b98",
+    "position": "before"
+  },
+  {
+    "type": "add-tr",
+    "tab_id": "testing",
+    "tr_id": "testing_c0fb511b05d48513",
+    "tr_id_position": "testing_0e11ffad61bf3b2d",
+    "position": "before"
+  }
+]

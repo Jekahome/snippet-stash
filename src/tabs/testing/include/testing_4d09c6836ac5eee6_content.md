@@ -1,0 +1,40 @@
+
+
+Атрибут `#[cfg(test)]`
+
+<pre><code class="language-rust">
+// Код компилируется ТОЛЬКО для тестов
+#[cfg(test)]
+mod tests {
+    // Весь этот модуль исключается из финальной сборки
+}
+
+// Эквивалентно:
+if cfg!(test) {
+    // тестовый код
+} else {
+    // ничего
+}
+</code></pre>
+
+---
+
+<pre><code class="language-rust">
+pub fn add_two(a: i32) -> i32 {
+    a + 2
+}
+// группируем тесты вместе
+// Атрибут cfg указывает на то, что тест будет скомпилирован, только когда мы попытаемся cargo test запустить тесты. 
+// Но не при build построении библиотеки 
+#[cfg(test)]
+mod test {
+    // use super::add_two;
+    use super::*;// глобальное подключение
+
+    #[test]
+    fn it_works() {
+        assert_eq!(4, add_two(2));
+    }
+}
+</code></pre>
+
