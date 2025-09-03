@@ -215,5 +215,114 @@
     "box_553caf878d94ff1f_topic": {
       "backgroundColor": "#b4b4b4"
     }
+  },
+  "cow": {
+    "cow_header_topic": {
+      "fontSize": "16px",
+      "backgroundColor": "#767676",
+      "width": 75
+    },
+    "cow_header_content": {
+      "fontSize": "16px",
+      "backgroundColor": "#767676",
+      "width": 200
+    },
+    "cow_header_other": {
+      "fontSize": "16px",
+      "backgroundColor": "#767676",
+      "width": 25
+    }
+  },
+  "string_types": {
+    "string_types_header_topic": {
+      "fontSize": "16px",
+      "backgroundColor": "#767676",
+      "width": 75
+    },
+    "string_types_header_content": {
+      "fontSize": "16px",
+      "backgroundColor": "#767676",
+      "width": 200
+    },
+    "string_types_header_other": {
+      "fontSize": "16px",
+      "backgroundColor": "#767676",
+      "width": 25
+    },
+    "string_types_029842abbf2a50db_topic": {
+      "backgroundColor": "#b4b4b4"
+    },
+    "string_types_cb342ab199e10827_topic": {
+      "backgroundColor": "#b4b4b4"
+    }
+  },
+  "ffi": {
+    "ffi_header_topic": {
+      "fontSize": "16px",
+      "backgroundColor": "#767676",
+      "width": 75
+    },
+    "ffi_header_content": {
+      "fontSize": "16px",
+      "backgroundColor": "#767676",
+      "width": 200
+    },
+    "ffi_header_other": {
+      "fontSize": "16px",
+      "backgroundColor": "#767676",
+      "width": 25
+    }
+  },
+  "cell": {
+    "cell_header_topic": {
+      "fontSize": "16px",
+      "backgroundColor": "#767676",
+      "width": 75
+    },
+    "cell_header_content": {
+      "fontSize": "16px",
+      "backgroundColor": "#767676",
+      "width": 200
+    },
+    "cell_header_other": {
+      "fontSize": "16px",
+      "backgroundColor": "#767676",
+      "width": 25
+    },
+    "cell_37da4a391af650a2_topic": {
+      "backgroundColor": "#b4b4b4"
+    },
+    "cell_6313b6b94d735a75_topic": {
+      "backgroundColor": "#b4b4b4"
+    },
+    "cell_d935621f3d3608d5_topic": {
+      "backgroundColor": "#b4b4b4"
+    },
+    "cell_3733cdf80a13862b_topic": {
+      "backgroundColor": "#b4b4b4"
+    }
+  },
+  "arrays": {
+    "arrays_header_topic": {
+      "fontSize": "16px",
+      "backgroundColor": "#767676",
+      "width": 75
+    },
+    "arrays_header_content": {
+      "fontSize": "16px",
+      "backgroundColor": "#767676",
+      "width": 200
+    },
+    "arrays_header_other": {
+      "fontSize": "16px",
+      "backgroundColor": "#767676",
+      "width": 25
+    },
+    "arrays_12e1d75bdb6143b7_topic": {
+      "backgroundColor": "#b4b4b4"
+    },
+    "arrays_75965f7f526b2912_topic": {
+      "backgroundColor": "#b4b4b4"
+    }
   }
 }
