@@ -18,6 +18,7 @@ impl<'a> User<'a> {
             last_name: Cow::Borrowed(last_name),
         }
     }
+
     // универсальный метод
     pub fn new<S>(first_name: S, last_name: S) -> User<'a> where S: Into<Cow<'a, str>> {
         User { 
@@ -25,6 +26,7 @@ impl<'a> User<'a> {
             last_name: last_name.into()
          }
     }
+
     pub fn first_name(&self) -> &str {
         &self.first_name
     }
