@@ -26,7 +26,7 @@ fn main() {
         ]);
 
     assert_eq!(out,
-        "<html><head><title>Macros guide</title></head>\
-         <body><h1>Macros are the best!</h1></body></html>");
+        `"<html><head><title>Macros guide</title></head>\
+         <body><h1>Macros are the best!</h1></body></html>"`);
 }
 </code></pre>

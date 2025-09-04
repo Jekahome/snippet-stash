@@ -1,0 +1,27 @@
+
+
+для гораздо большего типа данных, который не помещается в одну атомарную переменную AtomicU64, нам нужно AtomicPtr
+<pre><code class="language-rust">
+use std::sync::atomic::AtomicPtr;
+fn get_data() -> &'static Data {
+    static PTR: AtomicPtr<Data> = AtomicPtr::new(std::ptr::null_mut());
+
+    let mut p = PTR.load(Acquire);
+
+    if p.is_null() {
+        p = Box::into_raw(Box::new(generate_data()));
+        if let Err(e) = PTR.compare_exchange(
+            std::ptr::null_mut(), p, Release, Acquire
+        ) {
+            // Safety: p взят из Box::into_raw прямо выше, 
+            // и не был передан ни одному другому потоку.
+            drop(unsafe { Box::from_raw(p) });
+            p = e;
+        }
+    }
+    unsafe { &*p }
+// Safety: p не равен нулю и указывает на правильно инициализированное значение.
+// Чтобы убедиться в справедливости нашего предположения, мы используем порядок освобождения и получения памяти, чтобы убедиться, что инициализация данных действительно произошла, прежде чем создавать ссылку на них.
+}
+</code></pre>
+Нужно использовать Acquire как для упорядочивания загрузочной памяти, так и для упорядочивания памяти ошибок Compare_exchange, чтобы иметь возможность синхронизироваться с операцией, сохраняющей указатель. Это сохранение происходит, когда операция Compare_exchange завершается успешно, поэтому мы должны использовать Release в качестве порядка ее успеха.

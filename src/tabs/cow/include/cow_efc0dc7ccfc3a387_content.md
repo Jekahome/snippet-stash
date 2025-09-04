@@ -6,7 +6,7 @@ struct Token<'a> {
 }
 
 impl<'a> Token<'a> {
-        pub fn new<S>(raw: S) -> Token<'a> where S: Into<Cow<'a, str>> {
+        pub fn new< S >(raw: S) -> Token<'a> where S: Into<Cow<'a, str>> {
             Token { raw: raw.into() }
         }
 }

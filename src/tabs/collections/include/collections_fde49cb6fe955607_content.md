@@ -11,7 +11,7 @@
 * [std::collections::btree_map::BTreeMap](#stdcollectionsbtree_mapbtreemap)
 * [Параллельные коллекции](#Параллельные-коллекции)
 * [Неизменяемые коллекции](#Неизменяемые-immutable-коллекции)
-    * [crate im]()
-    * [Struct im::vector::Vector]()
-    * [Struct im::hashmap::HashMap]()
+    * [crate im](#Неизменяемые-immutable-коллекции)
+    * [Struct im::vector::Vector](Методы-struct-imvectorvector)
+    * [Struct im::hashmap::HashMap](Методы-struct-imhashmaphashmap)
 

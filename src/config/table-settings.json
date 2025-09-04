@@ -214,6 +214,9 @@
     },
     "box_553caf878d94ff1f_topic": {
       "backgroundColor": "#b4b4b4"
+    },
+    "box_0536bdf4e4393371_topic": {
+      "backgroundColor": "#b4b4b4"
     }
   },
   "cow": {
@@ -306,6 +309,9 @@
     },
     "cell_2b48798c175f134b_topic": {
       "backgroundColor": "#b4b4b4"
+    },
+    "cell_1ac9fe2a90c35a1a_topic": {
+      "backgroundColor": "#b4b4b4"
     }
   },
   "arrays": {
@@ -384,6 +390,18 @@
     },
     "rc_6f9f9d81ec8a9825_topic": {
       "backgroundColor": "#b4b4b4"
+    },
+    "rc_8e6c61bef81c578c_topic": {
+      "backgroundColor": "#b4b4b4"
+    },
+    "rc_29704acbe29044b0_topic": {
+      "backgroundColor": "#b4b4b4"
+    },
+    "rc_7e5c32e7a352bbbb_topic": {
+      "backgroundColor": "#b4b4b4"
+    },
+    "rc_ec5649bae2616f14_topic": {
+      "backgroundColor": "#b4b4b4"
     }
   },
   "arc": {
@@ -401,6 +419,12 @@
       "fontSize": "16px",
       "backgroundColor": "#767676",
       "width": 25
+    },
+    "arc_a5a96ddf4dc71702_topic": {
+      "backgroundColor": "#b4b4b4"
+    },
+    "arc_fb565436520d07a7_topic": {
+      "backgroundColor": "#b4b4b4"
     }
   },
   "mutex": {
@@ -447,6 +471,135 @@
       "backgroundColor": "#b4b4b4"
     },
     "mutex_0056beb33e3f4203_topic": {
+      "backgroundColor": "#b4b4b4"
+    },
+    "mutex_064249ea4ece3759_topic": {
+      "backgroundColor": "#b4b4b4"
+    }
+  },
+  "sync_atomic": {
+    "sync_atomic_header_topic": {
+      "fontSize": "16px",
+      "backgroundColor": "#767676",
+      "width": 75
+    },
+    "sync_atomic_header_content": {
+      "fontSize": "16px",
+      "backgroundColor": "#767676",
+      "width": 200
+    },
+    "sync_atomic_header_other": {
+      "fontSize": "16px",
+      "backgroundColor": "#767676",
+      "width": 25
+    },
+    "sync_atomic_2533f8b76c390f1d_topic": {
+      "backgroundColor": "#b4b4b4"
+    },
+    "sync_atomic_615783c13821ef92_topic": {
+      "backgroundColor": "#b4b4b4"
+    }
+  },
+  "macro": {
+    "macro_header_topic": {
+      "fontSize": "16px",
+      "backgroundColor": "#767676",
+      "width": 75
+    },
+    "macro_header_content": {
+      "fontSize": "16px",
+      "backgroundColor": "#767676",
+      "width": 200
+    },
+    "macro_header_other": {
+      "fontSize": "16px",
+      "backgroundColor": "#767676",
+      "width": 25
+    },
+    "macro_f92fca5b1933422e_topic": {
+      "backgroundColor": "#b4b4b4"
+    },
+    "macro_374797312fe287b8_topic": {
+      "backgroundColor": "#b4b4b4"
+    },
+    "macro_a3d8a72678d02221_topic": {
+      "backgroundColor": "#b4b4b4"
+    },
+    "macro_fc7c032c496426a6_topic": {
+      "backgroundColor": "#b4b4b4"
+    }
+  },
+  "cargo": {
+    "cargo_header_topic": {
+      "fontSize": "16px",
+      "backgroundColor": "#767676",
+      "width": 75
+    },
+    "cargo_header_content": {
+      "fontSize": "16px",
+      "backgroundColor": "#767676",
+      "width": 200
+    },
+    "cargo_header_other": {
+      "fontSize": "16px",
+      "backgroundColor": "#767676",
+      "width": 25
+    }
+  },
+  "questions": {
+    "questions_header_topic": {
+      "fontSize": "16px",
+      "backgroundColor": "#767676",
+      "width": 75
+    },
+    "questions_header_content": {
+      "fontSize": "16px",
+      "backgroundColor": "#767676",
+      "width": 200
+    },
+    "questions_header_other": {
+      "fontSize": "16px",
+      "backgroundColor": "#767676",
+      "width": 25
+    }
+  },
+  "generic": {
+    "generic_header_topic": {
+      "fontSize": "16px",
+      "backgroundColor": "#767676",
+      "width": 75
+    },
+    "generic_header_content": {
+      "fontSize": "16px",
+      "backgroundColor": "#767676",
+      "width": 200
+    },
+    "generic_header_other": {
+      "fontSize": "16px",
+      "backgroundColor": "#767676",
+      "width": 25
+    }
+  },
+  "base": {
+    "base_header_topic": {
+      "fontSize": "16px",
+      "backgroundColor": "#767676",
+      "width": 75
+    },
+    "base_header_content": {
+      "fontSize": "16px",
+      "backgroundColor": "#767676",
+      "width": 200
+    },
+    "base_header_other": {
+      "fontSize": "16px",
+      "backgroundColor": "#767676",
+      "width": 25
+    },
+    "base_f4de9b04139e968f_topic": {
+      "backgroundColor": "#b4b4b4"
+    },
+    "base_2d393344110b3107_topic": {
       "backgroundColor": "#b4b4b4"
     }
   }

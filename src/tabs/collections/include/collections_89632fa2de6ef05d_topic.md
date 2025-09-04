@@ -1,6 +1,6 @@
 
 
-**Методы Struct im::vector::Vector**
+#### Методы Struct im::vector::Vector
 
 * new - Построить пустой вектор
 * singleton - Построить вектор с одним значением

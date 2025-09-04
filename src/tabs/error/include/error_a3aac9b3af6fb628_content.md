@@ -6,3 +6,7 @@
 * [panic!](#panic)
 * [std::option::Option](#stdoptionoption)
 * [std::result::Result](#stdresultresult)
+
+📌 Новый раздел
+* 👾 Best practice
+* Варианты применения

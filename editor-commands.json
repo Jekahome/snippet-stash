@@ -1,0 +1,23 @@
+[
+  {
+    "type": "add-tr",
+    "tab_id": "sync_atomic",
+    "tr_id": "sync_atomic_bad3c22cb660ee7f",
+    "tr_id_position": "sync_atomic_24330c21d3de13d7",
+    "position": "after"
+  },
+  {
+    "type": "add-tr",
+    "tab_id": "rc",
+    "tr_id": "rc_8fa97bcda1b79cba",
+    "tr_id_position": "rc_dd692a371056884b",
+    "position": "before"
+  },
+  {
+    "type": "add-tr",
+    "tab_id": "cow",
+    "tr_id": "cow_33537bcaf38e4f63",
+    "tr_id_position": "cow_450edebc4e56cc49",
+    "position": "before"
+  }
+]

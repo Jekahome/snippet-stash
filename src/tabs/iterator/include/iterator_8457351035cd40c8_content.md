@@ -9,3 +9,9 @@
 * [Trait rayon::iter::IndexedParallelIterator](#trait-rayoniterindexedparalleliterator)
 * [Trait rayon::slice::ParallelSliceMut](#trait-rayonsliceparallelslicemut)
 * [Crate itertools](#crate-itertools)
+
+📌 Новый раздел
+* 👾 Best practice
+* Варианты применения
+
+

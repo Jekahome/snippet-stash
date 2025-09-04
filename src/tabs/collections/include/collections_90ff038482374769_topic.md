@@ -1,6 +1,6 @@
 
 
-**Методы Struct im::hashmap::HashMap**
+#### Методы Struct im::hashmap::HashMap
 
 [struct.HashMap](https://docs.rs/im/11.0.1/im/hashmap/struct.HashMap.html)
 

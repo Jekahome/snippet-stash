@@ -20,7 +20,7 @@ impl<'a> User<'a> {
     }
 
     // универсальный метод
-    pub fn new<S> (first_name: S, last_name: S) -> User<'a> where S: Into<Cow<'a, str>> {
+    pub fn new< S >(first_name: S, last_name: S) -> User<'a> where S: Into<Cow<'a, str>> {
         User { 
             first_name: first_name.into(),
             last_name: last_name.into()
@@ -39,7 +39,7 @@ struct User2{
     last_name: Cow<'static, str>,
 }
 impl User2 {
-    pub fn new<S>(first_name: S, last_name: S) -> User2 where S: Into<Cow<'static, str>> {
+    pub fn new< S >(first_name: S, last_name: S) -> User2 where S: Into<Cow<'static, str>> {
         User2 { 
             first_name: first_name.into(),
             last_name: last_name.into()

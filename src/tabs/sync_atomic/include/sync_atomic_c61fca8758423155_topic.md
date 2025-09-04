@@ -1,0 +1,3 @@
+
+
+Пример сигнализации/Signaling example
