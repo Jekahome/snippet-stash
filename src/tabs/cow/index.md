@@ -13,6 +13,11 @@
                 <td id="cow_e961cd73868379a3_content"><div class="cell-content" contenteditable="true">{{include('src/tabs/cow/include/cow_e961cd73868379a3_content.md')}}</div></td>
                 <td id="cow_e961cd73868379a3_other"><div class="cell-content" contenteditable="true">{{include('src/tabs/cow/include/cow_e961cd73868379a3_other.md')}}</div></td>
             </tr>   
+            <tr id="cow_33537bcaf38e4f63">
+                <td id="cow_33537bcaf38e4f63_topic"><div class="cell-content" contenteditable="true">{{include('src/tabs/cow/include/cow_33537bcaf38e4f63_topic.md')}}</div></td>
+                <td id="cow_33537bcaf38e4f63_content"><div class="cell-content" contenteditable="true">{{include('src/tabs/cow/include/cow_33537bcaf38e4f63_content.md')}}</div></td>
+                <td id="cow_33537bcaf38e4f63_other"><div class="cell-content" contenteditable="true">{{include('src/tabs/cow/include/cow_33537bcaf38e4f63_other.md')}}</div></td>
+            </tr>   
             <tr id="cow_450edebc4e56cc49">
                 <td id="cow_450edebc4e56cc49_topic"><div class="cell-content" contenteditable="true">{{include('src/tabs/cow/include/cow_450edebc4e56cc49_topic.md')}}</div></td>
                 <td id="cow_450edebc4e56cc49_content"><div class="cell-content" contenteditable="true">{{include('src/tabs/cow/include/cow_450edebc4e56cc49_content.md')}}</div></td>
