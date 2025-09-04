@@ -385,5 +385,69 @@
     "rc_6f9f9d81ec8a9825_topic": {
       "backgroundColor": "#b4b4b4"
     }
+  },
+  "arc": {
+    "arc_header_topic": {
+      "fontSize": "16px",
+      "backgroundColor": "#767676",
+      "width": 75
+    },
+    "arc_header_content": {
+      "fontSize": "16px",
+      "backgroundColor": "#767676",
+      "width": 200
+    },
+    "arc_header_other": {
+      "fontSize": "16px",
+      "backgroundColor": "#767676",
+      "width": 25
+    }
+  },
+  "mutex": {
+    "mutex_header_topic": {
+      "fontSize": "16px",
+      "backgroundColor": "#767676",
+      "width": 75
+    },
+    "mutex_header_content": {
+      "fontSize": "16px",
+      "backgroundColor": "#767676",
+      "width": 200
+    },
+    "mutex_header_other": {
+      "fontSize": "16px",
+      "backgroundColor": "#767676",
+      "width": 25
+    },
+    "mutex_fd16a2def2ed20f3_topic": {
+      "backgroundColor": "#b4b4b4"
+    },
+    "mutex_1d51b20879d8cf30_topic": {
+      "backgroundColor": "#b4b4b4"
+    },
+    "mutex_2f47a799e2a8d43e_topic": {
+      "backgroundColor": "#b4b4b4"
+    },
+    "mutex_21bbbbe0da3cc811_topic": {
+      "backgroundColor": "#b4b4b4"
+    },
+    "mutex_7751b2f8bc8a860a_topic": {
+      "backgroundColor": "#b4b4b4"
+    },
+    "mutex_f6f1dcddb9ff3033_topic": {
+      "backgroundColor": "#b4b4b4"
+    },
+    "mutex_49d12205564aaaa0_topic": {
+      "backgroundColor": "#b4b4b4"
+    },
+    "mutex_4a8f5bcf7f478533_topic": {
+      "backgroundColor": "#b4b4b4"
+    },
+    "mutex_5d52edf6665cc3e6_topic": {
+      "backgroundColor": "#b4b4b4"
+    },
+    "mutex_0056beb33e3f4203_topic": {
+      "backgroundColor": "#b4b4b4"
+    }
   }
 }
