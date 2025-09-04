@@ -63,6 +63,16 @@
                 <td id="arc_e63038a17d8eeb82_content"><div class="cell-content" contenteditable="true">{{include('src/tabs/arc/include/arc_e63038a17d8eeb82_content.md')}}</div></td>
                 <td id="arc_e63038a17d8eeb82_other"><div class="cell-content" contenteditable="true">{{include('src/tabs/arc/include/arc_e63038a17d8eeb82_other.md')}}</div></td>
             </tr>   
+            <tr id="arc_fb565436520d07a7">
+                <td id="arc_fb565436520d07a7_topic"><div class="cell-content" contenteditable="true">{{include('src/tabs/arc/include/arc_fb565436520d07a7_topic.md')}}</div></td>
+                <td id="arc_fb565436520d07a7_content"><div class="cell-content" contenteditable="true">{{include('src/tabs/arc/include/arc_fb565436520d07a7_content.md')}}</div></td>
+                <td id="arc_fb565436520d07a7_other"><div class="cell-content" contenteditable="true">{{include('src/tabs/arc/include/arc_fb565436520d07a7_other.md')}}</div></td>
+            </tr>   
+            <tr id="arc_13ea5bd35a521a73">
+                <td id="arc_13ea5bd35a521a73_topic"><div class="cell-content" contenteditable="true">{{include('src/tabs/arc/include/arc_13ea5bd35a521a73_topic.md')}}</div></td>
+                <td id="arc_13ea5bd35a521a73_content"><div class="cell-content" contenteditable="true">{{include('src/tabs/arc/include/arc_13ea5bd35a521a73_content.md')}}</div></td>
+                <td id="arc_13ea5bd35a521a73_other"><div class="cell-content" contenteditable="true">{{include('src/tabs/arc/include/arc_13ea5bd35a521a73_other.md')}}</div></td>
+            </tr>   
             <tr id="arc_7fbd40ae7ba39b54">
                 <td id="arc_7fbd40ae7ba39b54_topic"><div class="cell-content" contenteditable="true">{{include('src/tabs/arc/include/arc_7fbd40ae7ba39b54_topic.md')}}</div></td>
                 <td id="arc_7fbd40ae7ba39b54_content"><div class="cell-content" contenteditable="true">{{include('src/tabs/arc/include/arc_7fbd40ae7ba39b54_content.md')}}</div></td>
