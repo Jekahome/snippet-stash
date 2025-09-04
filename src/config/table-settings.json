@@ -498,6 +498,9 @@
     },
     "sync_atomic_615783c13821ef92_topic": {
       "backgroundColor": "#b4b4b4"
+    },
+    "sync_atomic_bf4b653ec5345583_topic": {
+      "backgroundColor": "#b4b4b4"
     }
   },
   "macro": {
@@ -600,6 +603,73 @@
       "backgroundColor": "#b4b4b4"
     },
     "base_2d393344110b3107_topic": {
+      "backgroundColor": "#b4b4b4"
+    }
+  },
+  "sync_mpsc_channel": {
+    "sync_mpsc_channel_header_topic": {
+      "fontSize": "16px",
+      "backgroundColor": "#767676",
+      "width": 75
+    },
+    "sync_mpsc_channel_header_content": {
+      "fontSize": "16px",
+      "backgroundColor": "#767676",
+      "width": 200
+    },
+    "sync_mpsc_channel_header_other": {
+      "fontSize": "16px",
+      "backgroundColor": "#767676",
+      "width": 25
+    },
+    "sync_mpsc_channel_ad1eb080c008e1b3_topic": {
+      "backgroundColor": "#b4b4b4"
+    },
+    "sync_mpsc_channel_a2fac4a23384f1e1_topic": {
+      "backgroundColor": "#b4b4b4"
+    },
+    "sync_mpsc_channel_9e6f873d497f9334_topic": {
+      "backgroundColor": "#b4b4b4"
+    },
+    "sync_mpsc_channel_bdc367cd041e8f00_topic": {
+      "backgroundColor": "#b4b4b4"
+    }
+  },
+  "parallelism": {
+    "parallelism_header_topic": {
+      "fontSize": "16px",
+      "backgroundColor": "#767676",
+      "width": 75
+    },
+    "parallelism_header_content": {
+      "fontSize": "16px",
+      "backgroundColor": "#767676",
+      "width": 200
+    },
+    "parallelism_header_other": {
+      "fontSize": "16px",
+      "backgroundColor": "#767676",
+      "width": 25
+    },
+    "parallelism_3a5d351b247ecc08_topic": {
+      "backgroundColor": "#b4b4b4"
+    },
+    "parallelism_9e62933fc8e327f4_topic": {
+      "backgroundColor": "#b4b4b4"
+    },
+    "parallelism_cb74d7e834739f43_topic": {
+      "backgroundColor": "#b4b4b4"
+    },
+    "parallelism_5334a5ac260c27fb_topic": {
+      "backgroundColor": "#b4b4b4"
+    },
+    "parallelism_0574f27a209f6a86_topic": {
+      "backgroundColor": "#b4b4b4"
+    },
+    "parallelism_72755dd5b0442ca5_topic": {
+      "backgroundColor": "#b4b4b4"
+    },
+    "parallelism_8a2577ff3d852d4b_topic": {
       "backgroundColor": "#b4b4b4"
     }
   }

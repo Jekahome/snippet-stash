@@ -1,0 +1,44 @@
+[
+  {
+    "type": "add-tr",
+    "tab_id": "sync_mpsc_channel",
+    "tr_id": "sync_mpsc_channel_4907caa138b87d95",
+    "tr_id_position": "sync_mpsc_channel_abf26f4c31cbf087",
+    "position": "before"
+  },
+  {
+    "type": "add-tr",
+    "tab_id": "sync_mpsc_channel",
+    "tr_id": "sync_mpsc_channel_12258ecb40d8f167",
+    "tr_id_position": "sync_mpsc_channel_9e6f873d497f9334",
+    "position": "after"
+  },
+  {
+    "type": "add-tr",
+    "tab_id": "sync_mpsc_channel",
+    "tr_id": "sync_mpsc_channel_6768fdaff9638a56",
+    "tr_id_position": "sync_mpsc_channel_12258ecb40d8f167",
+    "position": "after"
+  },
+  {
+    "type": "add-tr",
+    "tab_id": "sync_mpsc_channel",
+    "tr_id": "sync_mpsc_channel_7eee51612be6fdd7",
+    "tr_id_position": "sync_mpsc_channel_6768fdaff9638a56",
+    "position": "after"
+  },
+  {
+    "type": "add-tr",
+    "tab_id": "sync_mpsc_channel",
+    "tr_id": "sync_mpsc_channel_4b40058a22d1869b",
+    "tr_id_position": "sync_mpsc_channel_7eee51612be6fdd7",
+    "position": "after"
+  },
+  {
+    "type": "add-tr",
+    "tab_id": "sync_mpsc_channel",
+    "tr_id": "sync_mpsc_channel_eb6774c8612b6c6c",
+    "tr_id_position": "sync_mpsc_channel_7eee51612be6fdd7",
+    "position": "after"
+  }
+]

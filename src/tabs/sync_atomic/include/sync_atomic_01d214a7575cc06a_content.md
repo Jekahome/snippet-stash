@@ -1,5 +1,5 @@
 
 
-* [std::sync::OnceLock и std::sync::Once]()
-* [std::sync::atomic ]()
-* [crate atomic]()
+* [std::sync::OnceLock и std::sync::Once](#stdsynconcelock)
+* [std::sync::atomic](#stdsyncatomic-Атомные-типы)
+* [crate atomic](#crate-atomic)
