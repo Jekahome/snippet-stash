@@ -671,6 +671,38 @@
     },
     "parallelism_8a2577ff3d852d4b_topic": {
       "backgroundColor": "#b4b4b4"
+    },
+    "parallelism_e094de62fe978cc6_topic": {
+      "backgroundColor": "#b4b4b4"
+    },
+    "parallelism_9c065c4f38859d96_topic": {
+      "backgroundColor": "#b4b4b4"
+    },
+    "parallelism_caf180fd64efb025_topic": {
+      "backgroundColor": "#b4b4b4"
+    }
+  },
+  "asynchronous": {
+    "asynchronous_header_topic": {
+      "fontSize": "16px",
+      "backgroundColor": "#767676",
+      "width": 75
+    },
+    "asynchronous_header_content": {
+      "fontSize": "16px",
+      "backgroundColor": "#767676",
+      "width": 200
+    },
+    "asynchronous_header_other": {
+      "fontSize": "16px",
+      "backgroundColor": "#767676",
+      "width": 25
+    },
+    "asynchronous_504043220061b002_topic": {
+      "backgroundColor": "#b4b4b4"
+    },
+    "asynchronous_bb9e1435f98d0bd0_topic": {
+      "backgroundColor": "#b4b4b4"
     }
   }
 }

@@ -11,15 +11,5 @@
 [rayon Example](https://github.com/rayon-rs/rayon/tree/master/rayon-demo)
 
 [packed_simd](https://docs.rs/packed_simd)
-
-
-
-
-
-
-
-
-
-
-
-
+ 
+[syncbox](http://carllerche.github.io/syncbox/syncbox/index.html)  Набор утилит для написания параллельного кода.
