@@ -5,25 +5,25 @@
 //! ## Usage
 //! To display the contents of a folder:
 //! `` `sh
-//! ./llm-system-fuction resource-list -d path_dir
+//! ./executable_file resource-list -d path_dir
 //! or short
-//! ./l lm-system-fuction rl -d path_dir
+//! ./executable_file rl -d path_dir
 //! ```
 //!
 //! To display the contents of a file:
 //! `` `sh
-//! ./llm-system-fuction file-content -f path_file.test.js
+//! ./executable_file file-content -f path_file.test.js
 //! or short
-//! ./llm-system-fuction fc -f path_file.test.js
+//! ./executable_file fc -f path_file.test.js
 //! `` `
 //!
 //! To execute command `yarn test`
 //! `` `sh
-//! ./llm-system-fuction yarn-test -d path_dir_package_json -f path_file.test.js
+//! ./executable_file yarn-test -d path_dir_package_json -f path_file.test.js
 //! or short
-//! ./llm-system-fuction yt -d path_dir_package_json -f path_file.test.js
+//! ./executable_file yt -d path_dir_package_json -f path_file.test.js
 //! or use full path to `yarn`
-//! ./llm-system-fuction yarn-test --path-yarn /usr/bin/yarn -d path_dir_package_json -f path_file.test.js
+//! ./executable_file yarn-test --path-yarn /usr/bin/yarn -d path_dir_package_json -f path_file.test.js
 //! `` `
 
 extern crate serde;
