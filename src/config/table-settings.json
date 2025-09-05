@@ -704,5 +704,54 @@
     "asynchronous_bb9e1435f98d0bd0_topic": {
       "backgroundColor": "#b4b4b4"
     }
+  },
+  "serde": {
+    "serde_header_topic": {
+      "fontSize": "16px",
+      "backgroundColor": "#767676",
+      "width": 75
+    },
+    "serde_header_content": {
+      "fontSize": "16px",
+      "backgroundColor": "#767676",
+      "width": 200
+    },
+    "serde_header_other": {
+      "fontSize": "16px",
+      "backgroundColor": "#767676",
+      "width": 25
+    },
+    "serde_9a73895d79baffed_topic": {
+      "backgroundColor": "#b4b4b4"
+    },
+    "serde_f91e1624a753b21b_topic": {
+      "backgroundColor": "#b4b4b4"
+    },
+    "serde_b7ee8cc837f054a3_topic": {
+      "backgroundColor": "#b4b4b4"
+    },
+    "serde_6715522d74260179_topic": {
+      "backgroundColor": "#b4b4b4"
+    },
+    "serde_581942252edc081d_topic": {
+      "backgroundColor": "#b4b4b4"
+    }
+  },
+  "tokio_io": {
+    "tokio_io_header_topic": {
+      "fontSize": "16px",
+      "backgroundColor": "#767676",
+      "width": 75
+    },
+    "tokio_io_header_content": {
+      "fontSize": "16px",
+      "backgroundColor": "#767676",
+      "width": 200
+    },
+    "tokio_io_header_other": {
+      "fontSize": "16px",
+      "backgroundColor": "#767676",
+      "width": 25
+    }
   }
 }

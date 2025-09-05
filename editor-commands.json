@@ -1,0 +1,23 @@
+[
+  {
+    "type": "add-tr",
+    "tab_id": "serde",
+    "tr_id": "serde_94cb341275a23954",
+    "tr_id_position": "serde_37af2331b77919aa",
+    "position": "before"
+  },
+  {
+    "type": "add-tr",
+    "tab_id": "serde",
+    "tr_id": "serde_5a6c4b383f858090",
+    "tr_id_position": "serde_18959bb0332b437c",
+    "position": "before"
+  },
+  {
+    "type": "add-tr",
+    "tab_id": "serde",
+    "tr_id": "serde_1fc92482f306f67a",
+    "tr_id_position": "serde_8c4a0275462c11d2",
+    "position": "before"
+  }
+]
