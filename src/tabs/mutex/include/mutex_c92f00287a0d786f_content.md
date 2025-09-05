@@ -11,3 +11,8 @@
 * [std::sync::Condvar](#stdsynccondvar)
   * [Методы std::sync::Condvar](#Методы-stdsynccondvar)
   * [Примеры использования std::sync::Condvar](#Примеры-использования-stdsynccondvar)
+
+
+📌 Новый раздел
+* 👾 Best practice
+* Варианты применения

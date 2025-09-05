@@ -1,15 +1,17 @@
 
 
-* [std::future::Future]()
-* [crate futures]()
-* [Futures]()
-* [Async/await and runtime]()
-* [Module std::process]()
-* [Примеры]()
-* [Проблема отмены future]()
+* [std::future::Future](#stdfuturefuture)
+* [async/await](#asyncawait)
+* [модель Акторов](#модель-Акторов)
+* [crate futures](#crate-futures)
+* [Примеры асинхронного кода](#Примеры-асинхронного-кода)
+* [Проблема отмены future](#Проблема-отмены-future)
 
 
 ---
 
 📌 Собрать все до кучи, плохая структура
 
+📌 Новый раздел
+* 👾 Best practice
+* Варианты применения
