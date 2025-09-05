@@ -73,6 +73,11 @@
                 <td id="cli_d5e0b22e6cf3ab4f_content"><div class="cell-content" contenteditable="true">{{include('src/tabs/cli/include/cli_d5e0b22e6cf3ab4f_content.md')}}</div></td>
                 <td id="cli_d5e0b22e6cf3ab4f_other"><div class="cell-content" contenteditable="true">{{include('src/tabs/cli/include/cli_d5e0b22e6cf3ab4f_other.md')}}</div></td>
             </tr>   
+            <tr id="cli_2c3698200cbb515f">
+                <td id="cli_2c3698200cbb515f_topic"><div class="cell-content" contenteditable="true">{{include('src/tabs/cli/include/cli_2c3698200cbb515f_topic.md')}}</div></td>
+                <td id="cli_2c3698200cbb515f_content"><div class="cell-content" contenteditable="true">{{include('src/tabs/cli/include/cli_2c3698200cbb515f_content.md')}}</div></td>
+                <td id="cli_2c3698200cbb515f_other"><div class="cell-content" contenteditable="true">{{include('src/tabs/cli/include/cli_2c3698200cbb515f_other.md')}}</div></td>
+            </tr>   
             <tr id="cli_49faa2a98611a84b">
                 <td id="cli_49faa2a98611a84b_topic"><div class="cell-content" contenteditable="true">{{include('src/tabs/cli/include/cli_49faa2a98611a84b_topic.md')}}</div></td>
                 <td id="cli_49faa2a98611a84b_content"><div class="cell-content" contenteditable="true">{{include('src/tabs/cli/include/cli_49faa2a98611a84b_content.md')}}</div></td>
@@ -87,6 +92,96 @@
                 <td id="cli_f325504bc7facbfc_topic"><div class="cell-content" contenteditable="true">{{include('src/tabs/cli/include/cli_f325504bc7facbfc_topic.md')}}</div></td>
                 <td id="cli_f325504bc7facbfc_content"><div class="cell-content" contenteditable="true">{{include('src/tabs/cli/include/cli_f325504bc7facbfc_content.md')}}</div></td>
                 <td id="cli_f325504bc7facbfc_other"><div class="cell-content" contenteditable="true">{{include('src/tabs/cli/include/cli_f325504bc7facbfc_other.md')}}</div></td>
+            </tr>   
+            <tr id="cli_21911af52487b386">
+                <td id="cli_21911af52487b386_topic"><div class="cell-content" contenteditable="true">{{include('src/tabs/cli/include/cli_21911af52487b386_topic.md')}}</div></td>
+                <td id="cli_21911af52487b386_content"><div class="cell-content" contenteditable="true">{{include('src/tabs/cli/include/cli_21911af52487b386_content.md')}}</div></td>
+                <td id="cli_21911af52487b386_other"><div class="cell-content" contenteditable="true">{{include('src/tabs/cli/include/cli_21911af52487b386_other.md')}}</div></td>
+            </tr>
+            <tr id="cli_9612df2f2219cc59">
+                <td id="cli_9612df2f2219cc59_topic"><div class="cell-content" contenteditable="true">{{include('src/tabs/cli/include/cli_9612df2f2219cc59_topic.md')}}</div></td>
+                <td id="cli_9612df2f2219cc59_content"><div class="cell-content" contenteditable="true">{{include('src/tabs/cli/include/cli_9612df2f2219cc59_content.md')}}</div></td>
+                <td id="cli_9612df2f2219cc59_other"><div class="cell-content" contenteditable="true">{{include('src/tabs/cli/include/cli_9612df2f2219cc59_other.md')}}</div></td>
+            </tr>
+            <tr id="cli_f5cd053c00bbf92e">
+                <td id="cli_f5cd053c00bbf92e_topic"><div class="cell-content" contenteditable="true">{{include('src/tabs/cli/include/cli_f5cd053c00bbf92e_topic.md')}}</div></td>
+                <td id="cli_f5cd053c00bbf92e_content"><div class="cell-content" contenteditable="true">{{include('src/tabs/cli/include/cli_f5cd053c00bbf92e_content.md')}}</div></td>
+                <td id="cli_f5cd053c00bbf92e_other"><div class="cell-content" contenteditable="true">{{include('src/tabs/cli/include/cli_f5cd053c00bbf92e_other.md')}}</div></td>
+            </tr>
+            <tr id="cli_ba706ca224535204">
+                <td id="cli_ba706ca224535204_topic"><div class="cell-content" contenteditable="true">{{include('src/tabs/cli/include/cli_ba706ca224535204_topic.md')}}</div></td>
+                <td id="cli_ba706ca224535204_content"><div class="cell-content" contenteditable="true">{{include('src/tabs/cli/include/cli_ba706ca224535204_content.md')}}</div></td>
+                <td id="cli_ba706ca224535204_other"><div class="cell-content" contenteditable="true">{{include('src/tabs/cli/include/cli_ba706ca224535204_other.md')}}</div></td>
+            </tr>
+            <tr id="cli_94ceac5a6678e051">
+                <td id="cli_94ceac5a6678e051_topic"><div class="cell-content" contenteditable="true">{{include('src/tabs/cli/include/cli_94ceac5a6678e051_topic.md')}}</div></td>
+                <td id="cli_94ceac5a6678e051_content"><div class="cell-content" contenteditable="true">{{include('src/tabs/cli/include/cli_94ceac5a6678e051_content.md')}}</div></td>
+                <td id="cli_94ceac5a6678e051_other"><div class="cell-content" contenteditable="true">{{include('src/tabs/cli/include/cli_94ceac5a6678e051_other.md')}}</div></td>
+            </tr>
+            <tr id="cli_6667b47b7987326a">
+                <td id="cli_6667b47b7987326a_topic"><div class="cell-content" contenteditable="true">{{include('src/tabs/cli/include/cli_6667b47b7987326a_topic.md')}}</div></td>
+                <td id="cli_6667b47b7987326a_content"><div class="cell-content" contenteditable="true">{{include('src/tabs/cli/include/cli_6667b47b7987326a_content.md')}}</div></td>
+                <td id="cli_6667b47b7987326a_other"><div class="cell-content" contenteditable="true">{{include('src/tabs/cli/include/cli_6667b47b7987326a_other.md')}}</div></td>
+            </tr>
+            <tr id="cli_7a8a0db22aef5856">
+                <td id="cli_7a8a0db22aef5856_topic"><div class="cell-content" contenteditable="true">{{include('src/tabs/cli/include/cli_7a8a0db22aef5856_topic.md')}}</div></td>
+                <td id="cli_7a8a0db22aef5856_content"><div class="cell-content" contenteditable="true">{{include('src/tabs/cli/include/cli_7a8a0db22aef5856_content.md')}}</div></td>
+                <td id="cli_7a8a0db22aef5856_other"><div class="cell-content" contenteditable="true">{{include('src/tabs/cli/include/cli_7a8a0db22aef5856_other.md')}}</div></td>
+            </tr>
+            <tr id="cli_22c70210828841d0">
+                <td id="cli_22c70210828841d0_topic"><div class="cell-content" contenteditable="true">{{include('src/tabs/cli/include/cli_22c70210828841d0_topic.md')}}</div></td>
+                <td id="cli_22c70210828841d0_content"><div class="cell-content" contenteditable="true">{{include('src/tabs/cli/include/cli_22c70210828841d0_content.md')}}</div></td>
+                <td id="cli_22c70210828841d0_other"><div class="cell-content" contenteditable="true">{{include('src/tabs/cli/include/cli_22c70210828841d0_other.md')}}</div></td>
+            </tr>
+            <tr id="cli_cf7f8d44f135cee2">
+                <td id="cli_cf7f8d44f135cee2_topic"><div class="cell-content" contenteditable="true">{{include('src/tabs/cli/include/cli_cf7f8d44f135cee2_topic.md')}}</div></td>
+                <td id="cli_cf7f8d44f135cee2_content"><div class="cell-content" contenteditable="true">{{include('src/tabs/cli/include/cli_cf7f8d44f135cee2_content.md')}}</div></td>
+                <td id="cli_cf7f8d44f135cee2_other"><div class="cell-content" contenteditable="true">{{include('src/tabs/cli/include/cli_cf7f8d44f135cee2_other.md')}}</div></td>
+            </tr>
+            <tr id="cli_483d883232a2f980">
+                <td id="cli_483d883232a2f980_topic"><div class="cell-content" contenteditable="true">{{include('src/tabs/cli/include/cli_483d883232a2f980_topic.md')}}</div></td>
+                <td id="cli_483d883232a2f980_content"><div class="cell-content" contenteditable="true">{{include('src/tabs/cli/include/cli_483d883232a2f980_content.md')}}</div></td>
+                <td id="cli_483d883232a2f980_other"><div class="cell-content" contenteditable="true">{{include('src/tabs/cli/include/cli_483d883232a2f980_other.md')}}</div></td>
+            </tr>
+            <tr id="cli_8bdf29c30abda119">
+                <td id="cli_8bdf29c30abda119_topic"><div class="cell-content" contenteditable="true">{{include('src/tabs/cli/include/cli_8bdf29c30abda119_topic.md')}}</div></td>
+                <td id="cli_8bdf29c30abda119_content"><div class="cell-content" contenteditable="true">{{include('src/tabs/cli/include/cli_8bdf29c30abda119_content.md')}}</div></td>
+                <td id="cli_8bdf29c30abda119_other"><div class="cell-content" contenteditable="true">{{include('src/tabs/cli/include/cli_8bdf29c30abda119_other.md')}}</div></td>
+            </tr>
+            <tr id="cli_ac4b3909eb439b46">
+                <td id="cli_ac4b3909eb439b46_topic"><div class="cell-content" contenteditable="true">{{include('src/tabs/cli/include/cli_ac4b3909eb439b46_topic.md')}}</div></td>
+                <td id="cli_ac4b3909eb439b46_content"><div class="cell-content" contenteditable="true">{{include('src/tabs/cli/include/cli_ac4b3909eb439b46_content.md')}}</div></td>
+                <td id="cli_ac4b3909eb439b46_other"><div class="cell-content" contenteditable="true">{{include('src/tabs/cli/include/cli_ac4b3909eb439b46_other.md')}}</div></td>
+            </tr>
+            <tr id="cli_4aca3cc49d3c7d33">
+                <td id="cli_4aca3cc49d3c7d33_topic"><div class="cell-content" contenteditable="true">{{include('src/tabs/cli/include/cli_4aca3cc49d3c7d33_topic.md')}}</div></td>
+                <td id="cli_4aca3cc49d3c7d33_content"><div class="cell-content" contenteditable="true">{{include('src/tabs/cli/include/cli_4aca3cc49d3c7d33_content.md')}}</div></td>
+                <td id="cli_4aca3cc49d3c7d33_other"><div class="cell-content" contenteditable="true">{{include('src/tabs/cli/include/cli_4aca3cc49d3c7d33_other.md')}}</div></td>
+            </tr>   
+            <tr id="cli_7a953e8ce0f9be8a">
+                <td id="cli_7a953e8ce0f9be8a_topic"><div class="cell-content" contenteditable="true">{{include('src/tabs/cli/include/cli_7a953e8ce0f9be8a_topic.md')}}</div></td>
+                <td id="cli_7a953e8ce0f9be8a_content"><div class="cell-content" contenteditable="true">{{include('src/tabs/cli/include/cli_7a953e8ce0f9be8a_content.md')}}</div></td>
+                <td id="cli_7a953e8ce0f9be8a_other"><div class="cell-content" contenteditable="true">{{include('src/tabs/cli/include/cli_7a953e8ce0f9be8a_other.md')}}</div></td>
+            </tr>   
+            <tr id="cli_26835b8de3fe82d8">
+                <td id="cli_26835b8de3fe82d8_topic"><div class="cell-content" contenteditable="true">{{include('src/tabs/cli/include/cli_26835b8de3fe82d8_topic.md')}}</div></td>
+                <td id="cli_26835b8de3fe82d8_content"><div class="cell-content" contenteditable="true">{{include('src/tabs/cli/include/cli_26835b8de3fe82d8_content.md')}}</div></td>
+                <td id="cli_26835b8de3fe82d8_other"><div class="cell-content" contenteditable="true">{{include('src/tabs/cli/include/cli_26835b8de3fe82d8_other.md')}}</div></td>
+            </tr>   
+            <tr id="cli_8b37089767869476">
+                <td id="cli_8b37089767869476_topic"><div class="cell-content" contenteditable="true">{{include('src/tabs/cli/include/cli_8b37089767869476_topic.md')}}</div></td>
+                <td id="cli_8b37089767869476_content"><div class="cell-content" contenteditable="true">{{include('src/tabs/cli/include/cli_8b37089767869476_content.md')}}</div></td>
+                <td id="cli_8b37089767869476_other"><div class="cell-content" contenteditable="true">{{include('src/tabs/cli/include/cli_8b37089767869476_other.md')}}</div></td>
+            </tr>   
+            <tr id="cli_99c90d270a10c608">
+                <td id="cli_99c90d270a10c608_topic"><div class="cell-content" contenteditable="true">{{include('src/tabs/cli/include/cli_99c90d270a10c608_topic.md')}}</div></td>
+                <td id="cli_99c90d270a10c608_content"><div class="cell-content" contenteditable="true">{{include('src/tabs/cli/include/cli_99c90d270a10c608_content.md')}}</div></td>
+                <td id="cli_99c90d270a10c608_other"><div class="cell-content" contenteditable="true">{{include('src/tabs/cli/include/cli_99c90d270a10c608_other.md')}}</div></td>
+            </tr>   
+            <tr id="cli_e18ff353a4015839">
+                <td id="cli_e18ff353a4015839_topic"><div class="cell-content" contenteditable="true">{{include('src/tabs/cli/include/cli_e18ff353a4015839_topic.md')}}</div></td>
+                <td id="cli_e18ff353a4015839_content"><div class="cell-content" contenteditable="true">{{include('src/tabs/cli/include/cli_e18ff353a4015839_content.md')}}</div></td>
+                <td id="cli_e18ff353a4015839_other"><div class="cell-content" contenteditable="true">{{include('src/tabs/cli/include/cli_e18ff353a4015839_other.md')}}</div></td>
             </tr>   
             <tr id="cli_ec1e0734bd7c23b6">
                 <td id="cli_ec1e0734bd7c23b6_topic"><div class="cell-content" contenteditable="true">{{include('src/tabs/cli/include/cli_ec1e0734bd7c23b6_topic.md')}}</div></td>
