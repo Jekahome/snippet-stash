@@ -1,15 +1,21 @@
-`eprintln!`  ошибки правильнее выводить в STDERR 
 
-```
-eprintln!("Error: arguments --conf can not be empty !");     
 
-write!(&mut io::stderr(), "{}", "Error: arguments --conf can not be empty !");
-```
- 
-* Чтение и запись в консоль — `stderr()`
-```
+**Вывод/печать ошибок в стандартный поток ошибок STDERR через eprintln!**
+<pre><code class="language-rust">
+fn main(){
+   eprintln!("Error: arguments --conf can not be empty !");     
+  
+   write!(&mut io::stderr(), "{}", "Error: arguments --conf can not be empty !");
+
+   process::exit(1);
+}
+</code></pre>
+
+
+**Запись в консоль — `stderr()`**
+<pre><code class="language-rust">
 use std::io::Write; (stderr реализует трейт Write)
-(запись)
+
 fn main() -> std::io::Result<()> {
     // eprintln!("{}","error msg");
     std::io::stderr().write_all(b"error msg")?;
@@ -19,4 +25,4 @@ fn main() -> std::io::Result<()> {
     r.expect("failed printing to stderr");
     Ok(())
 }
-```
+</code></pre>

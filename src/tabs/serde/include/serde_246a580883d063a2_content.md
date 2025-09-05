@@ -17,10 +17,7 @@ struct Struct<'a> {
 
 // Реализация сериализации для Struct
 impl<'a> Serialize for Struct<'a> {
-    fn serialize<S>(&self, serializer: S) -> Result<S::Ok, S::Error>
-    where
-        S: Serializer,
-    {
+    fn serialize<T>(&self, serializer: T) -> Result<T::Ok, S::Error> where T: Serializer {
         // Сериализация структуры как карты (map)
         let mut state = serializer.serialize_struct("Struct", 2)?;
         state.serialize_field("name", &self.name)?;

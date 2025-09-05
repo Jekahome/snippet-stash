@@ -581,6 +581,12 @@
       "fontSize": "16px",
       "backgroundColor": "#767676",
       "width": 25
+    },
+    "generic_31dc5576e2d0cecf_topic": {
+      "backgroundColor": "#b4b4b4"
+    },
+    "generic_cfb718cafc3ecfa1_topic": {
+      "backgroundColor": "#b4b4b4"
     }
   },
   "base": {
@@ -603,6 +609,15 @@
       "backgroundColor": "#b4b4b4"
     },
     "base_2d393344110b3107_topic": {
+      "backgroundColor": "#b4b4b4"
+    },
+    "base_1a8cc110c20895fa_topic": {
+      "backgroundColor": "#b4b4b4"
+    },
+    "base_0a4253842bd08148_topic": {
+      "backgroundColor": "#b4b4b4"
+    },
+    "base_3378ea4c8e1151da_topic": {
       "backgroundColor": "#b4b4b4"
     }
   },
@@ -752,6 +767,50 @@
       "fontSize": "16px",
       "backgroundColor": "#767676",
       "width": 25
+    }
+  },
+  "cli": {
+    "cli_header_topic": {
+      "fontSize": "16px",
+      "backgroundColor": "#767676",
+      "width": 75
+    },
+    "cli_header_content": {
+      "fontSize": "16px",
+      "backgroundColor": "#767676",
+      "width": 200
+    },
+    "cli_header_other": {
+      "fontSize": "16px",
+      "backgroundColor": "#767676",
+      "width": 25
+    },
+    "cli_99f9b8a0998c7411_topic": {
+      "backgroundColor": "#b4b4b4"
+    },
+    "cli_c570178c966a7305_topic": {
+      "backgroundColor": "#b4b4b4"
+    },
+    "cli_d5e0b22e6cf3ab4f_topic": {
+      "backgroundColor": "#b4b4b4"
+    },
+    "cli_e18ff353a4015839_topic": {
+      "backgroundColor": "#b4b4b4"
+    },
+    "cli_cf7f8d44f135cee2_topic": {
+      "backgroundColor": "#b4b4b4"
+    },
+    "cli_4aca3cc49d3c7d33_topic": {
+      "backgroundColor": "#b4b4b4"
+    },
+    "cli_a06f2d5beab3222a_topic": {
+      "backgroundColor": "#b4b4b4"
+    },
+    "cli_6e30836e69478974_topic": {
+      "backgroundColor": "#b4b4b4"
+    },
+    "cli_7a8a0db22aef5856_topic": {
+      "backgroundColor": "#b4b4b4"
     }
   }
 }

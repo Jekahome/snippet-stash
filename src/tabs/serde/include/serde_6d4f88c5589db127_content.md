@@ -13,10 +13,7 @@ struct MyStruct {
     age: Option<u32>,
 }
 impl Serialize for MyStruct {
-    fn serialize<S>(&self, serializer: S) -> Result<S::Ok, S::Error>
-    where
-        S: Serializer,
-    {
+    fn serialize<T>(&self, serializer: T) -> Result<T::Ok, T::Error> where T: Serializer {
         let mut state = serializer.serialize_struct("MyStruct", 2)?;
         state.serialize_field("name", &self.name)?;
         // Кастомная сериализация Option
@@ -69,7 +66,6 @@ impl<'de> Deserialize<'de> for MyStruct {
                         }
                     }
                 }
-
                 let name = name.ok_or_else(|| de::Error::missing_field("name"))?;
                 Ok(MyStruct { name, age })
             }

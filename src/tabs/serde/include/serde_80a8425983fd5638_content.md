@@ -32,7 +32,7 @@ use serde::ser::{SerializeTupleStruct};
 //   3. end
 struct Point2D(f64, f64);
 impl Serialize for Point2D {
-    fn serialize<S>(&self, serializer: S) -> Result<S::Ok, S::Error> where S: Serializer {
+    fn serialize<T>(&self, serializer: T) -> Result<T::Ok, S::Error> where T: Serializer {
         // 3 is the number of fields in the struct.
         let mut state = serializer.serialize_tuple_struct("Point2D", 2)?; // init
         state.serialize_field(&self.0)?;// elements

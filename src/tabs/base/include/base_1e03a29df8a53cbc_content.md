@@ -1,29 +1,33 @@
 
 
-* Запись в консоль — stdout() 
+**Запись в консоль — stdout()**
+<pre><code class="language-rust">
+use std::io::Write; // (stdout реализует трейт Write)
+fn main(){
+    let b1 = std::io::stdout().write("Tutorials ".as_bytes()).unwrap();
+    let b2 = std::io::stdout().write(String::from("Point").as_bytes()).unwrap();
+    std::io::stdout().write(format!("\nbytes written {}",(b1+b2)).as_bytes()).unwrap();
 
+   writeln!(std::io::stdout(), "{}", "hello");
+}
+</code></pre>
+ 
+
+**Чтение в файл**
+<pre><code class="language-rust">
+fn main(){
+   std::io::stdout().write("Shoot3\n".as_bytes()).unwrap();
+}
+</code></pre>
+
+Запуск:
 ```
-use std::io::Write; (stdout реализует трейт Write)
-let b1 = std::io::stdout().write("Tutorials ".as_bytes()).unwrap();
-let b2 = std::io::stdout().write(String::from("Point").as_bytes()).unwrap();
-std::io::stdout().write(format!("\nbytes written {}",(b1+b2)).as_bytes()).unwrap();
-```
-
-* Чтение в файл
-
-```
-std::io::stdout().write("Shoot3\n".as_bytes()).unwrap();
-
 $ cargo run > out_stderr.txt
 ```
 
-```
-writeln!(std::io::stdout(), "{}", "hello");
-```
 
-* Использование явной синхронизации:
-
-```
+**Использование явной синхронизации:**
+<pre><code class="language-rust">
 use std::io::{self, Write};
 fn main() -> io::Result<()> {
     let stdout = io::stdout();
@@ -31,4 +35,4 @@ fn main() -> io::Result<()> {
     handle.write_all(b"hello world")?;
     Ok(())
 }
-```
+</code></pre>

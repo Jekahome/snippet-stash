@@ -5,7 +5,7 @@
 #[derive(Debug)]
 struct Something(i32);
 impl Serialize for Something {
-    fn serialize<S>(&self, serializer: S) -> core::result::Result<S::Ok, S::Error> where S: serde::Serializer {
+    fn serialize<T>(&self, serializer: T) -> core::result::Result<T::Ok, S::Error> where T: serde::Serializer {
         serializer.serialize_newtype_struct("Something",&self.0)
     }
 }

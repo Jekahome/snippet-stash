@@ -6,7 +6,7 @@ serde не полагается на механизм отражения во в
  
 <pre><code class="language-rust no_run edition2024">
 pub trait Serialize {
-    fn serialize<S>(&self, serializer: S) -> Result<S::Ok, S::Error>
+    fn serialize< S >(&self, serializer: S) -> Result<S::Ok, S::Error>
     where
         S: Serializer;
 }

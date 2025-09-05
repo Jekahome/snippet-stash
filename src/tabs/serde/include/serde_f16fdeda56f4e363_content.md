@@ -37,7 +37,7 @@ enum E {
 }
 
 impl Serialize for E {
-    fn serialize<S>(&self, serializer: S) -> Result<S::Ok, S::Error> where S: Serializer {
+    fn serialize<T>(&self, serializer: T) -> Result<T::Ok, T::Error> where T: Serializer {
         match self {
             E::Color{r,g,b} =>{
                 let mut state = serializer.serialize_struct("Color", 3)?; // init

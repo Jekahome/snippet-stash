@@ -20,7 +20,7 @@ mod date_serde {
     use chrono::NaiveDate;
     use serde::{self, Deserialize, Deserializer, Serializer};
 
-    pub fn serialize<S>(date: &Option<NaiveDate>, s: S) -> Result<S::Ok, S::Error> where S: Serializer {
+    pub fn serialize<T>(date: &Option<NaiveDate>, s: T) -> Result<T::Ok, T::Error> where T: Serializer {
         if let Some(ref d) = *date {
             return s.serialize_str(&d.format("%Y-%m-%d").to_string());
         }

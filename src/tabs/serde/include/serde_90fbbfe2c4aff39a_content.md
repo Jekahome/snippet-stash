@@ -6,8 +6,6 @@
 * `#[serde(bound(deserialize = "S: FromStr, S::Err: Display"))]`
 * `#[serde(bound(deserialize = "Ptr<'a, T>: Deserialize<'de>"))]`
 
-
-
 <pre><code class="language-rust">
 #[macro_use]
 extern crate serde_derive;
@@ -17,23 +15,23 @@ use serde::de::{self, Deserialize, Deserializer};
 use std::fmt::Display;
 use std::str::FromStr;
 #[derive(Deserialize, Debug)]
-struct Outer<S> {
+struct Outer<T> {
 // При получении Deserialize impl, Serde захочет создать связанный
-// `S: Deserialize` в типе этого поля. Но мы собираемся использовать `` FromStr` вместо `` Deserialize``, используя
+// `T: Deserialize` в типе этого поля. Но мы собираемся использовать `FromStr` вместо `Deserialize`, используя
 // `deserialize_from_str`, поэтому мы переопределяем автоматически созданный bound
 // тем, который требуется для` deserialize_from_str`,
     #[serde(deserialize_with = "deserialize_from_str")]
-    #[serde(bound(deserialize = "S: FromStr, S::Err: Display"))]
-    s: S,
+    #[serde(bound(deserialize = "T: FromStr, T::Err: Display"))]
+    s: T,
 }
-fn deserialize_from_str<'de, S, D>(deserializer: D) -> Result<S, D::Error>
+fn deserialize_from_str<'de, T, D>(deserializer: D) -> Result<T, D::Error>
     where
-        S: FromStr,
-        S::Err: Display,
+        T: FromStr,
+        T::Err: Display,
         D: Deserializer<'de>,
 {
     let s: String = Deserialize::deserialize(deserializer)?;
-    S::from_str(&s).map_err(de::Error::custom)
+    T::from_str(&s).map_err(de::Error::custom)
 }
 fn main() {
     let j = r#"

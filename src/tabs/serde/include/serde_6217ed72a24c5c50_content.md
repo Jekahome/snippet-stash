@@ -9,9 +9,9 @@ impl<T> Serialize for Vec<T>
 where
     T: Serialize,
 {
-    fn serialize<S>(&self, serializer: S) -> Result<S::Ok, S::Error>
+    fn serialize<K>(&self, serializer: K) -> Result<K::Ok, K::Error>
     where
-        S: Serializer,
+        K: Serializer,
     {
         let mut seq = serializer.serialize_seq(Some(self.len()))?;// инициализация
         for e in self {

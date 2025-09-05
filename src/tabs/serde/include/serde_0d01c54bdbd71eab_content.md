@@ -15,8 +15,8 @@ struct Transparent(String);
 // или 
 
 impl Serialize for Transparent {
-    fn serialize<S>(&self, serializer: S) -> std::result::Result<S::Ok, S::Error>
-        where S: Serializer
+    fn serialize<T>(&self, serializer: T) -> std::result::Result<T::Ok, T::Error>
+        where T: Serializer
     {
         self.0.serialize(serializer)
     }

@@ -1,11 +1,11 @@
 
 
-Задача метода  `fn serialize<S>` — взять ваш тип ( &self) и сопоставить его с моделью данных Serde , вызвав ровно один из методов данного Serializer
+Задача метода  `fn serialize<T>` — взять ваш тип (&self) и сопоставить его с моделью данных Serde, вызвав ровно один из методов данного Serializer
 
 Сериализация примитива:
 <pre><code class="language-rust">
 impl Serialize for i32 {
-    fn serialize<S>(&self, serializer: S) -> Result<S::Ok, S::Error> where S: Serializer {
+    fn serialize<T>(&self, serializer: T) -> Result<T::Ok, T::Error> where T: Serializer {
         serializer.serialize_i32(*self)
     }
 }
