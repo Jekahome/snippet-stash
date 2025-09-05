@@ -13,6 +13,11 @@
                 <td id="questions_6948c75942d4a958_content"><div class="cell-content" contenteditable="true">{{include('src/tabs/questions/include/questions_6948c75942d4a958_content.md')}}</div></td>
                 <td id="questions_6948c75942d4a958_other"><div class="cell-content" contenteditable="true">{{include('src/tabs/questions/include/questions_6948c75942d4a958_other.md')}}</div></td>
             </tr>   
+            <tr id="questions_5b6d2cc6e5138a19">
+                <td id="questions_5b6d2cc6e5138a19_topic"><div class="cell-content" contenteditable="true">{{include('src/tabs/questions/include/questions_5b6d2cc6e5138a19_topic.md')}}</div></td>
+                <td id="questions_5b6d2cc6e5138a19_content"><div class="cell-content" contenteditable="true">{{include('src/tabs/questions/include/questions_5b6d2cc6e5138a19_content.md')}}</div></td>
+                <td id="questions_5b6d2cc6e5138a19_other"><div class="cell-content" contenteditable="true">{{include('src/tabs/questions/include/questions_5b6d2cc6e5138a19_other.md')}}</div></td>
+            </tr>   
             <tr id="questions_ece41b918d105c59">
                 <td id="questions_ece41b918d105c59_topic"><div class="cell-content" contenteditable="true">{{include('src/tabs/questions/include/questions_ece41b918d105c59_topic.md')}}</div></td>
                 <td id="questions_ece41b918d105c59_content"><div class="cell-content" contenteditable="true">{{include('src/tabs/questions/include/questions_ece41b918d105c59_content.md')}}</div></td>

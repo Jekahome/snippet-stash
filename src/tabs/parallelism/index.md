@@ -443,6 +443,66 @@
                 <td id="parallelism_7384080e6c1c6c56_content"><div class="cell-content" contenteditable="true">{{include('src/tabs/parallelism/include/parallelism_7384080e6c1c6c56_content.md')}}</div></td>
                 <td id="parallelism_7384080e6c1c6c56_other"><div class="cell-content" contenteditable="true">{{include('src/tabs/parallelism/include/parallelism_7384080e6c1c6c56_other.md')}}</div></td>
             </tr>   
+            <tr id="parallelism_6f2498911e160480">
+                <td id="parallelism_6f2498911e160480_topic"><div class="cell-content" contenteditable="true">{{include('src/tabs/parallelism/include/parallelism_6f2498911e160480_topic.md')}}</div></td>
+                <td id="parallelism_6f2498911e160480_content"><div class="cell-content" contenteditable="true">{{include('src/tabs/parallelism/include/parallelism_6f2498911e160480_content.md')}}</div></td>
+                <td id="parallelism_6f2498911e160480_other"><div class="cell-content" contenteditable="true">{{include('src/tabs/parallelism/include/parallelism_6f2498911e160480_other.md')}}</div></td>
+            </tr>   
+            <tr id="parallelism_ff6323f975f90a3f">
+                <td id="parallelism_ff6323f975f90a3f_topic"><div class="cell-content" contenteditable="true">{{include('src/tabs/parallelism/include/parallelism_ff6323f975f90a3f_topic.md')}}</div></td>
+                <td id="parallelism_ff6323f975f90a3f_content"><div class="cell-content" contenteditable="true">{{include('src/tabs/parallelism/include/parallelism_ff6323f975f90a3f_content.md')}}</div></td>
+                <td id="parallelism_ff6323f975f90a3f_other"><div class="cell-content" contenteditable="true">{{include('src/tabs/parallelism/include/parallelism_ff6323f975f90a3f_other.md')}}</div></td>
+            </tr>   
+            <tr id="parallelism_cc91db3dbef80a5e">
+                <td id="parallelism_cc91db3dbef80a5e_topic"><div class="cell-content" contenteditable="true">{{include('src/tabs/parallelism/include/parallelism_cc91db3dbef80a5e_topic.md')}}</div></td>
+                <td id="parallelism_cc91db3dbef80a5e_content"><div class="cell-content" contenteditable="true">{{include('src/tabs/parallelism/include/parallelism_cc91db3dbef80a5e_content.md')}}</div></td>
+                <td id="parallelism_cc91db3dbef80a5e_other"><div class="cell-content" contenteditable="true">{{include('src/tabs/parallelism/include/parallelism_cc91db3dbef80a5e_other.md')}}</div></td>
+            </tr>   
+            <tr id="parallelism_d1c05b2b33959128">
+                <td id="parallelism_d1c05b2b33959128_topic"><div class="cell-content" contenteditable="true">{{include('src/tabs/parallelism/include/parallelism_d1c05b2b33959128_topic.md')}}</div></td>
+                <td id="parallelism_d1c05b2b33959128_content"><div class="cell-content" contenteditable="true">{{include('src/tabs/parallelism/include/parallelism_d1c05b2b33959128_content.md')}}</div></td>
+                <td id="parallelism_d1c05b2b33959128_other"><div class="cell-content" contenteditable="true">{{include('src/tabs/parallelism/include/parallelism_d1c05b2b33959128_other.md')}}</div></td>
+            </tr>   
+            <tr id="parallelism_1551e8d0217cb4fb">
+                <td id="parallelism_1551e8d0217cb4fb_topic"><div class="cell-content" contenteditable="true">{{include('src/tabs/parallelism/include/parallelism_1551e8d0217cb4fb_topic.md')}}</div></td>
+                <td id="parallelism_1551e8d0217cb4fb_content"><div class="cell-content" contenteditable="true">{{include('src/tabs/parallelism/include/parallelism_1551e8d0217cb4fb_content.md')}}</div></td>
+                <td id="parallelism_1551e8d0217cb4fb_other"><div class="cell-content" contenteditable="true">{{include('src/tabs/parallelism/include/parallelism_1551e8d0217cb4fb_other.md')}}</div></td>
+            </tr>   
+            <tr id="parallelism_68485e29aa26edf7">
+                <td id="parallelism_68485e29aa26edf7_topic"><div class="cell-content" contenteditable="true">{{include('src/tabs/parallelism/include/parallelism_68485e29aa26edf7_topic.md')}}</div></td>
+                <td id="parallelism_68485e29aa26edf7_content"><div class="cell-content" contenteditable="true">{{include('src/tabs/parallelism/include/parallelism_68485e29aa26edf7_content.md')}}</div></td>
+                <td id="parallelism_68485e29aa26edf7_other"><div class="cell-content" contenteditable="true">{{include('src/tabs/parallelism/include/parallelism_68485e29aa26edf7_other.md')}}</div></td>
+            </tr>   
+            <tr id="parallelism_2701ccf4da2a7a0a">
+                <td id="parallelism_2701ccf4da2a7a0a_topic"><div class="cell-content" contenteditable="true">{{include('src/tabs/parallelism/include/parallelism_2701ccf4da2a7a0a_topic.md')}}</div></td>
+                <td id="parallelism_2701ccf4da2a7a0a_content"><div class="cell-content" contenteditable="true">{{include('src/tabs/parallelism/include/parallelism_2701ccf4da2a7a0a_content.md')}}</div></td>
+                <td id="parallelism_2701ccf4da2a7a0a_other"><div class="cell-content" contenteditable="true">{{include('src/tabs/parallelism/include/parallelism_2701ccf4da2a7a0a_other.md')}}</div></td>
+            </tr>
+            <tr id="parallelism_349ed68d4a5136a6">
+                <td id="parallelism_349ed68d4a5136a6_topic"><div class="cell-content" contenteditable="true">{{include('src/tabs/parallelism/include/parallelism_349ed68d4a5136a6_topic.md')}}</div></td>
+                <td id="parallelism_349ed68d4a5136a6_content"><div class="cell-content" contenteditable="true">{{include('src/tabs/parallelism/include/parallelism_349ed68d4a5136a6_content.md')}}</div></td>
+                <td id="parallelism_349ed68d4a5136a6_other"><div class="cell-content" contenteditable="true">{{include('src/tabs/parallelism/include/parallelism_349ed68d4a5136a6_other.md')}}</div></td>
+            </tr>
+            <tr id="parallelism_06f33f2f7b574267">
+                <td id="parallelism_06f33f2f7b574267_topic"><div class="cell-content" contenteditable="true">{{include('src/tabs/parallelism/include/parallelism_06f33f2f7b574267_topic.md')}}</div></td>
+                <td id="parallelism_06f33f2f7b574267_content"><div class="cell-content" contenteditable="true">{{include('src/tabs/parallelism/include/parallelism_06f33f2f7b574267_content.md')}}</div></td>
+                <td id="parallelism_06f33f2f7b574267_other"><div class="cell-content" contenteditable="true">{{include('src/tabs/parallelism/include/parallelism_06f33f2f7b574267_other.md')}}</div></td>
+            </tr>
+            <tr id="parallelism_4d754555d1bcb617">
+                <td id="parallelism_4d754555d1bcb617_topic"><div class="cell-content" contenteditable="true">{{include('src/tabs/parallelism/include/parallelism_4d754555d1bcb617_topic.md')}}</div></td>
+                <td id="parallelism_4d754555d1bcb617_content"><div class="cell-content" contenteditable="true">{{include('src/tabs/parallelism/include/parallelism_4d754555d1bcb617_content.md')}}</div></td>
+                <td id="parallelism_4d754555d1bcb617_other"><div class="cell-content" contenteditable="true">{{include('src/tabs/parallelism/include/parallelism_4d754555d1bcb617_other.md')}}</div></td>
+            </tr>   
+            <tr id="parallelism_9b2f55ec6f3ba4de">
+                <td id="parallelism_9b2f55ec6f3ba4de_topic"><div class="cell-content" contenteditable="true">{{include('src/tabs/parallelism/include/parallelism_9b2f55ec6f3ba4de_topic.md')}}</div></td>
+                <td id="parallelism_9b2f55ec6f3ba4de_content"><div class="cell-content" contenteditable="true">{{include('src/tabs/parallelism/include/parallelism_9b2f55ec6f3ba4de_content.md')}}</div></td>
+                <td id="parallelism_9b2f55ec6f3ba4de_other"><div class="cell-content" contenteditable="true">{{include('src/tabs/parallelism/include/parallelism_9b2f55ec6f3ba4de_other.md')}}</div></td>
+            </tr>   
+            <tr id="parallelism_b5475276623f5205">
+                <td id="parallelism_b5475276623f5205_topic"><div class="cell-content" contenteditable="true">{{include('src/tabs/parallelism/include/parallelism_b5475276623f5205_topic.md')}}</div></td>
+                <td id="parallelism_b5475276623f5205_content"><div class="cell-content" contenteditable="true">{{include('src/tabs/parallelism/include/parallelism_b5475276623f5205_content.md')}}</div></td>
+                <td id="parallelism_b5475276623f5205_other"><div class="cell-content" contenteditable="true">{{include('src/tabs/parallelism/include/parallelism_b5475276623f5205_other.md')}}</div></td>
+            </tr>   
             <tr id="parallelism_e094de62fe978cc6">
                 <td id="parallelism_e094de62fe978cc6_topic"><div class="cell-content" contenteditable="true">{{include('src/tabs/parallelism/include/parallelism_e094de62fe978cc6_topic.md')}}</div></td>
                 <td id="parallelism_e094de62fe978cc6_content"><div class="cell-content" contenteditable="true">{{include('src/tabs/parallelism/include/parallelism_e094de62fe978cc6_content.md')}}</div></td>
@@ -487,6 +547,46 @@
                 <td id="parallelism_10251002ee348322_topic"><div class="cell-content" contenteditable="true">{{include('src/tabs/parallelism/include/parallelism_10251002ee348322_topic.md')}}</div></td>
                 <td id="parallelism_10251002ee348322_content"><div class="cell-content" contenteditable="true">{{include('src/tabs/parallelism/include/parallelism_10251002ee348322_content.md')}}</div></td>
                 <td id="parallelism_10251002ee348322_other"><div class="cell-content" contenteditable="true">{{include('src/tabs/parallelism/include/parallelism_10251002ee348322_other.md')}}</div></td>
+            </tr>
+            <tr id="parallelism_2727b9a92a7ac610">
+                <td id="parallelism_2727b9a92a7ac610_topic"><div class="cell-content" contenteditable="true">{{include('src/tabs/parallelism/include/parallelism_2727b9a92a7ac610_topic.md')}}</div></td>
+                <td id="parallelism_2727b9a92a7ac610_content"><div class="cell-content" contenteditable="true">{{include('src/tabs/parallelism/include/parallelism_2727b9a92a7ac610_content.md')}}</div></td>
+                <td id="parallelism_2727b9a92a7ac610_other"><div class="cell-content" contenteditable="true">{{include('src/tabs/parallelism/include/parallelism_2727b9a92a7ac610_other.md')}}</div></td>
+            </tr>
+            <tr id="parallelism_76bcecdee90f2d32">
+                <td id="parallelism_76bcecdee90f2d32_topic"><div class="cell-content" contenteditable="true">{{include('src/tabs/parallelism/include/parallelism_76bcecdee90f2d32_topic.md')}}</div></td>
+                <td id="parallelism_76bcecdee90f2d32_content"><div class="cell-content" contenteditable="true">{{include('src/tabs/parallelism/include/parallelism_76bcecdee90f2d32_content.md')}}</div></td>
+                <td id="parallelism_76bcecdee90f2d32_other"><div class="cell-content" contenteditable="true">{{include('src/tabs/parallelism/include/parallelism_76bcecdee90f2d32_other.md')}}</div></td>
+            </tr>
+            <tr id="parallelism_1dbcfbeff8eeb6ea">
+                <td id="parallelism_1dbcfbeff8eeb6ea_topic"><div class="cell-content" contenteditable="true">{{include('src/tabs/parallelism/include/parallelism_1dbcfbeff8eeb6ea_topic.md')}}</div></td>
+                <td id="parallelism_1dbcfbeff8eeb6ea_content"><div class="cell-content" contenteditable="true">{{include('src/tabs/parallelism/include/parallelism_1dbcfbeff8eeb6ea_content.md')}}</div></td>
+                <td id="parallelism_1dbcfbeff8eeb6ea_other"><div class="cell-content" contenteditable="true">{{include('src/tabs/parallelism/include/parallelism_1dbcfbeff8eeb6ea_other.md')}}</div></td>
+            </tr>
+            <tr id="parallelism_e505960c89082563">
+                <td id="parallelism_e505960c89082563_topic"><div class="cell-content" contenteditable="true">{{include('src/tabs/parallelism/include/parallelism_e505960c89082563_topic.md')}}</div></td>
+                <td id="parallelism_e505960c89082563_content"><div class="cell-content" contenteditable="true">{{include('src/tabs/parallelism/include/parallelism_e505960c89082563_content.md')}}</div></td>
+                <td id="parallelism_e505960c89082563_other"><div class="cell-content" contenteditable="true">{{include('src/tabs/parallelism/include/parallelism_e505960c89082563_other.md')}}</div></td>
+            </tr>
+            <tr id="parallelism_cce995049cda561d">
+                <td id="parallelism_cce995049cda561d_topic"><div class="cell-content" contenteditable="true">{{include('src/tabs/parallelism/include/parallelism_cce995049cda561d_topic.md')}}</div></td>
+                <td id="parallelism_cce995049cda561d_content"><div class="cell-content" contenteditable="true">{{include('src/tabs/parallelism/include/parallelism_cce995049cda561d_content.md')}}</div></td>
+                <td id="parallelism_cce995049cda561d_other"><div class="cell-content" contenteditable="true">{{include('src/tabs/parallelism/include/parallelism_cce995049cda561d_other.md')}}</div></td>
+            </tr>
+            <tr id="parallelism_f0da9495678ef7ab">
+                <td id="parallelism_f0da9495678ef7ab_topic"><div class="cell-content" contenteditable="true">{{include('src/tabs/parallelism/include/parallelism_f0da9495678ef7ab_topic.md')}}</div></td>
+                <td id="parallelism_f0da9495678ef7ab_content"><div class="cell-content" contenteditable="true">{{include('src/tabs/parallelism/include/parallelism_f0da9495678ef7ab_content.md')}}</div></td>
+                <td id="parallelism_f0da9495678ef7ab_other"><div class="cell-content" contenteditable="true">{{include('src/tabs/parallelism/include/parallelism_f0da9495678ef7ab_other.md')}}</div></td>
+            </tr>
+            <tr id="parallelism_282fdd00e2dfcad2">
+                <td id="parallelism_282fdd00e2dfcad2_topic"><div class="cell-content" contenteditable="true">{{include('src/tabs/parallelism/include/parallelism_282fdd00e2dfcad2_topic.md')}}</div></td>
+                <td id="parallelism_282fdd00e2dfcad2_content"><div class="cell-content" contenteditable="true">{{include('src/tabs/parallelism/include/parallelism_282fdd00e2dfcad2_content.md')}}</div></td>
+                <td id="parallelism_282fdd00e2dfcad2_other"><div class="cell-content" contenteditable="true">{{include('src/tabs/parallelism/include/parallelism_282fdd00e2dfcad2_other.md')}}</div></td>
+            </tr>
+            <tr id="parallelism_ddcb62ae947b74e5">
+                <td id="parallelism_ddcb62ae947b74e5_topic"><div class="cell-content" contenteditable="true">{{include('src/tabs/parallelism/include/parallelism_ddcb62ae947b74e5_topic.md')}}</div></td>
+                <td id="parallelism_ddcb62ae947b74e5_content"><div class="cell-content" contenteditable="true">{{include('src/tabs/parallelism/include/parallelism_ddcb62ae947b74e5_content.md')}}</div></td>
+                <td id="parallelism_ddcb62ae947b74e5_other"><div class="cell-content" contenteditable="true">{{include('src/tabs/parallelism/include/parallelism_ddcb62ae947b74e5_other.md')}}</div></td>
             </tr>   
             <tr id="parallelism_4a76e9708dcceaff">
                 <td id="parallelism_4a76e9708dcceaff_topic"><div class="cell-content" contenteditable="true">{{include('src/tabs/parallelism/include/parallelism_4a76e9708dcceaff_topic.md')}}</div></td>
