@@ -38,6 +38,11 @@
                 <td id="date_464c17c276160506_content"><div class="cell-content" contenteditable="true">{{include('src/tabs/date/include/date_464c17c276160506_content.md')}}</div></td>
                 <td id="date_464c17c276160506_other"><div class="cell-content" contenteditable="true">{{include('src/tabs/date/include/date_464c17c276160506_other.md')}}</div></td>
             </tr>   
+            <tr id="date_96dafeaa690e1708">
+                <td id="date_96dafeaa690e1708_topic"><div class="cell-content" contenteditable="true">{{include('src/tabs/date/include/date_96dafeaa690e1708_topic.md')}}</div></td>
+                <td id="date_96dafeaa690e1708_content"><div class="cell-content" contenteditable="true">{{include('src/tabs/date/include/date_96dafeaa690e1708_content.md')}}</div></td>
+                <td id="date_96dafeaa690e1708_other"><div class="cell-content" contenteditable="true">{{include('src/tabs/date/include/date_96dafeaa690e1708_other.md')}}</div></td>
+            </tr>   
             <tr id="date_75b5658d2845b582">
                 <td id="date_75b5658d2845b582_topic"><div class="cell-content" contenteditable="true">{{include('src/tabs/date/include/date_75b5658d2845b582_topic.md')}}</div></td>
                 <td id="date_75b5658d2845b582_content"><div class="cell-content" contenteditable="true">{{include('src/tabs/date/include/date_75b5658d2845b582_content.md')}}</div></td>
