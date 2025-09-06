@@ -876,5 +876,40 @@
     "loggging_8344b42fbc0f8e88_topic": {
       "backgroundColor": "#b4b4b4"
     }
+  },
+  "date": {
+    "date_header_topic": {
+      "fontSize": "16px",
+      "backgroundColor": "#767676",
+      "width": 75
+    },
+    "date_header_content": {
+      "fontSize": "16px",
+      "backgroundColor": "#767676",
+      "width": 200
+    },
+    "date_header_other": {
+      "fontSize": "16px",
+      "backgroundColor": "#767676",
+      "width": 25
+    },
+    "date_97c2280164699a7b_topic": {
+      "backgroundColor": "#b4b4b4"
+    },
+    "date_30f8ddecc7e44e17_topic": {
+      "backgroundColor": "#b4b4b4"
+    },
+    "date_ffefaaf9cdea90f3_topic": {
+      "backgroundColor": "#b4b4b4"
+    },
+    "date_3feca2f47910aa40_topic": {
+      "backgroundColor": "#b4b4b4"
+    },
+    "date_804177f443bd6127_topic": {
+      "backgroundColor": "#b4b4b4"
+    },
+    "date_dcdac0a4ef22f56e_topic": {
+      "backgroundColor": "#b4b4b4"
+    }
   }
 }
