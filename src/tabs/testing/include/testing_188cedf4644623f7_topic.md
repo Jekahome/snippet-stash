@@ -4,7 +4,6 @@
 
 **Чтобы гарантировать, что ваша программа делает то, что вы от нее ожидаете**
 
-* [Yahoo](https://matklad.github.io/2021/05/31/how-to-test.html)
 * [Jekahome/Testing-in-Rust](https://github.com/Jekahome/Testing-in-Rust)
 * [rustcamp/3_1_testing](https://github.com/rust-lang-ua/rustcamp/tree/master/3_ecosystem/3_1_testing)
 * [rust-by-example/testing](https://doc.rust-lang.org/rust-by-example/testing.html)

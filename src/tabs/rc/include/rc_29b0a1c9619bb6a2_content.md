@@ -27,10 +27,10 @@ fn main(){
 </code></pre>
 
 <div class="mdbook-graphviz-output">
-digraph {
-   5->10->Nil
-   3->5
-   4->5
+digraph TD{
+   A[5] --> B[10] --> Nil
+   C[3] --> A[5]
+   E[4] --> A[5]
 }
 </div>
 

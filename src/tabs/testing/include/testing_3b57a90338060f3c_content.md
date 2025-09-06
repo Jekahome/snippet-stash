@@ -8,13 +8,13 @@
 /// triple backquotes and have implicit `fn main()` inside
 /// and `extern crate <cratename>`. Assume we're testing `ex` crate:
 ///
-/// ```
+/// &#96;&#96;&#96;rust
 /// extern crate ex;
 /// use ex::{add};
 ///
 /// let result = ex::add(2, 3);
 /// assert_eq!(result, 5);
-/// ```
+/// &#96;&#96;&#96;
 pub fn add(a: i32, b: i32) -> i32 {
     a + b
 }
@@ -40,11 +40,9 @@ $ sudo mount -o remount,exec /tmp
 //!
 //! # Examples
 //!
-//! ```
-//!
-//!
+//! &#96;&#96;&#96;rust
 //!  assert_eq!("Hello!".to_string(),  phrases::english::greetings::hello())
-//! ```
+//! &#96;&#96;&#96;
 pub mod greetings;
 
 pub mod farewells;
@@ -60,11 +58,11 @@ pub mod farewells;
 ///
 /// # Examples
 ///
-/// ```
+/// &#96;&#96;&#96;rust
 /// use phrases::english::greetings::hello;
 ///
 /// assert_eq!("Hello1".to_string(),  hello());
-/// ```
+/// &#96;&#96;&#96;
 pub fn hello() -> String {
     "Hello!".to_string()
 }
@@ -72,9 +70,14 @@ pub fn hello() -> String {
 
 ---
 
-Игнорировать выполнение тестов в документации
+Игнорировать выполнение тестов в документации, добавить слово "text" к блоку кода
 <pre><code class="language-rust">
-/// ```text
+/// &#96;&#96;&#96;text
 /// fn foo() {
-/// ```
+///    ...
+/// }
+/// &#96;&#96;&#96;
+
 </code></pre>
+
+
