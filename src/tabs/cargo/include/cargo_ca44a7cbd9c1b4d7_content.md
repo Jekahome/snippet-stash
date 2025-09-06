@@ -9,3 +9,4 @@
 * [rustfmt](#rustfmt)
 * [rust-analyzer в VScode IntelliSense](#rust-analyzer-в-vscode-intellisense)
 * [Стиль кода](#Стиль-кода)
+* [Утилита cargo-make]()

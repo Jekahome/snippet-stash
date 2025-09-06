@@ -17,7 +17,7 @@ fn main(){
 
 ----
 
-**Условная документация**
+**Условная документация с feature flags**
 <pre><code class="language-rust">
 /// # Examples
 ///
@@ -36,10 +36,14 @@ fn main(){
 
 **Ссылки на другие элементы**
 
-* `[S]`        Создайте ссылку на struct, enum, trait, function,… S.
-* `[S](crate::S)`        Также можно использовать пути в виде ссылок для уценки.
+* `[S]` - создайте ссылку на `struct, enum, trait, function,… T`.
+* `[S](crate::S)` - локальная ссылка 
+
+Атрибут `#![deny(broken_intra_doc_links)]` проверяет, что все сгенерированные гиперссылки действительны
 
 <pre><code class="language-rust">
+#![deny(broken_intra_doc_links)]
+
 /// This function uses [`process_data`] internally.
 ///
 /// For more complex processing, see [`AdvancedProcessor`].
@@ -57,6 +61,19 @@ fn main(){
 pub fn complex_operation() {
     // ...
 }
+fn main(){
+ ...
+}
+</code></pre>
+
+---
+ 
+**Когда в документе отсутствует доступ к зависимости то можно добавить ссылку на результат поиска по документации**
+<pre><code class="language-rust">
+///
+/// ... [`Message label`] ...
+///
+/// - [`Message label`](?search=ModelData::link) 
 fn main(){
  ...
 }
