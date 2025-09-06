@@ -1,0 +1,23 @@
+[
+  {
+    "type": "add-tr",
+    "tab_id": "loggging",
+    "tr_id": "loggging_3316c805d90b560b",
+    "tr_id_position": "loggging_75e4d4f61fa813e1",
+    "position": "before"
+  },
+  {
+    "type": "add-tr",
+    "tab_id": "loggging",
+    "tr_id": "loggging_4f7f9d0dff1ca914",
+    "tr_id_position": "loggging_8f8f6f2dad3eb64d",
+    "position": "before"
+  },
+  {
+    "type": "add-tr",
+    "tab_id": "loggging",
+    "tr_id": "loggging_ef115e262f3cb564",
+    "tr_id_position": "loggging_4f7f9d0dff1ca914",
+    "position": "after"
+  }
+]

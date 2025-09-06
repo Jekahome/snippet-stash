@@ -812,5 +812,69 @@
     "cli_7a8a0db22aef5856_topic": {
       "backgroundColor": "#b4b4b4"
     }
+  },
+  "config": {
+    "config_header_topic": {
+      "fontSize": "16px",
+      "backgroundColor": "#767676",
+      "width": 75
+    },
+    "config_header_content": {
+      "fontSize": "16px",
+      "backgroundColor": "#767676",
+      "width": 200
+    },
+    "config_header_other": {
+      "fontSize": "16px",
+      "backgroundColor": "#767676",
+      "width": 25
+    }
+  },
+  "loggging": {
+    "loggging_header_topic": {
+      "fontSize": "16px",
+      "backgroundColor": "#767676",
+      "width": 75
+    },
+    "loggging_header_content": {
+      "fontSize": "16px",
+      "backgroundColor": "#767676",
+      "width": 200
+    },
+    "loggging_header_other": {
+      "fontSize": "16px",
+      "backgroundColor": "#767676",
+      "width": 25
+    },
+    "loggging_9ff4556504bbc243_topic": {
+      "backgroundColor": "#b4b4b4"
+    },
+    "loggging_5c9f9104f97d9076_topic": {
+      "backgroundColor": "#b4b4b4"
+    },
+    "loggging_888a943df527110f_topic": {
+      "backgroundColor": "#b4b4b4"
+    },
+    "loggging_bc1b42c12f764b99_topic": {
+      "backgroundColor": "#b4b4b4"
+    },
+    "loggging_a253d53417a254e0_topic": {
+      "backgroundColor": "#b4b4b4"
+    },
+    "loggging_201483b0692c5a32_topic": {
+      "backgroundColor": "#b4b4b4"
+    },
+    "loggging_b566943bfbebbff2_topic": {
+      "backgroundColor": "#b4b4b4"
+    },
+    "loggging_dd5cc0d1933f9355_topic": {
+      "backgroundColor": "#b4b4b4"
+    },
+    "loggging_dc6d0553ad9d6d68_topic": {
+      "backgroundColor": "#b4b4b4"
+    },
+    "loggging_8344b42fbc0f8e88_topic": {
+      "backgroundColor": "#b4b4b4"
+    }
   }
 }
