@@ -14,7 +14,7 @@ impl  Philosopher{
     fn new(name:&str,left:usize,right:usize)->Self{
         Philosopher{name:name.to_string(),left:left,right:right}
     }
-    fn eat(&self,table:&Table){
+    fn eat(&self,table:&Table_){
         let left_=table.forks[self.left].lock().unwrap();
         thread::sleep(Duration::from_millis(150));
         let right_=table.forks[self.right].lock().unwrap();
@@ -23,12 +23,12 @@ impl  Philosopher{
         println!("{} закончила есть.", self.name);
     }
 }
-struct Table{
+struct Table_{
     forks:Vec<Mutex<()>>
 }
 
 fn main(){
-    let table:Arc<Table> = Arc::new(Table{forks:vec![Mutex::new(()),Mutex::new(()),Mutex::new(()),Mutex::new(()),Mutex::new(()) ]});
+    let table:Arc<Table_> = Arc::new(Table_{forks:vec![Mutex::new(()),Mutex::new(()),Mutex::new(()),Mutex::new(()),Mutex::new(()) ]});
     let philosophers = vec![
         Philosopher::new("Джудит Батлер", 0, 1),
         Philosopher::new("Рая Дунаевская", 1, 2),
