@@ -1,5 +1,7 @@
 
 
+#### Буферизация потока ввода-вывода
+
 #### Struct std::io::BufReader
 
 #### Struct std::io::BufWriter

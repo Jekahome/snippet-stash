@@ -4,8 +4,8 @@
   * [Атрибуты serde](#Атрибуты)
 * [Сериализация](#cериализация)
 * [Десериализация](#Десериализация)
-* [crate musli](#musli)
-* [crate rkyv](#rkyv)
+* [crate musli](#cratemusli)
+* [crate rkyv](#craterkyv)
 
 
 📌 Новый раздел

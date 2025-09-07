@@ -1,6 +1,6 @@
 
 
-#### rkyv
+#### crate rkyv
 
 [docs.rs/rkyv](https://docs.rs/rkyv)
 
