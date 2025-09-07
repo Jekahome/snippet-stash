@@ -28,6 +28,11 @@
                 <td id="loggging_3316c805d90b560b_content"><div class="cell-content" contenteditable="true">{{include('src/tabs/loggging/include/loggging_3316c805d90b560b_content.md')}}</div></td>
                 <td id="loggging_3316c805d90b560b_other"><div class="cell-content" contenteditable="true">{{include('src/tabs/loggging/include/loggging_3316c805d90b560b_other.md')}}</div></td>
             </tr>   
+            <tr id="loggging_a4f2265c19042b96">
+                <td id="loggging_a4f2265c19042b96_topic"><div class="cell-content" contenteditable="true">{{include('src/tabs/loggging/include/loggging_a4f2265c19042b96_topic.md')}}</div></td>
+                <td id="loggging_a4f2265c19042b96_content"><div class="cell-content" contenteditable="true">{{include('src/tabs/loggging/include/loggging_a4f2265c19042b96_content.md')}}</div></td>
+                <td id="loggging_a4f2265c19042b96_other"><div class="cell-content" contenteditable="true">{{include('src/tabs/loggging/include/loggging_a4f2265c19042b96_other.md')}}</div></td>
+            </tr>   
             <tr id="loggging_75e4d4f61fa813e1">
                 <td id="loggging_75e4d4f61fa813e1_topic"><div class="cell-content" contenteditable="true">{{include('src/tabs/loggging/include/loggging_75e4d4f61fa813e1_topic.md')}}</div></td>
                 <td id="loggging_75e4d4f61fa813e1_content"><div class="cell-content" contenteditable="true">{{include('src/tabs/loggging/include/loggging_75e4d4f61fa813e1_content.md')}}</div></td>
