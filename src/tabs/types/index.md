@@ -18,10 +18,20 @@
                 <td id="types_40171a06119cc7f9_content"><div class="cell-content" contenteditable="true">{{include('src/tabs/types/include/types_40171a06119cc7f9_content.md')}}</div></td>
                 <td id="types_40171a06119cc7f9_other"><div class="cell-content" contenteditable="true">{{include('src/tabs/types/include/types_40171a06119cc7f9_other.md')}}</div></td>
             </tr>   
+            <tr id="types_93b7a2850239290b">
+                <td id="types_93b7a2850239290b_topic"><div class="cell-content" contenteditable="true">{{include('src/tabs/types/include/types_93b7a2850239290b_topic.md')}}</div></td>
+                <td id="types_93b7a2850239290b_content"><div class="cell-content" contenteditable="true">{{include('src/tabs/types/include/types_93b7a2850239290b_content.md')}}</div></td>
+                <td id="types_93b7a2850239290b_other"><div class="cell-content" contenteditable="true">{{include('src/tabs/types/include/types_93b7a2850239290b_other.md')}}</div></td>
+            </tr>   
             <tr id="types_707a71cbae22a9bf">
                 <td id="types_707a71cbae22a9bf_topic"><div class="cell-content" contenteditable="true">{{include('src/tabs/types/include/types_707a71cbae22a9bf_topic.md')}}</div></td>
                 <td id="types_707a71cbae22a9bf_content"><div class="cell-content" contenteditable="true">{{include('src/tabs/types/include/types_707a71cbae22a9bf_content.md')}}</div></td>
                 <td id="types_707a71cbae22a9bf_other"><div class="cell-content" contenteditable="true">{{include('src/tabs/types/include/types_707a71cbae22a9bf_other.md')}}</div></td>
+            </tr>   
+            <tr id="types_46d453f882e2acd8">
+                <td id="types_46d453f882e2acd8_topic"><div class="cell-content" contenteditable="true">{{include('src/tabs/types/include/types_46d453f882e2acd8_topic.md')}}</div></td>
+                <td id="types_46d453f882e2acd8_content"><div class="cell-content" contenteditable="true">{{include('src/tabs/types/include/types_46d453f882e2acd8_content.md')}}</div></td>
+                <td id="types_46d453f882e2acd8_other"><div class="cell-content" contenteditable="true">{{include('src/tabs/types/include/types_46d453f882e2acd8_other.md')}}</div></td>
             </tr>   
             <tr id="types_65a777508291d791">
                 <td id="types_65a777508291d791_topic"><div class="cell-content" contenteditable="true">{{include('src/tabs/types/include/types_65a777508291d791_topic.md')}}</div></td>
