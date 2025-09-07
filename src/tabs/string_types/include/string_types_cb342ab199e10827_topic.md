@@ -1,7 +1,8 @@
 
 
-#### std::string::String (методы `&str` благодаря `Deref<Target=str>`)
+#### std::string::String 
 
+(методы `&str` благодаря `Deref<Target=str>`)
 
 [struct.String](https://doc.rust-lang.org/std/string/struct.String.html#method.new)
 

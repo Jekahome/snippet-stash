@@ -1,6 +1,6 @@
 
 
 * [std::str::Chars](#char)
-* [std::string::String](#stdstringstring-методы-str-благодаря-dereftargetstr)
+* [std::string::String](#stdstring)
 * [std::ffi::OsString](#stdffiosstring)
 * [std::str](#str)
