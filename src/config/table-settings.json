@@ -911,5 +911,78 @@
     "date_dcdac0a4ef22f56e_topic": {
       "backgroundColor": "#b4b4b4"
     }
+  },
+  "file": {
+    "file_header_topic": {
+      "fontSize": "16px",
+      "backgroundColor": "#767676",
+      "width": 75
+    },
+    "file_header_content": {
+      "fontSize": "16px",
+      "backgroundColor": "#767676",
+      "width": 200
+    },
+    "file_header_other": {
+      "fontSize": "16px",
+      "backgroundColor": "#767676",
+      "width": 25
+    },
+    "file_12912e689c8eadbe_topic": {
+      "backgroundColor": "#b4b4b4"
+    },
+    "file_d030a8c57ebb0342_topic": {
+      "backgroundColor": "#b4b4b4"
+    },
+    "file_0967bcedc9572afa_topic": {
+      "backgroundColor": "#b4b4b4"
+    },
+    "file_c52a96984ea541ea_topic": {
+      "backgroundColor": "#b4b4b4"
+    },
+    "file_c443f9fdd54c0668_topic": {
+      "backgroundColor": "#b4b4b4"
+    },
+    "file_a514508e3de461a3_topic": {
+      "backgroundColor": "#b4b4b4"
+    },
+    "file_5cbb540e4966410f_topic": {
+      "backgroundColor": "#b4b4b4"
+    },
+    "file_63707c0bc74f3025_topic": {
+      "backgroundColor": "#b4b4b4"
+    },
+    "file_0cc630e19a552d01_topic": {
+      "backgroundColor": "#b4b4b4"
+    },
+    "file_c8eea49c86649150_topic": {
+      "backgroundColor": "#b4b4b4"
+    },
+    "file_467a09f5e35ba14e_topic": {
+      "backgroundColor": "#b4b4b4"
+    },
+    "file_4d9d987acda26be6_topic": {
+      "backgroundColor": "#b4b4b4"
+    }
+  },
+  "doc": {
+    "doc_header_topic": {
+      "fontSize": "16px",
+      "backgroundColor": "#767676",
+      "width": 75
+    },
+    "doc_header_content": {
+      "fontSize": "16px",
+      "backgroundColor": "#767676",
+      "width": 200
+    },
+    "doc_header_other": {
+      "fontSize": "16px",
+      "backgroundColor": "#767676",
+      "width": 25
+    },
+    "doc_84b65d31d68c8cbb_topic": {
+      "backgroundColor": "#b4b4b4"
+    }
   }
 }
