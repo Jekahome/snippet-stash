@@ -1,6 +1,6 @@
 
 
-#### match
+#### Pattern matching
 
 (switch)
 
