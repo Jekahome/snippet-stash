@@ -295,5 +295,52 @@
     "asynchronous_bb9e1435f98d0bd0_topic": {
       "backgroundColor": "#b4b4b4"
     }
+  },
+  "benchmark": {
+    "benchmark_header_topic": {
+      "fontSize": "16px",
+      "backgroundColor": "#767676",
+      "width": 75
+    },
+    "benchmark_header_content": {
+      "fontSize": "16px",
+      "backgroundColor": "#767676",
+      "width": 200
+    },
+    "benchmark_header_other": {
+      "fontSize": "16px",
+      "backgroundColor": "#767676",
+      "width": 25
+    },
+    "benchmark_46ab8eee3f18cfec_topic": {
+      "backgroundColor": "#b4b4b4"
+    },
+    "benchmark_4d359fed5b4fc3eb_topic": {
+      "backgroundColor": "#b4b4b4"
+    },
+    "benchmark_6cd749e364c085bd_topic": {
+      "backgroundColor": "#b4b4b4"
+    },
+    "benchmark_6bedea31677f6329_topic": {
+      "backgroundColor": "#b4b4b4"
+    },
+    "benchmark_37685349569f7a40_topic": {
+      "backgroundColor": "#b4b4b4"
+    },
+    "benchmark_0a9a589834e09683_topic": {
+      "backgroundColor": "#b4b4b4"
+    },
+    "benchmark_ad52675ef6da400b_topic": {
+      "backgroundColor": "#b4b4b4"
+    },
+    "benchmark_259b8b7ff2da4169_topic": {
+      "backgroundColor": "#b4b4b4"
+    },
+    "benchmark_c471d9bb2e617bbe_topic": {
+      "backgroundColor": "#b4b4b4"
+    },
+    "benchmark_4f90682f5f436812_topic": {
+      "backgroundColor": "#b4b4b4"
+    }
   }
 }
