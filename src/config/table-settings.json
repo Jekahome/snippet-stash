@@ -506,6 +506,18 @@
       "fontSize": "16px",
       "backgroundColor": "#767676",
       "width": 25
+    },
+    "rpc_fa539d5dbfb5ea34_topic": {
+      "backgroundColor": "#b4b4b4"
+    },
+    "rpc_9b374b45738f3c35_topic": {
+      "backgroundColor": "#b4b4b4"
+    },
+    "rpc_6b14fcd4e7723dce_topic": {
+      "backgroundColor": "#b4b4b4"
+    },
+    "rpc_474bab166cc130eb_topic": {
+      "backgroundColor": "#b4b4b4"
     }
   },
   "types": {
