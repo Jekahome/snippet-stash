@@ -18,6 +18,31 @@
                 <td id="bit_654bb1877f8f6152_content"><div class="cell-content" contenteditable="true">{{include('src/tabs/bit/include/bit_654bb1877f8f6152_content.md')}}</div></td>
                 <td id="bit_654bb1877f8f6152_other"><div class="cell-content" contenteditable="true">{{include('src/tabs/bit/include/bit_654bb1877f8f6152_other.md')}}</div></td>
             </tr>   
+            <tr id="bit_5bcf4a3ca10ef894">
+                <td id="bit_5bcf4a3ca10ef894_topic"><div class="cell-content" contenteditable="true">{{include('src/tabs/bit/include/bit_5bcf4a3ca10ef894_topic.md')}}</div></td>
+                <td id="bit_5bcf4a3ca10ef894_content"><div class="cell-content" contenteditable="true">{{include('src/tabs/bit/include/bit_5bcf4a3ca10ef894_content.md')}}</div></td>
+                <td id="bit_5bcf4a3ca10ef894_other"><div class="cell-content" contenteditable="true">{{include('src/tabs/bit/include/bit_5bcf4a3ca10ef894_other.md')}}</div></td>
+            </tr>   
+            <tr id="bit_9ec1a7caf429051b">
+                <td id="bit_9ec1a7caf429051b_topic"><div class="cell-content" contenteditable="true">{{include('src/tabs/bit/include/bit_9ec1a7caf429051b_topic.md')}}</div></td>
+                <td id="bit_9ec1a7caf429051b_content"><div class="cell-content" contenteditable="true">{{include('src/tabs/bit/include/bit_9ec1a7caf429051b_content.md')}}</div></td>
+                <td id="bit_9ec1a7caf429051b_other"><div class="cell-content" contenteditable="true">{{include('src/tabs/bit/include/bit_9ec1a7caf429051b_other.md')}}</div></td>
+            </tr>   
+            <tr id="bit_9f6d7b0bfce21b52">
+                <td id="bit_9f6d7b0bfce21b52_topic"><div class="cell-content" contenteditable="true">{{include('src/tabs/bit/include/bit_9f6d7b0bfce21b52_topic.md')}}</div></td>
+                <td id="bit_9f6d7b0bfce21b52_content"><div class="cell-content" contenteditable="true">{{include('src/tabs/bit/include/bit_9f6d7b0bfce21b52_content.md')}}</div></td>
+                <td id="bit_9f6d7b0bfce21b52_other"><div class="cell-content" contenteditable="true">{{include('src/tabs/bit/include/bit_9f6d7b0bfce21b52_other.md')}}</div></td>
+            </tr>   
+            <tr id="bit_b2f750dc007e2dbe">
+                <td id="bit_b2f750dc007e2dbe_topic"><div class="cell-content" contenteditable="true">{{include('src/tabs/bit/include/bit_b2f750dc007e2dbe_topic.md')}}</div></td>
+                <td id="bit_b2f750dc007e2dbe_content"><div class="cell-content" contenteditable="true">{{include('src/tabs/bit/include/bit_b2f750dc007e2dbe_content.md')}}</div></td>
+                <td id="bit_b2f750dc007e2dbe_other"><div class="cell-content" contenteditable="true">{{include('src/tabs/bit/include/bit_b2f750dc007e2dbe_other.md')}}</div></td>
+            </tr>   
+            <tr id="bit_93cb1a7b41ef9b4a">
+                <td id="bit_93cb1a7b41ef9b4a_topic"><div class="cell-content" contenteditable="true">{{include('src/tabs/bit/include/bit_93cb1a7b41ef9b4a_topic.md')}}</div></td>
+                <td id="bit_93cb1a7b41ef9b4a_content"><div class="cell-content" contenteditable="true">{{include('src/tabs/bit/include/bit_93cb1a7b41ef9b4a_content.md')}}</div></td>
+                <td id="bit_93cb1a7b41ef9b4a_other"><div class="cell-content" contenteditable="true">{{include('src/tabs/bit/include/bit_93cb1a7b41ef9b4a_other.md')}}</div></td>
+            </tr>   
             <tr id="bit_40b3eeb092c65a86">
                 <td id="bit_40b3eeb092c65a86_topic"><div class="cell-content" contenteditable="true">{{include('src/tabs/bit/include/bit_40b3eeb092c65a86_topic.md')}}</div></td>
                 <td id="bit_40b3eeb092c65a86_content"><div class="cell-content" contenteditable="true">{{include('src/tabs/bit/include/bit_40b3eeb092c65a86_content.md')}}</div></td>
@@ -27,6 +52,36 @@
                 <td id="bit_efcb96d34cc9fd23_topic"><div class="cell-content" contenteditable="true">{{include('src/tabs/bit/include/bit_efcb96d34cc9fd23_topic.md')}}</div></td>
                 <td id="bit_efcb96d34cc9fd23_content"><div class="cell-content" contenteditable="true">{{include('src/tabs/bit/include/bit_efcb96d34cc9fd23_content.md')}}</div></td>
                 <td id="bit_efcb96d34cc9fd23_other"><div class="cell-content" contenteditable="true">{{include('src/tabs/bit/include/bit_efcb96d34cc9fd23_other.md')}}</div></td>
+            </tr>   
+            <tr id="bit_218aa525e52025f2">
+                <td id="bit_218aa525e52025f2_topic"><div class="cell-content" contenteditable="true">{{include('src/tabs/bit/include/bit_218aa525e52025f2_topic.md')}}</div></td>
+                <td id="bit_218aa525e52025f2_content"><div class="cell-content" contenteditable="true">{{include('src/tabs/bit/include/bit_218aa525e52025f2_content.md')}}</div></td>
+                <td id="bit_218aa525e52025f2_other"><div class="cell-content" contenteditable="true">{{include('src/tabs/bit/include/bit_218aa525e52025f2_other.md')}}</div></td>
+            </tr>   
+            <tr id="bit_ccc7a7150672d522">
+                <td id="bit_ccc7a7150672d522_topic"><div class="cell-content" contenteditable="true">{{include('src/tabs/bit/include/bit_ccc7a7150672d522_topic.md')}}</div></td>
+                <td id="bit_ccc7a7150672d522_content"><div class="cell-content" contenteditable="true">{{include('src/tabs/bit/include/bit_ccc7a7150672d522_content.md')}}</div></td>
+                <td id="bit_ccc7a7150672d522_other"><div class="cell-content" contenteditable="true">{{include('src/tabs/bit/include/bit_ccc7a7150672d522_other.md')}}</div></td>
+            </tr>   
+            <tr id="bit_281fdacd278e3e62">
+                <td id="bit_281fdacd278e3e62_topic"><div class="cell-content" contenteditable="true">{{include('src/tabs/bit/include/bit_281fdacd278e3e62_topic.md')}}</div></td>
+                <td id="bit_281fdacd278e3e62_content"><div class="cell-content" contenteditable="true">{{include('src/tabs/bit/include/bit_281fdacd278e3e62_content.md')}}</div></td>
+                <td id="bit_281fdacd278e3e62_other"><div class="cell-content" contenteditable="true">{{include('src/tabs/bit/include/bit_281fdacd278e3e62_other.md')}}</div></td>
+            </tr>   
+            <tr id="bit_3dca473fc4934878">
+                <td id="bit_3dca473fc4934878_topic"><div class="cell-content" contenteditable="true">{{include('src/tabs/bit/include/bit_3dca473fc4934878_topic.md')}}</div></td>
+                <td id="bit_3dca473fc4934878_content"><div class="cell-content" contenteditable="true">{{include('src/tabs/bit/include/bit_3dca473fc4934878_content.md')}}</div></td>
+                <td id="bit_3dca473fc4934878_other"><div class="cell-content" contenteditable="true">{{include('src/tabs/bit/include/bit_3dca473fc4934878_other.md')}}</div></td>
+            </tr>   
+            <tr id="bit_88b261d672696880">
+                <td id="bit_88b261d672696880_topic"><div class="cell-content" contenteditable="true">{{include('src/tabs/bit/include/bit_88b261d672696880_topic.md')}}</div></td>
+                <td id="bit_88b261d672696880_content"><div class="cell-content" contenteditable="true">{{include('src/tabs/bit/include/bit_88b261d672696880_content.md')}}</div></td>
+                <td id="bit_88b261d672696880_other"><div class="cell-content" contenteditable="true">{{include('src/tabs/bit/include/bit_88b261d672696880_other.md')}}</div></td>
+            </tr>   
+            <tr id="bit_975afb6f2f1cefac">
+                <td id="bit_975afb6f2f1cefac_topic"><div class="cell-content" contenteditable="true">{{include('src/tabs/bit/include/bit_975afb6f2f1cefac_topic.md')}}</div></td>
+                <td id="bit_975afb6f2f1cefac_content"><div class="cell-content" contenteditable="true">{{include('src/tabs/bit/include/bit_975afb6f2f1cefac_content.md')}}</div></td>
+                <td id="bit_975afb6f2f1cefac_other"><div class="cell-content" contenteditable="true">{{include('src/tabs/bit/include/bit_975afb6f2f1cefac_other.md')}}</div></td>
             </tr>   
             <tr id="bit_c3f62f99693bfe87">
                 <td id="bit_c3f62f99693bfe87_topic"><div class="cell-content" contenteditable="true">{{include('src/tabs/bit/include/bit_c3f62f99693bfe87_topic.md')}}</div></td>
@@ -48,10 +103,40 @@
                 <td id="bit_c7554331bdd1b1fb_content"><div class="cell-content" contenteditable="true">{{include('src/tabs/bit/include/bit_c7554331bdd1b1fb_content.md')}}</div></td>
                 <td id="bit_c7554331bdd1b1fb_other"><div class="cell-content" contenteditable="true">{{include('src/tabs/bit/include/bit_c7554331bdd1b1fb_other.md')}}</div></td>
             </tr>   
+            <tr id="bit_24d418a7fcda297b">
+                <td id="bit_24d418a7fcda297b_topic"><div class="cell-content" contenteditable="true">{{include('src/tabs/bit/include/bit_24d418a7fcda297b_topic.md')}}</div></td>
+                <td id="bit_24d418a7fcda297b_content"><div class="cell-content" contenteditable="true">{{include('src/tabs/bit/include/bit_24d418a7fcda297b_content.md')}}</div></td>
+                <td id="bit_24d418a7fcda297b_other"><div class="cell-content" contenteditable="true">{{include('src/tabs/bit/include/bit_24d418a7fcda297b_other.md')}}</div></td>
+            </tr>   
+            <tr id="bit_8ff34a76bd7ac6a6">
+                <td id="bit_8ff34a76bd7ac6a6_topic"><div class="cell-content" contenteditable="true">{{include('src/tabs/bit/include/bit_8ff34a76bd7ac6a6_topic.md')}}</div></td>
+                <td id="bit_8ff34a76bd7ac6a6_content"><div class="cell-content" contenteditable="true">{{include('src/tabs/bit/include/bit_8ff34a76bd7ac6a6_content.md')}}</div></td>
+                <td id="bit_8ff34a76bd7ac6a6_other"><div class="cell-content" contenteditable="true">{{include('src/tabs/bit/include/bit_8ff34a76bd7ac6a6_other.md')}}</div></td>
+            </tr>   
+            <tr id="bit_b58355cbec00f292">
+                <td id="bit_b58355cbec00f292_topic"><div class="cell-content" contenteditable="true">{{include('src/tabs/bit/include/bit_b58355cbec00f292_topic.md')}}</div></td>
+                <td id="bit_b58355cbec00f292_content"><div class="cell-content" contenteditable="true">{{include('src/tabs/bit/include/bit_b58355cbec00f292_content.md')}}</div></td>
+                <td id="bit_b58355cbec00f292_other"><div class="cell-content" contenteditable="true">{{include('src/tabs/bit/include/bit_b58355cbec00f292_other.md')}}</div></td>
+            </tr>   
+            <tr id="bit_c465f6f995b87f4c">
+                <td id="bit_c465f6f995b87f4c_topic"><div class="cell-content" contenteditable="true">{{include('src/tabs/bit/include/bit_c465f6f995b87f4c_topic.md')}}</div></td>
+                <td id="bit_c465f6f995b87f4c_content"><div class="cell-content" contenteditable="true">{{include('src/tabs/bit/include/bit_c465f6f995b87f4c_content.md')}}</div></td>
+                <td id="bit_c465f6f995b87f4c_other"><div class="cell-content" contenteditable="true">{{include('src/tabs/bit/include/bit_c465f6f995b87f4c_other.md')}}</div></td>
+            </tr>   
+            <tr id="bit_9301d5196e6cdb8a">
+                <td id="bit_9301d5196e6cdb8a_topic"><div class="cell-content" contenteditable="true">{{include('src/tabs/bit/include/bit_9301d5196e6cdb8a_topic.md')}}</div></td>
+                <td id="bit_9301d5196e6cdb8a_content"><div class="cell-content" contenteditable="true">{{include('src/tabs/bit/include/bit_9301d5196e6cdb8a_content.md')}}</div></td>
+                <td id="bit_9301d5196e6cdb8a_other"><div class="cell-content" contenteditable="true">{{include('src/tabs/bit/include/bit_9301d5196e6cdb8a_other.md')}}</div></td>
+            </tr>   
             <tr id="bit_1a05c92a926fe78a">
                 <td id="bit_1a05c92a926fe78a_topic"><div class="cell-content" contenteditable="true">{{include('src/tabs/bit/include/bit_1a05c92a926fe78a_topic.md')}}</div></td>
                 <td id="bit_1a05c92a926fe78a_content"><div class="cell-content" contenteditable="true">{{include('src/tabs/bit/include/bit_1a05c92a926fe78a_content.md')}}</div></td>
                 <td id="bit_1a05c92a926fe78a_other"><div class="cell-content" contenteditable="true">{{include('src/tabs/bit/include/bit_1a05c92a926fe78a_other.md')}}</div></td>
+            </tr>   
+            <tr id="bit_d7f94145bcc3bb4b">
+                <td id="bit_d7f94145bcc3bb4b_topic"><div class="cell-content" contenteditable="true">{{include('src/tabs/bit/include/bit_d7f94145bcc3bb4b_topic.md')}}</div></td>
+                <td id="bit_d7f94145bcc3bb4b_content"><div class="cell-content" contenteditable="true">{{include('src/tabs/bit/include/bit_d7f94145bcc3bb4b_content.md')}}</div></td>
+                <td id="bit_d7f94145bcc3bb4b_other"><div class="cell-content" contenteditable="true">{{include('src/tabs/bit/include/bit_d7f94145bcc3bb4b_other.md')}}</div></td>
             </tr>   
             <tr id="bit_6dac84fd0939b1d3">
                 <td id="bit_6dac84fd0939b1d3_topic"><div class="cell-content" contenteditable="true">{{include('src/tabs/bit/include/bit_6dac84fd0939b1d3_topic.md')}}</div></td>
