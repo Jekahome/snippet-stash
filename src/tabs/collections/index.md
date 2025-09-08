@@ -413,6 +413,11 @@
                 <td id="collections_301830c4da947baf_content"><div class="cell-content" contenteditable="true">{{include('src/tabs/collections/include/collections_301830c4da947baf_content.md')}}</div></td>
                 <td id="collections_301830c4da947baf_other"><div class="cell-content" contenteditable="true">{{include('src/tabs/collections/include/collections_301830c4da947baf_other.md')}}</div></td>
             </tr>   
+            <tr id="collections_20468b0e1c42cce8">
+                <td id="collections_20468b0e1c42cce8_topic"><div class="cell-content" contenteditable="true">{{include('src/tabs/collections/include/collections_20468b0e1c42cce8_topic.md')}}</div></td>
+                <td id="collections_20468b0e1c42cce8_content"><div class="cell-content" contenteditable="true">{{include('src/tabs/collections/include/collections_20468b0e1c42cce8_content.md')}}</div></td>
+                <td id="collections_20468b0e1c42cce8_other"><div class="cell-content" contenteditable="true">{{include('src/tabs/collections/include/collections_20468b0e1c42cce8_other.md')}}</div></td>
+            </tr>   
             <tr id="collections_79994296da5a6412">
                 <td id="collections_79994296da5a6412_topic"><div class="cell-content" contenteditable="true">{{include('src/tabs/collections/include/collections_79994296da5a6412_topic.md')}}</div></td>
                 <td id="collections_79994296da5a6412_content"><div class="cell-content" contenteditable="true">{{include('src/tabs/collections/include/collections_79994296da5a6412_content.md')}}</div></td>
