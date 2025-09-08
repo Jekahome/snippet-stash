@@ -5,12 +5,11 @@
 * Миграции refinery
 * sqlx-cli
 * barrel ORM
-* REST
-* Meilisearch поисковой движок
+* Полнотекстовый и нечеткий поиск
 * GraphQL
-* Redis
-* SQLite
-* MongoDB
-* RabbitMQ
+* In-memory storage
+* Встраиваемые БД SQLite
+* NoSQL-базы
+* Брокеры сообщений 
 * Docker
-* Diesel ORM
+* [Diesel ORM](https://github.com/Jekahome/DB_Diesel_Actor_Actix_example)

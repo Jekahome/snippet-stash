@@ -1,6 +1,6 @@
 
 
-**GraphQL в Rust**
+#### GraphQL в Rust
 
 **Основные ресурсы**
 - [GraphQL](https://graphql.org/)
