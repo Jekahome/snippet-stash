@@ -13,6 +13,11 @@
                 <td id="websockets_dd71fab67f55a352_content"><div class="cell-content" contenteditable="true">{{include('src/tabs/websockets/include/websockets_dd71fab67f55a352_content.md')}}</div></td>
                 <td id="websockets_dd71fab67f55a352_other"><div class="cell-content" contenteditable="true">{{include('src/tabs/websockets/include/websockets_dd71fab67f55a352_other.md')}}</div></td>
             </tr>   
+            <tr id="websockets_46e06d67b79f7287">
+                <td id="websockets_46e06d67b79f7287_topic"><div class="cell-content" contenteditable="true">{{include('src/tabs/websockets/include/websockets_46e06d67b79f7287_topic.md')}}</div></td>
+                <td id="websockets_46e06d67b79f7287_content"><div class="cell-content" contenteditable="true">{{include('src/tabs/websockets/include/websockets_46e06d67b79f7287_content.md')}}</div></td>
+                <td id="websockets_46e06d67b79f7287_other"><div class="cell-content" contenteditable="true">{{include('src/tabs/websockets/include/websockets_46e06d67b79f7287_other.md')}}</div></td>
+            </tr>   
             <tr id="websockets_fadaf611ee5cf400">
                 <td id="websockets_fadaf611ee5cf400_topic"><div class="cell-content" contenteditable="true">{{include('src/tabs/websockets/include/websockets_fadaf611ee5cf400_topic.md')}}</div></td>
                 <td id="websockets_fadaf611ee5cf400_content"><div class="cell-content" contenteditable="true">{{include('src/tabs/websockets/include/websockets_fadaf611ee5cf400_content.md')}}</div></td>
