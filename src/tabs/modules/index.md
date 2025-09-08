@@ -13,10 +13,25 @@
                 <td id="modules_7bf92feca0d6119c_content"><div class="cell-content" contenteditable="true">{{include('src/tabs/modules/include/modules_7bf92feca0d6119c_content.md')}}</div></td>
                 <td id="modules_7bf92feca0d6119c_other"><div class="cell-content" contenteditable="true">{{include('src/tabs/modules/include/modules_7bf92feca0d6119c_other.md')}}</div></td>
             </tr>   
+            <tr id="modules_83f0956b8f333516">
+                <td id="modules_83f0956b8f333516_topic"><div class="cell-content" contenteditable="true">{{include('src/tabs/modules/include/modules_83f0956b8f333516_topic.md')}}</div></td>
+                <td id="modules_83f0956b8f333516_content"><div class="cell-content" contenteditable="true">{{include('src/tabs/modules/include/modules_83f0956b8f333516_content.md')}}</div></td>
+                <td id="modules_83f0956b8f333516_other"><div class="cell-content" contenteditable="true">{{include('src/tabs/modules/include/modules_83f0956b8f333516_other.md')}}</div></td>
+            </tr>   
+            <tr id="modules_c0a0ce8600c66f20">
+                <td id="modules_c0a0ce8600c66f20_topic"><div class="cell-content" contenteditable="true">{{include('src/tabs/modules/include/modules_c0a0ce8600c66f20_topic.md')}}</div></td>
+                <td id="modules_c0a0ce8600c66f20_content"><div class="cell-content" contenteditable="true">{{include('src/tabs/modules/include/modules_c0a0ce8600c66f20_content.md')}}</div></td>
+                <td id="modules_c0a0ce8600c66f20_other"><div class="cell-content" contenteditable="true">{{include('src/tabs/modules/include/modules_c0a0ce8600c66f20_other.md')}}</div></td>
+            </tr>   
             <tr id="modules_f9ad392318618702">
                 <td id="modules_f9ad392318618702_topic"><div class="cell-content" contenteditable="true">{{include('src/tabs/modules/include/modules_f9ad392318618702_topic.md')}}</div></td>
                 <td id="modules_f9ad392318618702_content"><div class="cell-content" contenteditable="true">{{include('src/tabs/modules/include/modules_f9ad392318618702_content.md')}}</div></td>
                 <td id="modules_f9ad392318618702_other"><div class="cell-content" contenteditable="true">{{include('src/tabs/modules/include/modules_f9ad392318618702_other.md')}}</div></td>
+            </tr>   
+            <tr id="modules_12b7eca4ecb759f9">
+                <td id="modules_12b7eca4ecb759f9_topic"><div class="cell-content" contenteditable="true">{{include('src/tabs/modules/include/modules_12b7eca4ecb759f9_topic.md')}}</div></td>
+                <td id="modules_12b7eca4ecb759f9_content"><div class="cell-content" contenteditable="true">{{include('src/tabs/modules/include/modules_12b7eca4ecb759f9_content.md')}}</div></td>
+                <td id="modules_12b7eca4ecb759f9_other"><div class="cell-content" contenteditable="true">{{include('src/tabs/modules/include/modules_12b7eca4ecb759f9_other.md')}}</div></td>
             </tr>   
             <tr id="modules_2bbaccc3c002be4d">
                 <td id="modules_2bbaccc3c002be4d_topic"><div class="cell-content" contenteditable="true">{{include('src/tabs/modules/include/modules_2bbaccc3c002be4d_topic.md')}}</div></td>
