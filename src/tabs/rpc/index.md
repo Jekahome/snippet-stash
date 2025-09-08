@@ -23,6 +23,11 @@
                 <td id="rpc_fa539d5dbfb5ea34_content"><div class="cell-content" contenteditable="true">{{include('src/tabs/rpc/include/rpc_fa539d5dbfb5ea34_content.md')}}</div></td>
                 <td id="rpc_fa539d5dbfb5ea34_other"><div class="cell-content" contenteditable="true">{{include('src/tabs/rpc/include/rpc_fa539d5dbfb5ea34_other.md')}}</div></td>
             </tr>   
+            <tr id="rpc_f90cadc63f23ce88">
+                <td id="rpc_f90cadc63f23ce88_topic"><div class="cell-content" contenteditable="true">{{include('src/tabs/rpc/include/rpc_f90cadc63f23ce88_topic.md')}}</div></td>
+                <td id="rpc_f90cadc63f23ce88_content"><div class="cell-content" contenteditable="true">{{include('src/tabs/rpc/include/rpc_f90cadc63f23ce88_content.md')}}</div></td>
+                <td id="rpc_f90cadc63f23ce88_other"><div class="cell-content" contenteditable="true">{{include('src/tabs/rpc/include/rpc_f90cadc63f23ce88_other.md')}}</div></td>
+            </tr>   
             <tr id="rpc_631c9e5293fb38c7">
                 <td id="rpc_631c9e5293fb38c7_topic"><div class="cell-content" contenteditable="true">{{include('src/tabs/rpc/include/rpc_631c9e5293fb38c7_topic.md')}}</div></td>
                 <td id="rpc_631c9e5293fb38c7_content"><div class="cell-content" contenteditable="true">{{include('src/tabs/rpc/include/rpc_631c9e5293fb38c7_content.md')}}</div></td>
@@ -62,6 +67,11 @@
                 <td id="rpc_474bab166cc130eb_topic"><div class="cell-content" contenteditable="true">{{include('src/tabs/rpc/include/rpc_474bab166cc130eb_topic.md')}}</div></td>
                 <td id="rpc_474bab166cc130eb_content"><div class="cell-content" contenteditable="true">{{include('src/tabs/rpc/include/rpc_474bab166cc130eb_content.md')}}</div></td>
                 <td id="rpc_474bab166cc130eb_other"><div class="cell-content" contenteditable="true">{{include('src/tabs/rpc/include/rpc_474bab166cc130eb_other.md')}}</div></td>
+            </tr>   
+            <tr id="rpc_bf025b8ba409fd00">
+                <td id="rpc_bf025b8ba409fd00_topic"><div class="cell-content" contenteditable="true">{{include('src/tabs/rpc/include/rpc_bf025b8ba409fd00_topic.md')}}</div></td>
+                <td id="rpc_bf025b8ba409fd00_content"><div class="cell-content" contenteditable="true">{{include('src/tabs/rpc/include/rpc_bf025b8ba409fd00_content.md')}}</div></td>
+                <td id="rpc_bf025b8ba409fd00_other"><div class="cell-content" contenteditable="true">{{include('src/tabs/rpc/include/rpc_bf025b8ba409fd00_other.md')}}</div></td>
             </tr>   
             <tr id="rpc_29e362591aef6267">
                 <td id="rpc_29e362591aef6267_topic"><div class="cell-content" contenteditable="true">{{include('src/tabs/rpc/include/rpc_29e362591aef6267_topic.md')}}</div></td>
