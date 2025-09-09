@@ -73,6 +73,16 @@
                 <td id="db_api_f0f1437d5933d78c_content"><div class="cell-content" contenteditable="true">{{include('src/tabs/db_api/include/db_api_f0f1437d5933d78c_content.md')}}</div></td>
                 <td id="db_api_f0f1437d5933d78c_other"><div class="cell-content" contenteditable="true">{{include('src/tabs/db_api/include/db_api_f0f1437d5933d78c_other.md')}}</div></td>
             </tr>   
+            <tr id="db_api_e641a26abfa60168">
+                <td id="db_api_e641a26abfa60168_topic"><div class="cell-content" contenteditable="true">{{include('src/tabs/db_api/include/db_api_e641a26abfa60168_topic.md')}}</div></td>
+                <td id="db_api_e641a26abfa60168_content"><div class="cell-content" contenteditable="true">{{include('src/tabs/db_api/include/db_api_e641a26abfa60168_content.md')}}</div></td>
+                <td id="db_api_e641a26abfa60168_other"><div class="cell-content" contenteditable="true">{{include('src/tabs/db_api/include/db_api_e641a26abfa60168_other.md')}}</div></td>
+            </tr>   
+            <tr id="db_api_09a225a935f72056">
+                <td id="db_api_09a225a935f72056_topic"><div class="cell-content" contenteditable="true">{{include('src/tabs/db_api/include/db_api_09a225a935f72056_topic.md')}}</div></td>
+                <td id="db_api_09a225a935f72056_content"><div class="cell-content" contenteditable="true">{{include('src/tabs/db_api/include/db_api_09a225a935f72056_content.md')}}</div></td>
+                <td id="db_api_09a225a935f72056_other"><div class="cell-content" contenteditable="true">{{include('src/tabs/db_api/include/db_api_09a225a935f72056_other.md')}}</div></td>
+            </tr>   
             <tr id="db_api_425b1fe889514128">
                 <td id="db_api_425b1fe889514128_topic"><div class="cell-content" contenteditable="true">{{include('src/tabs/db_api/include/db_api_425b1fe889514128_topic.md')}}</div></td>
                 <td id="db_api_425b1fe889514128_content"><div class="cell-content" contenteditable="true">{{include('src/tabs/db_api/include/db_api_425b1fe889514128_content.md')}}</div></td>
