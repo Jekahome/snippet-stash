@@ -1,20 +1,21 @@
 
 
-Так неправильно:   
+❌ Так неправильно:   
  
 (Каждый вызов замыкание будет перемешать вектор)
-<pre><code class="language-rust">
+```rust
 fn main(){
      let no_gc = vec!["C", "C++", "Rust"];         
      let has_gc = |lang: &str| -> bool {
             !no_gc.contains(&lang)
     };
 }
-</code></pre>
+```
 
 ----
-Правильно:
-<pre><code class="language-rust">
+
+✅ Правильно:
+```rust
 fn main(){
    let has_gc = {
 // Нет смысла вектор перемещать в замыкание так как он будет геолацироваться в памяти каждый раз
@@ -29,4 +30,5 @@ fn main(){
     };
     assert!(has_gc("Java"));
 }
-</code></pre>
+```
+

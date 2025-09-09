@@ -1,7 +1,6 @@
 
 
-
-<pre><code class="language-rust">
+```rust
 main(){
     let s = Some("xyz".to_string());
     let foo = make_foo(&s);
@@ -15,4 +14,4 @@ main(){
 fn make_foo<'a>(s: &'a Option<String>) -> Box<Fn() -> Option<&'a str> + 'a> {
     Box::new(move || s.as_ref().map(|s| &**s)) as Box<Fn() -> Option<&'a str> + 'a>
 }
-</code></pre>
+```

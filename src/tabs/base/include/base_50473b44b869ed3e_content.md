@@ -1,7 +1,6 @@
 
 
-
-<pre><code class="language-rust">
+```rust
 struct S{
     x:u8,
     y:u8
@@ -13,4 +12,4 @@ fn main() {
 fn f( S { x,y }: S){
     println!("S=({},{})",x,y);
 }
-</code></pre>
+```

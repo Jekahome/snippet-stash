@@ -1,6 +1,6 @@
 
 
-<pre><code class="language-rust">
+```rust
 fn main(){
  loop {
     match option {
@@ -9,13 +9,13 @@ fn main(){
     }
  }
 }
-</code></pre>
+```
 
 `loop` превращается в такой `while`:
-<pre><code class="language-rust">
+```rust
 fn main(){
  while let Some(x) = option {
     println!("{}", x);
  }
 }
-</code></pre>
+```

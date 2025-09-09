@@ -1,7 +1,6 @@
 
 
-
-<pre><code class="language-rust">
+```rust
 fn main(){
  let x:i32 = 5;
  let y:i32 =  match x {
@@ -10,4 +9,4 @@ fn main(){
  };
  print!("{}",y);// 25
 }
-</code></pre>
+```

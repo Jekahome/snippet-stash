@@ -1,7 +1,7 @@
 
 
 Реализация для одного типа u32
-<pre><code class="language-rust">
+```rust
 struct Cacher<T> where T: Fn(u32) -> u32
 {
     calculation: T,
@@ -28,11 +28,11 @@ impl<T> Cacher<T> where T: Fn(u32) -> u32
         }
     }
 }
-</code></pre>
+```
 
 ---- 
 
-<pre><code class="language-rust">
+```rust
 use std::borrow::Cow;
 struct CacherStr<N,M,T> where T:std::ops::Fn(N)->M {
     calculation:  T,
@@ -57,4 +57,5 @@ impl <T> CacherStr< Cow< 'static, str>,Cow< 'static, str>,T> where T: Fn(Cow< 's
         }
     }
 }
-</code></pre>
+```
+

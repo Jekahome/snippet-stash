@@ -1,7 +1,7 @@
 
 
 
-<pre><code class="language-rust">
+```rust
 use thiserror::Error;
 
 #[derive(Error, Debug)]
@@ -22,4 +22,4 @@ fn main() -> Result<(), MainError> {
     println!("Following call");
     Ok(r)
 }
-</code></pre>
+```

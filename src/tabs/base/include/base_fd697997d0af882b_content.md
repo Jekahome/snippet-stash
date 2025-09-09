@@ -2,7 +2,7 @@
 
 Замыкание соответствует типажу `FnOnce`  потому что перемещает тип moving.
 Следовательно, вызвать ее можно только один раз, после переменная удалится
-<pre><code class="language-rust">
+```rust
 fn main(){
  let name1 = String::from("Alice");
  let welcom = move || {
@@ -14,12 +14,13 @@ fn main(){
  // welcom();// Error  
  call_FnOnce(welcom);
 }
-</code></pre>
+```
 
 ---
+
 Замыкание соответствует типажу Fn  потому что нет мутации и нет перемещения `move`.
 А типаж `Fn` реализует сразу и `FnMut` и `FnOnce`
-<pre><code class="language-rust">
+```rust
 fn main(){
  let name:&str = "Gogo";
  let visit1 = || {
@@ -29,12 +30,13 @@ fn main(){
  call_FnMut(&visit1);
  call_FnOnce(&visit1);
 }
-</code></pre>
+```
 
 ---
+
 Замыкание соответствует типажу `FnMut` потому что изменяет в замыкании переменную. 
 А `FnMut` так же является трейтом `FnOnce`
-<pre><code class="language-rust">
+```rust
 fn main(){
 
  let mut count = String::new();
@@ -45,11 +47,12 @@ fn main(){
  call_FnMut(visit2);
  call_FnMut(visit1);// ограничения FnMut сильнее Fn поэтому Fn можно использовать
 }
-</code></pre>
+```
 
 --- 
+
 Замыкание соответствует сразу Fn и FnMut и FnOnce
-<pre><code class="language-rust">
+```rust
 fn main(){
  let say_hi = {
         let name = String::from("Alice");
@@ -72,5 +75,5 @@ fn call_FnMut<F>(mut f: F) where F: FnMut() {
 fn call_FnOnce<F>(f: F) where F: FnOnce() {
     f();
 }
-</code></pre>
+```
 

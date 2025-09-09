@@ -1,7 +1,6 @@
 
 
-
-<pre><code class="language-rust">
+```rust
 enum Item {
     ChangeColor(i32, i32, i32),
     Move { x: i32, y: i32 },
@@ -23,13 +22,12 @@ fn switch(msg:Item){
         // _ =>  println!("default")
   }
 }
-
 fn main(){
- let msg_move: Item = Item::Move { x: 3, y: 4 };
- let msg_write: Item  = Item::Write("Hello, world".to_string());
- let msg_color: Item  = Item::ChangeColor(44,1,44);
- switch(msg_move);
- switch(msg_write);
- switch(msg_color);
+   let msg_move: Item = Item::Move { x: 3, y: 4 };
+   let msg_write: Item  = Item::Write("Hello, world".to_string());
+   let msg_color: Item  = Item::ChangeColor(44,1,44);
+   switch(msg_move);
+   switch(msg_write);
+   switch(msg_color);
 }
-</code></pre>
+```

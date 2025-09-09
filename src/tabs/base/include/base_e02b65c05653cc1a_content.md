@@ -1,6 +1,6 @@
 
 
-<pre><code class="language-rust">
+```rust
 struct S{x:i32,y:i32};
 
 #[derive(Debug)]
@@ -19,4 +19,4 @@ fn main(){
  let one_plus_one = stringify!(1 + 1);
  assert_eq!(one_plus_one, "1 + 1");
 }
-</code></pre>
+```

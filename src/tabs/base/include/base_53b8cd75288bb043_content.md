@@ -1,26 +1,26 @@
 
 
-Расходящиеся функции. Ф-ции которые не возвращают управление наз. diverges
-<pre><code class="language-rust">
+Расходящиеся функции. Функции которые не возвращают управление наз. diverges
+```rust
 fn main(){
  fn foo() {
-   let x:! = return;
+    let x:! = return;
  }
 }
-</code></pre>
+```
 
 
 Значение расходящейся функции может быть использовано как значение любого типа:
-<pre><code class="language-rust">
+```rust
 fn main(){
- let x: i32 = diverges();
- let x: String = diverges();
+  let x: i32 = diverges();
+  let x: String = diverges();
 }
-</code></pre>
+```
 
 ---
 
-<pre><code class="language-rust">
+```rust
 fn main(){
  fn test(){
     struct Point;
@@ -32,11 +32,11 @@ fn main(){
     }
  }
 }
-</code></pre>
+```
 
 ---
 
-<pre><code class="language-rust">
+```rust
 fn server_loop() -> Result<!, ConnectionError> {
     loop {
         let (client, request) = get_request()?;
@@ -44,4 +44,4 @@ fn server_loop() -> Result<!, ConnectionError> {
         response.send(client);
     }
 }
-</code></pre>
+```

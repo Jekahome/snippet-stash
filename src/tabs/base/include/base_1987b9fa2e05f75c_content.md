@@ -1,7 +1,7 @@
 
 
 
-<pre><code class="language-rust">
+```rust
 fn main(){
  let rgb = (200, 0, 0);
 
@@ -12,4 +12,4 @@ fn main(){
     _ => println!("Each color has at least 10"),
  }
 }
-</code></pre>
+```

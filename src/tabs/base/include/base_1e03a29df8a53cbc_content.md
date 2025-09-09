@@ -1,7 +1,7 @@
 
 
 **Запись в консоль — stdout()**
-<pre><code class="language-rust">
+```rust
 use std::io::Write; // (stdout реализует трейт Write)
 fn main(){
     let b1 = std::io::stdout().write("Tutorials ".as_bytes()).unwrap();
@@ -10,15 +10,15 @@ fn main(){
 
    writeln!(std::io::stdout(), "{}", "hello");
 }
-</code></pre>
+```
  
 
 **Чтение в файл**
-<pre><code class="language-rust">
+```rust
 fn main(){
    std::io::stdout().write("Shoot3\n".as_bytes()).unwrap();
 }
-</code></pre>
+```
 
 Запуск:
 ```
@@ -27,7 +27,7 @@ $ cargo run > out_stderr.txt
 
 
 **Использование явной синхронизации:**
-<pre><code class="language-rust">
+```rust
 use std::io::{self, Write};
 fn main() -> io::Result<()> {
     let stdout = io::stdout();
@@ -35,4 +35,5 @@ fn main() -> io::Result<()> {
     handle.write_all(b"hello world")?;
     Ok(())
 }
-</code></pre>
+```
+

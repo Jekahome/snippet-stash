@@ -1,7 +1,6 @@
 
 
-
-<pre><code class="language-rust">
+```rust
 struct MyClosure<F> {
     data: (u8, u16),
     func: F,
@@ -23,4 +22,4 @@ fn main() {
     let my_c = MyClosure { data: (0, 1), func: f };
     assert_eq!(&0,my_c.call());   
 }
-</code></pre>
+```

@@ -1,7 +1,6 @@
 
 
-
-<pre><code class="language-rust">
+```rust
 fn map< T, R, F: FnMut(&T) -> R>(xs: &[T], mut f: F) -> Vec<R>  {
     let mut res = Vec::with_capacity(xs.len());
     for x in xs {
@@ -33,4 +32,4 @@ fn main(){
   let res =  zipmap(&[2,3,4],&[lymda,lymda,lymda]);
   assert_eq!([20, 30, 40],&res[..]);
 }
-</code></pre>
+```

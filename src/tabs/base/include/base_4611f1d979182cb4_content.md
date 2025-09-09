@@ -1,7 +1,6 @@
 
 
-
-<pre><code class="language-rust">
+```rust
 fn main() {
    let mut buff = String::new(); // String это Clone (если взять Copy то number просто скопируется в замыкание)
    {
@@ -13,4 +12,4 @@ fn main() {
     }
    // println!("{:?}", &buff); // Error: borrow of moved value: `buff`
 }
-</code></pre>
+```

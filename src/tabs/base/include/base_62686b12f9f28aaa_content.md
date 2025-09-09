@@ -1,7 +1,6 @@
 
 
-
-<pre><code class="language-rust">
+```rust
 fn main() {
     //Можно объявить имя, связанное с указателем на функцией
     let f_out: fn(i32,i32) -> i32; 
@@ -16,4 +15,4 @@ fn main() {
 
     f_show(10, 6);
 }
-</code></pre>
+```

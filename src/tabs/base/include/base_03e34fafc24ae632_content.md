@@ -1,6 +1,6 @@
 
 
-```
+```rust
 fn exec_command_yarn_test(
     path_yarn: Option<&PathBuf>,
     path_dir: &PathBuf,
@@ -85,5 +85,6 @@ pub fn wrap_exec_command_yarn_test(
         print_failure_result(e);
     }
 }
+fn main(){}
 ```
 

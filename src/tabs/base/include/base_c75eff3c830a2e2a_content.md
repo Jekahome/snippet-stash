@@ -1,7 +1,6 @@
 
 
-
-<pre><code class="language-rust">
+```rust
 use std::error::Error;
 
 fn is_elf(binary: &[u8]) -> bool {
@@ -10,7 +9,6 @@ fn is_elf(binary: &[u8]) -> bool {
         _ => false,
     }
 }
-
 fn main() -> Result<(), Box<dyn Error>> {
     let current_exe = std::env::current_exe()?;
     let binary = std::fs::read(&current_exe)?;
@@ -23,4 +21,4 @@ fn main() -> Result<(), Box<dyn Error>> {
 
     Ok(())
 }
-</code></pre>
+```

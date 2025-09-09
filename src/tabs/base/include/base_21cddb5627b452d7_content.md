@@ -2,7 +2,7 @@
 
 
 Пo lo..hi и lo.. можно итерироваться
-<pre><code class="language-rust">
+```rust
 fn main(){
  let bounded = 0..10;
  let from = 0..;
@@ -12,4 +12,4 @@ fn main(){
     println!("i = {}", i);
  }
 }
-</code></pre>
+```

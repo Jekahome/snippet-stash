@@ -1,7 +1,7 @@
 
 
 **Чтение с консоли — stdin()**
-<pre><code class="language-rust">
+```rust
 use std::io::Write;
 fn main(){
    let mut line = String::new();
@@ -10,22 +10,22 @@ fn main(){
    println!("Hello , {}", line);
    println!("no of bytes read , {}", b1);
 }
-</code></pre>
+```
  
 
 **Запись в консоль — stdout()**
-<pre><code class="language-rust">
+```rust
 use std::io::Write; // (stdout реализует трейт Write)
 fn main(){
     let b1 = std::io::stdout().write("Tutorials ".as_bytes()).unwrap();
     let b2 = std::io::stdout().write(String::from("Point").as_bytes()).unwrap();
     std::io::stdout().write(format!("\nbytes written {}",(b1+b2)).as_bytes()).unwrap();
 }
-</code></pre>
+```
  
 
 **Запись в консоль — stderr()**
-<pre><code class="language-rust">
+```rust
 use std::io::Write; // (stderr реализует трейт Write)
 fn main() -> std::io::Result<()> {
     //   eprintln!("{}","error msg");
@@ -37,15 +37,15 @@ fn main() -> std::io::Result<()> {
    */
     Ok(())
 }
-</code></pre>
+```
 
 
 **Чтение std::io::stdout в файл**
-<pre><code class="language-rust">
+```rust
 fn main(){
     std::io::stdout().write("Shoot3\n".as_bytes()).unwrap();
 }
-</code></pre>
+```
    
 Запуск:
 ```
@@ -53,7 +53,7 @@ $ cargo run > out_stderr.txt
 ```
 
 **Использование явной синхронизации:**
-<pre><code class="language-rust">
+```rust>
 use std::io::{self, Write};
 fn main() -> io::Result<()> {
     let stdout = io::stdout();
@@ -61,5 +61,6 @@ fn main() -> io::Result<()> {
     handle.write_all(b"hello world")?;
     Ok(())
 }
-</code></pre>
+```
+
 

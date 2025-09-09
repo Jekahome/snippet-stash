@@ -1,7 +1,7 @@
 
 
 Например, это очень плохой код:
-<pre><code class="language-rust">
+```rust
 fn grant_permissions(role: &Role) -> Permissions {
     match role {
         Role::Reporter => Permissions::Read,
@@ -9,10 +9,11 @@ fn grant_permissions(role: &Role) -> Permissions {
         _ => Permissions::All, // anybody else is administrator 
     }
 }
-</code></pre>
+fn main(){}
+```
 
 Используя полноту, код можно изменить таким образом, чтобы он прерывался во время компиляции всякий раз, когда добавляется новый Role вариант:
-<pre><code class="language-rust">
+```rust
 fn grant_permissions(role: &Role) -> Permissions {
     match role {
         Role::Reporter => Permissions::Read,
@@ -20,11 +21,12 @@ fn grant_permissions(role: &Role) -> Permissions {
         Role::Admin => Permissions::All, 
     }
 }
-</code></pre>
+fn main(){}
+```
 
 
 Структуры:
-<pre><code class="language-rust">
+```rust
 struct Address {
     country: Country,
     city: City,
@@ -55,6 +57,7 @@ impl fmt::Display for Address {
         write!(f, "{zip}")
     }
 }
-</code></pre>
+fn main(){}
+```
 
 

@@ -1,7 +1,6 @@
 
 
-
-<pre><code class="language-rust">
+```rust
 use std::io::Write;
 use std::path::{Path,PathBuf};
 use std::error;
@@ -47,4 +46,5 @@ fn main(){
        visit_dirs(&path,  &f); 
     }
 }
-</code></pre>
+```
+

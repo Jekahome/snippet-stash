@@ -1,7 +1,6 @@
 
 
-
-<pre><code class="language-rust">
+```rust
 fn foo(name:&str)-> String{ name.to_string()}
 
 fn register_escape_fn<F: 'static + Fn(&str) -> String + Send + Sync>( escape_fn: F, name:&'static str ){
@@ -28,4 +27,4 @@ fn main(){
  let mut value:i32=0;
  register_escape_fnmut(|mut x|{ x += 2;x },value);
 }
-</code></pre>
+```

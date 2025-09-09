@@ -1,7 +1,6 @@
 
 
-
-<pre><code class="language-rust">
+```rust
 pub trait Copy: Clone {} // если хочешь Copy то твой тип должен еще и Clone реализовать
 
 pub trait Clone {
@@ -10,4 +9,5 @@ pub trait Clone {
 
     pub fn clone_from (&mut self, source: & Self) {...}
 }
-</code></pre>
+fn main(){}
+```

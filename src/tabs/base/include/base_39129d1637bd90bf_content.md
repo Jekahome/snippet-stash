@@ -1,7 +1,6 @@
 
 
-
-<pre><code class="language-rust">
+```rust
 fn zipmap<F: Fn(&T) -> R, T, R>(xs: &[T], fs: &[F]) -> Vec<R> {
     let iter = xs.iter().zip(fs);
     let mut res = Vec::with_capacity(iter.len()); // ^^
@@ -36,4 +35,5 @@ fn main(){
   let res =  zipmap(&[2,3,4],&fs);
   assert_eq!([3, 2, 5],&res[..]);
 }
-</code></pre>
+```
+

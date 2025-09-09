@@ -1,7 +1,6 @@
 
 
-
-<pre><code class="language-rust">
+```rust
 fn fib(n: usize) -> usize {
     let mut cache = vec![0; n + 1];
     return fib_memo(&mut cache, n);
@@ -18,6 +17,7 @@ fn fib(n: usize) -> usize {
     }
 }
 fn main(){
- println!("{}",fib(5));
+   println!("{}",fib(5));
 }
-</code></pre>
+```
+

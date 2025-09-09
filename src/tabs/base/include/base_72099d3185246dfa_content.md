@@ -1,7 +1,7 @@
 
 
 Когда у вас много вложенных циклов, вы можете захотеть указать, к какому именно циклу относится `break` или `continue`
-<pre><code class="language-rust">
+```rust
 fn main(){
  'outer: for x in 0..10 {
     'inner: for y in 0..10 {
@@ -11,4 +11,4 @@ fn main(){
     }
  }
 }
-</code></pre>
+```

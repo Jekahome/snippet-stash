@@ -1,7 +1,6 @@
 
 
-
-<pre><code class="language-rust">
+```rust
 fn bare(x: &i32) -> i32 { 2 * *x }
 let generic: Box<dyn for<'a> Fn(&'a i32) -> i32> = Box::new(bare);
 
@@ -13,4 +12,5 @@ let generic: Box<dyn Fn(Box<i32>) -> i32> = Box::new(bare3);
 
 fn bare4(x: Box<dyn std::any::Any + Send + 'static>) -> i32 { 2 }
 let generic: Box<dyn Fn(Box<dyn std::any::Any + Send + 'static>) -> i32> = Box::new(bare4);
-</code></pre>
+fn main(){}
+```

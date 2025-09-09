@@ -1,7 +1,6 @@
 
 
-
-<pre><code class="language-rust">
+```rust
  fn first_name(&self) -> Option<&str> {
         match self.first_name {
             Some(ref v) => Some(v.as_str()),
@@ -17,4 +16,4 @@
             None => None,
         }
 }
-</code></pre>
+```

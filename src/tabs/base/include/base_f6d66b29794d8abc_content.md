@@ -1,7 +1,6 @@
 
 
-
-<pre><code class="language-rust">
+```rust
 fn gen(index:usize)->Option<i32>{
      let data:Vec<Option<i32>> = vec![Some(1),Some(2),Some(3),Some(4),None,Some(6)];  
      if index >= data.len(){
@@ -33,4 +32,4 @@ fn main() {
     current_index=4
 */ 
 }
-</code></pre>
+```

@@ -1,7 +1,6 @@
 
 
-
-<pre><code class="language-rust">
+```rust
 #![feature(concat_idents)]
 
 fn foobar() -> u32 { concat_idents!(foo, bar2)() }
@@ -14,4 +13,4 @@ fn main() {
         assert!(false);
     }
 }
-</code></pre>
+```

@@ -1,6 +1,6 @@
 
 
-<pre><code class="language-rust">
+```rust
 struct Struct {
    a: i32,
    b: char,
@@ -17,11 +17,11 @@ fn main(){
     Struct{a: _, b: _, c: _} => (),
  }
 }
-</code></pre>
-
+```
 
 --- 
-<pre><code class="language-rust">
+
+```rust
 struct Point{
     x:i32,
     y:i32
@@ -32,11 +32,12 @@ fn main(){
         Point{x:x_,..} => println!("{}",x_)
     }
 }
-</code></pre>
+```
 
 --- 
-// Вы можете связать значение с именем с помощью символа @
-<pre><code class="language-rust">
+
+Вы можете связать значение с именем с помощью символа @
+```rust
 #[derive(Debug)]
 struct Person {
     name: Option<String>,
@@ -49,4 +50,5 @@ fn main(){
         _ => {}
     }
 }
-</code></pre>
+```
+

@@ -1,7 +1,7 @@
 
 
 
-<pre><code class="language-rust">
+```rust
 #![feature(negative_impls)]
  
 struct MyStruct;
@@ -13,4 +13,4 @@ fn main() {
     let m2 = m; // moved
     let m3 = m; // ❌ Error `does not implement the `Copy` trait`
 }
-</code></pre>
+```

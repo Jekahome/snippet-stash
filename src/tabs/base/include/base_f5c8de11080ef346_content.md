@@ -1,7 +1,6 @@
 
 
-
-<pre><code class="language-rust">
+```rust
 Использование асинхронных замыканий с итераторами/коллекциями
 use futures::stream::{self, StreamExt}; // Для StreamExt и from_iter
 use reqwest; // Для асинхронных HTTP-запросов
@@ -38,4 +37,5 @@ async fn main() {
         println!("{}", result);
     }
 }
-</code></pre>
+```
+

@@ -12,33 +12,33 @@
 
 `continue 'label`  То же самое, но вместо этого цикла заключительный цикл отмечен 'label.
 
-<pre><code class="language-rust">
+```rust
 fn main(){
-let mut i:i32=0;
-let mut y:i32=4;
+    let mut i:i32=0;
+    let mut y:i32=4;
 
-'outer: loop {
-    i=0;
-    y-=1;
-    println!("----------------- y:{}",y);
-    if y==0{
-        break;
-    }
-    loop{
-        println!("i:{}",i);
-        i+=1;
-        if i>10{
-            continue 'outer;
+    'outer: loop {
+        i=0;
+        y-=1;
+        println!("----------------- y:{}",y);
+        if y==0{
+            break;
+        }
+        loop{
+            println!("i:{}",i);
+            i+=1;
+            if i>10{
+                continue 'outer;
+            }
         }
     }
+     
 }
- 
-}
-</code></pre>
+```
 
 ---
  
-<pre><code class="language-rust">
+```rust
 fn main(){
  'outer: for i in 0..4 {
     for j in i..i+2 {
@@ -50,4 +50,4 @@ fn main(){
     println!("--");
  }
 }
-</code></pre>
+```

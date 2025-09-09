@@ -1,7 +1,7 @@
 
 
 
-<pre><code class="language-rust">
+```rust
 use std::io::prelude::*;
 use std::process::{Command, Stdio};
 
@@ -40,11 +40,11 @@ fn main() {
         Ok(_) => print!("wc ответил:\n{}", s),
     }
 }
-</code></pre>
+```
 
 
 Если вы хотите дождаться завершения process::Child, вы должны вызвать Child::wait, который вернёт process::ExitStatus
-<pre><code class="language-rust">
+```rust
 use std::process::Command;
 fn main() {
     let mut child = Command::new("sleep").arg("5").spawn().unwrap();
@@ -52,4 +52,4 @@ fn main() {
 
     println!("достигнут конец функции main");
 }
-</code></pre>
+```

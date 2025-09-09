@@ -9,11 +9,11 @@
 Замыкания могут владеть данными, функции — нет.
 
 Отличие от обычных функций для замыкания мы не обязаны указывать типы аргументов и возвращаемого значения.
-<pre><code class="language-rust">
+```rust
 fn main(){
     let some_var = 9;
     let plus_one = |x| x + some_var;
     let plus_one = |x: i32| -> i32 { x + 1 };
     let plus_one = || 1;
 }
-</code></pre>
+```

@@ -1,7 +1,7 @@
 
 
 **Вывод/печать ошибок в стандартный поток ошибок STDERR через eprintln!**
-<pre><code class="language-rust">
+```rust
 fn main(){
    eprintln!("Error: arguments --conf can not be empty !");     
   
@@ -9,11 +9,11 @@ fn main(){
 
    process::exit(1);
 }
-</code></pre>
+```
 
 
 **Запись в консоль — `stderr()`**
-<pre><code class="language-rust">
+```rust
 use std::io::Write; (stderr реализует трейт Write)
 
 fn main() -> std::io::Result<()> {
@@ -25,4 +25,4 @@ fn main() -> std::io::Result<()> {
     r.expect("failed printing to stderr");
     Ok(())
 }
-</code></pre>
+```

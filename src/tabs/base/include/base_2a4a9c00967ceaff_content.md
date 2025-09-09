@@ -4,19 +4,23 @@
 
 Например, измените этот код:
 
-```
-for line in lines {
-    println!("{}", line);
+```rust
+fn main(){
+    for line in lines {
+        println!("{}", line);
+    }
 }
 ```
 
 на этот:
-<pre><code class="language-rust">
+```rust
 use std::io::Write;
-let mut stdout = std::io::stdout();
-let mut lock = stdout.lock();
-for line in lines {
-    writeln!(lock, "{}", line)?;
+fn main(){
+    let mut stdout = std::io::stdout();
+    let mut lock = stdout.lock();
+    for line in lines {
+        writeln!(lock, "{}", line)?;
+    }
+    // stdout разблокируется при сбросе `lock`
 }
-// stdout разблокируется при сбросе `lock`
-</code></pre>
+```

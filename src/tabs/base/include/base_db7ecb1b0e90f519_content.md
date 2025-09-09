@@ -1,7 +1,7 @@
 
 
 
-<pre><code class="language-rust">
+```rust
 fn main(){
  let words = vec!["a", "b", "c"];
  let slice = &words[..];
@@ -11,9 +11,10 @@ fn main(){
     [head, tail @ ..] => println!("head={} tail={:?}", head, tail),
  }
 }
-</code></pre>
+```
 
 ---
+
 ```
 match slice {
     // Игнорируйте все, кроме последнего элемента, который должен быть "!".
@@ -34,7 +35,8 @@ if let [.., penultimate, _] = slice {
 ```
 
 ---
-<pre><code class="language-rust">
+
+```rust
 fn main(){
  let tuple = (1, 2, 3, 4, 5);
  // Шаблоны tuple также могут использоваться в шаблонах структур кортежей и кортежей.
@@ -44,4 +46,5 @@ fn main(){
     (..) => println!("matches everything else"),
  }
 }
-</code></pre>
+```
+

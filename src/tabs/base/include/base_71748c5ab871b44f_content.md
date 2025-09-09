@@ -1,7 +1,7 @@
 
 
 
-<pre><code class="language-rust">
+```rust
 extern crate core;
 use std::fmt::{self, Alignment};
 
@@ -27,4 +27,4 @@ fn main() {
     assert_eq!(&format!("{:^}", Foo), "center");
     assert_eq!(&format!("{}", Foo), "into the void");
 }
-</code></pre>
+```

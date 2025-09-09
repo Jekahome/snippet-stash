@@ -1,7 +1,6 @@
 
 
-
-<pre><code class="language-rust">
+```rust
 fn main(){
     let mut v_func:Vec<Box<dyn Fn(usize)->usize>> = vec![];
     v_func.push(Box::new(|val|{val+1usize}));
@@ -14,4 +13,4 @@ fn main(){
        println!("{}",f(index));  // 1 3 4
     } 
 }
-</code></pre>
+```

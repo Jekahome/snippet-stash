@@ -1,7 +1,6 @@
 
 
-
-<pre><code class="language-rust">
+```rust
 #[derive(Debug)]
 struct Person {
     name: String,
@@ -46,4 +45,5 @@ fn main() {
     let alice5 = birthday_l_immutable(&alice4);
      println!("Alice 5: {:?}", alice5);
 }
-</code></pre>
+```
+

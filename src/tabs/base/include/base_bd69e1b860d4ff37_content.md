@@ -1,7 +1,7 @@
 
 
 
-<pre><code class="language-rust">
+```rust
 struct Bar<'a, 'b> {
     a: &'a (),
     b: &'b ()
@@ -47,4 +47,5 @@ fn main() {
     // expected bound lifetime parameter 'a
     //call_handler(|_bar: Bar, qux: Qux|  Foo { a: qux.a });
 }
-</code></pre>
+```
+

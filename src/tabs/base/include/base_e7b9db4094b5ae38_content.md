@@ -1,6 +1,6 @@
 
 
-```
+```rust
 fn main() {
     use std::io::{self, stdin, stdout, Write};
     let mut str_numbers = String::new();

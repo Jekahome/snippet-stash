@@ -1,7 +1,7 @@
 
 
 
-<pre><code class="language-rust">
+```rust
 fn returns_a_closure(input: &str) -> impl FnMut(i32) -> i32 {
     match input {
         "double" => |mut number| {
@@ -32,4 +32,4 @@ fn main() {
     let tripled = triples(my_number); // Tripling number. Now it is 30
     let same = does_nothing(my_number); // Sorry, it's the same: 10.
 }
-</code></pre>
+```

@@ -1,9 +1,9 @@
 
 
 
-<pre><code class="language-rust">
 Реализация Fn функции с возможностью использовать разные типы
 
+```rust
 use std::thread;
 use std::time::Duration;
 use std::collections::HashMap;
@@ -97,4 +97,4 @@ fn main() {
         }
     }
 }
-</code></pre>
+```

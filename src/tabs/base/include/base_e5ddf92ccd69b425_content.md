@@ -1,7 +1,7 @@
 
 
 
-<pre><code class="language-rust">
+```rust
 fn main() {
     let say_hi = { 
         let name_outer = String::from("Alice");
@@ -22,4 +22,4 @@ fn main() {
     say_hi();
     say_hi();
 }
-</code></pre>
+```

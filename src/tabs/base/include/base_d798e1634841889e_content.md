@@ -1,10 +1,13 @@
 
 
-
-<pre><code class="language-rust">
+```
 4 | 5 if y => println!("да") // y глобален
 OptionalInt::Value(i) if i > 5 => println!("Получили целое больше пяти!"),
-    
+```
+
+---
+
+```rust
 fn main() {
     let pair = (2, -2);
 
@@ -18,8 +21,11 @@ fn main() {
         _ => println!("Нет корреляции..."),
     }
 }
+```
 
- 
+---
+
+```
 match events {
   v if v as i32 & libc::EPOLLIN == libc::EPOLLIN => {
       context.read_cb(key, epoll_fd)?;
@@ -30,4 +36,4 @@ match events {
   }
   v => println!("unexpected events: {}", v),
 };
-</code></pre>
+```

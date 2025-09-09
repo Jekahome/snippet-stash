@@ -1,7 +1,6 @@
 
 
-
-<pre><code class="language-rust">
+```rust
 #[derive(Debug,PartialEq)]
 enum Test<X>{
     Some(X),
@@ -21,4 +20,4 @@ fn main() {
      assert_eq!(Test::Some(10),res);
      println!("{:?}",res);// 10
 }
-</code></pre>
+```

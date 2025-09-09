@@ -6,7 +6,7 @@
 `move` делает наш `Fn` что бы он создавал новый фрейм стека
 
 `Box` дает известный размер замыкания
-<pre><code class="language-rust">
+```rust
 fn returns_closure_2() -> Box<dyn Fn(i32) -> i32> {
     let num = 5;
     Box::new(move |x| x + num)
@@ -40,4 +40,5 @@ fn main() {
    let f_fn = returns_fn_2();
   assert_eq!(f_fn(2),3);
 }
-</code></pre>
+```
+

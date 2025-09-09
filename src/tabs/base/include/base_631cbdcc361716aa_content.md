@@ -1,7 +1,6 @@
 
 
-
-<pre><code class="language-rust">
+```rust
 fn main(){
  let mut i = 0;
  while i < 10 {
@@ -10,4 +9,4 @@ fn main(){
     if i >= 10 {break};
  }
 }
-</code></pre>
+```

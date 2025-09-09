@@ -1,6 +1,6 @@
 
 
-<pre><code class="language-rust">
+```rust
 use std::{fmt::Write, num::ParseIntError};
 pub fn decode_hex(s: &str) -> Result< Vec< u8 >, ParseIntError> {
     (0..s.len())
@@ -22,5 +22,5 @@ fn main(){
  let dec = decode_hex(&en);
  println!("{:?}",dec);
 }
-</code></pre>
+```
 

@@ -1,7 +1,6 @@
 
 
-
-<pre><code class="language-rust">
+```rust
 // Статическая диспетчеризация
 fn call_with_one<F>(func: F) -> usize where F: Fn(usize) -> usize {
     func(1)
@@ -44,4 +43,4 @@ fn main(){
     let casher:Cacher<_,_,fn(_) -> _ > = Cacher::new(closure);
     println!("{}",(casher.calculation)(1));
 }
-</code></pre>
+```

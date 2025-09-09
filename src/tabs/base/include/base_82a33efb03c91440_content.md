@@ -33,13 +33,12 @@
 | `format!("{a:.3} {b:7?}", a = PI, b = 2)` | Преобразовать PI с 3 цифрами, добавить пробел, b с помощью Debug, вернуть String |
 
 
-<pre><code class="language-rust">
-println!("{res_to_debug:?}");
-println!("{res_to_display}");
-
+```rust
+fn main() {
+// println!("{res_to_debug:?}");
+// println!("{res_to_display}");
 // {переменная:выравнивание отступов минимум.максимум}
 
-fn main() {
     let title = "TODAY'S NEWS";
     println!("{:-^30}", title);                                   
     let bar = "|";
@@ -47,11 +46,12 @@ fn main() {
     let a = "SEOUL";
     let b = "TOKYO";
     println!("{city1:-<15}{city2:->15}", city1 = a, city2 = b);
+} 
+```
     
+```
     ---------TODAY'S NEWS---------
     |                                               |
     SEOUL--------------------TOKYO
-   
-} 
-</code></pre>
+```
 

@@ -1,7 +1,6 @@
 
 
-
-<pre><code class="language-rust">
+```rust
 fn main() {
     struct Car;
     struct Computer;
@@ -28,4 +27,4 @@ fn main() {
         println!("{} has a car and is {} years old.", person_name, person_age);
     }
 }
-</code></pre>
+```

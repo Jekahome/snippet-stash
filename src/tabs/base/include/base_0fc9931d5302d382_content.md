@@ -1,7 +1,6 @@
 
 
-
-<pre><code class="language-rust">
+```rust
 fn main() {
     let (x, y) = (1, 2);               // "(x, y)" is an irrefutable pattern
     
@@ -11,4 +10,4 @@ fn main() {
         println!("Matched ({}, 4)", a);
     }
 }
-</code></pre>
+```

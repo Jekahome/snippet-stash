@@ -1,7 +1,6 @@
 
 
-
-<pre><code class="language-rust">
+```rust
 fn main(){
    enum E{ type1(String), type2(String), type3(String) }
 
@@ -34,4 +33,4 @@ fn main(){
 
   if let res = exp { one } else{ two };
 }
-</code></pre>
+```
