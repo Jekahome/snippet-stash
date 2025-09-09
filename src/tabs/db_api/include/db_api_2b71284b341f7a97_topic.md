@@ -1,8 +1,7 @@
 
 
-**Пулы соединений в Rust**
+#### Пулы соединений
 
- 
 - [Awesome Rust — Database](https://github.com/rust-unofficial/awesome-rust#database-1)
 - [Что такое пул соединений и почему вас это должно волновать — Charlie Casters](https://www.cockroachlabs.com/blog/what-is-connection-pooling)
 
