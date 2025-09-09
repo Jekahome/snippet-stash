@@ -3,14 +3,14 @@ const repo = 'snippet-stash';
 const branch = 'main';
 
 const isGitHubPages = window.location.host.includes('github.io');
-const basePath = isGitHubPages ? `/${repo}` : ''; // для возможности тестирования на localhost 
+window.basePath = isGitHubPages ? `/${repo}` : ''; // для возможности тестирования на localhost 
 
 const generate_count_tr = 100; // количество создаваемых TR в новом TAB
 const pathSettings = 'src/config/table-settings.json'; 
 let editCellId = null;
 let isGlobalScriptReady = false;
 let isReloadMermaid = false;
-let currentTabId = null; 
+window.currentTabId = null; 
 let isUpdateSettings = false;
 let scrollY = 0;
 
@@ -20,15 +20,15 @@ window.globalScriptReady = new Promise(resolve => {
         document.querySelectorAll("img").forEach((img) => {
             if (img.complete && img.naturalWidth === 0) {
                 // Картинка уже загрузилась, но с ошибкой
-                img.src = `${basePath}/config/img/coming-soon.gif`;
+                img.src = `${window.basePath}/config/img/coming-soon.gif`;
             } else {
                 img.addEventListener("error", (e) => {
                     e.preventDefault(); 
-                    img.src = `${basePath}/config/img/coming-soon.gif`;
+                    img.src = `${window.basePath}/config/img/coming-soon.gif`;
                 });
             }
         });
-
+ 
         window.viz = new Viz();
 
         mermaid.initialize({
@@ -111,7 +111,7 @@ window.globalScriptReady = new Promise(resolve => {
             }
         });
 
-        await storageLoadSettingsFromFile(basePath);
+        await storageLoadSettingsFromFile(window.basePath);
         
         //if (!window.markdownit) {console.error('markdown-it не загружен');return; }
         //window.md = window.markdownit({ html: true, breaks: true,});
@@ -120,7 +120,7 @@ window.globalScriptReady = new Promise(resolve => {
         
         addRunButtonsToPythonBlocks();
         
-        /*const md_wasm = await import(`${basePath}/js/md_wasm.js`);
+        /*const md_wasm = await import(`${window.basePath}/js/md_wasm.js`);
         await md_wasm.default();
         window.render_markdown = md_wasm.render_markdown;
         console.log("md_wasm.js loaded");*/
@@ -128,7 +128,7 @@ window.globalScriptReady = new Promise(resolve => {
         // лениво загружает md_wasm
         window.render_markdown = async function(...args) {
             if (!window._md_wasm_loaded) {  
-                const md_wasm = await import(`${basePath}/js/md_wasm.js`);
+                const md_wasm = await import(`${window.basePath}/js/md_wasm.js`);
                 await md_wasm.default();
                 window._md_wasm_loaded = true;  
                 window.render_markdown = md_wasm.render_markdown;
@@ -136,9 +136,38 @@ window.globalScriptReady = new Promise(resolve => {
             }
             return window.render_markdown(...args);  
         };
+
+        // Автоматически сохранять при прокрутке и уходе со страницы
+        window.addEventListener('scroll', saveScrollPosition);
+        window.addEventListener('beforeunload', saveScrollPosition);
+
         resolve();
     });
 });
+
+
+// Сохранить текущую позицию прокрутки
+function saveScrollPosition() {
+    if (window.currentTabId != null && window.scrollY != 0){
+        const scrollY = window.scrollY;
+        sessionStorage.setItem(`scrollPosition_${window.currentTabId}`, scrollY);
+    }
+}
+
+// Восстановить сохраненную позицию прокрутки
+function restoreScrollPosition() {
+    let scrollYLocal = 0;
+    if (!scrollY){
+        scrollYLocal = sessionStorage.getItem(`scrollPosition_${window.currentTabId}`);
+    }else{
+        scrollYLocal=scrollY;
+    }
+    
+    setTimeout(() => {
+        window.scrollTo(0, parseInt(scrollYLocal));
+    }, 200); 
+}
+
 
 function resetStorage(){
     console.info(`resetStorage`);
@@ -147,7 +176,7 @@ function resetStorage(){
 }
 
 function resetTabStorage(){
-    pathTabStore.dropTab(currentTabId);
+    pathTabStore.dropTab(window.currentTabId);
     window.location.reload(true);
 }
 
@@ -457,26 +486,41 @@ async function convertTextToHTML(cell, content, is_add_setting_menu=true){
         }); 
     }
 }
+ 
 
 function closeModal() {
     const modal = document.getElementById('textModal');
     modal.classList.remove('show');
     editCellId=null;
-    // Восстанавливаем позицию страницы
-    setTimeout(() => {
-        window.scrollTo(0, scrollY);
-    }, 200); 
+    restoreScrollPosition();
+}
+
+// TODO: backticks устраняет проблему смешивания HTML и Rust синтаксиса <Table>, <S>
+function AddRustCodeBlockModal(){
+    const editor = document.getElementById('modalTextEditor');
+    editor.value += "\n\n\
+```rust\n\
+fn main(){\n\
+ ...\n\
+}\n\
+```";  
 }
 
 function AddRustNoRunCodeBlockModal(){
     const editor = document.getElementById('modalTextEditor');
-    editor.value += `\n\n
-<pre><code class="language-rust no_run edition2024">
+    /*editor.value += `\n\n
+<pre><code class="language-rust no_run edition2025">
 fn main(){
  ...
 }
 </code></pre>
-`;
+`;*/
+    editor.value += "\n\n\
+```rust,no_run,edition2025\n\
+fn main(){\n\
+ ...\n\
+}\n\
+```";
 }
 
 function AddCodeBlockModal(language){
@@ -754,7 +798,7 @@ Are you still using [Yahoo][] or [MSN][] search?\n\
         break;
     case 'icons':    
     editor.value +="\n\
-❌ ERROR ✅ OK ⚠️ ❗ 📌 📎 👾\n\
+❌ ERROR ✅ OK ⚠️ ❗ 📌 📎 👾 🦀\n\
 ";   
         break;        
     default:
@@ -1025,21 +1069,21 @@ function addHTMLModal() {
                 <textarea id="modalTextEditor" class="modal-text-editor" placeholder="..."></textarea>
                 <div class="modal-footer">
                     <div class="modal-footer-left">           
-                        <button class="icon-button rust-icon" title="Add Rust code block" onclick="AddCodeBlockModal('rust')" style="cursor: pointer;">
-                           <img src="${basePath}/config/img/rust-logo-blk.svg" alt="Rust" width="25" height="25">
+                        <button class="icon-button rust-icon" title="Add Rust code block" onclick="AddRustCodeBlockModal('rust')" style="cursor: pointer;">
+                           <img src="${window.basePath}/config/img/rust-logo-blk.svg" alt="Rust" width="25" height="25">
                         </button>
                         <button class="icon-button rust-icon" title="Add Rust code block no_run" onclick="AddRustNoRunCodeBlockModal()" style="cursor: pointer;">
-                           <img src="${basePath}/config/img/rust-logo-blk.svg" alt="Rust" width="25" height="25">
+                           <img src="${window.basePath}/config/img/rust-logo-blk.svg" alt="Rust" width="25" height="25">
                         </button>
                         <button class="icon-button python-icon" title="Add Python code block" onclick="AddCodeBlockModal('python')" style="cursor: pointer;">
-                           <img src="${basePath}/config/img/python_logo_icon.svg" alt="Python" width="25" height="25">
+                           <img src="${window.basePath}/config/img/python_logo_icon.svg" alt="Python" width="25" height="25">
                         </button>
                         <button class="icon-button c-icon" title="Add C code block" onclick="AddCodeBlockModal('c')" style="cursor: pointer;">
-                           <img src="${basePath}/config/img/c-programming.png" alt="C" width="25" height="25">
+                           <img src="${window.basePath}/config/img/c-programming.png" alt="C" width="25" height="25">
                         </button>
                         <div class="dropdown-menu-edit-modal" onclick="toggleEditModal(this)">
                             <button class="icon-button mermaid-icon" title="Add Mermaid block" style="cursor: pointer;">
-                                <img src="${basePath}/config/img/mermaid.svg" alt="Mermaid" width="23" height="23">
+                                <img src="${window.basePath}/config/img/mermaid.svg" alt="Mermaid" width="23" height="23">
                             </button>
                             <div class="dropdown-content-edit-modal">
                                 <label class="dropdown-item-edit-modal" title="Add Mermaid block" onclick="AddBlockMermaidModal('flowchart')" style="cursor: pointer;">Flowchart</label>
@@ -1075,7 +1119,7 @@ function addHTMLModal() {
 
                         <div class="dropdown-menu-edit-modal" onclick="toggleEditModal(this)">
                             <button class="icon-button graphviz-icon" title="Add Graphviz block" style="cursor: pointer;">
-                                <img src="${basePath}/config/img/graphviz.png" alt="Mermaid" width="23" height="23">
+                                <img src="${window.basePath}/config/img/graphviz.png" alt="Mermaid" width="23" height="23">
                             </button>
                             <div class="dropdown-content-edit-modal">
                                 <label class="dropdown-item-edit-modal" title="Add Graphviz Layout Dot block" onclick="AddBlockGraphvizModal('state')" style="cursor: pointer;">State</label>
@@ -1089,7 +1133,7 @@ function addHTMLModal() {
                             </div>
                         </div>
                         <button class="icon-button python-icon" title="Add Matplotlib code block" onclick="AddMatplotlibCodeBlockModal()" style="cursor: pointer;">
-                           <img src="${basePath}/config/img/matplotlib.svg" alt="Matplotlib" height="20">
+                           <img src="${window.basePath}/config/img/matplotlib.svg" alt="Matplotlib" height="20">
                         </button> 
                     </div>
                     <div class="modal-footer-right">
@@ -1134,20 +1178,20 @@ function saveTextModalTab(){
 }
 
 async function loadContent(cell_id) {
-    let markdown_content = pathTabStore.get(`content.${currentTabId}.${cell_id}`);
+    let markdown_content = pathTabStore.get(`content.${window.currentTabId}.${cell_id}`);
     if (!markdown_content || Object.keys(markdown_content).length === 0) {
         const cellElement = document.getElementById(cell_id);
         if (cellElement?.hasAttribute('data-new')) {
-            pathTabStore.set(`content.${currentTabId}.${cell_id}`, '');
+            pathTabStore.set(`content.${window.currentTabId}.${cell_id}`, '');
             console.warn('проверить корректность кода');
             markdown_content = '';
         } else {
-            const response = await fetch(`${basePath}/tabs/${currentTabId}/include/${cell_id}.md`);
+            const response = await fetch(`${window.basePath}/tabs/${window.currentTabId}/include/${cell_id}.md`);
             if (!response.ok) {
                 throw new Error(`Ошибка HTTP: ${response.status} ${response.statusText}`);
             }
             markdown_content = await response.text();
-            pathTabStore.set(`content.${currentTabId}.${cell_id}`, markdown_content);
+            pathTabStore.set(`content.${window.currentTabId}.${cell_id}`, markdown_content);
         }
     }
     return markdown_content;
@@ -1189,9 +1233,7 @@ async function editContent(cell_id) {
         editor.setSelectionRange(0, 0);
 
         // Восстанавливаем позицию страницы
-        setTimeout(() => {
-            window.scrollTo(0, scrollY);
-        }, 200); 
+        restoreScrollPosition();
          
         // Дополнительная проверка для браузеров
         if (editor.createTextRange) {
@@ -1211,13 +1253,11 @@ async function saveTextModal() {
     let cell = document.getElementById(editCellId);
     if (checkNewlines(editor.value) && checkBacktickFormatting(editor.value) && await checkMermaidFormatting(editor.value)){
         await convertTextToHTML(cell, editor.value);
-        pathTabStore.set(`content.${currentTabId}.${cell.id}`, editor.value);
+        pathTabStore.set(`content.${window.currentTabId}.${cell.id}`, editor.value);
         closeModal();        
     }
     // Восстанавливаем позицию страницы
-    setTimeout(() => {
-        window.scrollTo(0, scrollY);
-    }, 200); 
+    restoreScrollPosition();
 }
 
 async function checkMermaidFormatting(value) {
@@ -1363,10 +1403,10 @@ function run_rust_code(code_block) {
 
 // Инициализация при загрузке страницы
 async function initTab(tab) { 
-    currentTabId = tab;
+    window.currentTabId = tab;
     // Запускаем функции, которые не зависят друг от друга, асинхронно
     await Promise.all([
-        (async () => await formatTitle(currentTabId))(),  
+        (async () => await formatTitle(window.currentTabId))(),  
         (async () => {
             addHTMLModal(); 
             addHTMLModalTab(); 
@@ -1377,7 +1417,7 @@ async function initTab(tab) {
         (async () => setupKeyboardShortcuts())()  
     ]);
     // Инициализируем settings и content, если их нет
-    await initStorage(currentTabId, basePath);
+    await initStorage(window.currentTabId, window.basePath);
     // Почистить удаленные TR
     checkDeleteTR();
     // Загружаем локальные данные новых TR
@@ -1393,10 +1433,13 @@ async function initTab(tab) {
     for (const element of elements) {
         await buildGraphvizWraper(element);
     } 
+
+    // Восстанавливаем позицию страницы
+    restoreScrollPosition();
 }
 
 function checkDeleteTR(){
-    const tabTrMap = pathTabStore.get(`delete_tr.${currentTabId}`);
+    const tabTrMap = pathTabStore.get(`delete_tr.${window.currentTabId}`);
     if (tabTrMap) { 
         for (const delete_tr_id in tabTrMap) {
             const element = document.getElementById(delete_tr_id);
@@ -1424,7 +1467,7 @@ async function initTableFromStore() {
 }
 
 async function restoreCellContent(cell) {
-    const cell_content = pathTabStore.get(`content.${currentTabId}.${cell.id}`);
+    const cell_content = pathTabStore.get(`content.${window.currentTabId}.${cell.id}`);
     if (cell_content !== undefined) {
         await convertTextToHTML(cell, cell_content, false);
     }
@@ -1452,7 +1495,7 @@ function setupCellSettingsMenu(cell) {
         menuHTML += `<label><a class="btn btn-default" href="#" onclick="AddTRAfter('${cell.id}')" title="Add TR After"><i class="fa fa-hand-o-down fa-2x" aria-hidden="true"></i></a></label>`;
     }
     if (isHeader) {
-        const currentWidth = pathTabStore.get(`settings.${currentTabId}.${cell.id}.width`) ?? 200;
+        const currentWidth = pathTabStore.get(`settings.${window.currentTabId}.${cell.id}.width`) ?? 200;
         menuHTML += `<label>W: <input type="number" class="column-width" title="Width TR" value="${currentWidth}" min="1" max="800"></label>`;
     }
     menuHTML += `<label><input type="number" class="row-height" placeholder="auto" title="Height TR" min="30" max="1000"></label>`;
@@ -1473,7 +1516,7 @@ function setupCellSettingsMenu(cell) {
 
 // Применение настроек  
 function applySettingsFromStorage() {
-    const cellSettings = pathTabStore.get(`settings.${currentTabId}`);
+    const cellSettings = pathTabStore.get(`settings.${window.currentTabId}`);
     if (!cellSettings) return;
     Object.entries(cellSettings).forEach(([cellId, config]) => {
         const cell = document.getElementById(cellId);
@@ -1486,14 +1529,14 @@ function applySettingsFromStorage() {
 }
 
 async function restoreNewTR(){
-    const tabTrMap = pathTabStore.get(`new_tr.${currentTabId}`);
+    const tabTrMap = pathTabStore.get(`new_tr.${window.currentTabId}`);
     if (tabTrMap) { 
         for (const newTrId in tabTrMap) {
             const trData = tabTrMap[newTrId];
             insertNewTr(trData.tr_id_position, newTrId, trData.position, false);
-            await convertTextToHTML(document.getElementById(`${newTrId}_topic`), pathTabStore.get(`content.${currentTabId}.${newTrId}_topic`), false);
-            await convertTextToHTML(document.getElementById(`${newTrId}_content`), pathTabStore.get(`content.${currentTabId}.${newTrId}_content`), false);
-            await convertTextToHTML(document.getElementById(`${newTrId}_other`), pathTabStore.get(`content.${currentTabId}.${newTrId}_other`), false);   
+            await convertTextToHTML(document.getElementById(`${newTrId}_topic`), pathTabStore.get(`content.${window.currentTabId}.${newTrId}_topic`), false);
+            await convertTextToHTML(document.getElementById(`${newTrId}_content`), pathTabStore.get(`content.${window.currentTabId}.${newTrId}_content`), false);
+            await convertTextToHTML(document.getElementById(`${newTrId}_other`), pathTabStore.get(`content.${window.currentTabId}.${newTrId}_other`), false);   
         }
     }
 }
@@ -1508,51 +1551,45 @@ async function DeleteTR(cell_id) {
     document.getElementById(tr_id).remove();
     if (cellElement.hasAttribute('data-new')) {
         // TODO: images не удалятся
-        pathTabStore.delete(`new_tr.${currentTabId}.${tr_id}`);
-        pathTabStore.delete(`content.${currentTabId}.${cell_id}`);
-        pathTabStore.delete(`settings.${currentTabId}.${cell_id}`);
+        pathTabStore.delete(`new_tr.${window.currentTabId}.${tr_id}`);
+        pathTabStore.delete(`content.${window.currentTabId}.${cell_id}`);
+        pathTabStore.delete(`settings.${window.currentTabId}.${cell_id}`);
     }else{
-        if (!pathTabStore.has(`delete_tr.${currentTabId}.${tr_id}`)) {
-            pathTabStore.set(`delete_tr.${currentTabId}.${tr_id}`, '');
+        if (!pathTabStore.has(`delete_tr.${window.currentTabId}.${tr_id}`)) {
+            pathTabStore.set(`delete_tr.${window.currentTabId}.${tr_id}`, '');
         }
-        pathTabStore.delete(`content.${currentTabId}.${cell_id}`);
-        pathTabStore.delete(`settings.${currentTabId}.${cell_id}`);
+        pathTabStore.delete(`content.${window.currentTabId}.${cell_id}`);
+        pathTabStore.delete(`settings.${window.currentTabId}.${cell_id}`);
     }
     isUpdateSettings=true;// удалить из файла src/config/table-settings.json
     // Восстанавливаем позицию страницы
-    setTimeout(() => {
-        window.scrollTo(0, scrollY);
-    }, 200); 
+    restoreScrollPosition();
 }
 
 function AddTRBefore(cell_id){
-    const new_tr_id = `${currentTabId}_`+generateHashCrypto();
+    const new_tr_id = `${window.currentTabId}_`+generateHashCrypto();
     let tr_id_position = document.getElementById(cell_id).parentNode.id;
     let new_tr = {
         tr_id_position: tr_id_position,  
         position: 'before'
     };
-    pathTabStore.set(`new_tr.${currentTabId}.${new_tr_id}`, new_tr);
+    pathTabStore.set(`new_tr.${window.currentTabId}.${new_tr_id}`, new_tr);
     insertNewTr(tr_id_position, new_tr_id, 'before',true);
     // Восстанавливаем позицию страницы
-    setTimeout(() => {
-        window.scrollTo(0, scrollY);
-    }, 200); 
+    restoreScrollPosition();
 }
 
 function AddTRAfter(cell_id){
-    const new_tr_id = `${currentTabId}_`+generateHashCrypto();
+    const new_tr_id = `${window.currentTabId}_`+generateHashCrypto();
     let tr_id_position = document.getElementById(cell_id).parentNode.id;
     let new_tr = {
         tr_id_position: tr_id_position,  
         position: 'after'
     };
-    pathTabStore.set(`new_tr.${currentTabId}.${new_tr_id}`, new_tr);
+    pathTabStore.set(`new_tr.${window.currentTabId}.${new_tr_id}`, new_tr);
     insertNewTr(tr_id_position, new_tr_id, 'after',true);
     // Восстанавливаем позицию страницы
-    setTimeout(() => {
-        window.scrollTo(0, scrollY);
-    }, 200); 
+    restoreScrollPosition(); 
 }
 
 function insertNewTr(current_td_id, new_tr_id, position = 'after',is_add_setting_menu=false) {
@@ -1601,14 +1638,14 @@ function setupMenuEvents(cell, menu) {
     fontSizeInput.addEventListener('input', e => {
         isUpdateSettings = true;
         const value = `${e.target.value}px`;
-        pathTabStore.update(`settings.${currentTabId}.${cell.id}.fontSize`, () => value);
+        pathTabStore.update(`settings.${window.currentTabId}.${cell.id}.fontSize`, () => value);
         applyCellSettings(cell, { fontSize: value });
     });
 
     const bgColorInput = menu.querySelector('.bg-color');
     bgColorInput.addEventListener('input', e => {
         isUpdateSettings = true;
-        pathTabStore.update(`settings.${currentTabId}.${cell.id}.backgroundColor`, () => e.target.value);
+        pathTabStore.update(`settings.${window.currentTabId}.${cell.id}.backgroundColor`, () => e.target.value);
         applyCellSettings(cell, { backgroundColor: e.target.value });
     });
 
@@ -1618,7 +1655,7 @@ function setupMenuEvents(cell, menu) {
             isUpdateSettings = true;
             const width = parseInt(e.target.value);
             if (width >= 1) {
-                pathTabStore.update(`settings.${currentTabId}.${cell.id}.width`, () => width);
+                pathTabStore.update(`settings.${window.currentTabId}.${cell.id}.width`, () => width);
                 applyCellSettings(cell, { width: width });
             }
         });
@@ -1640,7 +1677,7 @@ function setupMenuEvents(cell, menu) {
                 row.style.minHeight = 'auto';
                 delete row.dataset.fixedHeight;
             }
-            pathTabStore.update(`settings.${currentTabId}.${cell.id}.rowHeight`, () => height >= 30 ? `${height}px` : 'auto');
+            pathTabStore.update(`settings.${window.currentTabId}.${cell.id}.rowHeight`, () => height >= 30 ? `${height}px` : 'auto');
         });
     }
 
@@ -1757,7 +1794,7 @@ window.addEventListener('error', function(e) {
       }
       e.preventDefault();
       e.target.dataset.errorHandled = 'true';
-      e.target.src = `${basePath}/config/img/coming-soon.gif`; 
+      e.target.src = `${window.basePath}/config/img/coming-soon.gif`; 
       return false;
     }
 }, true);
@@ -1805,7 +1842,7 @@ async function saveToGitHub() {
             path: `src/SUMMARY.md`,
             content: new_tabs_summary
         });
-        const response = await fetch(`${basePath}/SUMMARY.md`);
+        const response = await fetch(`${window.basePath}/SUMMARY.md`);
         if (!response.ok) {
             throw new Error(`Ошибка HTTP: ${response.status} ${response.statusText}`);
         }
@@ -2066,7 +2103,7 @@ async function uploadImage(cell_id, file) {
     }
 
     let HTML_img = `
-    <img src="${basePath}/images/${name_picture}" alt="..." style="width: 10%; height: auto;">`;
+    <img src="${window.basePath}/images/${name_picture}" alt="..." style="width: 10%; height: auto;">`;
     let markdown_content = await loadContent(cell_id, HTML_img);
     let new_content = '';
     if (!markdown_content || Object.keys(markdown_content).length === 0) {
@@ -2074,7 +2111,7 @@ async function uploadImage(cell_id, file) {
     }else{
       new_content = markdown_content + HTML_img;
     }
-    pathTabStore.set(`content.${currentTabId}.${cell_id}`, new_content);
+    pathTabStore.set(`content.${window.currentTabId}.${cell_id}`, new_content);
     await convertTextToHTML(document.getElementById(cell_id), new_content);
 
     const base64 = await readFileAsBase64(file);
@@ -2221,28 +2258,27 @@ function addRunButtonsToPythonBlocks() {
 async function hundlerUndoChangesCell(cell_id) { 
     const cellElement = document.getElementById(cell_id);
     if (cellElement?.hasAttribute('data-new')) {
-        pathTabStore.set(`content.${currentTabId}.${cell_id}`, '');
+        pathTabStore.set(`content.${window.currentTabId}.${cell_id}`, '');
         cellElement.parentElement.removeAttribute('style');
         cellElement.removeAttribute('style');
         return;
     }
-    const response = await fetch(`${basePath}/tabs/${currentTabId}/include/${cell_id}.md`);
+   
+    const response = await fetch(`${window.basePath}/tabs/${window.currentTabId}/include/${cell_id}.md`);
     if (!response.ok) {
         throw new Error(`Ошибка HTTP: ${response.status} ${response.statusText}`);
     }
     let markdown_content = await response.text();
-    pathTabStore.set(`content.${currentTabId}.${cell_id}`, markdown_content);
+    pathTabStore.set(`content.${window.currentTabId}.${cell_id}`, markdown_content);
     await convertTextToHTML(cellElement, markdown_content, true);
     cellElement.parentElement.removeAttribute('style');
     cellElement.removeAttribute('style');    
-    const loadedSettings = await getSettingsFile();
-    if (loadedSettings?.[currentTabId]?.[cell_id]) {
-        applyCellSettings(cellElement, loadedSettings[currentTabId][cell_id]); 
+    const loadedSettings = await getSettingsFile(window.basePath);
+    if (loadedSettings?.[window.currentTabId]?.[cell_id]) {
+        applyCellSettings(cellElement, loadedSettings[window.currentTabId][cell_id]); 
     }
     // Восстанавливаем позицию страницы
-    setTimeout(() => {
-        window.scrollTo(0, scrollY);
-    }, 200);     
+    restoreScrollPosition();   
 }
 
 function checkNewlines(text) {
@@ -2279,8 +2315,8 @@ function checkBacktickFormatting(text) {
 async function getPyodide() {
     try{
         if (!window.pyodide) {
-            //await import(`${basePath}/js/pyodide.v0.23.4.js`);
-            await import(`${basePath}/js/pyodide.full.v0.28.0.js`);
+            //await import(`${window.basePath}/js/pyodide.v0.23.4.js`);
+            await import(`${window.basePath}/js/pyodide.full.v0.28.0.js`);
             window.pyodide = await loadPyodide({
                 indexURL: "https://cdn.jsdelivr.net/pyodide/v0.28.0/full/"
             }); 
@@ -2335,7 +2371,7 @@ async function execute_python(code, outputCode) {
 }
 
 async function getLinkTextByTabId(tab_id) {
-    const response = await fetch(`${basePath}/SUMMARY.md`);
+    const response = await fetch(`${window.basePath}/SUMMARY.md`);
     if (!response.ok) {
         throw new Error(`Ошибка HTTP: ${response.status} ${response.statusText}`);
     }
@@ -2393,7 +2429,7 @@ function addEditButtonTab(){
                 });
                 let markdownContent = pathTabStore.get(`summary`);
                 if (!markdownContent || Object.keys(markdownContent).length === 0) {
-                    const response = await fetch(`${basePath}/SUMMARY.md`);
+                    const response = await fetch(`${window.basePath}/SUMMARY.md`);
                     if (!response.ok) {
                         throw new Error(`Ошибка HTTP: ${response.status} ${response.statusText}`);
                     }

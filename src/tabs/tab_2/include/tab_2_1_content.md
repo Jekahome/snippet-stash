@@ -1,28 +1,17 @@
-     
-
-- Затенение  
-- Оператор выражения {}  
-    - stdin stdout stderr Консоль ввод вывод  
-        - Форматированный вывод  
-    - Типаж Debug,Display,Binary,ToString
-- Конструкция if else
-- Конструкция `if let` 
 
 
+**Error 1**
+* когда нет в коде `fn main` то она автоматически добавляется
 
-
-<div class="mdbook-graphviz-output">
-digraph G {
-    A -> B;
-    B -> C;
-    C -> A;
+```rust
+fn test(){
+    println!("Hello");
 }
-</div>
-
-
-```rust,no_run
-fn main(){
-    print!("hello");
-}
+// fn main(){}
 ```
+
+
+
+**Error 2**
+* GRAPHVIZ не исправляет SVG при устранении ошибки синтаксиса (перегружать страницу)
 
