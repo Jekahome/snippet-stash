@@ -1,7 +1,7 @@
 
 
 
-<pre><code class="language-rust">
+```rust
 fn main(){
 // &'_ mut T не может быть Copy так как мы получим две &mut ссылки. Но &'_ T всегда Copy
 
@@ -19,4 +19,4 @@ fn main(){
     // ... тут срабатывает Drop для ls, поэтому можем обратиться к данным напрямую
     println!("For &mut:{s}");
 }
-</code></pre>
+```

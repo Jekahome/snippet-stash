@@ -3,7 +3,7 @@
 Удалить пробелы.
 Если входные данные будут мутироваться, то вернем String иначе возвращать входную строку `&str`.
 Т.е. клонирование при мутации `Cow`, отложите выделение памяти как можно на дольше.
-<pre><code class="language-rust">
+```rust
 use std::borrow::Cow;
 // вариант с AsRef т.е. можно String присылать
 fn remove_spaces<'a>(input: &'a(impl AsRef<str> + ?Sized)) -> Cow<'a, str> { // <'a> что бы можно было вернуть  Cow<'a...
@@ -30,4 +30,4 @@ fn main(){
     let len = s.len(); // impl Deref
     let owned: String = s.into_owned(); // no new memory allocated as we already had a String
 }
-</code></pre>
+```

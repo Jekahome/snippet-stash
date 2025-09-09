@@ -1,7 +1,7 @@
 
 
 
-<pre><code class="language-rust">
+```rust
 fn main(){
     let arr = [1,2,3];
     let mut a =arr;
@@ -23,4 +23,5 @@ fn main(){
     println!("{} ", c);
     println!("{}", s);// ошибка ссылка на ресур перемещена в c
 }
-</code></pre>
+```
+

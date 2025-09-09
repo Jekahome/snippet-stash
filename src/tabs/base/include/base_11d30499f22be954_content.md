@@ -1,7 +1,7 @@
 
 
 
-<pre><code class="language-rust">
+```rust
 // без Copy не работает
 #[derive(Clone,Copy)]
 pub struct Unit(pub i32);
@@ -32,4 +32,4 @@ fn main() {
     let unit = Unit(1);
     foo(&unit); 
 }
-</code></pre>
+```

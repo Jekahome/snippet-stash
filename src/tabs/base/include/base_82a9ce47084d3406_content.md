@@ -1,7 +1,7 @@
 
 
 
-<pre><code class="language-rust">
+```rust
 fn batch<Matrix: AsRef<[Row]>, Row: AsRef<[f32]>>(features: Matrix) {
     for row in features.as_ref() {
         for cell in row.as_ref() {
@@ -17,4 +17,4 @@ fn main(){
   let v = [[1f32],[2f32]];
   batch(v);
 }
-</code></pre>
+```

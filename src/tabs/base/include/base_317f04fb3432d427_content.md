@@ -1,7 +1,7 @@
 
 
 
-<pre><code class="language-rust">
+```rust
 #[allow(dead_code)]
 #[derive(Clone, Copy)]
 struct Book {
@@ -24,4 +24,4 @@ fn main() {
     borrow_book(&mutabook);
     new_edition(&mut mutabook);
 }
-</code></pre>
+```

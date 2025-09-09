@@ -1,7 +1,7 @@
 
 
 
-<pre><code class="language-rust">
+```rust
 use derive_more::{AsRef, AsMut};
 
 pub fn just_print_stringy<S: AsRef<String>>(v: S) {
@@ -21,8 +21,8 @@ impl Nickname {
     }
 }
 fn main(){
- let mut nickname = Nickname::new("Vasya");
- add_hi(&mut nickname);
- just_print_stringy(&nickname);
+   let mut nickname = Nickname::new("Vasya");
+   add_hi(&mut nickname);
+   just_print_stringy(&nickname);
 }
-</code></pre>
+```

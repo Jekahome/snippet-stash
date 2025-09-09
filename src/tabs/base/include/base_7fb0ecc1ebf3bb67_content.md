@@ -1,7 +1,7 @@
 
 
 
-<pre><code class="language-rust">
+```rust
 struct User {
     name: String,
     age: u32,
@@ -41,4 +41,5 @@ fn example(user: User, moderator: Moderator) {
     create_post(&user);
     create_post(&moderator); // ✅
 }
-</code></pre>
+fn main(){}
+```

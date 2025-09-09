@@ -1,7 +1,7 @@
 
 
 
-<pre><code class="language-rust">
+```rust
 pub fn just_print_stringy(v: &str) {
     println!("{}", v)
 }
@@ -14,22 +14,23 @@ impl Nickname {
         Self(nickname)
     }
 }
-</code></pre>
+fn main(){}
+```
 
 ---
 Однако из-за необходимости явного преобразования типов в Rust такой API может быть недостаточно эргономичным
-<pre><code class="language-rust">
+```rust
 fn main(){
- let mut nickname = Nickname::new("Vasya".to_string());
- add_hi(nickname.as_mut());
- just_print_stringy(nickname.as_ref());
+   let mut nickname = Nickname::new("Vasya".to_string());
+   add_hi(nickname.as_mut());
+   just_print_stringy(nickname.as_ref());
 }
-</code></pre>
+```
 
 ---
+
 Самый стандартный способ улучшить эргономику здесь - скрыть преобразования типов под капотом, абстрагируясь от типов ввода в наших API:
-<pre><code class="language-rust">
-fn main(){
+```rust
 use std::convert::{AsRef,AsMut};
 pub struct Nickname(String);
 
@@ -55,20 +56,22 @@ pub fn just_print_stringy< S: AsRef< str>>(v: S) {
 pub fn add_hi< S: AsMut< String>>(mut v: S) {
     v.as_mut().push_str(" Hi")
 }
-}
-</code></pre>
+fn main(){}
+```
 
 ---
+
 И теперь нашим API приятно пользоваться:
-<pre><code class="language-rust">
+```
 let mut nickname = Nickname::new("Vasya");
 add_hi(&mut nickname);
 just_print_stringy(&nickname);
-</code></pre>
+```
 
 ---
+
 Или через Cow
-<pre><code class="language-rust">
+```rust
 pub struct Nickname2< 'a>(Cow< 'a, str>);
 impl< 'a> Nickname2< 'a> {
     pub fn new< S>(raw: S) -> Nickname2< 'a>
@@ -115,4 +118,4 @@ fn main() {
    add_hi(&mut nickname);
    just_print_stringy(&nickname);
 }
-</code></pre>
+```

@@ -1,7 +1,7 @@
 
 
 
-<pre><code class="language-rust">
+```rust
 fn take_a_str(some: impl AsRef< str>) { // тоже самое `fn take_a_str< T:AsRef< str>>(some: T) {...`
     let some = some.as_ref();
     println!("{some}");
@@ -23,4 +23,4 @@ fn main() {
     let string_ref = "StringRef".to_string();
     take_a_str_into(&string_ref);
 }
-</code></pre>
+```

@@ -1,7 +1,7 @@
 
 
 
-<pre><code class="language-rust">
+```rust
 fn modify_reference(value: &mut &mut i32) {
     **value += 1; 
 }
@@ -17,4 +17,4 @@ fn main() {
 } 
  
 // Ссылки на ссылки (&mut &mut T или &&T) появляются, когда есть специфические ситуации, требующие дополнительного уровня ссылок.
-</code></pre>
+```

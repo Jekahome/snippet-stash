@@ -1,9 +1,9 @@
 
 
 
-<pre><code class="language-rust">
+```rust
 fn main(){
-  let mut i = 5;
+    let mut i = 5;
     {
             let i2 = &mut i;
             //println!("{}",i); ошибка обращение к временно перемещенным данным ими владеет i2
@@ -15,4 +15,4 @@ fn main(){
     let i2 = &mut i;
     println!("{}",i);// ошибка есть , в этой области видимости данными `i` уже владеет `i2` и `i` использовать нельзя
 }
-</code></pre>
+```

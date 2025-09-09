@@ -1,7 +1,7 @@
 
 
 
-<pre><code class="language-rust">
+```rust
 #[derive(Debug,Clone)]
 struct Wrap< T>(T);
 
@@ -40,4 +40,4 @@ fn main(){
     let bytes: &[u8] = w.as_ref(); // вывод типа компилятором на основе сигнатуры принимаемого
     assert_eq!([46,46,46],bytes);
 }
-</code></pre>
+```

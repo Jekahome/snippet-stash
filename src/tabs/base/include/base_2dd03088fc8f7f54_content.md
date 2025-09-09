@@ -8,7 +8,7 @@
 
 Если тип `Copy` то его `Clone` реализация должна только вернуть `*self`
 
-<pre><code class="language-rust">
+```rust
 //#[derive(Clone,Copy,Debug)] через derive будет добавлено ограничение копирования по параметрам типа, что не всегда желательно.
 #[derive(Debug)]
 struct WithCopy(i32);
@@ -19,12 +19,13 @@ impl Clone for WithCopy{
         *self
      }
 }
-</code></pre>
-
+fn main(){}
+```
 
 ---
+
 Хочешь быть только `Clone`. Будет семантика `moving`
-<pre><code class="language-rust">
+```rust
 #[derive(Debug)]
 struct WithoutCopy(i32);
 
@@ -47,4 +48,5 @@ fn main() {
     let c = b.clone();
     println!("{:?} {:?}",c,b);  
 }
-</code></pre>
+```
+
