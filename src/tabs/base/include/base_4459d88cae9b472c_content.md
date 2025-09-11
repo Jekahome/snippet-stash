@@ -1,15 +1,10 @@
 
 
-
-<pre><code class="language-rust">
-use std::fmt::Debug; use std::borrow::Borrow; use std::fmt::Display; use std::hash::Hash;
-fn main() {
-let mut h = HashMap{fields:vec![]};
-   // сохраняем String ,HashMap владеит
-     h.insert("KEY".to_string(),"VALUE".to_string());
-   // поиск через &str
-    println!("{:?}",h.get("KEY"));
-}
+```rust
+use std::fmt::Debug; 
+use std::borrow::Borrow;
+ use std::fmt::Display; 
+use std::hash::Hash;
 
 pub struct HashMap<K, V> {
   fields:Vec<(K,V)>
@@ -29,4 +24,12 @@ impl<K, V> HashMap<K, V> {
         Some(&self.fields[0].1)
     }
 }
-</code></pre>
+fn main() {
+    let mut h = HashMap{fields:vec![]};
+    // сохраняем String ,HashMap владеит
+    h.insert("KEY".to_string(),"VALUE".to_string());
+    // поиск через &str
+    println!("{:?}",h.get("KEY"));
+}
+```
+

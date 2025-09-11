@@ -4,7 +4,7 @@
 
 
 Файл библиотеки lib.rs:
-<pre><code class="language-rust">
+```
 //#[cfg(feature = "mydefault")]
 //pub use def::*;
 pub fn qwerty(){ println!("qwerty");}
@@ -19,7 +19,7 @@ pub mod lala{
 pub mod def{
     pub fn ggg(){ println!("ggg"); }
 }
-</code></pre>
+```
 
 Cargo.toml:
 
@@ -46,7 +46,7 @@ mylib = {default-features = false,path="mylib",features=["mydefault","ex_1"]}
 ```
 
 Файл main.rs:
-<pre><code class="language-rust">
+```
 use mylib::*;
 fn main(){
   qwerty();
@@ -54,4 +54,4 @@ fn main(){
   lala::foo();
   bla::boo();
 }
-</code></pre>
+```

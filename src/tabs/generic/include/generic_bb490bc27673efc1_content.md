@@ -1,7 +1,7 @@
 
 
 
-<pre><code class="language-rust">
+```
  fn function<F>(f: F) where for<'a> F: FnOnce(&'a Type)
 
  struct Struct<F> where for<'a> F: FnOnce(&'a Type) { x: F }
@@ -19,4 +19,4 @@
  struct InnerArray<T, const N: usize>([T; N]);
 
  struct EitherOrderWorks<const N: bool, U>(U);
-</code></pre>
+```

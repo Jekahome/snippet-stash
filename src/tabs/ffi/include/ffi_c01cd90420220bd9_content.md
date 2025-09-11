@@ -1,15 +1,15 @@
 
 
 Связующая логистика
-<pre><code class="language-rust">
+```
 #[link(name = "cffi")] // Необходима внешняя библиотека типа `libcffi.a`
 extern "C" {
     // ...
 }
-</code></pre>
+```
 
 Или через скрипт сборки, который выдает `cargo:rustc-link-lib` инструкцию `cargo: 2`
-<pre><code class="language-rust">
+```
 // File build.rs
 fn main() {
     // Необходима внешняя библиотека типа `libcffi.a`
@@ -28,11 +28,11 @@ fn main() {
         std::path::Path::new(&dir).join("..").display()
     );
 }
-</code></pre>
+```
 
 ---
 
-<pre><code class="language-rust">
+```
 // Определение структуры данных C.   
 // Изменения здесь должны быть отражены в lib.rs. 
 typedef struct {
@@ -48,4 +48,4 @@ pub struct FfiStruct {
     pub byte: u8,
     pub integer: u32,
 }
-</code></pre>
+```

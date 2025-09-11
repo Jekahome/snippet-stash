@@ -1,7 +1,7 @@
 
 
 
-<pre><code class="language-rust">
+```
 use std::collections::HashMap;
 use std::sync::{Arc, RwLock};
 use diesel::{Connection, RunQueryDsl, SqliteConnection};
@@ -30,4 +30,4 @@ pub fn load(db: &str) -> Result<(), ()> {
         });
     Ok(())
 }
-</code></pre>
+```

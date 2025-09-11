@@ -1,7 +1,7 @@
 
 
 
-<pre><code class="language-rust">
+```
 #![no_main]
 #![no_std]
 
@@ -30,4 +30,4 @@ pub fn entry() {
     let mut v = Vec::new();
     v.push("A string".to_string());
 }
-</code></pre>
+```

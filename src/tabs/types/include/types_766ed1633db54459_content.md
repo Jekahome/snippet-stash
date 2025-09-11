@@ -3,7 +3,7 @@
 lazy_static, once_cell для однократной инициализации данных
 
 Ленивые инициализированные глобальные данные
-<pre><code class="language-rust">
+```
 use std::{sync::Mutex, collections::HashMap};
 use once_cell::sync::OnceCell;
 fn global_data() -> &'static Mutex<HashMap<i32, String>> {
@@ -15,4 +15,4 @@ fn global_data() -> &'static Mutex<HashMap<i32, String>> {
         Mutex::new(m)
     })
 }
-</code></pre>
+```

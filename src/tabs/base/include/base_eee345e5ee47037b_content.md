@@ -1,13 +1,13 @@
 
 
-<pre><code class="language-rust no_run edition2021">
+```
 Атрибуту  #[cfg(...)], который указывается на месте атрибута
 Макросу  cfg!(...), который можно использовать в условных выражениях
-</code></pre>
+```
 
 ---
  
-<pre><code class="language-rust">
+```rust
 // Эта функция будет скомпилирована только в том случае, если целевая ОС будет linux
 #[cfg(target_os = "linux")]
 fn are_you_on_linux() {
@@ -30,4 +30,4 @@ fn main() {
         println!("Да. Это точно *не* linux!");
     }
 }
-</code></pre>
+```

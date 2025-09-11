@@ -3,7 +3,7 @@
 
 
 Макрос упаковывает любое количество статических объявлений и делает их локальными для потока. 
-<pre><code class="language-rust">
+```rust
 use std::cell::RefCell;
 thread_local! {
     pub static FOO: RefCell<u32> = RefCell::new(1);
@@ -12,13 +12,14 @@ thread_local! {
 
 FOO.with(|foo| assert_eq!(*foo.borrow(), 1));
 BAR.with(|bar| assert_eq!(*bar.borrow(), 1.0));
-</code></pre>
+fn main(){}
+```
 
 ---
 
 Эта библиотека предоставляет ThreadLocal тип, который позволяет использовать отдельную копию объекта для каждого потока. 
 Это позволяет использовать локальное хранилище потока для каждого объекта, в отличие от макроса стандартной библиотеки, `thread_local!` который допускает только статическое локальное хранилище потока.
-<pre><code class="language-rust">
+```rust
 use thread_local::ThreadLocal;
 use std::sync::Arc;
 use std::cell::Cell;
@@ -42,4 +43,4 @@ fn main(){
     let total = tls.into_iter().fold(0, |x, y| x + y.get());
     assert_eq!(total, 5);
 }
-</code></pre>
+```

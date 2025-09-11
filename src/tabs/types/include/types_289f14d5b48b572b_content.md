@@ -1,7 +1,6 @@
 
 
-
-<pre><code class="language-rust">
+```rust
 // use std::cmp::Ordering;
 enum Ordering {
    Less,
@@ -18,4 +17,5 @@ fn binary_search(xs: &[i32], x: i32) -> bool {
    };
   binary_search(subslice, x)
 }
-</code></pre>
+fn main(){}
+```

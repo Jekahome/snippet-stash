@@ -1,7 +1,6 @@
 
 
-
-<pre><code class="language-rust">
+```rust
 struct App(Option<Database>);
 // struct App(Database);
 
@@ -17,4 +16,5 @@ impl App {
       db.shutdown();
     }
 }
-</code></pre>
+fn main(){}
+```

@@ -10,7 +10,7 @@ struct Boxed<'b,'u:'b>{
    user:&'b User<'u >
 }
 fn main(){
- let user:User = User{name:"Jeka"};
- let _box:Boxed = Boxed{user:&user};
+   let user:User = User{name:"Jeka"};
+   let _box:Boxed = Boxed{user:&user};
 }
 </code></pre>

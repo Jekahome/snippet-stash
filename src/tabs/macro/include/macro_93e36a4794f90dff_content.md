@@ -10,20 +10,20 @@
 
 * Во-вторых, макрос derive может объявлять связанные вспомогательные атрибуты, которые затем могут использоваться для маркировки частей структуры данных, требующих специальной обработки. 
 Например, crate **serde** предоставляет макрос `derive` с вспомогательными атрибутами, такими как `Serialize` и `Deserialize`
-<pre><code class="language-rust">
+```
 #[derive(Debug, Deserialize)]
 struct MyData {
     #[serde(default = "generate_value")]
     value: String,
 ...
-</code></pre>
+```
 
 
 * Последний аспект derive макросов, о котором следует знать, заключается в том, что crate syn может взять на себя большую часть тяжелой работы, связанной с разбором входных токенов в эквивалентные узлы в AST
 
 ---
  
-<pre><code class="language-rust">
+```rust
 #[derive(Debug, Clone)]
 struct Point {
     x: f64,
@@ -68,4 +68,4 @@ struct MyStruct;
 fn main() {
     MyStruct::hello(); // Выведет: Hello from MyStruct
 }
-</code></pre>
+```

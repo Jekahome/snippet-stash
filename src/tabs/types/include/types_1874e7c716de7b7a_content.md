@@ -5,7 +5,7 @@
 lazy_static = "1.2.0"
 ```
 
-<pre><code class="language-rust">
+```
 #[macro_use]
 extern crate lazy_static; 
  lazy_static! {
@@ -15,4 +15,4 @@ extern crate lazy_static;
 fn is_email(email: &str) -> bool {
     REGEX_EMAIL.is_match(email)
 }
-</code></pre>
+```

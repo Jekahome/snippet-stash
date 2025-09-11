@@ -1,7 +1,6 @@
 
 
-
-<pre><code class="language-rust">
+```rust
 use std::str::FromStr;
 use std::num::ParseIntError;
 
@@ -9,7 +8,7 @@ use std::num::ParseIntError;
 enum ErrorLevel2{
     DEBUG,INFO,WARN,ERROR,PANIC,EMPTY
 }
- impl FromStr for ErrorLevel2 {
+impl FromStr for ErrorLevel2 {
     type Err = ParseIntError;
     fn from_str(s: &str) -> Result<Self, Self::Err> {
           match s{
@@ -24,4 +23,4 @@ fn main(){
     print!("{:?}",p);
     assert_eq!(ErrorLevel2::DEBUG ,p);
 }
-</code></pre>
+```

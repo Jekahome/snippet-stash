@@ -1,7 +1,7 @@
 
 
 
-<pre><code class="language-rust">
+```rust
 macro_rules! name_macro{
      // первый match ------------------------------------------------
      // использование: name_macro!();
@@ -77,4 +77,5 @@ macro_rules! name_macro{
         println!("Значение x={:?}",$e); // 5
      );
 }
-</code></pre>
+fn main(){}
+```

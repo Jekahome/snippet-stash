@@ -1,7 +1,7 @@
 
 
 
-<pre><code class="language-rust">
+```rust
 fn check<T: BorrowMut<[i32]>>(mut v: T) {
     //assert_eq!(&mut [1, 2, 3], v.borrow_mut());
     let vb  = v.borrow_mut();
@@ -12,7 +12,8 @@ fn check<T: BorrowMut<[i32]>>(mut v: T) {
    assert_eq!(&mut [3, 4, 5], v.borrow_mut());
     // print!("{:?}",vb);
 }
-
-let v = vec![1, 2, 3];
-check(v);
-</code></pre>
+fn main(){
+    let v = vec![1, 2, 3];
+    check(v);
+}
+```

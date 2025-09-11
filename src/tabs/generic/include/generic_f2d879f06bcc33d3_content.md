@@ -1,7 +1,6 @@
 
 
-
-<pre><code class="language-rust">
+```rust
 // Dynamic dispatch.
 mod dynamic_dispatch {
     use super::*;
@@ -66,4 +65,5 @@ mod dynamic_dispatch {
         }
     }
 }
-</code></pre>
+fn main(){}
+```

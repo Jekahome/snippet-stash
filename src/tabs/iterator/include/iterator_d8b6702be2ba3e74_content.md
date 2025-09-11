@@ -1,7 +1,7 @@
 
 
 **Владеющий итератор IntoIter**
-<pre><code class="language-rust">
+```rust
 use std::iter::Iterator;
 struct Foo<T>{
    data:Vec<T>
@@ -20,12 +20,13 @@ impl<T> Iterator for WrapIntoIter<T> {
         self.0.data.pop()
     }
 }
-</code></pre>
+fn main(){}
+```
 
 ---
 
 **Заимствующий итератор shared Iter**
-<pre><code class="language-rust">
+```rust
 
 pub struct WrapIter<'a, T> {
     current_index:usize,
@@ -48,12 +49,13 @@ impl<'a, T> Iterator for WrapIter<'a, T> {
        None
     }
 }
-</code></pre>
+fn main(){}
+```
 
 ---
  
 **Мутирующее заимствование IterMut**
-<pre><code class="language-rust">
+```rust
 pub struct WrapIterMut<'a, T> {
     current_index:usize,
     next:  &'a mut Vec<T>
@@ -103,4 +105,4 @@ fn main() {
         println!("iter_mut {}",i);
     }
 }
-</code></pre>
+```

@@ -1,7 +1,7 @@
 
 
 Или когда у вас есть некий контекст, который всегда устраняет неоднозначность параметра неявной черты
-<pre><code class="language-rust">
+```rust
 use std::marker::PhantomData;
 trait Noise<M> {
   fn make_noise(&self);
@@ -49,4 +49,4 @@ fn main() {
   pets.push(Cat);
   pets.everyone_is_yapping();
 }
-</code></pre>
+```

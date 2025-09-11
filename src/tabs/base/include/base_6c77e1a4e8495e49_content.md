@@ -1,7 +1,6 @@
 
 
-
-<pre><code class="language-rust">
+```rust
 // Иногда бывает, что у вас есть неиспользуемые параметры типа, которые указывают,
 // к какому типу данных привязана структура, хотя эти данные фактически не найдены в самой структуре.
 
@@ -57,4 +56,4 @@ fn main() {
     let post_new:Post<New> = new(user, String::from("title"), String::from("body"));
     let post_unmoderated:Post<Unmoderated> = publish(post_new);// переход в другое состояние
 }
-</code></pre>
+```

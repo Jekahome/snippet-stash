@@ -40,13 +40,12 @@ cargo.fmt:
 cargo.clippy:
         cargo clippy --all-targets --all-features -- -D warnings
 
-
 ```
 
 ---
 
 **File src/_clippy_lints.rs**:
-<pre><code class="language-rust">
+```
 #![deny(
     missing_docs,
     missing_debug_implementations,
@@ -81,7 +80,7 @@ cargo.clippy:
 )]
 // TODO: Remove on next `derive_more` major version.
 #![allow(clippy::uninlined_format_args, clippy::use_debug)]
-</code></pre>
+```
 
 ---
 
@@ -119,7 +118,7 @@ standard-macro-braces = [
 ---
 
 **File src/main.rs***:
-<pre><code class="language-rust">
+```
 //! Documentstion
 
 /// linting module for clean code
@@ -128,13 +127,12 @@ mod _clippy_lints;
 fn main() {
     println!("Hello, world!");
 }
-</code></pre>
+```
 
 ---
 
-
-
 <details>
+
 <summary>Add clippy lints to file src/_clippy_lints.rs</summary>
 
 ```

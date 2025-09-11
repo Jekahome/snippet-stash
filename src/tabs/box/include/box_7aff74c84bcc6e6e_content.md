@@ -1,7 +1,7 @@
 
 
 Учитывая следующие trait:
-<pre><code class="language-rust">
+```
 trait MutMeSomehow {
     fn mut_me_somehow(self: Pin<&mut Self>);
 }
@@ -11,14 +11,12 @@ trait SayHi: fmt::Debug {
         println!("Hi from {:?}", self)
     }
 }
-</code></pre>
+```
 
 Реализовать их для следующих типов: `Box<T>`, `Rc<T>`, `Vec<T>`, String, &[u8], T.
 
-
-
-
-<pre><code class="language-rust">
+ 
+```rust
 use core::fmt;
 use std::fmt::Debug;
 use std::marker::PhantomPinned;
@@ -119,4 +117,4 @@ fn main() {
     specific::MutMeSomehow::mut_me_somehow(p);
     println!("{:?}", s);
 }
-</code></pre>
+```

@@ -2,7 +2,7 @@
 
 
 
-<pre><code class="language-rust">
+```rust
 use std::marker::PhantomData;
 use std::ops::Index;
 
@@ -79,4 +79,4 @@ fn main(){
     let to_index:IndexVertex<ToIndex> = from_index.into();
      for vertexes in vertexes[to_index].iter(){ ... }
 }
-</code></pre>
+```

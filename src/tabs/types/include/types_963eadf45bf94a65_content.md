@@ -7,7 +7,7 @@
 Более того, любой тип, хранимый в статической переменной, должен быть ограничен `Sync` и не может иметь реализации `Drop`
 
 После выхода из области видимости недоступен но остается в памяти !
-<pre><code class="language-rust">
+```
 static [mut] IDENTIFIER: type = expr;
 lazy_static! {static ref IDENTIFIER: type = expr; }
-</code></pre>
+```

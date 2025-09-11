@@ -1,7 +1,5 @@
 
 
-
-
 Процедурные макросы принимают некоторый код в качестве входных данных, работают над этим кодом и создают некоторый код в качестве вывода, а не выполняют сопоставления с шаблонами и замену кода другим кодом, как это делают декларативные макросы.
 
 Процедурные макросы представляют собой гораздо более мощный инструмент генерации кода. 
@@ -13,23 +11,24 @@
 На данный момент в Rust есть три вида процедурных макросов:
 
 1. `proc_macro` функционально-подобные макросы, использование которых похоже на использование обычных декларативных макросов, но они принимают произвольные токены на ввод (а декларативные - нет) и в целом более мощные (могут содержать сложную логику для генерации простого кода):
+
 Cargo.toml:
 ```toml
 [lib]
 proc-macro = true
 ```
 
-<pre><code class="language-rust">
+```
 extern crate proc_macro;
 use proc_macro::TokenStream;
 #[proc_macro]
 pub fn make_answer(_: TokenStream) -> TokenStream {
     "fn answer() -> u32 { 42 }".parse().unwrap()
 }
-</code></pre>
+```
 
 А затем мы используем его в двоичном контейнере для вывода «42» на стандартный вывод.
-<pre><code class="language-rust">
+```
 extern crate proc_macro_examples;
 use proc_macro_examples::make_answer;
 
@@ -38,31 +37,31 @@ make_answer!();
 fn main() {
     println!("{}", answer());
 }
-</code></pre>
+```
 
 ---
  
 2. `proc_macro_attribute` макросы атрибутов , позволяющие создавать собственные атрибуты Rust :
 Идиоматично `proc_macro_attribute` следует использовать для генерации произвольных функций  
-<pre><code class="language-rust">
+```
 #[proc_macro_attribute]
 pub fn route(attr: TokenStream, item: TokenStream) -> TokenStream {
    // code...
 }
 #[route(GET, "/")]
 fn index() {}
-</code></pre>
+```
 
 ---
  
 3. `proc_macro_derive` производные макросы , которые позволяют предоставлять настраиваемые реализации для атрибута `#[derive(Trait)]`:
 
 Идиоматично, `proc_macro_derive` следует использовать только для получения реализаций признаков 
-<pre><code class="language-rust">
+```
 #[proc_macro_derive(AnswerFn)]
 pub fn derive_answer_fn(_: TokenStream) -> TokenStream {
     "impl Struct{ fn answer() -> u32 { 42 } }".parse().unwrap()
 }
 #[derive(AnswerFn)]
 struct Struct;
-</code></pre>
+``

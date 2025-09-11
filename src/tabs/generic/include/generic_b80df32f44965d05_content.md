@@ -1,7 +1,6 @@
 
 
-
-<pre><code class="language-rust">
+```rust
 use std::error::Error;
 use std::fmt::Display;
 // ErrorOne.
@@ -31,4 +30,5 @@ mod error_two {
     impl Error for ErrorTwo {}
 }
 use error_two::ErrorTwo;
-</code></pre>
+fn main(){}
+```

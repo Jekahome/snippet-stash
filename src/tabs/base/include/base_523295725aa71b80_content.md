@@ -1,7 +1,6 @@
 
 
-
-<pre><code class="language-rust">
+```rust
 // Вариант в стиле generic, но внутренний тип Item ожидает кокретный тип Sized а не трейт Ord
 // fn find_max<I: Iterator<Item = Ord>>(iter: I) -> Option<I::Item>{ ❌
 
@@ -13,4 +12,5 @@ fn find_max<I>(iter: I) -> Option<I::Item>  ✅
         if a >= b { a } else { b }
     })
 }
-</code></pre>
+fn main(){}
+```

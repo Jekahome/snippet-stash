@@ -15,22 +15,23 @@
         
 
 * **2.** Создание константы с ключевым словом static.
-      <pre><code class="language-rust">
-       // i32 добавляется в сегмент данных двоичного файла, а `x` ссылается на него
-       static FOO: i32 = 5;
-       let x: &'static i32 = &FOO;
-      </code></pre>
+```rust
+fn main(){
+    // i32 добавляется в сегмент данных двоичного файла, а `x` ссылается на него
+    static FOO: i32 = 5;
+    let x: &'static i32 = &FOO;
+}
+```
                                                                                                                                                                                                                                                                                                                                                                                                                                                                     
 * **3.** `'static` как часть ограничения типажа:
-     <pre><code class="language-rust">
-     fn main(){
-      fn generic<T>(x: T) where T: 'static {}
-     }
-   </code></pre>
+```rust
+fn generic<T>(x: T) where T: 'static {}
+fn main(){}
+```
    
 --- 
  
-<pre><code class="language-rust">
+```rust
 static NUM: i32 = 18;
 
 // `'static` приводится к lifetime аргумента
@@ -57,6 +58,6 @@ fn main() {
     
     println!("NUM: {} остаётся доступным!", NUM);
 }
-</code></pre>
+```
 
 

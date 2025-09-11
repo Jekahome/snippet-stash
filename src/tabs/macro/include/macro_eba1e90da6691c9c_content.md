@@ -1,7 +1,7 @@
 
 
 
-<pre><code class="language-rust">
+```rust
 macro_rules! write_html {
     ($w:expr, ) => (());
 
@@ -29,4 +29,4 @@ fn main() {
         `"<html><head><title>Macros guide</title></head>\
          <body><h1>Macros are the best!</h1></body></html>"`);
 }
-</code></pre>
+```

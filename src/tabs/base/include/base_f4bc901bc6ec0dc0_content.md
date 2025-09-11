@@ -1,7 +1,7 @@
 
 
 В этом примере impl не может быть непосредственно выражен без утверждения where:
-<pre><code class="language-rust">
+```rust
 trait WrapTrait:Debug{
     type Value;
     fn get_value(&self)->&Self::Value;
@@ -23,11 +23,12 @@ impl<T:Debug> WrapTrait for Test<T>{
 fn foo<T:WrapTrait>(t:&T) where T::Value: Debug {
     println!("Hello {:?}",t.get_value());
 }
-</code></pre>
+fn main(){}
+```
 
 ---- 
 
-<pre><code class="language-rust">
+```rust
 use std::ops::{Add, Mul};
 fn dot<T>(v1: &[T], v2: &[T]) -> T
     where T: Add<Output=T> + Mul<Output=T> + Default + Copy {
@@ -42,4 +43,5 @@ fn test_dot() {
     assert_eq!(dot(&[1, 2, 3, 4], &[1, 1, 1, 1]), 10);
     assert_eq!(dot(&[53.0, 7.0], &[1.0, 5.0]), 88.0);
 }
-</code></pre>
+fn main(){}
+```

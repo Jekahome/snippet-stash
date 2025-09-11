@@ -1,7 +1,7 @@
 
 
 Удаление элементов вектора (собрать индексы для удаления потом отсортировать индексы по возрастанию и в цикле по ним удаляя элементы из вектора v.remove сдивагать index удаляемого элемента)
-<pre><code class="language-rust">
+```rust
 fn filter(v:&mut [32]){
     let mut indexes:Vec<usize>=vec![];
     for (pos,value) in v.iter().enumerate(){
@@ -16,11 +16,12 @@ fn filter(v:&mut [32]){
       correct_pos+=1;
    }
 }
-</code></pre>
+fn main(){}
+```
 
 ---
 
-<pre><code class="language-rust">
+```rust
 fn main(){
     let mut v = vec![1, 2, 3];
 
@@ -30,4 +31,4 @@ fn main(){
       assert_eq!(v, [1, 3]);
     }
 }
-</code></pre>
+```

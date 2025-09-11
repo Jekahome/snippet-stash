@@ -3,11 +3,12 @@
 
 ```
 cargo install cargo-expand
+
 ```
 --- 
 
 **File src/lib.rs**:
-<pre><code class="language-rust">
+```
 pub mod example{
         use frame_support::parameter_types;
         parameter_types! {
@@ -15,7 +16,7 @@ pub mod example{
    }
 }
 fn foo(){}
-</code></pre>
+```
 
 
 Результат:
@@ -23,7 +24,7 @@ fn foo(){}
 $ cargo  expand --lib example
 ```
 
-<pre><code class="language-rust">
+```
 pub mod example {
     use frame_support::parameter_types;
     pub struct MockBlockHashCount;
@@ -39,25 +40,25 @@ pub mod example {
         }
     }
 }
-</code></pre>
+```
 
 ---- 
 
 **File src/main.rs**
-<pre><code class="language-rust">
+```
 #[derive(Debug)]
 struct S;
 fn main() {
     println!("{:?}", S);
 }
-</code></pre>
+```
 
 Результат:
 ```
 $ cargo expand
 ```
  
-<pre><code class="language-rust">
+```
 #![feature(prelude_import)]
 #[prelude_import]
 use std::prelude::v1::*;
@@ -86,4 +87,4 @@ fn main() {
         ));
     };
 }
-</code></pre>
+```

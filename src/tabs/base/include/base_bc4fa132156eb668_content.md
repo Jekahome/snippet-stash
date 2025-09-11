@@ -1,7 +1,6 @@
 
 
-
-<pre><code class="language-rust">
+```rust
 // пропущенный
 fn print(s: &str){unimplemented!()} ✅ 
 
@@ -43,4 +42,6 @@ fn compare(&self, s: &str) -> &str{unimplemented!()} ✅
 
 // расширенный
 fn compare2<'a, 'b>(&'a self, &'b str) -> &'a str{unimplemented!()} ✅ 
-</code></pre>
+fn main(){}
+```
+

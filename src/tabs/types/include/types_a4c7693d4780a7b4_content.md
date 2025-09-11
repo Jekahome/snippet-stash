@@ -5,7 +5,7 @@
 При коллизии inherent метода и трейта, побеждает метод
 
 При коллизии двух трейтов — ошибка компиляции
-<pre><code class="language-rust">
+```
 struct S { ... }
 trait T {
   fn foo(&self);
@@ -19,4 +19,4 @@ fn bar(s: &S) {
     T::foo(s);
     <S as T>::foo(s);
 }
-</code></pre>
+```

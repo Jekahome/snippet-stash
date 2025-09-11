@@ -7,18 +7,19 @@
 Ограничение `T:'static` включает все, `&'static T` однако он также включает в себя все принадлежащие типы, такие как `String`, Vec и т. д
 
 Можно генерировать случайные динамически распределяемые данные во время выполнения и возвращать ссылки `'static` на них за счет утечки памяти, например
-<pre><code class="language-rust">
-
+```rust
 use rand;
 // generate random 'static str refs at run-time
 fn rand_str_generator() -> &'static str {
     let rand_string = rand::random::<u64>().to_string();
     Box::leak(rand_string.into_boxed_str())
 }
-</code></pre>
+fn main(){}
+```
 
 --- 
-<pre><code class="language-rust">
+
+```rust
 use rand;
 
 fn drop_static<T: 'static>(t: T) {
@@ -38,4 +39,4 @@ fn main() {
         drop_static(string); // ✅ все строки сбрасываются
     }
 }
-</code></pre>
+```

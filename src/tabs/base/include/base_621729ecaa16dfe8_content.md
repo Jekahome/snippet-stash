@@ -1,7 +1,6 @@
 
 
-
-<pre><code class="language-rust">
+```rust
 use std::ops::{Add,Sub,Mul};
 
 #[derive(Debug)]
@@ -29,4 +28,5 @@ impl  Mul  for Point {
         Point { x: self.x * other.x, y: self.y * other.y }
     }
 }
-</code></pre>
+fn main(){}
+```

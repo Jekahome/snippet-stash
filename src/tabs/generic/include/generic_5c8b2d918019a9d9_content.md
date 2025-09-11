@@ -1,16 +1,15 @@
 
 
 трейт-объекты:
-<pre><code class="language-rust">
+```rust
 fn main(){
-
 //Объект типажа создается посредством Type coercions принуждения (или явным образом посредством приведения типов  через `as` )
 //Стирание типа - как только мы создадим объект типажа, мы не сможем просто привести его обратно к исходному типу.
-`
-let trait_obj: &dyn Display = &5u8;
-println!("I can display: {}", trait_obj);
-`
+ 
+   let trait_obj: &dyn Display = &5u8;
+   println!("I can display: {}", trait_obj);
+ 
 //сам объект не обязательно должен находиться в куче:
-`&10 as &dyn Debug`
+    `&10 as &dyn Debug`
 }
-</code></pre>
+```

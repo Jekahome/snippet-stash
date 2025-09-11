@@ -9,22 +9,25 @@
 * **длина - len**
 * **емкость - capacity**
 
-<pre><code class="language-rust">
+```rust
 use std::mem;
-unsafe {
-    let s = String::from("hello");
-    let mut s = mem::ManuallyDrop::new(s);// Prevent automatically dropping the String's data
-    let ptr = s.as_mut_ptr();
-    let len = s.len();
-    let capacity = s.capacity();
-    let s = String::from_raw_parts(ptr, len, capacity);
-    assert_eq!(String::from("hello"), s);
+fn main(){
+  unsafe {
+     let s = String::from("hello");
+     let mut s = mem::ManuallyDrop::new(s);// Prevent automatically dropping the String's data
+     let ptr = s.as_mut_ptr();
+     let len = s.len();
+     let capacity = s.capacity();
+     let s = String::from_raw_parts(ptr, len, capacity);
+     assert_eq!(String::from("hello"), s);
+  }
 }
-</code></pre>
+```
 
 ---
 
-<pre><code class="language-rust">
+```rust
+fn main(){
    //String
    let mut s:String = "Hello".to_string();
    let mut s = std::mem::ManuallyDrop::new(s);// Так как реализация Drop уже есть, то нам нужно запретить автоматическое удаление данных
@@ -51,4 +54,6 @@ unsafe {
    // или так
    let s = unsafe { String::from_raw_parts(ptr, len, capacity) } ;
    assert_eq!(String::from("hello"), s);
-</code></pre>
+}
+```
+

@@ -1,7 +1,7 @@
 
 
 
-<pre><code class="language-rust">
+```
 // Они позволяют определять типы обобщенных типов, времени жизни или константы для связанных типов.
 
 struct WindowsMut<'t, T> {
@@ -18,11 +18,11 @@ impl<'t, T> LendingIterator for WindowsMut<'t, T> {
         Some(retval)
     }
 }
-</code></pre>
+```
 
 ---
 
-<pre><code class="language-rust">
+```
 trait PointerFamily {
     type Pointer<T>: Deref<Target = T>; // <----- GAT
 
@@ -44,4 +44,4 @@ impl PointerFamily for RcFamily {
 struct MyStruct<P: PointerFamily> {
     pointer: P::Pointer<String>,
 }
-</code></pre>
+```

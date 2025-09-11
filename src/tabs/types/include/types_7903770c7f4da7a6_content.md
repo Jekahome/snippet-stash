@@ -1,7 +1,7 @@
 
 
 
-<pre><code class="language-rust">
+```rust
 trait A {
   fn a(&self);
 }
@@ -16,11 +16,12 @@ impl A for Spam {
     self.b(); // вызываем метод B!
   }
 }
-</code></pre>
+fn main(){}
+```
 
 ---
 
-<pre><code class="language-rust">
+```
  trait Fn<Args>: FnMut<Args> ....
 // тут Fn - это Subtrait, а FnMut - Supertrait
-</code></pre>
+```

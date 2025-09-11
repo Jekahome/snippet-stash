@@ -1,7 +1,7 @@
 
 
 
-<pre><code class="language-rust">
+```rust
 pub trait A {}
 pub trait HasA {
     type A: A;
@@ -14,4 +14,5 @@ pub trait RichHasA: HasA {
     fn gimme_a() -> <Self as RichHasA>::A;
     // ... more things go here ...
 }
-</code></pre>
+fn main(){}
+```

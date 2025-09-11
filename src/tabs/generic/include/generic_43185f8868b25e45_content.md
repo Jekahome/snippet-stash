@@ -1,7 +1,6 @@
 
 
-
-<pre><code class="language-rust">
+```rust
 fn double<const N: i32>() {
     println!("doubled: {}", N * 2);
 }
@@ -16,12 +15,13 @@ fn example() {
     double::<SOME_CONST>();
     double::<{ SOME_CONST + 5 }>();
 }
-</code></pre>
+fn main(){}
+```
 
 --- 
 
 Решение конфликта имен:
-<pre><code class="language-rust">
+```rust
 type N = u32; // Псевдоним типа
 struct Foo<const N: usize>;
 
@@ -30,4 +30,6 @@ fn foo<const N: usize>() -> Foo<N> { todo!() } // ❌ ERROR
 
 // Можно исправить, заключив его в фигурные скобки, чтобы он интерпретировался как константный параметр `N`:
 fn bar<const N: usize>() -> Foo<{ N }> { todo!() } // ✅ OK
-</code></pre>
+
+fn main(){}
+```

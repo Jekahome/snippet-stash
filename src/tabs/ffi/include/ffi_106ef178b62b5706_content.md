@@ -1,7 +1,7 @@
 
 
 File minim.cpp:
-<pre><code class="language-c">
+```
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -25,7 +25,7 @@ extern "C"
     fwrite( (char*)content, sizeof(uint8_t),count_buff ,fp);
     fclose(fp);   
 }
-</code></pre>
+```
 
 File Cargo.toml:
 

@@ -1,6 +1,6 @@
 
 
-<pre><code class="language-rust">
+```
 pub struct List<T> {
     head: Option<Box<Node<T>>>
 }
@@ -8,7 +8,7 @@ struct Node<T> {
     elem: T,
     next: Option<Box<Node<T>>>,
 }
-</code></pre>
+```
 
 
 `list -> A -> B -> C`
@@ -16,7 +16,7 @@ struct Node<T> {
 Когда list начнет выполнять Drop, он попытается drop A, который попытается drop B, который попытается drop C.  
 Это рекурсивный код, а рекурсивный код может взорвать стек!
 Нам придется вручную написать итеративный сброс для List подъема узлов из их коробок.
-<pre><code class="language-rust">
+```
 impl Drop for List {
     fn drop(&mut self) {
         let mut cur_link = mem::replace(&mut self.head, Link::Empty);
@@ -29,10 +29,10 @@ impl Drop for List {
         }
     }
 }
-</code></pre>
+```
 
 или
-<pre><code class="language-rust">
+```
 impl<T> Drop for List<T> {
     fn drop(&mut self) {
         let mut cur_link = self.head.take();
@@ -41,7 +41,7 @@ impl<T> Drop for List<T> {
         }
     }
 }
-</code></pre>
+```
 
 Наша реализация drop на самом деле очень похожа на `while let Some(_) = self.pop() { }`, которая, безусловно, проще.
 Pop возвращает `Option<i32>`, в то время как наша реализация манипулирует только `Links ( Box<Node>)`. Таким образом, наша реализация перемещает только указатели на узлы, в то время как реализация на основе всплывающих окон перемещает значения, которые мы храним в узлах. Это может быть очень дорого, если мы обобщим наш список и кто-то будет использовать его для хранения больших экземпляров 

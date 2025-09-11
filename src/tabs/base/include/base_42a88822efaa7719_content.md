@@ -1,7 +1,6 @@
 
 
-
-<pre><code class="language-rust">
+```rust
 // три значения времени жизни, объявленные в этом примере, не связаны.
 struct Context<'a>(&'a str);
 
@@ -64,4 +63,5 @@ struct Parser<'c, 's: 'c> {
     context: &'c Context<'s>,
 }
 // Теперь ссылка Context в Parser и ссылки на строки среза в Context имеют разные жизни; мы гарантировали, что время жизни среза строки 's больше, чем 'c ссылка на Context.
-</code></pre>
+fn main(){}
+```

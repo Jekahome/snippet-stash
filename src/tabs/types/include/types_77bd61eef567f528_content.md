@@ -1,7 +1,7 @@
 
 
 
-<pre><code class="language-rust">
+```rust
 trait Base<RHS=u32> {
     fn base(&self, rhs: RHS) -> String;
     fn default(&self,rhs:RHS)  where RHS:std::fmt::Debug{
@@ -27,12 +27,13 @@ impl<'a> Base<&'a str> for A{
         println!("Base for A rhs:&str = {:?}",rhs);
     }
 }  
-</code></pre>
+fn main(){}
+```
 Получается если тип реализован то он заменяет тип типажа по умолчанию даже если сам метод трейта не переопределен в реализации !
 
 ---
  
-<pre><code class="language-rust">
+```rust
 trait Base<RHS=u32> {
     fn base(&self, rhs: RHS) -> String;
     fn default(&self,rhs:RHS)  where RHS:std::fmt::Debug{
@@ -116,4 +117,4 @@ fn main(){
     a.default(String::from("String"));// Base for A rhs:String = "String" // а у String реализации есть метод default ,поэтому отработает переопределенный метод String
     // Получается если тип реализован то он заменяет тип типажа по умолчанию даже если сам метод трейта не переопределен в реализации !
 }
-</code></pre>
+```

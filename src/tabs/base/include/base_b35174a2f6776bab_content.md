@@ -13,7 +13,7 @@
 Поскольку `f32` не реализует `Eq`, компилятор не сможет автоматически сгенерировать реализацию этого трейта для вашей структуры.
 
 Как решить проблему?
-<pre><code class="language-rust">
+```rust
 struct Oddity(f32);
 
 // Реализуем PartialEq, чтобы правильно обрабатывать NaN
@@ -43,22 +43,22 @@ impl Ord for Oddity {
     }
 }
 fn main(){
- let a = Oddity(1.0);
- let b = Oddity(2.0);
- let c = Oddity(f32::NAN);
- let d = Oddity(f32::NAN);
+   let a = Oddity(1.0);
+   let b = Oddity(2.0);
+   let c = Oddity(f32::NAN);
+   let d = Oddity(f32::NAN);
 
  // Сравнение значений
- println!("a == b: {}", a == b); // false
- println!("a < b: {}", a < b);   // true
- println!("c == d: {}", c == d); // true (оба NaN)
+   println!("a == b: {}", a == b); // false
+   println!("a < b: {}", a < b);   // true
+   println!("c == d: {}", c == d); // true (оба NaN)
 
  // Сравнение и сортировка
- let mut vec = vec![b, a, c];
- vec.sort();  // Сортирует элементы
- println!("Отсортированный вектор: {:?}", vec);
+   let mut vec = vec![b, a, c];
+   vec.sort();  // Сортирует элементы
+   println!("Отсортированный вектор: {:?}", vec);
 }
-</code></pre>
+```
 
 Обратите внимание, что при использовании трейта `Ord`, код предполагает, что NaN не будет присутствовать, иначе вызов unwrap приведёт к панике. 
 Поэтому важно быть осторожным при сортировке или других операциях, предполагающих полный порядок.

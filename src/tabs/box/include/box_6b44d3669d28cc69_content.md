@@ -1,7 +1,7 @@
 
 
 
-<pre><code class="language-rust">
+```rust
 use std::pin::Pin;
 use futures::{future, Future};
 
@@ -12,4 +12,5 @@ fn test() -> Pin<Box<dyn Future<Output = Result<bool, ()>>>> {
 async fn async_fn() -> bool {
     test().await.unwrap()
 }
-</code></pre>
+fn main(){}
+```

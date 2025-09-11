@@ -1,30 +1,30 @@
 
 
 Simple usage:
-<pre><code class="language-rust">
+```rust
 fn main() {
     let x:Box<usize>  = Box::new(41);
     let static_ref: &'static mut usize = Box::leak(x);
     *static_ref += 1;
     assert_eq!(*static_ref, 42);
 } 
-</code></pre>
+```
 
 ---
 
 Unsized data:
-<pre><code class="language-rust">
+```rust
 fn main() {
     let x:Box<[i32]> = vec![1, 2, 3].into_boxed_slice();
     let static_ref:&mut [i32] = Box::leak(x);
     static_ref[0] = 4;
     assert_eq!(*static_ref, [4, 2, 3]);
 }
-</code></pre>
+```
 
 ---
 
-<pre><code class="language-rust">
+```rust
 fn main(){
 #[wasm_bindgen(skip)]
 #[derive(Debug)]
@@ -39,11 +39,11 @@ impl Hand {
     }
 }
 }
-</code></pre>
+```
 
 ---
 
-<pre><code class="language-rust">
+```rust
 fn get_static(s: String) -> (&'static str,*mut String){
     let my_speed: Box<String> = Box::new(s);
     let my_speed_ptr: *mut String = Box::into_raw(my_speed);
@@ -65,6 +65,6 @@ fn main(){
          drop(Box::from_raw(my_speed_ptr));
     }
 }
-</code></pre>
+```
 
 

@@ -1,7 +1,7 @@
 
 
 **С помощью декларативного макроса**
-<pre><code class="language-rust">
+```rust
 extern crate step_3_2;
 use step_3_2::btreemap_proc;
 macro_rules! btreemap_decl {
@@ -31,12 +31,12 @@ fn main() {
     dbg!(&map_proc);
     assert_eq!(map_decl, map_proc);
 }
-</code></pre>
+```
 
 ---
 
 **С помощью процедурного макроса**
-<pre><code class="language-rust">
+```rust
 extern crate proc_macro;
 use proc_macro::TokenStream;
 use quote::quote;
@@ -84,7 +84,8 @@ pub fn btreemap_proc(input: TokenStream) -> TokenStream {
     }};
     res.into()
 }
-</code></pre> 
+fn main(){}
+```
 
 
 

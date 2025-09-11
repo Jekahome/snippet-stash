@@ -1,7 +1,7 @@
 
 
 
-<pre><code class="language-rust">
+```rust
 trait CommandHandler<C: Command> {
     type Context: ?Sized;
     type Result;
@@ -19,4 +19,5 @@ impl CommandHandler<CreateUser> for User {
         // via its trait object `&dyn UserRepository`
     }
 }
-</code></pre>
+fn main(){}
+```

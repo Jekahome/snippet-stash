@@ -1,7 +1,6 @@
 
 
-
-<pre><code class="language-rust">
+```rust
 use std::ops::{Index, IndexMut};
 #[derive(Debug)]
 enum Side {
@@ -38,17 +37,17 @@ impl IndexMut<Side> for Balance {
     }
 }
 fn main(){
- let mut balance = Balance {
-    right: Weight::Kilogram(2.5),
-    left: Weight::Pound(1.5),
- };
+   let mut balance = Balance {
+      right: Weight::Kilogram(2.5),
+      left: Weight::Pound(1.5),
+   };
  // В этом случае `balance[Side::Right]` — это сахар для 
  // `*balance.index(Side::Right)`, поскольку мы только читаем
  // `balance[Side::Right]`, а не записываем его.
- assert_eq!(balance[Side::Right], Weight::Kilogram(2.5));
+   assert_eq!(balance[Side::Right], Weight::Kilogram(2.5));
 
  // Однако в данном случае `balance[Side::Left]` — это сахар для 
  // `*balance.index_mut(Side::Left)`, поскольку мы пишем `balance[Side::Left]`.
- balance[Side::Left] = Weight::Kilogram(3.0);
+   balance[Side::Left] = Weight::Kilogram(3.0);
 }
-</code></pre>
+```

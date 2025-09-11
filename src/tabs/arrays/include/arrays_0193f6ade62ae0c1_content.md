@@ -1,7 +1,7 @@
 
 
 
-<pre><code class="language-rust">
+```rust
 fn main(){
     let var:u64 = 144u64;
     let bytes = var.to_be_bytes();
@@ -13,12 +13,11 @@ fn main(){
     }
     assert_eq!(u64::from_be_bytes(array),var );
 }
-</code></pre>
+```
 
 ---
  
-<pre><code class="language-rust">
-fn main(){
+```rust
 use std::convert::AsMut;
 
 fn make_array<A, T>(slice: &[T]) -> A
@@ -33,9 +32,8 @@ fn make_array<A, T>(slice: &[T]) -> A
     a
 }
 fn main(){
- let original = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+    let original = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
     let a: [u8; 4] = make_array(&original[0..4]);
     println!("{:?}", a);// [1, 2, 3, 4]
 }
-}
-</code></pre>
+```

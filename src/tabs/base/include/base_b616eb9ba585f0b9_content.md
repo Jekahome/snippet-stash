@@ -1,7 +1,7 @@
 
 
 
-<pre><code class="language-rust">
+```rust
 use std::str::FromStr;
 use std::num::ParseIntError;
 
@@ -23,7 +23,8 @@ impl FromStr for Point {
         Ok(Point { x: x_fromstr, y: y_fromstr })
     }
 }
-
-let p = Point::from_str("(1,2)");
-assert_eq!(p.unwrap(), Point{ x: 1, y: 2} )
-</code></pre>
+fn main(){
+    let p = Point::from_str("(1,2)");
+    assert_eq!(p.unwrap(), Point{ x: 1, y: 2} );
+}
+```

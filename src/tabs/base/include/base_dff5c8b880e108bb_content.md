@@ -1,10 +1,9 @@
 
 
-
-<pre><code class="language-rust">
+```
 // Этот контейнер - библиотека
 #![crate_type = "lib"]
 
 // Эта библиотека называется "rary"
 #![crate_name = "rary"]
-</code></pre>
+```

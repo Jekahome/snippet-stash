@@ -19,7 +19,7 @@
 ```
  
 Умалчивания Clippy линтов:
-<pre><code class="language-rust">
+```
 fn test(unix_millis:u64)->i64{
   i64::from(unix_millis)
 }
@@ -28,4 +28,4 @@ fn test(unix_millis:u64)->i64{
 fn test(unix_millis:u64)->i64{
   unix_millis as i64
 }
-</code></pre>
+```

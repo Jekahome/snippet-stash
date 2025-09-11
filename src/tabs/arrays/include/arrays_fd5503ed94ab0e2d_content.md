@@ -1,7 +1,7 @@
 
 
 
-<pre><code class="language-rust">
+```rust
 struct Names {
     exclusions: Vec<String>,
     names: HashSet<String>,
@@ -14,11 +14,12 @@ impl Names {
         })
     }
 }
-</code></pre>
+fn main(){}
+```
 
 ---
 
-<pre><code class="language-rust">
+```rust
 impl Names {
     fn apply_exclusions(&mut self) {
         let mut exclusions = mem::take(&mut self.exclusions);
@@ -31,4 +32,5 @@ impl Names {
         self.names.remove(name);
     }
 }
-</code></pre>
+fn main(){}
+```

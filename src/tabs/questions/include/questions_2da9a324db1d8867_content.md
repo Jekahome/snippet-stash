@@ -24,13 +24,13 @@ Rust предотвращает целый **класс ошибок**, кото
 В Rust:
 
 * Невозможно по определению из-за **владения (ownership)** и **заимствований (borrowing)**:
-<pre><code class="language-rust">
+```rust
 fn main(){
   let x = String::from("Hello");
   let y = x;  // x перемещён, теперь нельзя использовать x
   println!("{}", x); // ❌ ошибка компиляции
 }
-</code></pre>
+```
   
 ### 2. Data Race в многопоточности (гонки данных)
 
@@ -45,13 +45,13 @@ fn main(){
 
   * Либо несколько **иммутабельных ссылок**, либо одна **мутабельная**.
   * `Send`/`Sync` трейты проверяют, что тип можно передавать между потоками.
-<pre><code class="language-rust">
+```rust
 fn main(){
     let mut x = 0;
     let r1 = &x;
     let r2 = &mut x; // ❌ ошибка компиляции
 }
-</code></pre>
+```
   
 
 ### 3. Null / NPE (Null Pointer Exception)
@@ -64,12 +64,12 @@ fn main(){
 
 * Нет `null` вообще.
 * Используется `Option<T>`:
-<pre><code class="language-rust">
+```rust
 fn main(){
   let x: Option<i32> = None;
   println!("{}", x.unwrap()); // ❌ компилятор заставит обработать None
 }
-</code></pre>
+```
 
 ### 4. Dangling references
 
@@ -80,12 +80,12 @@ fn main(){
 В Rust:
 
 * Borrow checker **запрещает**:
-<pre><code class="language-rust">
-  fn get_ref() -> &String {
-      let s = String::from("Hi");
-      &s // ❌ ошибка компиляции
-  }
-</code></pre>
+```rust
+fn get_ref() -> &String {
+     let s = String::from("Hi");
+     &s // ❌ ошибка компиляции
+}
+```
  
 
 ### 5. Типовые ошибки и несоответствие контрактов
@@ -107,22 +107,22 @@ fn main(){
 В Rust:
 
 * Итераторы работают с владением:
-<pre><code class="language-rust">
+```rust
 fn main(){
   let mut v = vec![1, 2, 3];
   for i in v.iter() {
       v.push(4); // ❌ ошибка компиляции (mutable + immutable borrow)
   }
 }
-</code></pre>
+```
  
 ### 7. Безопасность FFI
 
 * Rust заставляет **обозначать небезопасные зоны** (`unsafe {}`) при работе с C:
-<pre><code class="language-rust">
+```
   extern "C" { fn some_c_func(); }
   unsafe { some_c_func(); } // явно помечено
-</code></pre>
+```
   
 ### 8. Dangling thread handles
 

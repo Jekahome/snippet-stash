@@ -1,7 +1,6 @@
 
 
-
-<pre><code class="language-rust">
+```rust
 use std::convert::TryFrom;
 
 struct SuperiorThanZero(i32);
@@ -18,8 +17,8 @@ impl TryFrom<i32> for SuperiorThanZero {
     }
 }
 fn main(){
-     if let Ok(superior) = SuperiorThanZero::try_from(44_i32){
+    if let Ok(superior) = SuperiorThanZero::try_from(44_i32){
 
     }
 }
-</code></pre>
+```

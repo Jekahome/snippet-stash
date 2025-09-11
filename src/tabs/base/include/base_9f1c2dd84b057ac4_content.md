@@ -1,8 +1,7 @@
 
 
-
-<pre><code class="language-rust">
- fn search_case_insensitive(s: &str) -> bool {
+```rust
+fn search_case_insensitive(s: &str) -> bool {
     let s: &str = if search_lowercased(s) {
         s
     } else {
@@ -15,11 +14,12 @@
     /*в этом месте удалиться &temp т.е. еще до search_lowercased */
     search_lowercased(&s)
 }
-</code></pre>
+fn main(){}
+```
 
 
 следует преобразовать в:
-<pre><code class="language-rust">
+```rust
 pub fn search_case_insensitive(s: &str) -> bool {
     let lowercased: String;
     let s: &str = if search_lowercased(s) {
@@ -31,7 +31,9 @@ pub fn search_case_insensitive(s: &str) -> bool {
     search_lowercased(&s)
 }
 fn search_lowercased(s: &str) -> bool {
- // ....
- true
+   // ....
+   true
 }
-</code></pre>
+fn main(){}
+```
+

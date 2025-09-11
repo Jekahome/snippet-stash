@@ -1,7 +1,6 @@
 
 
-
-<pre><code class="language-rust">
+```rust
 use std::io::{self, Read};
 use std::num;
 
@@ -26,4 +25,5 @@ fn open_and_parse_file(file_name: &str) -> Result<i32, CliError> {
     let num: i32 = contents.trim().parse()?;
     Ok(num)
 }
-</code></pre>
+fn main(){}
+```

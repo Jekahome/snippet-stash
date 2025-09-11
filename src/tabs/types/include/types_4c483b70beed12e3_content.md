@@ -1,6 +1,6 @@
 
 
-<pre><code class="language-rust">
+```rust
 fn main(){
     let tuple = (1, "привет", 4.5, true);
     let (a, b, c, d) = tuple;
@@ -12,15 +12,15 @@ fn main(){
     let (a, b, c, d) = tuple;
     println!("{:?}, {:?}, {:?}, {:?}", a, b, c, d);
 }
-</code></pre>
+```
 
 ---
 
-<pre><code class="language-rust">
+```
 // Кортеж reverse перевернутый
 fn reverse(m:Matrix)->Matrix{
     let (a,b,c ,d) = (m.0,m.1,m.2,m.3);
     Matrix(d,c,b ,a)
 }
-</code></pre>
+```
 

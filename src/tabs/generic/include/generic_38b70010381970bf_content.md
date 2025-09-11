@@ -1,7 +1,6 @@
 
 
-
-<pre><code class="language-rust">
+```rust
 pub fn interpolation_search(x: usize, arr:&[usize]) -> Option<usize> {
     if arr.len() == 0 {
         return None;
@@ -26,14 +25,16 @@ pub fn interpolation_search(x: usize, arr:&[usize]) -> Option<usize> {
     }
     None
 }
-</code></pre>
+fn main(){}
+```
 
 ---
 
  
 <details>
 <summary>Пример для обобщения</summary>
-<pre><code class="language-rust">
+
+```rust
 use core::fmt::Debug;
 use core::ops::Div;
 use core::ops::Mul;
@@ -83,7 +84,6 @@ fn main() {
         println!("notfound");
     }
 }
-
-</code></pre>
+```
 
 </details>

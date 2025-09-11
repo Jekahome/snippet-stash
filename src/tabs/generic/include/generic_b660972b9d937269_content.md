@@ -1,7 +1,6 @@
 
 
-
-<pre><code class="language-rust">
+```rust
 #![allow(dead_code)]
 mod queue {
     pub const SIZE_ARRAY: usize = 5;
@@ -51,5 +50,8 @@ mod queue {
             buffer.push(4);
             buffer.push(5);
             if let Some(var) = buffer.pop() { assert_eq!(5, var); } else { assert!(false); }
-    }}}
-</code></pre>
+    }
+   }
+}
+fn main(){}
+```

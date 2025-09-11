@@ -1,7 +1,7 @@
 
 
 
-<pre><code class="language-rust">
+```rust
  // Реэкспорт
  // Модификаторы доступа действуют на use.
  // Это можно использовать для реэкспорта
@@ -15,4 +15,5 @@ mod a{
 mod b{
     use super::a::Foo;
 }
-</code></pre>
+fn main(){}
+```

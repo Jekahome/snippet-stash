@@ -3,13 +3,13 @@
 Паники, если начальная точка больше конечной точки или конечная точка больше длины вектора
 <pre><code class="language-rust">
 fn main(){
-let mut v = vec![1, 2, 3];
-let u: Vec<_> = v.drain(1..).collect();
-assert_eq!(v, &[1]);
-assert_eq!(u, &[2, 3]);
+     let mut v = vec![1, 2, 3];
+     let u: Vec<_> = v.drain(1..).collect();
+     assert_eq!(v, &[1]);
+     assert_eq!(u, &[2, 3]);
 
-v.drain(..);
-assert_eq!(v, &[]);
+     v.drain(..);
+     assert_eq!(v, &[]);
 }
 </code></pre>
 

@@ -1,16 +1,16 @@
 
 
 
-<pre><code class="language-rust">
+```
 fn difference<A, B, C>(container: &C) -> i32 where
     C: Contains<A, B> {
     container.last() - container.first()
 }
-</code></pre>
+```
 
 ---
 
-<pre><code class="language-rust">
+```rust
 struct Container(i32, i32);
 
 // A trait which checks if 2 items are stored inside of container.
@@ -55,4 +55,4 @@ fn main() {
 
     println!("The difference is: {}", difference(&container));
 }
-</code></pre>
+```

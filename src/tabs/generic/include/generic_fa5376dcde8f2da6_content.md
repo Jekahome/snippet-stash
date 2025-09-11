@@ -2,20 +2,19 @@
 
 `Newtype` можно использовать, чтобы скрыть детали представления, давая точные обещания клиенту.
 Например, рассмотрим функцию, `my_transform` которая возвращает составной тип итератора.
-<pre><code class="language-rust">
+```rust
 #![allow(unused)]
-fn main() {
-  use std::iter::{Enumerate, Skip};
-   pub fn my_transform<I: Iterator>(input: I) -> Enumerate<Skip<I>> {
+use std::iter::{Enumerate, Skip};
+pub fn my_transform<I: Iterator>(input: I) -> Enumerate<Skip<I>> {
        input.skip(3).enumerate()
-   }
 }
-</code></pre>
+fn main() {}
+```
 
 Мы хотим скрыть этот тип от клиента, чтобы клиент видел возвращаемый тип примерно `Iterator<Item = (usize, T)>`.
 Мы можем сделать это с помощью шаблона `newtype`:
 Клиент не знает, как создается или представляется итератор результата, что означает, что представление может измениться в будущем без нарушения клиентского кода.
-<pre><code class="language-rust">
+```rust
 #![allow(unused)]
 fn main() {
    use std::iter::{Enumerate, Skip};
@@ -39,4 +38,4 @@ fn main() {
         input.skip(3).enumerate()
     }
 }
-</code></pre>
+```

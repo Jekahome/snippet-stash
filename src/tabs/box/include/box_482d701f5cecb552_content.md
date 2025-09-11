@@ -1,7 +1,7 @@
 
 
 
-<pre><code class="language-rust">
+```rust
 use std::collections::HashMap;
 use std::thread;
 use std::time::Duration;
@@ -35,4 +35,5 @@ fn generate_workout(intensity: u32, random_number: u32) {
         thread::sleep(Duration::from_secs(2));
         num
     });
-</code></pre>
+fn main(){}
+```

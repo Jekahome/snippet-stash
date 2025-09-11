@@ -28,6 +28,7 @@ impl<T> Cacher<T> where T: Fn(u32) -> u32
         }
     }
 }
+fn main(){}
 ```
 
 ---- 
@@ -57,5 +58,6 @@ impl <T> CacherStr< Cow< 'static, str>,Cow< 'static, str>,T> where T: Fn(Cow< 's
         }
     }
 }
+fn main(){}
 ```
 

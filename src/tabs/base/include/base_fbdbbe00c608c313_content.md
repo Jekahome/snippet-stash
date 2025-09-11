@@ -1,7 +1,6 @@
 
 
-
-<pre><code class="language-rust">
+```rust
 use std::ops::Index;
 enum Nucleotide {
     A,
@@ -28,10 +27,10 @@ impl Index<Nucleotide> for NucleotideCount {
     }
 }
 fn main(){
- let nucleotide_count = NucleotideCount {a: 14, c: 9, g: 10, t: 12};
- assert_eq!(nucleotide_count[Nucleotide::A], 14);
- assert_eq!(nucleotide_count[Nucleotide::C], 9);
- assert_eq!(nucleotide_count[Nucleotide::G], 10);
- assert_eq!(nucleotide_count[Nucleotide::T], 12);
+   let nucleotide_count = NucleotideCount {a: 14, c: 9, g: 10, t: 12};
+   assert_eq!(nucleotide_count[Nucleotide::A], 14);
+   assert_eq!(nucleotide_count[Nucleotide::C], 9);
+   assert_eq!(nucleotide_count[Nucleotide::G], 10);
+   assert_eq!(nucleotide_count[Nucleotide::T], 12);
 }
-</code></pre>
+```

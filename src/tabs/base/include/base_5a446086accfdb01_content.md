@@ -1,7 +1,6 @@
 
 
-
-<pre><code class="language-rust">
+```rust
 fn typed_example2(){
         #[allow(unused_variables)] // не выдавать предупреждение
          let x = 5;
@@ -26,4 +25,5 @@ fn typed_example2(){
     20 |      let z = 5;
        |          ^ help: consider prefixing with an underscore: `_z`
  */
-</code></pre>
+fn main(){}
+```

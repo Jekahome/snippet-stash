@@ -1,7 +1,7 @@
 
 
 
-<pre><code class="language-rust">
+```
 // ✅ Хорошо  
 #[derive(Clone, Debug, PartialEq)]
 struct Good<T> { /* ... */ }
@@ -9,7 +9,7 @@ struct Good<T> { /* ... */ }
 // ❌ Плохо  
 #[derive(Clone, Debug, PartialEq)]
 struct Bad<T: Clone + Debug + PartialEq> { /* ... */ }
-</code></pre>
+```
 
 **Исключения**
 

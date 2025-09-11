@@ -1,7 +1,6 @@
 
 
-
-<pre><code class="language-rust">
+```
 fn very_trustworthy(shared: &i32) {
     unsafe {
         // Преобразовать разделяемую ссылку в изменяемый указатель.
@@ -10,11 +9,11 @@ fn very_trustworthy(shared: &i32) {
         *mutable = 20;
     }
 }
-</code></pre>
+```
 
 ---
 
-<pre><code class="language-rust">
+```rust
 #[derive(Debug)]
 struct T{
     data:i32
@@ -28,4 +27,4 @@ fn main() {
     }
     assert_eq!(7,t.data);
 }
-</code></pre>
+```

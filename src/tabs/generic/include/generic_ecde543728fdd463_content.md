@@ -1,7 +1,6 @@
 
 
-
-<pre><code class="language-rust">
+```rust
 // Static dispatch.
 mod static_dispatch {
     use super::*;
@@ -39,4 +38,5 @@ mod static_dispatch {
         }
     }
 }
-</code></pre>
+fn main(){}
+```

@@ -1,7 +1,7 @@
 
 
 `Ord` требует, чтобы тип также был `PartialOrd и Eq` (для чего требуется `PartialEq`)
-<pre><code class="language-rust">
+```rust
 use std::cmp::Ordering;
 
 #[derive(Eq)]
@@ -28,4 +28,5 @@ impl PartialEq for Person {
         self.height == other.height
     }
 }
-</code></pre>
+fn main(){}
+```

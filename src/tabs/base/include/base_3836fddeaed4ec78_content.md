@@ -1,7 +1,6 @@
 
 
-
-<pre><code class="language-rust">
+```rust
 #[derive(SmartDefault)]
 enum Foo {
     Bar,
@@ -19,4 +18,5 @@ enum Foo {
     },
     Qux(i32),
 }
-</code></pre>
+fn main(){}
+```

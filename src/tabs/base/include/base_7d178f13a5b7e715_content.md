@@ -8,7 +8,7 @@ test = []  В Cargo не обязательно заносить запуск и
 ```
 ---
 
-<pre><code class="language-rust">
+```rust
 #[cfg(feature = "test")]
 use serde::{Deserialize, Deserializer, Serialize};
 
@@ -29,11 +29,12 @@ impl<'de> Deserialize<'de> for UserEmail {
         })
     }
 }
-</code></pre>
+fn main(){}
+```
 
 ---
 
-Запуск
+Запуск:
 
 ```bash
 cargo test  --features "test"
@@ -64,7 +65,7 @@ filesystem = []
 src/lib.rs
 ```
 
-<pre><code class="language-rust">
+```
 #[test]
 #[cfg_attr(not(feature = "network"), ignore)]
 fn network() {
@@ -76,7 +77,7 @@ fn network() {
 fn filesystem() {
     panic!("Touched the filesystem");
 }
-</code></pre>
+```
 
 Output:
 

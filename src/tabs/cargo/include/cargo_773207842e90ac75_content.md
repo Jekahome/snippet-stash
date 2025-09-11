@@ -17,11 +17,11 @@ baz = { version = "0.1", registry = "custom", package = "foo" }
 ```
 
 В этом примере три ящика теперь доступны в вашем коде Rust:
-<pre><code class="language-rust no_run edition2021">
+```
 extern crate foo; // crates.io
 extern crate bar; // git repository
 extern crate baz; // registry `custom`
-</code></pre>
+```
 
 
 Все три из этих ящиков имеют название пакета foo в своем собственном Cargo.toml, так что мы явно с помощью package ключа , чтобы сообщить Cargo , что мы хотим , чтобы foo пакет , даже если мы называем это что-то еще на месте. 

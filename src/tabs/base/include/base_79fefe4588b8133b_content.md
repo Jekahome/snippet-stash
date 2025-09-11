@@ -1,7 +1,6 @@
 
 
-
-<pre><code class="language-rust">
+```rust
 fn add_with_lifetimes<'a:'b, 'b>(i: &'a i32, j: &'b i32) -> &'b i32 {
      if *i > 0 {
          return i;
@@ -10,16 +9,16 @@ fn add_with_lifetimes<'a:'b, 'b>(i: &'a i32, j: &'b i32) -> &'b i32 {
      }
 }
 fn main() {
- let a = 1;
- let b = 2;
- println!("{}", add_with_lifetimes(&a,&b));
+   let a = 1;
+   let b = 2;
+   println!("{}", add_with_lifetimes(&a,&b));
 }
-</code></pre>
+```
 
 ---
 `<'a: 'b, 'b>` читается как "время жизни `'a` не меньше, чем время жизни `'b`".
 Здесь мы получаем  `&'a i32` и в результате приведения возвращаем `&'b i32`.
-<pre><code class="language-rust">
+```rust
 fn choose_first<'a: 'b, 'b>(first: &'a i32, _: &'b i32) -> &'b i32 {
     first
 }
@@ -41,4 +40,4 @@ fn main() {
 fn multiply<'a>(first: &'a i32, second: &'a i32) -> i32 {
     first * second
 }
-</code></pre>
+```

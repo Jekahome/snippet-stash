@@ -1,7 +1,7 @@
 
 
 
-<pre><code class="language-rust">
+```
 // возвращает несколько Users по их идентификаторам;
 fn getUsersByIDs(&self, vec: Vec<usize>) -> Option<HashMap<usize, User<'u>>> {
     let map: HashMap<usize, User<'u>> = self.users
@@ -22,4 +22,4 @@ fn getIDsUserByNickname(&self, nickname: &str) -> Option<Vec<usize>> {
         .collect::<HashMap<usize, User>>();
     Some(map.keys().cloned().collect::<Vec<usize>>())
 }
-</code></pre>
+```

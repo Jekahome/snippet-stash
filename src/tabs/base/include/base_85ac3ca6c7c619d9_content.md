@@ -1,7 +1,6 @@
 
 
-
-<pre><code class="language-rust">
+```rust
 use safety_guard::safety;
 use derive_more::{Display, FromStr};
 /// Type of [`User`]'s unique number.
@@ -84,4 +83,5 @@ pub enum UserNumParseError {
     )]
     OutOfRange,
 }
-</code></pre>
+fn main(){}
+```

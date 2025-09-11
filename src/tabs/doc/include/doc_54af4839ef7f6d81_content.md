@@ -5,7 +5,7 @@
 Так  `#![deny(missing_docs)]` говорит что модуль должен быть документирован. 
 
 Добавив теги условной компиляции `#![deny(missing_docs)]` в самое начало файла и в случае его не соблюдения т.е. если не напишем документацию уровня модуля  - **компиляции не будет**.
-<pre><code class="language-rust">
+```rust
 #![deny(missing_docs)]
 
 //! # My Awesome Crate
@@ -29,12 +29,13 @@
 pub mod math;
 pub mod net;
 pub mod data;
-</code></pre>
+fn main(){}
+```
 
 
 
 **Документирование на уровне метода**
-<pre><code class="language-rust">
+```rust
 /// Async HTTP client
 ///
 /// Requires the `async` feature:
@@ -56,4 +57,5 @@ pub mod data;
 /// &#96;&#96;&#96;
 #[cfg(feature = "async")]
 pub struct AsyncClient { /* ... */ }
-</code></pre>
+fn main(){}
+```

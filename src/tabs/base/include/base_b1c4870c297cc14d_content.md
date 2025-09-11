@@ -20,8 +20,8 @@
  }
 
 fn main(){
-  let l: List = std::default::Default::default();
-  println!("{:?}",l );// List { values: [] }
-  // если с данными println!("{}",l.values[0].data); // 100
+   let l: List = std::default::Default::default();
+   println!("{:?}",l );// List { values: [] }
+   // если с данными println!("{}",l.values[0].data); // 100
 }
 </code></pre>

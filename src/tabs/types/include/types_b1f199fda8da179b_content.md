@@ -4,7 +4,7 @@
 
 Другое использование новых типов включает использование PhantomData для добавления времени жизни к необработанным указателям или для реализации шаблона Phantom type «фантомных типов».
 
-<pre><code class="language-rust">
+```rust
 use std::ops::Add;
 
 struct Millimeters(f64);
@@ -18,4 +18,5 @@ impl Add<Millimeters> for Millimeters {
     }
 }
 // Likewise: impl Add<Grams> for Grams {}
-</code></pre>
+fn main(){}
+```

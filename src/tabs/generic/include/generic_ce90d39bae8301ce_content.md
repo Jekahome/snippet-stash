@@ -9,13 +9,13 @@
 Таким образом, получение метода `self` может быть вызвано только в том случае, если тип имеет размер. 
 
 Аналогичным образом, метод, принимающий `Self` в качестве параметра, имеет такое же ограничение - вы должны знать его размер статически (время компиляции), чтобы передать его в стек.
-<pre><code class="language-rust">
+```
 trait Foo {
-  fn dont_need_sized(&self);
-  fn need_sized(self) -> Self where Self: Sized;
+   fn dont_need_sized(&self);
+   fn need_sized(self) -> Self where Self: Sized;
 }
 // Foo является объектно-безопасным, но need_sized не может вызывать типаж-объект этого типа.
-</code></pre>
+```
 
 
 

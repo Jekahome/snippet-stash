@@ -1,7 +1,7 @@
 
 
 Все типы ошибок должны реализовывать трейт std::error::Error поэтому мы можем возвращать с помощью динамической диспетчеризации `Box<dyn error::Error>`
-<pre><code class="language-rust">
+```rust
 use std::io::Read;
 fn sum_file(path: &std::path::Path) -> std::result::Result<i32, Box<dyn std::error::Error>> {
     let mut file = std::fs::File::open(path)?; //  std::io::Error -> Box<dyn std::error::Error>
@@ -26,11 +26,11 @@ fn main(){
        }
   }
 }
-</code></pre>
+```
 
 ---
  
-<pre><code class="language-rust">
+```
 use std::error::Error;
 fn foo() -> Result<(), Box<dyn Error>> {
     std::fs::File::open("not-here")?; // io::Error
@@ -38,4 +38,4 @@ fn foo() -> Result<(), Box<dyn Error>> {
     Err("I broke it :<".to_owned())?;  // String
     Err("nop".into())
 }
-</code></pre>
+```

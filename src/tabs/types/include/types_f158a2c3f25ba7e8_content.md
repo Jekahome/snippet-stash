@@ -1,7 +1,7 @@
 
 
 
-<pre><code class="language-rust">
+```rust
 struct Point { x: f32, y: f32 }
 
 enum Shape {
@@ -18,5 +18,6 @@ fn area( sh: Shape ) -> f32 {
                 0.5 * ((x - x3) * (y2 - y3) - (x2 - x3) * (y - y3))
        }
 }  
-</code></pre>
+fn main(){}
+```
 При необходимости можно игнорировать все поля, если в данной ветви сравнения записать`Circle(*)`

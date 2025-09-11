@@ -1,21 +1,21 @@
 
 
 
-<pre><code class="language-rust">
+```
 macro_rules! $name {
     ($matcher) => {$expansion};
     ($matcher) => {$expansion};
     // …
     ($matcher) => {$expansion}
 }
-</code></pre>
+```
 
 Вы можете использовать квадратные скобки ([]), круглые скобки (()) или фигурные скобки ({})
 
 ---
 
 Макросы обладают гигиеничностью т.е. не захватывают локальные переменные (глобальные могут), но мы можем передать в макрос ресурс (не перемещая данные)
-<pre><code class="language-rust">
+```rust
 macro_rules! inc_item {
     { $x:ident } => { $x.contents += 1; }
 }
@@ -34,4 +34,4 @@ fn main() {
     
     println!("x is {x:?}");// 43
 }
-</code></pre>
+```

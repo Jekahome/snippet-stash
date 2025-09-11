@@ -8,7 +8,7 @@
 `src = { data: *mut [i32], length: usize, capacity: usize }`
 
 Box для n элементов:
-<pre><code class="language-rust no_run edition2021">
+```
 pub struct Vec<T> {
     /// Указатель на данные в куче.
     ptr: *const T,
@@ -19,7 +19,7 @@ pub struct Vec<T> {
     /// Увеличивается в 2 раза при заполнении длины.
     cap: usize,
 }
-</code></pre>
+```
 
 ---
 
@@ -29,7 +29,7 @@ pub struct Vec<T> {
 Вектор может увеличиваться, пока его длина меньше его ёмкости. 
 При необходимости превысить заданное значение объёма, вектору повторно выделяется память большего объёма.
 
-<pre><code class="language-rust">
+```rust
 fn main(){
     use std::mem::size_of;
     assert_eq!(size_of::<Vec<i32>>(), size_of::<usize>() * 3);
@@ -39,11 +39,11 @@ fn main(){
     assert_eq!(xs.len(), 4);
     assert_eq!(xs[2], 3);
 }
-</code></pre>
+```
 
 ---
 
-<pre><code class="language-rust">
+```rust
 fn main(){
     #![feature(vec_into_raw_parts)]
 
@@ -62,11 +62,12 @@ fn main(){
     Vec::from_raw_parts(ptr, len, cap)
     };
     assert_eq!(v_rebuilt, [-1, 0, 1]); 
-</code></pre>
+}
+```
 
 ---
 
-<pre><code class="language-rust">
+```rust
 fn main(){
     let v: Vec<i32> = vec![-1, 0, 1];
     let mut m = std::mem::ManuallyDrop::new(v); 
@@ -83,11 +84,11 @@ fn main(){
         ManuallyDrop::drop(&mut m);// ps. но не оба сразу способа `free(): double free detected in tcache 2`
     }
 }
-</code></pre>
+```
 
 ---
 
-<pre><code class="language-rust">
+```rust
 fn main(){
     let mut my_vec: Vec<i32> = vec![-1, 2, 3];
     let my_vec_ptr:*mut i32 = my_vec.as_mut_ptr();// получить необработанный указатель указателя на данные
@@ -108,7 +109,7 @@ fn main(){
     println!("address = {:X}", my_vec_addr);// 556BE0B489D0
 
 }
-</code></pre>
+```
 
 
 

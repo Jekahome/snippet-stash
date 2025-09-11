@@ -42,6 +42,7 @@ impl<'a, 'b> FnOnce() for Closure<'a, 'b> {
         zs.push(10);// при использовании изменяемых методов zs: &'b mut Vec<i32>
     }
 }
+fn main(){}
 ```
 
 ---

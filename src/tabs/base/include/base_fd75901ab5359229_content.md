@@ -1,9 +1,7 @@
 
 
-
-<pre><code class="language-rust">
 Если ваш тип Ord, вы можете реализовать partial_cmp с помощью cmp:
-
+```rust
 use std::cmp::Ordering;
 
 #[derive(Eq)]
@@ -43,4 +41,5 @@ impl PartialOrd for Person {
         self.height.partial_cmp(&other.height)
     }
 }
-</code></pre>
+fn main(){}
+```

@@ -1,6 +1,6 @@
 
 
-<pre><code class="language-rust">
+```rust
 pub struct List<T> {
     head: Option<Box<Node<T>>>
 }
@@ -63,4 +63,5 @@ mod test {
         }
     }
 }
-</code></pre>
+fn main(){}
+```

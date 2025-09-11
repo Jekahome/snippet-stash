@@ -1,7 +1,7 @@
 
 
 
-<pre><code class="language-rust">
+```rust
 pub struct Wrapper(pub i32);
 
 impl Drop for Wrapper {
@@ -15,4 +15,5 @@ pub fn the_answer() -> &'static Wrapper {
     // lifetime for a reference to a constant does not apply.
     &ANSWER
 }
-</code></pre>
+fn main(){}
+```

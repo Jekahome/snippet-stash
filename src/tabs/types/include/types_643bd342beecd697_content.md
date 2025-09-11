@@ -16,6 +16,6 @@ fn main() {
 <pre><code class="language-python">
 # main.py  
 t = (92,)
-print(id(t), end="<br>")     # 12818144
+print(id(t), end="\<br\>")     # 12818144
 print(id(t[0])) # 2879856
 </code></pre>

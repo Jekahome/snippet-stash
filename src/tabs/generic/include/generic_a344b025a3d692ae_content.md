@@ -4,21 +4,23 @@
 
 **монорепликация** (monomorphization): компилятор создаёт **отдельную версию функции `max` для каждого типа**, который мы используем.
 
-<pre><code class="language-rust">
+```rust
 fn max<T: PartialOrd>(a: T, b: T) -> T { 
     if a > b { a } else { b } 
 } 
-
-let m1 = max(5, 10); // Работает с i32 
-let m2 = max(3.14, 2.71); // Работает с f64
-</code></pre>
+fn main(){
+    let m1 = max(5, 10); // Работает с i32 
+    let m2 = max(3.14, 2.71); // Работает с f64
+}
+```
 Поэтому для `i32` и `f64` будут разные реализации. 
 
 ---
  
 <details>
 <summary>пример мономорфизации, параметрический полиморфизм (Generics)</summary>
-<pre><code class="language-rust">
+
+```rust
 trait Value {
     fn as_int(&self) -> Option<isize> { None }
     fn as_text(&self) -> Option<&str> { None }
@@ -41,14 +43,16 @@ fn main() {
     print_value(110);
     print_value(String::from("hello"));
 }
-</code></pre>
+```
+
 </details>
 
 ---
 
 <details>
 <summary>пример мономорфизации, полиморфизм подтипов (Subtyping / Inheritance)</summary>
-<pre><code class="language-rust">
+
+```rust
 // Этот код создаёт monomorphization, компилятор создаёт отдельную версию функции animal_sound для каждого типа, с которым мы используем функцию, что раздувает бинарный файл.
 trait Animal {
     fn make_sound(&self);
@@ -72,7 +76,8 @@ let dog = Dog;
 let cat = Cat;
 animal_sound(&dog);  // Woof!
 animal_sound(&cat);  // Meow!
-</code></pre>
+```
+
 </details>
 
 ---
@@ -81,10 +86,10 @@ animal_sound(&cat);  // Meow!
 
 * `fn max<T: PartialOrd>` не существует как одна универсальная функция в рантайме.
 * Rust делает примерно так:
-<pre><code class="language-rust">
+```
   fn max_i32(a: i32, b: i32) -> i32 { if a > b { a } else { b } }
   fn max_f64(a: f64, b: f64) -> f64 { if a > b { a } else { b } }
-</code></pre>
+```
  
 * При большом количестве типов → больше кода → **code bloat**.
 
@@ -107,7 +112,7 @@ animal_sound(&cat);  // Meow!
 
 1. Использовать динамическую диспетчеризацию (trait objects)
 
-   ```rust
+   ```
    fn max_dyn(a: &dyn PartialOrd, b: &dyn PartialOrd) -> &dyn PartialOrd { ... }
    ```
 
@@ -129,10 +134,10 @@ animal_sound(&cat);  // Meow!
 3. Generic where нужно, перегрузка где можно
    Иногда проще написать две функции:
 
-<pre><code class="language-rust">
+```
    fn max_i32(a: i32, b: i32) -> i32 { ... }
    fn max_f64(a: f64, b: f64) -> f64 { ... }
-</code></pre>
+```
  
    Это как раз аналог **Ad-hoc полиморфизма** в C++.
 

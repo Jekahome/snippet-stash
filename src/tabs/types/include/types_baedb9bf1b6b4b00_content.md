@@ -20,55 +20,57 @@
 Порядок операций имеет значение → `(a + b) + c` может дать другой результат, чем `a + (b + c)`
 
 **1. Потеря точности**
-<pre><code class="language-rust">
+```rust
 fn main() {
     let x = 0.1_f64 + 0.2_f64;
     println!("{}", x); // ❌ 0.30000000000000004
 // Потому что 0.1 и 0.2 не представимы точно в двоичной системе.
 // В битах 0.1 выглядит как бесконечная дробь (как 1/3 в десятичной системе).
 }
-</code></pre>
+```
 
 **2. Сравнение через == опасно**
-<pre><code class="language-rust">
+```rust
 fn main() {
     let a = 0.1_f64 + 0.2_f64;
     let b = 0.3_f64;
     println!("{}", a == b); // ❌ false
 }
-</code></pre>
+```
 
-<pre><code class="language-rust">
-let eps = 1e-10;
-if (a - b).abs() < eps {
-    println!("почти равно"); // ✅
+```rust
+fn main(){
+    let eps = 1e-10;
+    if (a - b).abs() < eps {
+        println!("почти равно"); // ✅
+    }
 }
-</code></pre>
+```
 
 **3. Ассоциативность и накопление ошибки**
-<pre><code class="language-rust">
+```rust
 fn main(){
     let x = 1e16_f64;
     println!("{}", x + 1.0 == x); // ❌ true (!)
     // Потому что 1.0 теряется в масштабе огромного числа.
 }
-</code></pre>
+```
 
 **4. NaN ловушки**
 NaN никогда не равен ничему, даже самому себе:
-<pre><code class="language-rust">
+```rust
 fn main(){
     let x = f64::NAN;
     println!("{}", x == x); // ❌ false
     // Для проверки: x.is_nan()
     assert!(x.is_nan());
 }
-</code></pre>
+```
 
 **5. Переполнения и underflow**
 * Слишком большое число → inf.
 * Слишком маленькое → 0.0
-<pre><code class="language-rust">
+```rust
 fn main(){
 // Слишком большое число → inf
     let big = 1e308_f64; // очень большое число, близкое к пределу f64
@@ -84,13 +86,13 @@ fn main(){
     println!("smaller: {}", smaller); // ❌ выведет 0.0
 // f64::MIN_POSITIVE ≈ 2.2250738585072014e-308. После деления получаем значение меньше этого → представляется как 0.0.
 }
-</code></pre>
+```
 
 ---
 
 С плавающей точкой `f32` (4 байта), `f64` (8 байт)
  
-<pre><code class="language-rust">
+```rust
 fn main(){
     let d:f64 = 111.55555555555559; // двойная точность
     let f:f32 = 111.55556; // одинарная точность
@@ -100,11 +102,11 @@ fn main(){
     let d = 111.55;// default f64
     assert_eq!(8, std::mem::size_of_val(&d)); // 8 bytes
 }
-</code></pre>
+```
 
 ---
 
-<pre><code class="language-rust">
+```rust
 fn main(){
     let y = 0.0f32; // литерал f32
     let x = 0.0; // тип выводится, f64 по умолчанию
@@ -116,5 +118,5 @@ fn main(){
     // есть куча методов
     8.5f32.ceil().sin().round().sqrt()
 }
-</code></pre>
+```
 

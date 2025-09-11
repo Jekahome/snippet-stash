@@ -1,7 +1,7 @@
 
 
 
-<pre><code class="language-rust">
+```
 use std::thread;
 
 #[no_mangle]
@@ -20,7 +20,7 @@ pub extern fn process() {
                  h.join().map_err(|_| "Не удалось соединиться с потоком!").unwrap());
     }
 }
-</code></pre>
+```
 
 Где :
 * `#[no_mangle]` - не дает Rust компилятору изменить имя функции

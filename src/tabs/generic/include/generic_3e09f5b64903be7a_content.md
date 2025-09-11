@@ -1,7 +1,7 @@
 
 
 У этого решения есть важное ограничение: оно работает только в том случае, если вам нужно учитывать фиксированную группу типов. 
-<pre><code class="language-rust">
+```rust
 enum Value {
     Int(isize),
     Text(String)
@@ -16,4 +16,5 @@ fn print_value(val: Value) {
             println!("A string as bytes: {:?}", string.as_bytes())
     }
 }
-</code></pre>
+fn main(){}
+```

@@ -1,7 +1,6 @@
 
 
-
-<pre><code class="language-rust">
+```rust
 fn mut_log<T: Any + Debug>(value: &mut T,value2: &mut Any) {
     
     let value_any = value as &mut Any;// достаем тип
@@ -17,4 +16,5 @@ fn mut_log<T: Any + Debug>(value: &mut T,value2: &mut Any) {
          }
     }
 }
-</code></pre>
+fn main(){}
+```

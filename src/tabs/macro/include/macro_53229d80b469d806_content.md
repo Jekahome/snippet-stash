@@ -1,7 +1,6 @@
 
 
-
-<pre><code class="language-rust">
+```rust
 impl Die {
     pub fn new(faces: u8) -> Die {
         Die { faces }
@@ -17,7 +16,8 @@ impl Die {
     }
     // Many more functions for other dice
 }
-</code></pre>
+fn main(){}
+```
 
 **Используем макрос для уменьшения дублирования кода**
 
@@ -28,7 +28,7 @@ Cargo.toml:
 paste = "1.0.5"
 ```
 
-<pre><code class="language-rust">
+```rust
 macro_rules! gen_dice_fn_for {
     ( $( $x:expr ),* ) => {
         paste! {                            
@@ -48,4 +48,5 @@ impl Die {
     }
     gen_dice_fn_for![2, 4, 6, 8, 10, 12, 20, 30, 100];   
 }
-</code></pre>
+fn main(){}
+```

@@ -1,7 +1,7 @@
 
 
 
-<pre><code class="language-rust">
+```
 // При использовании трейт обьектов 
 // Преобразование к родительскому трейту 
 
@@ -23,12 +23,12 @@ impl<T:'static + BalanceReader> AsBalanceReader for T {
         self
     }
 }
-</code></pre>
+```
 
 ---
 
 Более общий вид
-<pre><code class="language-rust">
+```
 trait CastToSuper<Super; ?Sized> {
     fn as_super(&self) -> &Super;
     fn as_super_mut(&mut self) -> &mut Super;
@@ -50,4 +50,4 @@ impl<'a,T: 'a + BalanceReader> CastToSuper<dyn BalanceReader + 'a> for T {
         self
     }
 }
-</code></pre>
+```

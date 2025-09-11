@@ -1,7 +1,7 @@
 
 
 Мы не можем использовать данные которые хранятся по мутабельной ссылке в slice
-<pre><code class="language-rust">
+```rust
 fn bar() {
     let mut data = vec!['a', 'b', 'c'];
     let slice = &mut data[..]; // <-+ 'lifetime
@@ -10,12 +10,14 @@ fn bar() {
     data.push('e'); // ERROR!  //   |
     data.push('f'); // ERROR!  //   |
 } // <------------------------------+
-</code></pre>
+fn main(){}
+```
 
 
 ---
+
 Явно ограничим время жизни мутабельной ссылки slice
-<pre><code class="language-rust">
+```rust
 fn bar() {
     let mut data = vec!['a', 'b', 'c'];
     {
@@ -26,6 +28,7 @@ fn bar() {
     data.push('e'); // OK
     data.push('f'); // OK
 }
-</code></pre>
+fn main(){}
+```
 
 

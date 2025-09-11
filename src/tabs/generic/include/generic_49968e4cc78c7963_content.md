@@ -1,7 +1,6 @@
 
 
-
-<pre><code class="language-rust">
+```rust
 trait AGATOR{  
     fn new() -> Self;
 }
@@ -19,11 +18,12 @@ impl AGATOR for AG<u16>{
         Self{value:vec![]}
     }
 }
-</code></pre>
+fn main(){}
+```
 
 ---
 
-<pre><code class="language-rust">
+```rust
 use std::marker::PhantomData;
 
 trait Creator{ // только для реализации метода new для MyStruct с FROM=u32 по дефолту
@@ -63,4 +63,4 @@ fn main() {
     let s:MyStruct<usize> = MyStruct::<usize>::new(&[0,0,0,4,0,0,0,4]);
     s.show();
 }
-</code></pre>
+```

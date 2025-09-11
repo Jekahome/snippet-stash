@@ -1,7 +1,7 @@
 
 
 
-<pre><code class="language-rust">
+```rust
 // Этот простой макрос называется `say_hello`.
  macro_rules! say_hello {
     // `()` указывает, что макрос не принимает аргументов.
@@ -10,6 +10,8 @@
         println!("Hello!");
     )
 }
+fn main(){
 // Этот вызов будет раскрыт в код `println!("Hello");`
-say_hello!()
-</code></pre>
+    say_hello!();
+}
+```

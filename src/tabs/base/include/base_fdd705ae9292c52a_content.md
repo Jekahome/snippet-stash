@@ -1,7 +1,6 @@
 
 
-
-<pre><code class="language-rust">
+```rust
 struct Ref<'a, T> {
     r: &'a T
 }
@@ -34,4 +33,5 @@ fn unwrap_ref<'a>(r: Ref<'a, i32>) -> &'a i32 {
     let r: &Ref<'a, i32> = &r;
     r.get() // вж временной переменной
 }
-</code></pre>
+fn main(){}
+```

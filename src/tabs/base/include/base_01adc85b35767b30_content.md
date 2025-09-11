@@ -1,7 +1,7 @@
 
 
 Сегодня этот код компилироваться не будет. Причина в том, что map заимствуется как часть вызова `get_mut`, и это заимствование должно охватывать не только вызов `get_mut`, но и `Some` ветвь совпадения. Самым внутренним выражением, содержащим оба этих выражения, является само совпадение (как показано выше), и, следовательно, считается, что заимствование продолжается до конца совпадения. К сожалению, совпадение включает не только `Some` ветку, но и `None` ветку, и, следовательно, когда мы переходим к вставке на карту в `None` ветке, мы получаем сообщение об ошибке, что map все еще заимствовано.
-<pre><code class="language-rust">
+```rust
 fn process_or_default<K,V:Default>(map: &mut HashMap<K,V>,key: K) {
     match map.get_mut(&key) { // ------------+ 'lifetime
         Some(value) => process(value),    // |
@@ -11,11 +11,12 @@ fn process_or_default<K,V:Default>(map: &mut HashMap<K,V>,key: K) {
         }                                 // |
     } // <-----------------------------------+
 }
-</code></pre>
+fn main(){}
+```
 
 
 **Решение** это выйти за пределы первого мутабельного заимствования  
-<pre><code class="language-rust">
+```rust
 fn process_or_default1<K,V:Default>(map: &mut HashMap<K,V>, key: K) {
     match map.get_mut(&key) { // -------------+ 'lifetime
         Some(value) => {                   // |
@@ -27,6 +28,7 @@ fn process_or_default1<K,V:Default>(map: &mut HashMap<K,V>, key: K) {
     } // <------------------------------------+
     map.insert(key, V::default());
 }
-</code></pre>
+fn main(){}
+```
 
 

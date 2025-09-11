@@ -1,7 +1,7 @@
 
 
 ✅
-<pre><code class="language-rust">
+```
 //! Some module.
 
 mod private_stuff;
@@ -28,4 +28,4 @@ pub use super::props::Error;
 pub use self::public_stuff::*;
 
 const LIMIT: u8 = 100;
-</code></pre>
+```

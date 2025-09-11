@@ -1,7 +1,6 @@
 
 
-
-<pre><code class="language-rust">
+```rust
 use std::hash::{Hash, Hasher};
 #[derive(Debug,Eq, PartialEq)] // #[derive(Hash)]
 struct Person {
@@ -15,25 +14,23 @@ impl Hash for Person {
         self.phone.hash(state);
     }
 }
-
-
 fn main(){
- let person:Person = Person{id:1u32,name:String::from(""),phone:2u64};
- let mut hasher = std::collections::hash_map::DefaultHasher::new();
- person.hash(&mut hasher);
- println!("Result: {:x}",hasher.finish() );// 7209bbd64c42b281
+    let person:Person = Person{id:1u32,name:String::from(""),phone:2u64};
+    let mut hasher = std::collections::hash_map::DefaultHasher::new();
+    person.hash(&mut hasher);
+    println!("Result: {:x}",hasher.finish() );// 7209bbd64c42b281
 }
-</code></pre>
+```
 
 ---
 
-<pre><code class="language-rust">
+```rust
 use std::collections::HashMap;
 let mut hash_map = HashMap::new();
 fn main(){
- hash_map.insert(
-    Person{id:1u32,name:String::from(""),phone:2u64},
-    "My favorite.".to_string(),
- );
+    hash_map.insert(
+       Person{id:1u32,name:String::from(""),phone:2u64},
+       "My favorite.".to_string(),
+    );
 }
-</code></pre>
+```

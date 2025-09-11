@@ -2,7 +2,7 @@
 
 Функция into определяется довольно просто: она забирает self (нечто, реализующее Into) и возвращает значение типа T. 
 Вот пример того, как это можно использовать:
-<pre><code class="language-rust">
+```rust
 struct Token {
     raw: String,
 }
@@ -17,10 +17,10 @@ impl Token {
     }
 }
 fn main(){
- // &str
- let token = Token::new("abc123");
+   // &str
+   let token = Token::new("abc123");
 
- // String
- let token = Token::new(secret_from_vault("api.example.io"));
+   // String
+   let token = Token::new(secret_from_vault("api.example.io"));
 }
-</code></pre>
+```

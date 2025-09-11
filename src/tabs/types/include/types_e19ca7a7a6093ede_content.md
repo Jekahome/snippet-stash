@@ -1,7 +1,7 @@
 
 
 
-<pre><code class="language-rust">
+```rust
 use std::fmt::Debug;
 // Реализация метода в трейте(аналог абстрактного класса)
 // возвращаемый тип организован через type
@@ -26,19 +26,19 @@ fn main() {
  w.show(); // show
  println!("{}",w.work()); // work
 }
-</code></pre>
+```
 
 ---
 
-<pre><code class="language-rust">
+```
 fn domain_controller_new_order<'a,T>(uow: &'a mut T) -> ShortResult<()> 
     where T: UnitOfWork<'a, Context=Transaction<'a>>
 {...}
-</code></pre>
+```
 
 ---
 
-<pre><code class="language-rust">
+```
 trait Iterable {
     type Item;
 
@@ -51,7 +51,7 @@ impl Iterable for Vec<i32> {
         self.iter()
     }
 }
-</code></pre>
+```
 
 
 

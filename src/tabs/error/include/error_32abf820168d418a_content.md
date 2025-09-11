@@ -1,15 +1,15 @@
 
 
-<pre><code class="language-rust">
+```rust
 fn main(){
     fn sq(x: u32) -> Result<u32, u32> { Ok(x * x) }
     assert_eq!(Ok(2).and_then(sq).and_then(sq), Ok(16));
 }
-</code></pre>
+```
 
 ---
 
-<pre><code class="language-rust">
+```
 fn multiply(x: &str, y: &str) -> Result<i32, ParseIntError> {
     //  или Result.Ok<T> или Result.Err<E>
     match x.parse::<i32>() {
@@ -31,5 +31,5 @@ fn multiply(x: &str, y: &str) -> Result<i32, ParseIntError> {
         y.parse::<i32>().map(|second | first  * second )
     })
 }
-</code></pre>
+```
 

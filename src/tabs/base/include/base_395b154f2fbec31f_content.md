@@ -7,7 +7,7 @@
 Атрибут `non_exhaustive_`
 
 Атрибут указывает, что в будущем к типу или варианту может быть добавлено больше полей или вариантов `non_exhaustive`
-<pre><code class="language-rust">
+```rust
 #[non_exhaustive]
 pub enum Error {
     Message(String),
@@ -19,4 +19,5 @@ pub enum Message {
     #[non_exhaustive] Reaction(u32),
     #[non_exhaustive] Quit,
 }
-</code></pre>
+fn main(){}
+```

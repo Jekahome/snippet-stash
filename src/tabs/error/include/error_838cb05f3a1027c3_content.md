@@ -1,7 +1,7 @@
 
 
 
-<pre><code class="language-rust">
+```
 fn do_something_that_might_fail(i: i32) -> Result<f32,String> {
     if i == 42 {
         Ok(13.0)
@@ -27,4 +27,4 @@ fn foo2()-> Result<(),String> {
     }
    Ok(())
 }
-</code></pre>
+```

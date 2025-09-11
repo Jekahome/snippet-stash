@@ -1,15 +1,16 @@
 
 
 ❌
-<pre><code class="language-rust">
+```
 //! Some module.
 mod private_stuff;
 pub mod public_stuff;
-</code></pre>
+```
 
 --- 
+
 ❌
-<pre><code class="language-rust">
+```
 use std::sync::{Arc, Mutex};
 use chrono::{DateTime, Utc};
 use futures::Future as _;
@@ -21,11 +22,12 @@ pub use postgres::Type;
 pub use crate::core::util::UnfoldingStream;
 pub use super::props::Error;
 pub use self::public_stuff::*;
-</code></pre>
+```
 
 ---
+
 ❌
-<pre><code class="language-rust">
+```
 use std::sync::{Arc, Mutex};
 use chrono::{DateTime, Utc};
 use futures::Future as _;
@@ -39,5 +41,5 @@ pub use postgres::Type;
 pub use crate::core::util::UnfoldingStream;
 pub use super::props::Error;
 pub use self::public_stuff::*;
-</code></pre>
+```
 

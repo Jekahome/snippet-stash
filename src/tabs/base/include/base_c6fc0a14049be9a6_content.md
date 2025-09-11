@@ -1,7 +1,6 @@
 
 
-
-<pre><code class="language-rust">
+```rust
 struct Person;
 
 impl Person {
@@ -21,4 +20,5 @@ impl Person {
         y
     }
 }
-</code></pre>
+fn main(){}
+```

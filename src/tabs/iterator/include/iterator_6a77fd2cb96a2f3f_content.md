@@ -1,16 +1,16 @@
 
 
 
-<pre><code class="language-rust">
+```rust
 fn main(){
     let v:Vec<i32> = (0..6).filter(|x| x % 2 == 0).chain(0..6).collect();
     assert_eq!(v,vec![0, 2, 4, 0, 1, 2, 3, 4, 5]);
 }
-</code></pre>
+```
 
 ---
 
-<pre><code class="language-rust">
+```rust
 fn main(){
     let names_ru = vec![String::from("привет"), String::from("пока")];
     let names_en = vec![String::from("hello"), String::from("bay")];
@@ -21,11 +21,11 @@ fn main(){
 // после zip соединения двух итераторов в map можно брать оба итератора как a и b
 // .... names_ru.iter().zip(names_en.iter()).map(|(iter_1,iter_2)|{....})
 }
-</code></pre>
+```
 
 ---
 
-<pre><code class="language-rust">
+```rust
 fn zipmap<F: Fn(&T) -> R, T, R>(xs: &[T], fs: &[F]) -> Vec<R> {
     let iter = xs.iter().zip(fs);
     let mut res = Vec::with_capacity(iter.len()); // ^^
@@ -41,20 +41,21 @@ fn main(){
   let res =  zipmap(&[2,3,4],&[lymda,lymda,lymda]);
   assert_eq!([20, 30, 40],&res[..]);
 }
-</code></pre>
+```
 
 ---
 
-<pre><code class="language-rust">
+```rust
 // Здесь мы берем два среза и складываем числа вместе, помещая результат в третий срез. 
 pub fn foo(a: &[u8], b: &[u8], res: &mut [u8]) {
     for ((a, b), res) in a.iter().zip(b).zip(res) { *res = *a + *b; }
 }
-</code></pre>
+fn main(){}
+```
 
 ---
 
-<pre><code class="language-rust">
+```rust
 #![feature(iter_array_chunks)]
 fn main(){
     let mut iter = "lorem".chars().array_chunks::<3>();
@@ -62,22 +63,22 @@ fn main(){
     assert_eq!(iter.next(), None);
     assert_eq!(iter.into_remainder().unwrap().as_slice(), &['e','m']);
 }
-</code></pre>
+```
 
 ---
 
-<pre><code class="language-rust">
+```rust
 fn main(){
     let a = [(1, 2), (3, 4)];
     let (left, right): (Vec<_>, Vec<_>) = a.iter().cloned().unzip();
     assert_eq!(left, [1, 3]);
     assert_eq!(right, [2, 4]);
 }
-</code></pre>
+```
 
 ---
 
-<pre><code class="language-rust">
+```rust
 fn main(){
     let init = 10;
     let mut total_iter = [1, 2, 3].iter().scan(init, |state, &x| {
@@ -88,11 +89,11 @@ fn main(){
         print!("{}",i);// 10,20,60
     }
 }
-</code></pre>
+```
 
 ---
 
-<pre><code class="language-rust">
+```rust
 struct Alternate {
         state: i32,
 }
@@ -113,4 +114,4 @@ fn main(){
     assert_eq!(iter.next(), Some(4));  assert_eq!(iter.next(), None);  assert_eq!(iter.next(), None);  assert_eq!(iter.next(), None); 
     assert_eq!(iter.next(), None);
 }
-</code></pre>
+```

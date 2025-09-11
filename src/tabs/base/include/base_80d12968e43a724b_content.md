@@ -47,5 +47,6 @@ fn get<Q: ?Sized>(&self, key: &Q) -> Option<&V>
            Q: Eq + Hash
  { ... }
 
+fn main(){}
 ```
 

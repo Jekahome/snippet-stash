@@ -3,7 +3,7 @@
 Создает новый итератор, который бесконечно повторяет один элемент. 
 
 Если тип элемента итератора, который вам нужен, не реализует Clone, или если вы не хотите сохранять повторяющийся элемент в памяти, вы можете вместо этого использовать функцию repeat_with.
-<pre><code class="language-rust">
+```rust
 use std::iter;
 fn main(){
     let mut fours = iter::repeat(4);
@@ -22,12 +22,12 @@ fn main(){
     // .. и теперь мы закончили
     assert_eq!(None, fours.next());
 }
-</code></pre>
+```
 
 ---
 
-<pre><code class="language-rust">
- fn random(n: usize) -> Vec<u32> {
+```rust
+fn random(n: usize) -> Vec<u32> {
     let mut r = 92;
     std::iter::repeat_with(move || {
         r ^= r << 13;
@@ -42,4 +42,4 @@ fn main() {
     let xs: Vec<u32> = random(n);
     println!("{:?}",xs);// [24873849, 1921449235, 163429281]
 }
-</code></pre>
+```

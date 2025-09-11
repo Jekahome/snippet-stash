@@ -1,7 +1,7 @@
 
 
 
-<pre><code class="language-rust">
+```rust
  fn copy_if<F>(slice: &[i32], pred: F) -> Vec<i32> where  F: Fn(&'a i32) -> bool {
       let mut result = vec![];
        for &element in slice {
@@ -11,7 +11,8 @@
        }
     result
 }
-</code></pre>
+fn main(){}
+```
 
 Компилятор дает следующую ошибку:
 
@@ -25,7 +26,7 @@ if pred(&element) {
 
 Время жизни не может быть объявлено на уровне функции, потому что нам нужно другое время жизни. 
 Вот почему нам нужен `for<'a>`: чтобы указать, что ссылка может быть действительной для любого времени жизни (следовательно, можно использовать меньшее время жизни).
-<pre><code class="language-rust">
+```rust
 fn copy_if<F>(slice: &[i32], pred: F) -> Vec<i32> where for<'a> F: Fn(&'a i32) -> bool {
     let mut result = vec![];
     for &element in slice {
@@ -35,4 +36,5 @@ fn copy_if<F>(slice: &[i32], pred: F) -> Vec<i32> where for<'a> F: Fn(&'a i32) -
     }
     result
 }
-</code></pre>
+fn main(){}
+```

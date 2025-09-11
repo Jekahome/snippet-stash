@@ -1,7 +1,7 @@
 
 
 Основная задача ввести параметр-характеристику, который предотвращает конфликт двух реализаций
-<pre><code class="language-rust">
+```rust
 trait Noise<M> {
   fn make_noise(&self);
 }
@@ -24,4 +24,4 @@ impl Noise<Loud> for Cat {
 fn main() {
   <Cat as Noise<Quiet>>::make_noise(&Cat);// Для компиляции вам придется написать уродливый полный путь
 }
-</code></pre>
+```

@@ -1,6 +1,6 @@
 
 
-```
+```toml
 [dependencies]
 somecrate = { version = "^0.3", features = ["featureA", "rand" ] }
 ```
@@ -15,7 +15,7 @@ somecrate = { version = "^0.3", features = ["featureA", "rand" ] }
 Унификация features означает, что features должны только добавлять возможности но не отнимать; иметь взаимно совместимые функции — плохая идея, поскольку нет ничего, что могло бы помешать одновременному включению несовместимых функций разными пользователями.
 
 Следует избегать ограничения общедоступных полей в структурах:
-<pre><code class="language-rust">
+```rust
 /// A structure whose contents are public, so external users can construct
 /// instances of it.
 #[derive(Debug)]
@@ -27,15 +27,17 @@ pub struct ExposedStruct {
     #[cfg(feature = "schema")]
     pub schema: String,
 }
-let s = somecrate::ExposedStruct {
-    data: vec![0x82, 0x01, 0x01],
+fn main(){
+    let s = somecrate::ExposedStruct {
+       data: vec![0x82, 0x01, 0x01],
 
-    // Only populate the field if we've requested
-    // activation of `somecrate/schema`.
-    #[cfg(feature = "use_schema")]
-    schema: "[int int]",
-};
-</code></pre>
+       // Only populate the field if we've requested
+       // activation of `somecrate/schema`.
+       #[cfg(feature = "use_schema")]
+       schema: "[int int]",
+    };
+}
+```
 
 
 код не компилируется, если этот код не активируется, `some crate/schema` но активируется какая-то другая транзитивная зависимость. 
@@ -44,7 +46,7 @@ let s = somecrate::ExposedStruct {
 
 Аналогичное соображение применимо к публичным Trait, предназначенным для использования за пределами контейнера, в котором они определены.
 Следует избегать методов ограничения features для общедоступных Trait
-<pre><code class="language-rust">
+```rust
 /// Trait for items that support CBOR serialization.
 pub trait AsCbor: Sized {
     /// Convert the item into CBOR-serialized data.
@@ -57,7 +59,8 @@ pub trait AsCbor: Sized {
     #[cfg(feature = "schema")]
     fn cddl(&self) -> String;
 }
-</code></pre>
+fn main(){}
+```
 
 
 
