@@ -2,6 +2,7 @@
 
 Макросы
 
+* [The Little Book of Rust Macros](https://lukaswirth.dev/tlborm/introduction.html)
 * [rustcamp/3_2_macro](https://github.com/rust-lang-ua/rustcamp/tree/master/3_ecosystem/3_2_macro)
 * [The Little Book of Rust Macros](https://veykril.github.io/tlborm/introduction.html)
 * [danielkeep](https://danielkeep.github.io/tlborm/book/index.html)
