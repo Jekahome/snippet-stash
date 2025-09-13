@@ -1,7 +1,7 @@
 
 
 **Измерение времени с учетом реального времени**
-<pre><code class="language-rust">
+```
 fn track_operation_time() {
     let start = SystemTime::now();
     
@@ -17,10 +17,10 @@ fn track_operation_time() {
         Err(e) => println!("Ошибка измерения: {:?}", e),
     }
 }
-</code></pre>
+```
 
 **Проверка возраста файла**
-<pre><code class="language-rust">
+```
 use std::fs;
 use std::time::{SystemTime, Duration};
 
@@ -40,10 +40,10 @@ fn main(){
         println!("Файл устарел");
     }
 }
-</code></pre>
+```
 
 **Кеширование с временем жизни**
-<pre><code class="language-rust">
+```
 use std::collections::HashMap;
 
 struct Cache<T> {
@@ -73,10 +73,10 @@ impl<T> Cache<T> {
         None
     }
 }
-</code></pre>
+```
 
 **Синхронизация времени между системами**
-<pre><code class="language-rust">
+```
 fn check_time_sync(server_time: u64) -> Result<(), String> {
     let local_time = SystemTime::now()
         .duration_since(SystemTime::UNIX_EPOCH)
@@ -91,10 +91,10 @@ fn check_time_sync(server_time: u64) -> Result<(), String> {
         Ok(())
     }
 }
-</code></pre>
+```
 
 **Логирование с временными метками**
-<pre><code class="language-rust">
+```
 fn log_with_timestamp(message: &str) {
     let timestamp = SystemTime::now()
         .duration_since(SystemTime::UNIX_EPOCH)
@@ -103,4 +103,4 @@ fn log_with_timestamp(message: &str) {
     
     println!("[{}] {}", timestamp, message);
 }
-</code></pre>
+```

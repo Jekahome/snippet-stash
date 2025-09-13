@@ -1,7 +1,6 @@
 
 
-
-<pre><code class="language-rust">
+```
 use std::ffi::{OsString, OsStr};
 use std::fs::File;
 use std::io::{self, BufRead};
@@ -34,4 +33,4 @@ fn read_lines<P>(filename: P) -> io::Result<io::Lines<io::BufReader<File>>>
 fn main() {
     find_ex(Path::new("examples"),OsStr::new("rs"));
 }
-</code></pre>
+```

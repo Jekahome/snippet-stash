@@ -1,14 +1,14 @@
 
 
 
-<pre><code class="language-rust">
+```
     fn read<P: AsRef<std::path::Path>>(path: P){}
     fn read (path: &std::path::Path){}
-</code></pre>
+```
 
 ---
 
-<pre><code class="language-rust">
+```
     pub struct FileRepository{
         file: PathBuf
     }  
@@ -24,11 +24,11 @@
             self.file.as_path()
         }
     }
-</code></pre>
+```
 
 ---
 
-<pre><code class="language-rust">
+```
     pub struct FileRepository{
         file: String
     }  
@@ -41,4 +41,4 @@
             Ok(Self{file: format!("{}",path.display())})
         }
     }
-</code></pre>
+```

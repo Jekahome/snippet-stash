@@ -1,7 +1,6 @@
 
 
-
-<pre><code class="language-rust">
+```
 use chrono::{DateTime, Local, Duration, TimeDelta};
 
 struct TimeInterval {
@@ -26,4 +25,4 @@ impl TimeInterval {
         self.start <= other.end && self.end >= other.start
     }
 }
-</code></pre>
+```

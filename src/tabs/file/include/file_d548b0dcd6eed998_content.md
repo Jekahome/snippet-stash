@@ -5,16 +5,16 @@
 Они поддерживают буфер в памяти для ввода и вывода, сводя к минимуму количество требуемых системных вызовов.
 
 ❌ Например, измените этот небуферизованный выходной код:
-<pre><code class="language-rust">
+```
 use std::io::Write;
 let mut out = std::fs::File::create("test.txt").unwrap();
 for line in lines {
     writeln!(out, "{}", line)?;
 }
-</code></pre>
+```
 
 ✅ к этому:
-<pre><code class="language-rust">
+```
 fn blah() -> Result<(), std::io::Error> {
     use std::io::{BufWriter, Write};
     let lines = vec!["one", "two", "three"];
@@ -26,10 +26,10 @@ fn blah() -> Result<(), std::io::Error> {
    buf.flush()?; // для явного выброса ошибки , иначе ошибки будут прогнорированны
    Ok(())
 } 
-</code></pre>
+```
 
 Обратите внимание, что буферизация также работает с stdout, поэтому вы можете комбинировать ручную блокировку и буферизацию при выполнении большого количества операций записи в stdout
-<pre><code class="language-rust">
+```
 fn blah() -> Result<(), std::io::Error> {
     use std::io::{BufWriter, Write};
     let lines = vec!["one", "two", "three"];
@@ -43,5 +43,5 @@ fn blah() -> Result<(), std::io::Error> {
     Ok(())
 } 
 blah();
-</code></pre>
+```
  

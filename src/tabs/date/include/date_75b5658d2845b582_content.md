@@ -1,7 +1,7 @@
 
 
 **Измерение времени выполнения**
-<pre><code class="language-rust">
+```rust
 fn expensive_calculation() {
     // Имитация тяжелых вычислений
     let mut sum = 0;
@@ -17,10 +17,10 @@ fn main() {
     
     println!("Вычисления заняли: {:.2} мс", duration.as_secs_f64() * 1000.0);
 }
-</code></pre>
+```
 
 **FPS (кадров в секунду) счетчик**
-<pre><code class="language-rust">
+```
 use std::thread;
 use std::time::{Instant, Duration};
 
@@ -41,10 +41,10 @@ loop {
         last_frame = now;
     }
 }
-</code></pre>
+```
 
 **Таймаут операций**
-<pre><code class="language-rust">
+```
 fn operation_with_timeout(timeout: Duration) -> Result<String, &'static str> {
     let start = Instant::now();
     
@@ -57,10 +57,10 @@ fn operation_with_timeout(timeout: Duration) -> Result<String, &'static str> {
     
     Err("Таймаут операции")
 }
-</code></pre>
+```
 
 **Профилирование кода**
-<pre><code class="language-rust">
+```
 fn profile_function() {
     let timings = vec![
         ("parse_input", Instant::now()),
@@ -83,10 +83,10 @@ fn profile_function() {
     println!("  Process: {:?}", process_time);
     println!("  Output: {:?}", output_time);
 }
-</code></pre>
+```
 
 **Дебаунсинг (антидребезг)**  - это техника обработки входных сигналов, которая устраняет ложные срабатывания, вызванные механическими вибрациями или электрическими помехами.
-<pre><code class="language-rust">
+```
 struct Debouncer {
     last_event: Option<Instant>,
     cooldown: Duration,
@@ -106,4 +106,4 @@ impl Debouncer {
         }
     }
 }
-</code></pre>
+```

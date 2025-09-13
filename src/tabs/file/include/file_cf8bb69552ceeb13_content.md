@@ -1,7 +1,6 @@
 
 
-
-<pre><code class="language-rust">
+```
 // std::fs::read_to_string
 fn test()-> Result<(), Box<std::error::Error + 'static>>{
     let s:String = std::fs::read_to_string("file2.txt")?;// Прочтите все содержимое файла в строку
@@ -16,11 +15,11 @@ fn test2() -> io::Result<()> {
     f.read_to_string(&mut buffer)?;
     Ok(())
 }
-</code></pre>
+```
 
 ---
 
-<pre><code class="language-rust">
+```
 use std::fs;
 use std::io;
 
@@ -48,5 +47,4 @@ fn main() -> io::Result<()> {
 
     Ok(())
 }
-
-</code></pre>
+```

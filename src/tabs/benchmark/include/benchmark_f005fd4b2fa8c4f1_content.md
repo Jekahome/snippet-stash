@@ -1,7 +1,6 @@
 
 
-
-<pre><code class="language-rust">
+```
   group.bench_with_input(
     BenchmarkId::new("std", count), 
     &count, 
@@ -17,4 +16,4 @@
             remove_std(&mut list,*count)
         }, BatchSize::LargeInput);
   }); 
-</code></pre>
+```

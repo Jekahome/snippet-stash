@@ -1,7 +1,7 @@
 
 
 
-<pre><code class="language-rust">
+```
 #[inline]
 pub fn fibonacci(n: u64) -> u64 {
     match n {
@@ -28,4 +28,4 @@ pub fn fibonacci_2(n: u64) -> u64 {
         }
     }
 }
-</code></pre>
+```

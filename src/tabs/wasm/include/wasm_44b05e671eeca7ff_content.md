@@ -3,7 +3,7 @@
 Скопировать байты в линковщик в секцию text
 
 File main.rs:
-<pre><code class="language-rust">
+```
 #![no_main]
 
 #[link_section=".text"]
@@ -19,4 +19,4 @@ pub static main:[u32;9] = [
     1919899424,
     169960556
 ];
-</code></pre>
+```

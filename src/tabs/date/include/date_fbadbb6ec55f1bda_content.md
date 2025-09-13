@@ -57,7 +57,7 @@ fn main(){
 </code></pre>
 
 **Парсинг и форматирование длительностей**
-<pre><code class="language-rust">
+```
 use chrono::{Duration, TimeDelta};
 
 // Из строки в Duration (примерный парсинг)
@@ -80,4 +80,4 @@ fn parse_duration(s: &str) -> Option<Duration> {
 if let Some(duration) = parse_duration("2 days") {
     println!("Parsed duration: {:?}", duration);
 }
-</code></pre>
+```

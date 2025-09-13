@@ -1,7 +1,6 @@
 
 
-
-<pre><code class="language-rust">
+```
 use chrono::{DateTime, Local, Duration, TimeDelta};
 use std::collections::BinaryHeap;
 
@@ -45,4 +44,4 @@ impl Scheduler {
         }
     }
 }
-</code></pre>
+```

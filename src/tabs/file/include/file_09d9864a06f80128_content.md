@@ -1,7 +1,6 @@
 
 
-
-<pre><code class="language-rust">
+```
 use std::io::Read;
 
 fn test() -> std::io::Result<()> {
@@ -20,4 +19,4 @@ fn test() -> std::io::Result<()> {
     // и т. д. ... он работает точно так же, как файл!
     Ok(())
 }
-</code></pre>
+```

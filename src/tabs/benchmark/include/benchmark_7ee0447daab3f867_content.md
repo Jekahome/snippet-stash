@@ -1,7 +1,7 @@
 
 
 
-<pre><code class="language-rust">
+```
 /// Сравнительный анализ с диапазоном значений
 /// cargo bench --verbose -- lots_of_data_benchmark_3
 fn my_benchmark_3(c: &mut Criterion) {
@@ -17,4 +17,4 @@ fn my_benchmark_3(c: &mut Criterion) {
     }
     group.finish();
 }
-</code></pre>
+```

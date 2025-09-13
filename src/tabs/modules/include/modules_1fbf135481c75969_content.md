@@ -39,7 +39,7 @@ pub fn parse(input: &str) {
 
 **File parser/lexer.rs:**
 
-```rust
+```
 // Эта функция доступна только для родителя (parser), но не для всего crate
 pub(super) fn tokenize(input: &str) -> Vec<&str> {
     input.split_whitespace().collect()

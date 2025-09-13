@@ -8,7 +8,7 @@ Trait tokio::io::[AsyncRead](https://docs.rs/tokio/latest/tokio/io/trait.AsyncRe
 Это может привести к проблемам с производительностью и ограничить масштабируемость приложения. Чтобы решить эти проблемы, мы обратимся к асинхронному вводу-выводу.
 
 **Write**
-<pre><code class="language-rust">
+```rust
 use tokio::io::{self, BufWriter, AsyncWriteExt};
 use tokio::fs::File;
 
@@ -24,10 +24,10 @@ async fn main() -> io::Result<()> {
     } // Если он не очищен или не выключен, содержимое буфера удаляется при drop
     Ok(())
 }   
-</code></pre>
+```
 
 **Read**
-<pre><code class="language-rust">
+```rust
 use tokio::io::{BufReader, AsyncBufReadExt};
 use tokio::fs::File;
 
@@ -41,4 +41,4 @@ async fn main() -> io::Result<()> {
     println!("{}", buffer);
     Ok(())
 }                                                                                                                                                                                        
-</code></pre>
+```

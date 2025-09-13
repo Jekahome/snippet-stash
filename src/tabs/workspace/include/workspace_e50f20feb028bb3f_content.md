@@ -11,7 +11,7 @@ members = [
 ```
  
 File add_one/src/lib.rs:
-<pre><code class="language-rust">
+```
 use rand;
 pub fn add_one(x: i32) -> i32 {
     x + 1
@@ -26,7 +26,7 @@ mod tests {
         assert_eq!(add_one(2), 3);
     }
 }
-</code></pre>
+```
 
 File add_one/Cargo.toml:
 ```toml
@@ -41,7 +41,7 @@ rand = "0.8.5"
 
  
 File adder/src/main.rs:
-<pre><code class="language-rust">
+```
 use rand;
 use add_one;
 
@@ -50,7 +50,7 @@ fn main() {
     let num = 10;
     println!("Hello, world! {num} plus one is {}!", add_one::add_one(num));
 }
-</code></pre>
+```
 
 File adder/Cargo.toml:
 ```toml

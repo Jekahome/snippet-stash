@@ -1,7 +1,7 @@
 
 
 
-<pre><code class="language-rust">
+```
 /// cargo +nightly bench --verbose -- LinkedList_remove
 fn benchmark_remove(c: &mut Criterion) {
     let mut group = c.benchmark_group("LinkedList_remove");
@@ -34,7 +34,7 @@ fn benchmark_remove(c: &mut Criterion) {
 }
     group.finish();
 }
-</code></pre>
+```
 
  
 **Выполнение**

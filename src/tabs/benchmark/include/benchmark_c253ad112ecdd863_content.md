@@ -3,7 +3,7 @@
 crates **bencher**
  
 File my_projects/benches/example.rs:
-<pre><code class="language-rust">
+```
 #[macro_use]
 extern crate bencher;
 extern crate criterion_example;
@@ -31,7 +31,7 @@ File my_projects/lib.rs:
 pub fn add_two2(a: i32) -> i32 {
     a + 2
 }
-</code></pre>
+```
 
 
 File my_projects/Cargo.toml:

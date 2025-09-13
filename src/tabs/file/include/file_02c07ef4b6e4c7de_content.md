@@ -1,7 +1,6 @@
 
 
-
-<pre><code class="language-rust">
+```
 use std::fs::File;
 use std::io::Read;
 use std::io::SeekFrom;
@@ -34,4 +33,4 @@ fn read_exam() -> std::io::Result<()> {
     assert_eq!(buffer.to_vec(),bufs.first().unwrap().to_vec());
     Ok(())
 }
-</code></pre>
+```

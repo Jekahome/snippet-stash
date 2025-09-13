@@ -4,7 +4,7 @@ Rust поддерживает тесты производительности, �
 
 С помощью тестовых тестов вы можете тестировать и измерять скорость кода, однако эталонные тесты по-прежнему нестабильны. 
 Чтобы включить тесты в вашем грузовом проекте, вам нужна ночная ржавчина, поставьте тесты интеграции в папку benches/  в корне вашего проекта Cargo и запустите cargo bench
-<pre><code class="language-rust">
+```rust
 /// cargo bench --verbose
 /// cargo bench --verbose -- fib_20
 ///
@@ -41,10 +41,11 @@ fn criterion_benchmark(c: &mut Criterion) {
     }
     group.finish();
 }
-
+fn main(){
 // Здесь мы вызываем макрос criterion_group! (link), чтобы сгенерировать группу тестов под названием
 // benches, содержащую criterion_benchmark функцию, определенную ранее.
-criterion_group!(benches, criterion_benchmark);
+    criterion_group!(benches, criterion_benchmark);
 // мы вызываем макрос criterion_main! (link), чтобы сгенерировать основную функцию, которая выполняет benches группу.
-criterion_main!(benches);
-</code></pre>
+    criterion_main!(benches);
+}
+```

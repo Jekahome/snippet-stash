@@ -1,7 +1,7 @@
 
 
 **Автогенерация документации API**
-<pre><code class="language-rust">
+```
 use utoipa::OpenApi;
 
 #[derive(OpenApi)]
@@ -16,10 +16,10 @@ struct ApiDoc;
 
 // Документация генерируется автоматически!
 // Доступна по /api-doc или /swagger-ui
-</code></pre>
+```
 
 **Валидация запросов и ответов**
-<pre><code class="language-rust">
+```
 #[utoipa::path(
     get,
     path = "/users/{id}",
@@ -34,7 +34,7 @@ struct ApiDoc;
 async fn get_user(id: i32) -> Result<Json<User>, Error> {
     // Swagger проверяет соответствие схеме
 }
-</code></pre>
+```
 
 ---
 
@@ -47,7 +47,7 @@ utoipa = { version = "3.0", features = ["actix_ext"] }
 utoipa-swagger-ui = { version = "3.0", features = ["actix-web"] }
 ```
 
-<pre><code class="language-rust">
+```
 use utoipa::OpenApi;
 use utoipa_swagger_ui::SwaggerUi;
 
@@ -65,4 +65,4 @@ async fn main() {
             )
     })
 }
-</code></pre>
+```

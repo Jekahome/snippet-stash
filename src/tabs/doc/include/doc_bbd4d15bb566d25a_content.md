@@ -1,6 +1,6 @@
 
 
-<pre><code class="language-rust">
+```
 //! # Comprehensive Documentation Example
 //!
 //! This module demonstrates all possible documentation sections in Rust.
@@ -54,7 +54,7 @@ use std::ptr;
 ///
 /// # Errors
 ///
-/// Returns `Err(String)` if operation fails:
+/// Returns &#96;Err(String)&#96; if operation fails:
 /// &#96;&#96;&#96;
 /// use my_crate::AdvancedVector;
 ///
@@ -74,18 +74,18 @@ use std::ptr;
 ///
 /// # Arguments
 ///
-/// * `index` - Zero-based index of the element to retrieve
-/// * `value` - Value to insert, must implement `Clone`
-/// * `predicate` - Closure that returns `true` for elements to keep
+/// * &#96;index&#96; - Zero-based index of the element to retrieve
+/// * &#96;value&#96; - Value to insert, must implement &#96;Clone&#96;
+/// * `predicate` - Closure that returns &#96;true&#96; for elements to keep
 ///
 /// # Returns
 ///
-/// Returns `Some(T)` if element exists, `None` otherwise.
-/// For fallible operations, returns `Result<T, E>`.
+/// Returns &#96;Some(T)&#96; if element exists, &#96;None&#96; otherwise.
+/// For fallible operations, returns &#96;Result<T, E>&#96;.
 ///
 /// # Availability
 ///
-/// Requires the `advanced` feature flag:
+/// Requires the &#96;advanced&#96; feature flag:
 /// &#96;&#96;&#96;toml
 /// [dependencies]
 /// my-crate = { version = "0.1", features = ["advanced"] }
@@ -99,21 +99,21 @@ use std::ptr;
 /// # Warning
 //!
 //! ⚠️ This method may cause memory leaks if not used properly!
-//! Always pair with `free_custom_memory()`.
+//! Always pair with &#96;free_custom_memory()&#96;.
 //!
 /// # Deprecated
 ///
-/// ⚠️ This method is deprecated. Use `new_secure()` instead.
+/// ⚠️ This method is deprecated. Use &#96;new_secure()&#96; instead.
 ///
 /// # See Also
 ///
-/// - [`std::vec::Vec`] - Standard library vector
-/// - [`AdvancedVector::new_secure`] - Secure alternative
-/// - [`free_custom_memory`] - Memory cleanup function
+/// - [&#96;std::vec::Vec&#96;] - Standard library vector
+/// - [&#96;AdvancedVector::new_secure&#96;] - Secure alternative
+/// - [&#96;free_custom_memory&#96;] - Memory cleanup function
 ///
-/// [`std::vec::Vec`]: https://doc.rust-lang.org/std/vec/struct.Vec.html
-/// [`AdvancedVector::new_secure`]: crate::AdvancedVector::new_secure
-/// [`free_custom_memory`]: crate::free_custom_memory
+/// [&#96;std::vec::Vec&#96;]: https://doc.rust-lang.org/std/vec/struct.Vec.html
+/// [&#96;AdvancedVector::new_secure&#96;]: crate::AdvancedVector::new_secure
+/// [&#96;free_custom_memory&#96;]: crate::free_custom_memory
 pub struct AdvancedVector<T> {
     data: Vec<T>,
     capacity: usize,
@@ -141,9 +141,9 @@ impl<T> AdvancedVector<T> {
     ///
     /// This function is unsafe because it operates on raw pointers.
     /// The caller must guarantee:
-    /// - `ptr` is valid for reads
-    /// - `ptr` is properly aligned
-    /// - `ptr` points to initialized memory
+    /// - &#96;ptr&#96; is valid for reads
+    /// - &#96;ptr&#96; is properly aligned
+    /// - &#96;ptr&#96; points to initialized memory
     ///
     /// # Examples
     ///
@@ -169,9 +169,9 @@ impl<T> AdvancedVector<T> {
     ///
     /// # Errors
     ///
-    /// Returns `Err(String)` if:
+    /// Returns &#96;Err(String)&#96; if:
     /// - Memory allocation fails
-    /// - Capacity would exceed `isize::MAX`
+    /// - Capacity would exceed &#96;isize::MAX&#96;
     ///
     /// # Examples
     ///
@@ -218,9 +218,9 @@ impl<T> AdvancedVector<T> {
     /// # Deprecated
     ///
     /// ⚠️ This method is deprecated due to security vulnerabilities.
-    /// Use [`new_secure()`] instead.
+    /// Use [&#96;new_secure()&#96;] instead.
     ///
-    /// [`new_secure()`]: AdvancedVector::new_secure
+    /// [&#96;new_secure()&#96;]: AdvancedVector::new_secure
     #[deprecated(since = "0.2.0", note = "Use new_secure instead")]
     pub fn new_insecure() -> Self {
         Self::new()
@@ -230,7 +230,7 @@ impl<T> AdvancedVector<T> {
     ///
     /// # Availability
     ///
-    /// Requires the `security` feature flag:
+    /// Requires the &#96;security&#96; feature flag:
     /// &#96;&#96;&#96;toml
     /// [dependencies]
     /// my-crate = { version = "0.1", features = ["security"] }
@@ -260,7 +260,7 @@ impl<T> AdvancedVector<T> {
 /// # Warning
 ///
 /// ⚠️ This function can cause undefined behavior if misused!
-/// Only use with pointers obtained from `allocate_custom_memory()`.
+/// Only use with pointers obtained from &#96;allocate_custom_memory()&#96;.
 ///
 /// # Safety
 ///
@@ -292,9 +292,9 @@ pub unsafe fn free_custom_memory(ptr: *mut u8) {
 /// # Errors
 ///
 /// This function may return these error types:
-/// - `std::io::Error` - I/O operations failed
-/// - `ParseError` - Input parsing failed
-/// - `ValidationError` - Data validation failed
+/// - &#96;std::io::Error&#96; - I/O operations failed
+/// - &#96;ParseError&#96; - Input parsing failed
+/// - &#96;ValidationError&#96; - Data validation failed
 pub type Result<T> = std::result::Result<T, Box<dyn std::error::Error>>;
 
 /// # Notes
@@ -304,11 +304,11 @@ pub type Result<T> = std::result::Result<T, Box<dyn std::error::Error>>;
 ///
 /// # See Also
 ///
-/// - [`AdvancedVector::optimize`] - For applying optimizations
-/// - [`benchmark_performance`] - For measuring improvements
+/// - [&#96;AdvancedVector::optimize&#96;] - For applying optimizations
+/// - [&#96;benchmark_performance&#96;] - For measuring improvements
 ///
-/// [`benchmark_performance`]: crate::benchmark_performance
+/// [&#96;benchmark_performance&#96;]: crate::benchmark_performance
 pub fn apply_optimization(vector: &mut AdvancedVector<i32>) {
     // Optimization logic here
 }
-</code></pre>
+```

@@ -1,7 +1,6 @@
 
 
-
-<pre><code class="language-rust">
+```
 use std::io::prelude::*;
 use std::io::{self, SeekFrom};
 use std::fs::File;
@@ -35,4 +34,4 @@ fn test_writes_bytes() {
     write_ten_bytes_at_end(&mut buff).unwrap();
     assert_eq!(&buff.get_ref()[5..15], &[0, 1, 2, 3, 4, 5, 6, 7, 8, 9]);
 }
-</code></pre>
+```

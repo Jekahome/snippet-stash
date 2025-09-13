@@ -1,7 +1,6 @@
 
 
-
-<pre><code class="language-rust">
+```
 fn file_content(path_file: &PathBuf) -> Result<(), Error> {
     let metadata = fs::metadata(&path_file).map_err(|e| Error::FileNotFound(e))?;
     if !metadata.is_file() {
@@ -26,4 +25,4 @@ fn file_content(path_file: &PathBuf) -> Result<(), Error> {
     }
     Ok(())
 }
-</code></pre>
+```
