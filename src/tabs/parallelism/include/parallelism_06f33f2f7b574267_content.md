@@ -1,6 +1,6 @@
 
 
-<pre><code class="language-rust">
+```
 extern crate crossbeam;// [dependencies] crossbeam = "0.3.2"
 fn crossbeam_data(){
     let data = "86967897737416471853297327050364959
@@ -28,4 +28,4 @@ fn crossbeam_data(){
     }
     println!("Result: {:?}", data);
 }
-</code></pre>
+```

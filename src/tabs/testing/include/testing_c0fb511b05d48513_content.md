@@ -1,9 +1,9 @@
 
 
-<pre><code class="language-rust">
-/// '''no_run
+```
+/// &#96;&#96;&#96;rust,no_run
 /// loop {
 ///     println!("Привет, мир");
 /// }
-///'''
-</code></pre>
+///&#96;&#96;&#96;
+```

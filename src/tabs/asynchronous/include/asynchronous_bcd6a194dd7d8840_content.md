@@ -3,7 +3,7 @@
 Исполнители несут ответственность за повторное вызов poll задачи до Ready ее возвращения
 Например, CurrentThread исполнитель блокирует текущий поток и перебирает все нерешенные задачи, вызывая опрос на них.
 ThreadPool распределяет задачи по пулу потоков. Это также исполнитель по умолчанию, используемый средой выполнения  runtime
-<pre><code class="language-rust">
+```
 extern crate futures;
 extern crate rand;
 extern crate tokio;
@@ -83,4 +83,4 @@ impl SpinExecutorNew {
         std::thread::sleep(std::time::Duration::from_millis(10));
     }
 }
-</code></pre>
+```

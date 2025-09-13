@@ -23,7 +23,7 @@ model="davinci-002"
 ```
 
 File settings.rs:
-<pre><code class="language-rust">
+```
 use config::{Config, Environment};
 use serde::Deserialize;
 use once_cell::sync::Lazy;
@@ -71,4 +71,4 @@ impl Settings {
         CONFIG.client_ai_mock
     }
 }
-</code></pre>
+```

@@ -1,6 +1,6 @@
 
 
-<pre><code class="language-rust">
+```
     type Result<T> = std::result::Result<T, Box<dyn std::error::Error + Send + Sync>>;
      async fn future(name:&str) -> Result<String> {
         Ok(format!("Hello {}",name)) 
@@ -42,4 +42,4 @@
             format!("Hello {}",name)
         }
     }
-</code></pre>
+```

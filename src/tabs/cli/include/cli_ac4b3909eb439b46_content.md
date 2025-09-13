@@ -1,7 +1,6 @@
 
 
-
-<pre><code class="language-rust">
+```rust
 #[derive(Deserialize, Debug, PartialEq)]
 #[serde(untagged)]
 #[serde(field_identifier, rename_all = "lowercase")]
@@ -32,7 +31,7 @@ pub struct Foo {
     size: Size,
     provided: Option<String>
 }
-*/
+ 
 fn main() {
     let data = vec![
         (String::from("ENV_VAR_ONE"), String::from("test")),
@@ -96,4 +95,4 @@ fn main() {
         }
         Err(e) => panic!("{:#?}", e),
     }
-</code></pre>
+```

@@ -24,17 +24,17 @@
 **Важные нюансы:**
 
 **Ложные пробуждения (spurious wakeups)**
-<pre><code class="language-rust">
+```
 // Предикат защищает от ложных пробуждений
 cvar.wait_timeout_while(
     guard,
     timeout,
     |data| data.is_empty() // Перепроверяем условие при пробуждении
 )
-</code></pre>
+```
 
 **Обработка результата**
-<pre><code class="language-rust">
+```
 fn main(){
     let (guard, wait_result) = cvar.wait_timeout_while(guard, timeout, predicate).unwrap();
 
@@ -44,10 +44,10 @@ fn main(){
         // Условие выполнено (получено notify или предикат изменился)
     }
 }
-</code></pre>
+```
  
 **Возвращаемое значение**
-<pre><code class="language-rust">
+```
 fn main(){
 // Возвращает кортеж:
 // - Guard: возобновленная блокировка мьютекса
@@ -62,5 +62,5 @@ fn main(){
         println!("Не дождались за {} мс", timeout.as_millis());
     }
 }
-</code></pre>
+```
 

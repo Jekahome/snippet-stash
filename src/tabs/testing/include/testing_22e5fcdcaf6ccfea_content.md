@@ -1,7 +1,6 @@
 
 
-
-<pre><code class="language-rust">
+```
 use std::process::Termination;
 /*
 Реализации трейта Termination:
@@ -53,4 +52,4 @@ fn blabla(){
    let x = true;
    debug_assert!(x, "x wasn't true!");
 }
-</code></pre>
+```

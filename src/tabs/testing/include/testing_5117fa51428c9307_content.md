@@ -1,6 +1,6 @@
 
 
-<pre><code class="language-rust">
+```
 #[derive(Clone, Copy, Debug, Deserialize, Display, Eq, FromStr, PartialEq, Serialize,)]
 pub struct UserId(uuid::Uuid);
 use derive_more::Display;
@@ -29,4 +29,4 @@ mod user_id_spec {
         );
     }
 }
-</code></pre>
+```

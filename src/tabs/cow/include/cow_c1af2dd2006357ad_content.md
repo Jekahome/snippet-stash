@@ -1,6 +1,6 @@
 
 
-<pre><code class="language-rust">
+```
 /// Ошибка, возникающая, когда операция не разрешена текущим состоянием объекта.
 #[cfg_attr(target_family = "wasm", wasm_bindgen)]
 #[derive(Debug)]
@@ -20,4 +20,4 @@ impl StateError {
         }
     }
 }
-</code></pre>
+```

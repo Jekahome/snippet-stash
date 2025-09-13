@@ -1,6 +1,6 @@
 
 
-<pre><code class="language-rust">
+```
 use std::cell::Cell;
 #[derive(Debug,Clone,Copy)]
 struct Data(i32);
@@ -16,11 +16,11 @@ impl Wrap{
         (self.0.get_mut()).change(new);
     }
 }
-</code></pre>
+```
 
 ---
 
-<pre><code class="language-rust">
+```
 #[derive(Debug)]
 struct Data2(Cell<i32>);
 impl Data2{
@@ -42,4 +42,4 @@ fn main() {
    wrap2.change(2);
    println!("{:?} \n{:?}",wrap,wrap2);
 }
-</code></pre>
+```

@@ -1,7 +1,6 @@
 
 
-
-<pre><code class="language-rust">
+```
 use opentelemetry::trace::SpanBuilder;
 use serde::ser::{SerializeMap, Serializer as _};
 use std::io;
@@ -81,4 +80,4 @@ where
 let fmt_layer = tracing_subscriber::fmt::layer()
     //.json()
     .event_format(TraceIdFormat);
-</code></pre>
+```

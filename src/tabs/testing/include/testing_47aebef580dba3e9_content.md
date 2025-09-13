@@ -14,7 +14,7 @@
 actix-rt = "*"
 ```
 
-<pre><code class="language-rust">
+```
 #[cfg(test)]
 #[allow(non_snake_case)]
 mod tests {
@@ -30,7 +30,7 @@ mod tests {
     assert_eq!(str_len_async("x5ff").await, 4);
   }
 }
-</code></pre>
+```
 
 ---
 
@@ -39,9 +39,9 @@ mod tests {
 tokio-test = "*"
 ```
 
-<pre><code class="language-rust">
+```
 #[tokio::test]
 async fn test_str_len() {
     assert_eq!(str_len("x5ff"), 4);
 }
-</code></pre>
+```

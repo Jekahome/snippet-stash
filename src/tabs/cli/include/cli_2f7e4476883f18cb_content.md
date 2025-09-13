@@ -1,7 +1,6 @@
 
 
-
-<pre><code class="language-rust">
+```
 use std::env;
 fn test_env(){
 /*<absent> если переменная не определена;
@@ -21,5 +20,4 @@ for var in vars.into_iter(){
         None => {println!("{}: <absent>",var);}
     }
 }
-
-</code></pre>
+```

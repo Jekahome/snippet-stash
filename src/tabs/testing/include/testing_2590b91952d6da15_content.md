@@ -24,7 +24,7 @@ proptest = "0.9"
 
 ```
 
-<pre><code class="language-rust">
+```
 use proptest::prelude::*;
 
 proptest! {
@@ -33,7 +33,7 @@ proptest! {
         adder::add(s);
     }
 }
-</code></pre>
+```
 
 Результат в файл `/proptest-regressions/*.txt` следует добавить папку в gitignore
 

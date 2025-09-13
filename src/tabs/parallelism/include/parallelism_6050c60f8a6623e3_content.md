@@ -1,7 +1,7 @@
 
 
 Через каналы mpsc::channel
-<pre><code class="language-rust">
+```
 use std::collections::HashMap;
 use std::mem;
 use std::sync::mpsc;
@@ -34,4 +34,4 @@ pub fn frequency(input: &[&str], worker_count: usize) -> HashMap<char, usize> {
     }
     result
 }
-</code></pre>
+```

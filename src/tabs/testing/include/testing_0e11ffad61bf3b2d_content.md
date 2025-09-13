@@ -1,7 +1,6 @@
 
 
-
-<pre><code class="language-rust">
+```
 #[cfg(feature = "test")]
 use serde::{Deserialize, Deserializer, Serialize};
 
@@ -22,7 +21,7 @@ impl<'de> Deserialize<'de> for UserEmail {
         })
     }
 }
-</code></pre>
+```
 
 Запуск только помеченных тестов `#[cfg(feature = "test")]`
 ```

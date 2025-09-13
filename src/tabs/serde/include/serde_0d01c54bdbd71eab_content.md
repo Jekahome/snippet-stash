@@ -5,7 +5,7 @@
 `#[serde(transparent)]`
 
 
-<pre><code class="language-rust">
+```
 use serde::{Serializer,Deserializer}; 
 #[derive(Serialize, Deserialize)]
 #[serde(transparent)]
@@ -28,4 +28,4 @@ impl<'de> Deserialize<'de> for Transparent {
         Deserialize::deserialize(deserializer).map(Transparent)
     }
 }
-</code></pre>
+```

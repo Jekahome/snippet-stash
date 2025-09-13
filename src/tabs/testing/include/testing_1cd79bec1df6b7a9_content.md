@@ -1,7 +1,7 @@
 
 
 File src/service/user/domain/event/mod.rs:
-<pre><code class="language-rust">
+```
 #[cfg(test)]
 mod event_message_spec {
      #[test]
@@ -10,7 +10,7 @@ mod event_message_spec {
         assert!(true)
     }
 }
-</code></pre>
+```
 
 Запуск:
 ```

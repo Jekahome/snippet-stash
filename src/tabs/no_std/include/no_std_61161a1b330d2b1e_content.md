@@ -25,7 +25,7 @@ $ cargo build --target thumbv7m-none-eabi (если нет файла config.tom
 ```
 
 **File main.rs**:
-<pre><code class="language-rust">
+```
 #![no_main]
 #![no_std]
 
@@ -35,4 +35,4 @@ use ::core::panic::PanicInfo;
 fn panic(_panic: &PanicInfo<'_>) -> ! {
     loop {}
 }
-</code></pre>
+```

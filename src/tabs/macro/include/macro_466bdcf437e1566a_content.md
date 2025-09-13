@@ -1,7 +1,6 @@
 
 
-
-<pre><code class="language-rust">
+```
 // для o_O!(10; [1, 2, 3]; 20; [4, 5, 6]); (число;массив; и т.д.)
  macro_rules! o_O {
     (  $( 
@@ -14,11 +13,11 @@
         &[ $($( $x + $y ),*),* ]
     }
 }
-</code></pre>
+```
 
 ---
 
-<pre><code class="language-rust">
+```rust
 macro_rules! o_O {
     (
     // для [N;[M,...];] ...
@@ -33,4 +32,4 @@ fn main(){
     let a: &[i32] = o_O!(10; [1, 2, 3]; 20; [4, 5, 6]);
     assert_eq!(a, [11, 12, 13, 24, 25, 26])
 }
-</code></pre>
+```

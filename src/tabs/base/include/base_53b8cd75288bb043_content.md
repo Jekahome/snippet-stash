@@ -2,11 +2,10 @@
 
 Расходящиеся функции. Функции которые не возвращают управление наз. diverges
 ```rust
-fn main(){
- fn foo() {
+fn foo() {
     let x:! = return;
- }
 }
+fn main(){}
 ```
 
 
@@ -21,8 +20,7 @@ fn main(){
 ---
 
 ```rust
-fn main(){
- fn test(){
+fn test(){
     struct Point;
     enum Void {}
     fn foo(void: Void) -> Vec<Point> {
@@ -30,8 +28,8 @@ fn main(){
             _ => vec![]
         }
     }
- }
 }
+fn main(){}
 ```
 
 ---
@@ -44,4 +42,5 @@ fn server_loop() -> Result<!, ConnectionError> {
         response.send(client);
     }
 }
+fn main(){}
 ```

@@ -1,7 +1,7 @@
 
 
 
-<pre><code class="language-rust">
+```
 #[macro_use]
 extern crate crossbeam_channel;// лучьше производительность чем у std::sync::mpsc::channel
 
@@ -41,4 +41,4 @@ fn crossbeam_channel_data(){
     let final_result = intermediate_sums.iter().sum::<u32>();
     println!("Final sum result: {}", final_result);
 }
-</code></pre>
+```

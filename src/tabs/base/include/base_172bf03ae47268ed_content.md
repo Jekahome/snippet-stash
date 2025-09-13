@@ -1,7 +1,7 @@
 
 
 ```rust
-main(){
+fn main(){
     let s = Some("xyz".to_string());
     let foo = make_foo(&s);
     println!("{:?}", foo());

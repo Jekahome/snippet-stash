@@ -1,7 +1,6 @@
 
 
-
-<pre><code class="language-rust">
+```
 use futures::prelude::*;
 fn poll_widget() -> futures::Async<u32> {
     let mut rng = thread_rng();
@@ -42,4 +41,4 @@ impl Future for MyTask {
         */
     }
 }
-</code></pre>
+```

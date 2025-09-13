@@ -1,7 +1,6 @@
 
 
-
-<pre><code class="language-rust">
+```
 fn atomic_data2(){
     let data = "86967897737416471853297327050364959
 11861322575564723963297542624962850
@@ -33,4 +32,4 @@ fn atomic_data2(){
         println!("Result: {:?}", res);
     }
 }
-</code></pre>
+```

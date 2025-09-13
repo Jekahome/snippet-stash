@@ -80,7 +80,7 @@ fn main(){
 В Rust:
 
 * Borrow checker **запрещает**:
-```rust
+```
 fn get_ref() -> &String {
      let s = String::from("Hi");
      &s // ❌ ошибка компиляции

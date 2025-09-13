@@ -1,7 +1,6 @@
 
 
-
-<pre><code class="language-rust">
+```
 #[derive(Clone, Copy, Debug, Deserialize, Display, Eq, FromStr, PartialEq, Serialize,)]
 pub struct UserId(uuid::Uuid);
 
@@ -20,4 +19,4 @@ fn deserialization() {
         "Deserialization is not correct"
     );
 }
-</code></pre>
+```

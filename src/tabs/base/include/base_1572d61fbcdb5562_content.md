@@ -16,14 +16,14 @@ fn example() {
     double::<{ SOME_CONST + 5 }>();
 }
 fn main(){
- example() ;
+   example() ;
 }
 ```
 
 ---
 
 Решение конфликта имен
-```rust
+```
  type N = u32; // Псевдоним типа
  struct Foo<const N: usize>;
 

@@ -1,6 +1,6 @@
 
 
-```rust
+```
 mod controller{  
     fn my_private(v:i32)->bool{
         true

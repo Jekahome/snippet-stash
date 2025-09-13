@@ -2,8 +2,9 @@
 
 
 **Первый вариант** тестирования stdout/stderr через передачу писателя в аргументах функции.
+
 Недостаток, то что по всей цепочке вызовов передается `&Mutex<dyn Write + Send>`
-<pre><code class="language-rust">
+```
 use std::rc::Rc;
 use std::fmt::Write as _;
 use std::io::{self, Write};
@@ -34,14 +35,14 @@ fn test(){
  let output_stderr = String::from_utf8_lossy(&guard);
  assert!(output_stderr.len() > 0);
 }
-</code></pre>
+```
 
 ---
 
 **Второй вариант** держать свойство с писателем и использовать его только в нужном методе.
-Недостаток, лишнее поле только для нужд тестирования.
-<pre><code class="language-rust">
 
+Недостаток, лишнее поле только для нужд тестирования.
+```
 pub struct Service<T: AIClient> {
     client: T,
     pub writer: Option<StdoutWriter>,
@@ -70,11 +71,11 @@ fn print_stderr_result(
 }
 #[test]
 fn test(){
- let mut test_stderr = Rc::new(Mutex::new(Vec::new()));
- service.writer = Some(test_stderr.clone());
- service.print_stderr_result(err.to_string().as_bytes());
- let guard = test_stderr.lock().unwrap();
- let output_stderr = String::from_utf8_lossy(&guard);
- assert!(output_stderr.len() > 0);
+    let mut test_stderr = Rc::new(Mutex::new(Vec::new()));
+    service.writer = Some(test_stderr.clone());
+    service.print_stderr_result(err.to_string().as_bytes());
+    let guard = test_stderr.lock().unwrap();
+    let output_stderr = String::from_utf8_lossy(&guard);
+    assert!(output_stderr.len() > 0);
 }
-</code></pre>
+```

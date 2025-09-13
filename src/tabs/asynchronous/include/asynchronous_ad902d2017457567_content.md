@@ -1,7 +1,6 @@
 
 
-
-<pre><code class="language-rust no_run edition2024">
+```
 struct ReadSend<'a> {
     file: &'a mut File,
     channel: &'a mut Sender<...>,
@@ -21,4 +20,4 @@ impl ReadSend {
         }
     }
 }
-</code></pre>
+```

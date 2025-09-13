@@ -26,16 +26,16 @@ Rust — статически типизированный это системн
 
 <summary>примеры функциональной парадигмы</summary>
 
-<pre><code class="language-rust">
+```rust
 fn main(){
- // Замыкания (closures):
- let add = |x, y| x + y;
- println!("{}", add(2, 3));
+   // Замыкания (closures):
+   let add = |x, y| x + y;
+   println!("{}", add(2, 3));
 
-// map, filter, fold для итераторов:
- let sum: i32 = (1..5).map(|x| x * 2).sum();
+   // map, filter, fold для итераторов:
+   let sum: i32 = (1..5).map(|x| x * 2).sum();
 
-// Чистые функции
+  // Чистые функции
   fn sum(a: usize, b: usize) -> usize {
       return a + b;
   }
@@ -43,45 +43,44 @@ fn main(){
 // Композиция функций
 // Функция-композитор: принимает две функции и возвращает новую
  fn compose<F, G>(f: F, g: G) -> impl Fn(i32) -> i32
- where
-    F: Fn(i32) -> i32,
-    G: Fn(i32) -> i32,
- {
+   where
+      F: Fn(i32) -> i32,
+      G: Fn(i32) -> i32 {
     move |x| f(g(x))
  }
 }
-</code></pre>
+```
 
 Функции высшего порядка - это функции, которые принимают другие функции в качестве аргументов или возвращают функции в качестве результата.
-<pre><code class="language-rust">
-fn main() {
-  fn add(x: usize) -> usize {
-      // это печатается, поскольку функции оцениваются первыми
-      println!("executing add"); 
-      return x + x;
-  }
-  fn multiply(x: usize) -> usize {
-      // это печатается, поскольку функции оцениваются первыми
-      println!("executing multiply"); 
-      return x * x;
-  }
-  type FnType = fn(t: usize) -> usize;
-
-  // Теперь это функция высшего порядка, поэтому оценка функций задерживается в if-else
-  fn add_or_multiply(add: bool, on_add: FnType, on_multiply: FnType, t: usize) -> usize {
-      if add {
-          on_add(t)
-      } else {
-          on_multiply(t)
-      }
-  }
-  println!("{}", add_or_multiply(true, add, multiply, 4)); // 8
-  println!("{}", add_or_multiply(false, add, multiply, 4)); // 16
+```rust
+fn add(x: usize) -> usize {
+     // это печатается, поскольку функции оцениваются первыми
+     println!("executing add"); 
+     return x + x;
 }
-</code></pre>
+fn multiply(x: usize) -> usize {
+     // это печатается, поскольку функции оцениваются первыми
+     println!("executing multiply"); 
+     return x * x;
+}
+type FnType = fn(t: usize) -> usize;
+
+// Теперь это функция высшего порядка, поэтому оценка функций задерживается в if-else
+fn add_or_multiply(add: bool, on_add: FnType, on_multiply: FnType, t: usize) -> usize {
+     if add {
+         on_add(t)
+     } else {
+         on_multiply(t)
+     }
+}
+fn main(){
+    println!("{}", add_or_multiply(true, add, multiply, 4)); // 8
+    println!("{}", add_or_multiply(false, add, multiply, 4)); // 16
+}
+```
 
 Рекурсия - это процесс, при котором функция вызывает саму себя.
-<pre><code class="language-rust">
+```rust
 fn main() {
     fn factorial(num: usize) -> usize {
         return match num {
@@ -92,17 +91,18 @@ fn main() {
 
     println!("{}", factorial(20)); // 2432902008176640000
 }
-</code></pre>
+```
 
 Карринг (англ. currying) — это приём в функциональном программировании, при котором функция с несколькими аргументами преобразуется в последовательность функций, каждая из которых принимает только один аргумент и возвращает новую функцию, ожидающую следующий аргумент.
-<pre><code class="language-rust">
+```rust
 fn add(x: i32) -> impl Fn(i32) -> i32 {
     move |y| x + y
 }
-
-let add5 = add(5); // функция, которая прибавляет 5
-println!("{}", add5(3)); // 8
-</code></pre>
+fn main(){
+    let add5 = add(5); // функция, которая прибавляет 5
+    println!("{}", add5(3)); // 8
+}
+```
 
 </details>
 

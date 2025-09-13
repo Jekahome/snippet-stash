@@ -1,7 +1,6 @@
 
 
-
-<pre><code class="language-rust">
+```
 use rayon::prelude::*;
 use std::time::Instant;
 
@@ -39,4 +38,4 @@ fn algorithm(nodes: &mut Nodes) -> i32{
     // 528 millis for 50 mln
     nodes.data.iter().map(|v|v.payload).sum()   
 }
-</code></pre>
+```

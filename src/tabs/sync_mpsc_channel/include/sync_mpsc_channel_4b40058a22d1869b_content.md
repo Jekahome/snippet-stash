@@ -1,7 +1,6 @@
 
 
-
-<pre><code class="language-rust">
+```
 use std::time::Duration;
 fn test_crossbeam(){
     let (tx, rx): (crossbeam_channel::Sender<&str>, crossbeam_channel::Receiver<&str>) = crossbeam_channel::unbounded();
@@ -36,4 +35,4 @@ fn test_crossbeam(){
     recv(crossbeam_channel::after(timeout)) => println!("timed out; the channel is still empty"),
     }
 }
-</code></pre>
+```

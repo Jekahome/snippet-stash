@@ -1,7 +1,7 @@
 
 
 Вы можете преобразовать Future в Stream, а затем выбрать два потока:
-<pre><code class="language-rust">
+```
 extern crate futures; // 0.2.1
 use futures::{Future, FutureExt, Stream, StreamExt};
 
@@ -15,4 +15,4 @@ where
 {
     future.into_stream().select(stream)
 }
-</code></pre>
+```

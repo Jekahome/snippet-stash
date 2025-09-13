@@ -1,7 +1,6 @@
 
 
-
-<pre><code class="language-rust">
+```
 use actix::prelude::*;
 use std::time::{Instant};
 struct MyActorTask {
@@ -29,11 +28,11 @@ impl Handler<TaskMessage> for MyActorTask {
         let _ = self.recipient.do_send(ResultMessage{id:msg.id,sum:result});
     }
 }
-</code></pre>
+```
 
 ---
  
-<pre><code class="language-rust">
+```
 struct MyActorResult {
     sum: usize,
     finish_len: usize,
@@ -67,4 +66,4 @@ impl Handler<ResultMessage> for MyActorResult {
         }  
     }
 }
-</code></pre>
+```

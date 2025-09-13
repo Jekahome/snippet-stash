@@ -12,7 +12,7 @@
 ---
 
 ✅ **Правильное использование - до создания потоков**
-<pre><code class="language-rust">
+```rust
 use std::sync::Mutex;
 
 fn main() {
@@ -30,10 +30,10 @@ fn main() {
     let shared_mutex = std::sync::Arc::new(mutex);
     // Дальше работаем через lock()
 }
-</code></pre>
+```
 
 ✅ **Инициализация перед многопоточным использованием**
-<pre><code class="language-rust">
+```
 use std::sync::{Mutex, Arc};
 
 fn initialize_config() -> Arc<Mutex<Config>> {
@@ -59,12 +59,12 @@ impl Default for Config {
         Self { timeout: 0, retries: 0 }
     }
 }
-</code></pre>
+```
 
 ---
 
 ❌ **Попытка использовать get_mut() с Arc**
-<pre><code class="language-rust">
+```rust
 use std::sync::{Mutex, Arc};
 fn main(){
     let shared_mutex = Arc::new(Mutex::new(42));
@@ -75,10 +75,10 @@ fn main(){
     // Правильно - через lock()
     let data = shared_mutex.lock().unwrap();
 }
-</code></pre>
+```
 
 ❌ **После передачи в поток**
-<pre><code class="language-rust">
+```rust
 use std::sync::{Mutex, Arc};
 use std::thread;
 fn main(){
@@ -92,4 +92,4 @@ fn main(){
     // ОШИБКА! Мьютекс уже разделяется между потоками
     // let data = mutex.get_mut(); // Не скомпилируется
 }
-</code></pre>
+```

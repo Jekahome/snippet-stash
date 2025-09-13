@@ -1,7 +1,7 @@
 
 
 Через Mutex
-<pre><code class="language-rust">
+```
 use std::collections::HashMap;
 use std::sync::{Arc, Mutex};
 use std::thread;
@@ -31,4 +31,4 @@ pub fn frequency(input: &[&str], worker_count: usize) -> HashMap<char, usize> {
     // получить HashMap из Arc<Mutex<HashMap>>
     Arc::try_unwrap(result).unwrap().into_inner().unwrap()
 }
-</code></pre>
+```

@@ -1,7 +1,6 @@
 
 
-
-<pre><code class="language-rust">
+```
 #[tokio::test]
 async fn setup_create_account() {
     // setup env ...
@@ -25,4 +24,4 @@ async fn setup_create_account() {
         panic::resume_unwind(err);
     }
 }
-</code></pre>
+```

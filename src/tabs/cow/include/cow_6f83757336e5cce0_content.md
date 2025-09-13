@@ -1,7 +1,6 @@
 
 
-
-<pre><code class="language-rust">
+```
 use std::borrow::Cow;
 fn describe(error: &Error) -> Cow<'static, str> {
     match *error {
@@ -12,4 +11,4 @@ fn describe(error: &Error) -> Cow<'static, str> {
         Error::Custom(e) => format!("Error: {}", e).into(),
     }
 }
-</code></pre>
+```

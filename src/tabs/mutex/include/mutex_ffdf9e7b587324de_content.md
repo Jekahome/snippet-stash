@@ -5,16 +5,16 @@
 Если к нескольким таким значениям обычно обращаются вместе, может быть лучше поместить их в одну оболочку.
 
 ❌ Например, такая структура:
-<pre><code class="language-rust">
+```
 struct S {
     x: Arc<Mutex<u32>>, 
     y: Arc<Mutex<u32>>,
 }
-</code></pre>
+```
 
 ✅ может быть лучше представлено так:
-<pre><code class="language-rust">
+```
 struct S {
     xy: Arc<Mutex<(u32, u32)>> 
 }
-</code></pre>
+```

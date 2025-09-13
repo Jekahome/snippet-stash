@@ -2,7 +2,7 @@
 
 
 File lib.rs: 
-<pre><code class="language-rust">
+```
 pub mod settings{
     use config::{Config};
     use std::sync::RwLock;
@@ -28,7 +28,7 @@ pub mod settings{
         Ok(config)
    } 
 }
-</code></pre>
+```
 
 File settings/settings.toml:
 ```toml
@@ -40,7 +40,7 @@ dbname="rust"
 ```
 
 Used File main.rs:
-<pre><code class="language-rust">
+```
 use tokio_postgres_example::settings;
 
 #[tokio::main] 
@@ -51,4 +51,4 @@ async fn main() -> std::result::Result<(), tokio_postgres::Error> {
         tokio_postgres::connect(&config, NoTls).await?;
 ...
 }
-</code></pre>
+```

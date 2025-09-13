@@ -3,7 +3,7 @@
 Как я могу реализовать `Ord`?
 
 Trait `std::cmp::Ord` - Трейт для типов, образующих общий порядок
-<pre><code class="language-rust no_run edition2021">
+```
 pub trait Ord: Eq + PartialOrd<Self> {
     // Required method
     fn cmp(&self, other: &Self) -> Ordering;
@@ -16,4 +16,4 @@ pub trait Ord: Eq + PartialOrd<Self> {
     fn clamp(self, min: Self, max: Self) -> Self
        where Self: Sized + PartialOrd<Self> { ... }
 }
-</code></pre>
+```

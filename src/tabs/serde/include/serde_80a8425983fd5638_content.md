@@ -1,7 +1,7 @@
 
 
 Обычные структуры и структуры кортежа следуют трех этапному процессу **init, elements и end**
-<pre><code class="language-rust">
+```
 use serde::ser::{Serialize, Serializer, SerializeStruct};
 //   1. serialize_struct
 //   2. serialize_field
@@ -21,11 +21,11 @@ impl Serialize for Color {
         state.end() // end
     }
 }
-</code></pre>
+```
 
 ---
 
-<pre><code class="language-rust">
+```rust
 use serde::ser::{SerializeTupleStruct};
 //   1. serialize_tuple_struct
 //   2. serialize_field
@@ -49,4 +49,4 @@ fn main() -> serde_json::Result<()> {
     let p_string = serde_json::to_string(&p).unwrap();// Serialize
     println!("serialized = {}", p_string);// [8.0,9.1]
 }
-</code></pre>
+```

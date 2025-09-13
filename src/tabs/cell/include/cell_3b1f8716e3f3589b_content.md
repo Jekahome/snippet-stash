@@ -1,7 +1,6 @@
 
 
-
-<pre><code class="language-rust">
+```
 pub trait Messenger {
     fn send(&self, msg: &str);
 }
@@ -33,4 +32,4 @@ fn it_sends_an_over_75_percent_warning_message() {
     limit_tracker.set_value(80);
     assert_eq!(mock_messenger.sent_messages.borrow().len(), 1);
 }
-</code></pre>
+```

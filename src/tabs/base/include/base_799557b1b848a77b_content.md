@@ -8,4 +8,5 @@ fn foo(r: Result<Vec<u32>, Error>) {
         Err(_) => return,
     };// доступен вектор r для дальнейшего использования
 }
+fn main(){}
 ```

@@ -1,7 +1,6 @@
 
 
-
-<pre><code class="language-rust">
+```
 pub use foo::*;
 pub mod foo{
     fn ggg()->bool{
@@ -21,7 +20,6 @@ pub mod foo{
         }
     }
 }
-
 #[cfg(test)]
 mod event_message_spec {
 use super::*;
@@ -31,4 +29,4 @@ use super::*;
         assert!(ddd())
     }
 }
-</code></pre>
+```

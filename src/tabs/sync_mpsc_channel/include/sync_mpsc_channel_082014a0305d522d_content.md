@@ -1,7 +1,6 @@
 
 
-
-<pre><code class="language-rust">
+```
 use std::sync::mpsc::{Sender, Receiver};
 use std::thread::JoinHandle;
 fn test2() {
@@ -50,4 +49,4 @@ fn test2() {
         println!("Got: {:?}", j);
     }
 }
-</code></pre>
+```

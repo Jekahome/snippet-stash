@@ -12,7 +12,7 @@
 **Примеры использования:**
 
 **1. Ожидание данных с таймаутом**
-<pre><code class="language-rust">
+```rust
 use std::sync::{Mutex, Condvar};
 use std::time::Duration;
 fn main(){
@@ -32,11 +32,11 @@ fn main(){
         println!("Данные получены!");
     }
 }
-</code></pre>
+```
 
 
 **2. Ожидание очереди с условием**
-<pre><code class="language-rust">
+```
 struct TaskQueue {
     tasks: Mutex<Vec<Task>>,
     cvar: Condvar,
@@ -57,11 +57,11 @@ impl TaskQueue {
         }
     }
 }
-</code></pre>
+```
 
 
 **3. Ожидание конкретного состояния**
-<pre><code class="language-rust">
+```
 struct Processor {
     status: Mutex<Status>,
     cvar: Condvar,
@@ -73,7 +73,6 @@ enum Status {
     Processing,
     Complete,
 }
-
 impl Processor {
     fn wait_for_completion(&self, timeout: Duration) -> bool {
         let (guard, result) = self.cvar.wait_timeout_while(
@@ -85,11 +84,11 @@ impl Processor {
         !result.timed_out() // true если завершился, false если таймаут
     }
 }
-</code></pre>
+```
 
 
 **4. Реализация connection pool с таймаутом**
-<pre><code class="language-rust">
+```
 struct ConnectionPool {
     connections: Mutex<Vec<Connection>>,
     cvar: Condvar,
@@ -110,16 +109,15 @@ impl ConnectionPool {
         }
     }
 }
-</code></pre>
+```
 
 
 **5. Ожидание с прогрессом**
-<pre><code class="language-rust">
+```
 struct Downloader {
     progress: Mutex<f64>,
     cvar: Condvar,
 }
-
 impl Downloader {
     fn wait_for_progress(&self, target: f64, timeout: Duration) -> bool {
         let (guard, result) = self.cvar.wait_timeout_while(
@@ -137,4 +135,4 @@ impl Downloader {
         }
     }
 }
-</code></pre>
+```

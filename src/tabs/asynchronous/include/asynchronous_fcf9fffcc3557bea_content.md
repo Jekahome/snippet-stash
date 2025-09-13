@@ -3,11 +3,11 @@
 **async**: Используется для обозначения асинхронной функции или блока кода. 
 
 Когда вы добавляете ключевое слово async перед функцией или блоком кода, компилятор Rust превращает его в std::future::Future, который может быть опрошен и выполнен позже.
-<pre><code class="language-rust">
+```
 async fn my_async_function() -> u32 { 42 }
 
 // Превращается в нечто подобное:
 fn my_async_function() -> impl Future<Output = u32> {
     async { 42 }
 }
-</code></pre>
+```

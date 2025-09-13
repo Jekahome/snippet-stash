@@ -1,7 +1,6 @@
 
 
-
-<pre><code class="language-rust">
+```
 use std::thread;
 use std::sync::mpsc;
 
@@ -37,4 +36,4 @@ fn channel_data(){
     let final_result = intermediate_sums.iter().sum::<u32>();
     println!("Final sum result: {}", final_result);
 }
-</code></pre>
+```

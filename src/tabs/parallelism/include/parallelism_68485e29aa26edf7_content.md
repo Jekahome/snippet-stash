@@ -1,7 +1,6 @@
 
 
-
-<pre><code class="language-rust">
+```
 use std::sync::{Arc, Mutex};
 fn mutex_data(){
     let data = "86967897737416471853297327050364959
@@ -45,4 +44,4 @@ fn mutex_data(){
         }
     }
 }
-</code></pre>
+```

@@ -8,12 +8,12 @@
 
 В файле Cargo.toml добавьте стандартную функцию, затем добавьте эту стандартную функцию к функциям по умолчанию. 
 Добавьте следующие строки в начало lib.rs:
-<pre><code class="language-rust no_run edition2024">
+```
 #![no_std]
 #[cfg(feature = "std")]
 extern crate std;
 extern crate alloc;
-</code></pre>
+```
 
 
 - Переместите все директивы использования из std в core или alloc.

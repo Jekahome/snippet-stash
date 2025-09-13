@@ -19,7 +19,7 @@
 
 В нашем случае, поскольку каждый ключ независим, сегментирование мьютексов будет работать хорошо. 
 Для этого вместо одного `Mutex<HashMap<_, _>>` экземпляра мы вводим N отдельные экземпляры.
-<pre><code class="language-rust">
+```
 fn main(){
 type ShardedDb = Arc<Vec<Mutex<HashMap<String, Vec<u8>>>>>;
 
@@ -29,7 +29,7 @@ type ShardedDb = Arc<Vec<Mutex<HashMap<String, Vec<u8>>>>>;
 let shard = db[hash(key) % db.len()].lock().unwrap();
 shard.insert(key, value);
 }
-</code></pre>
+```
 
 ---
 
@@ -37,7 +37,7 @@ shard.insert(key, value);
 
 Например, вы можете обернуть мьютекс в структуру и заблокировать мьютекс только внутри не асинхронных методов этой структуры.
 Этот шаблон гарантирует, что вы не столкнетесь с Send ошибкой, потому что защита мьютекса не появляется нигде в асинхронной функции.
-<pre><code class="language-rust">
+```
 use std::sync::Mutex;
 struct CanIncrement {
     mutex: Mutex<i32>,
@@ -53,7 +53,7 @@ async fn increment_and_do_stuff(can_incr: &CanIncrement) {
     can_incr.increment();
     do_something_async().await;
 } 
-</code></pre>
+```
 
 
 

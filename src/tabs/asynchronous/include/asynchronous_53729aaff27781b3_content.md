@@ -10,7 +10,7 @@
 
 
 Например, рассмотрим простой не-Send тип, например, содержащий Rc:
-<pre><code class="language-rust">
+```
 use std::rc::Rc;
 
 #[derive(Default)]
@@ -30,4 +30,4 @@ async fn good() {
     }
     bar().await;
 }
-</code></pre>
+```

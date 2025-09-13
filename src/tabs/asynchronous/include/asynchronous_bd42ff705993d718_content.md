@@ -22,17 +22,17 @@
 
 ### Пример накладных расходов `async/await`
 
-<pre><code class="language-rust">
+```
 async fn example() -> u32 {
     let x = compute().await;
     let y = compute().await;
     x + y
 }
-</code></pre>
+```
 
 Компилятор генерирует структуру, которая примерно эквивалентна:
 
-<pre><code class="language-rust">
+```
 enum ExampleState {
     Start,
     AwaitingCompute1(Pin<Box<dyn Future<Output = u32>>>),
@@ -77,7 +77,7 @@ impl Future for ExampleFuture {
         }
     }
 }
-</code></pre>
+```
 
 Этот автоматически созданный код работает корректно, но он имеет накладные расходы:
 - Компилятор добавляет промежуточные состояния.

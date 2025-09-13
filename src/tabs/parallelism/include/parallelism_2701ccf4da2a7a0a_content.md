@@ -1,7 +1,6 @@
 
 
-
-<pre><code class="language-rust">
+```
 use std::sync::atomic::{AtomicUsize, Ordering};
 fn atomic_data(){
     let data = "86967897737416471853297327050364959
@@ -36,4 +35,4 @@ fn atomic_data(){
         println!("Result: {:?}", res);
     }
 }
-</code></pre>
+```

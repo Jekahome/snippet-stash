@@ -1,7 +1,6 @@
 
 
-
-<pre><code class="language-rust">
+```
 let timer = tokio_timer::Timer::default();
     // Error out when timeout is reached
     let timeout = timer.sleep(time::Duration::from_millis(950)).then(|_| {
@@ -52,4 +51,4 @@ let timer = tokio_timer::Timer::default();
         data
     });
     let result = core.run(waiter);
-</code></pre>
+```

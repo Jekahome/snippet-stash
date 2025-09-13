@@ -1,8 +1,7 @@
 
 
 Составные типы следуют трех этапному процессу: **инициализация, элементы, завершение**.
-<pre><code class="language-rust">
-
+```
 use serde::ser::{Serialize, Serializer, SerializeSeq, SerializeMap};
 
 impl<T> Serialize for Vec<T>
@@ -37,4 +36,4 @@ where
         map.end()
     }
 }
-</code></pre>
+```

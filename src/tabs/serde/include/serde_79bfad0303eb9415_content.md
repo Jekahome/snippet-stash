@@ -1,7 +1,7 @@
 
 
 
-<pre><code class="language-rust">
+```rust
 #[derive(Debug)]
 struct Item(u64);
 
@@ -13,7 +13,6 @@ impl Item {
         Some(Item(n))
     }
 }
-
 impl<'de> Deserialize<'de> for Item {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error> where D: Deserializer<'de> {
         Deserialize::deserialize(deserializer)
@@ -37,11 +36,11 @@ fn main(){
     let deserialized:Item  = serde_json::from_str("\"11\"").unwrap();
     println!("{:?}",deserialized); 
 }
-</code></pre>
+```
 
 
 Не учитывая валидацию типа
-<pre><code class="language-rust">
+```
 use std::fmt::Display;
 use std::str::FromStr;
 #[derive(Deserialize,Debug)]
@@ -54,4 +53,4 @@ fn from_str<'de, T, D>(deserializer: D) -> Result<T, D::Error>
     let s = String::deserialize(deserializer)?;
     T::from_str(&s).map_err(de::Error::custom)
 }
-</code></pre>
+```

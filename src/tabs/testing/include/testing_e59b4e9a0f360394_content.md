@@ -3,9 +3,10 @@
 ```toml
 [dev-dependencies]
 assert_fs = "1.0.13"
+
 ```
 
-<pre><code class="language-rust">
+```
 use assert_fs::prelude::*;
 
 #[test]
@@ -21,4 +22,4 @@ fn find_content_in_file() -> Result<(), Box<dyn std::error::Error>> {
 
     Ok(())
 }
-</code></pre>
+```

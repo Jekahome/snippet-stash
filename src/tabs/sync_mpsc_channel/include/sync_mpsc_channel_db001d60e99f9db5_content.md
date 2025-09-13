@@ -2,7 +2,7 @@
 
 
 Мы можем обернуть Receiver мьюксом и сделать его разделяемым.
-<pre><code class="language-rust">
+```
 pub mod shared_channel {
 use std::sync::{Arc, Mutex}; 
 use std::sync::mpsc::{channel, Sender, Receiver};
@@ -25,4 +25,4 @@ use std::sync::mpsc::{channel, Sender, Receiver};
         (sender, SharedReceiver(Arc::new(Mutex::new(receiver))))
     } 
 }
-</code></pre>
+```

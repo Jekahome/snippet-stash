@@ -1,7 +1,6 @@
 
 
-
-<pre><code class="language-rust">
+```
 // Этот вариант не сможем протестировать, нет доступа к выводу
 fn find_matches(content: &str, pattern: &str) {
     for line in content.lines() {
@@ -26,11 +25,11 @@ fn main() -> Result<()> {
     find_matches(&content, &args.pattern, &mut std::io::stdout());
     Ok(())
 }
-</code></pre>
+```
 
 ---
 
-<pre><code class="language-rust">
+```
 use std::io::{BufWriter, Write};
 #[test]
 fn test_stdout() {
@@ -40,4 +39,4 @@ fn test_stdout() {
     let output = writer.buffer();
     assert_eq!(output, b"Expected output");
 }
-</code></pre>
+```

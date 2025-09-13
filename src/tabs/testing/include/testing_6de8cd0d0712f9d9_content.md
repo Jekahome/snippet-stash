@@ -1,7 +1,6 @@
 
 
-
-<pre><code class="language-rust">
+```
 #[test]
 fn cargo_compile_simple() -> Result<(), Box<dyn std::error::Error>>{
     use assert_fs::prelude::*;
@@ -19,4 +18,4 @@ fn cargo_compile_simple() -> Result<(), Box<dyn std::error::Error>>{
         .code(0);
     Ok(()) 
 }
-</code></pre>
+```

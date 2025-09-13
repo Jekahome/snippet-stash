@@ -1,7 +1,6 @@
 
 
-
-<pre><code class="language-rust">
+```
 #[test]
 #[should_panic] если не будет panic тест сработает
 fn it_works() {
@@ -13,4 +12,4 @@ fn it_works() {
 fn empty_input() {
     parse("").unwrap();
 }
-</code></pre>
+```

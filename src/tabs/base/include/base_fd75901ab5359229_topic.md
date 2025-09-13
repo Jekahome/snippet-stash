@@ -1,7 +1,7 @@
 
 
 Trait `std::cmp::PartialOrd`
-<pre><code class="language-rust no_run edition2021">
+```
 pub trait PartialOrd<Rhs = Self>: PartialEq<Rhs>
 where
     Rhs: ?Sized,
@@ -15,4 +15,4 @@ where
     fn gt(&self, other: &Rhs) -> bool { ... }
     fn ge(&self, other: &Rhs) -> bool { ... }
 }
-</code></pre>
+```

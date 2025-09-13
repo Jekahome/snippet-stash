@@ -2,7 +2,7 @@
 
 Атрибут `#[cfg(test)]`
 
-<pre><code class="language-rust">
+```
 // Код компилируется ТОЛЬКО для тестов
 #[cfg(test)]
 mod tests {
@@ -15,11 +15,11 @@ if cfg!(test) {
 } else {
     // ничего
 }
-</code></pre>
+```
 
 ---
 
-<pre><code class="language-rust">
+```
 pub fn add_two(a: i32) -> i32 {
     a + 2
 }
@@ -36,5 +36,5 @@ mod test {
         assert_eq!(4, add_two(2));
     }
 }
-</code></pre>
+```
 

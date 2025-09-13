@@ -71,11 +71,12 @@ impl Animal for Cat {
 fn animal_sound(animal: &impl Animal) {
     animal.make_sound();
 }
-
-let dog = Dog;
-let cat = Cat;
-animal_sound(&dog);  // Woof!
-animal_sound(&cat);  // Meow!
+fn main(){
+    let dog = Dog;
+    let cat = Cat;
+    animal_sound(&dog);  // Woof!
+    animal_sound(&cat);  // Meow!
+}
 ```
 
 </details>

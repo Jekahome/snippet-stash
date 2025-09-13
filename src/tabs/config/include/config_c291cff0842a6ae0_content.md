@@ -1,7 +1,7 @@
 
 
-
-<pre><code class="language-rust">
+```
+fn main(){
     let mut c = Config::default();
     //let mut c = Config::new();
 
@@ -13,4 +13,5 @@
     //let mut c = Config::try_from(&my_conf)?; Создание с состояния структуры и последующий merge не работатет
     c.merge(File::new("Settings_test", FileFormat::Toml)).unwrap();
     c.merge(File::new("Settings_test2", FileFormat::Toml)).unwrap();
-</code></pre>
+}
+```

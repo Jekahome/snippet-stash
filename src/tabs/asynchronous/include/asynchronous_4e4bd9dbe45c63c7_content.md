@@ -1,6 +1,6 @@
 
 
-<pre><code class="language-rust">
+```
 use futures::future::{BoxFuture, FutureExt};
 use std::time::Duration;
 use tokio::time::sleep;
@@ -47,12 +47,12 @@ pub async fn run() {
         }
     }
 }
-</code></pre>
+```
 
 ---
 
 Пример для типа без размера
-<pre><code class="language-rust">
+```
 use futures::future::{BoxFuture, FutureExt};
 use std::time::Duration;
 use tokio::time::sleep;
@@ -88,4 +88,4 @@ pub async fn run() {
     let result = future.await;
     println!("Result: {}", result); // Печатает "Result: 25"
 }
-</code></pre>
+```

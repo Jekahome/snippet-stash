@@ -1,7 +1,6 @@
 
 
-
-<pre><code class="language-rust">
+```
 #[derive(Clone, Copy, Debug, Deserialize, Display, Eq, FromStr, PartialEq, Serialize,)]
 pub struct UserId(uuid::Uuid);
 
@@ -22,4 +21,4 @@ fn from_str_v4() {
         .expect("Failed to parse from string");
     assert_eq!(UserId::from(value), user_id, "FromStr is not correct");
 }
-</code></pre>
+```

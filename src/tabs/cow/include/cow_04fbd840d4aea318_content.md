@@ -2,19 +2,19 @@
 
 Поскольку тип Cow часто используется для строк, в стандартной библиотеке
 имеется специальная поддержка для `Cow<'a, str>`. Этот тип позволяет выполнять преобразования в типы `String` и `&str` и обратно.
-<pre><code class="language-rust">
+```
 use std::borrow::Cow;
 fn get_name() -> Cow<'static, str> {
          std::env::var("USER")
                   .map(|v| Cow::Owned(v)) // или  .map(|v| v.into())
                   .unwrap_or(Cow::Borrowed("кем бы ты ни был")) // или .unwrap_or("кем бы ты ни был".into())
 }
-</code></pre>
+```
 
 ---
 
 Если s и так в нижнем регистре — экономим аллокацию. Если строка уже в lowercase, то так и оставить иначе отдать String
-<pre><code class="language-rust">
+```
 use std::borrow::Cow;
 fn to_lowercase<'a>(s: &'a str) -> Cow<'a, str> {
     if s.chars().all(char::is_lowercase) {
@@ -23,5 +23,5 @@ fn to_lowercase<'a>(s: &'a str) -> Cow<'a, str> {
          Cow::Owned(s.to_lowercase())
     }
 } 
-</code></pre>
+```
 **Минусы**: тоскать ifetime параметр

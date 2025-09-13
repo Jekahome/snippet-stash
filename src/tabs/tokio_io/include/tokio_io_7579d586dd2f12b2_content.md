@@ -1,7 +1,7 @@
 
 
 
-<pre><code class="language-rust">
+```
 use tokio::net::{TcpListener,TcpStream};
 use tokio::io::{self, AsyncReadExt, AsyncWriteExt};
 use std::error::Error;
@@ -22,11 +22,11 @@ impl Buffer {
         self.0.flush().unwrap(); 
     }
 }
-</code></pre>
+```
 
 ---
 
-<pre><code class="language-rust">
+```
 async fn process_socket(mut stream: TcpStream,addr:SocketAddr) -> Result<(), Box<dyn Error>>{
     let (rd_stream,wr_stream):(tokio::net::tcp::ReadHalf<'_>, tokio::net::tcp::WriteHalf<'_>) = stream.split();
     rd_stream.readable().await?;
@@ -82,4 +82,4 @@ async fn main() -> io::Result<()> {
         println!("work in progress, do something!!!");
     }
 }
-</code></pre>
+```

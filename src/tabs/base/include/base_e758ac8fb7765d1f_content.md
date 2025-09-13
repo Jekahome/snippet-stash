@@ -1,12 +1,13 @@
 
 
 
-<pre><code class="language-rust">
+```
 struct Buffer<T> { buf: Vec<T> }
 
 impl<T> Buffer<T> {
     fn get_and_reset(&mut self) -> Vec<T> {
-  /*      // error: cannot move out of dereference of `&mut`-pointer
+/*      
+        // error: cannot move out of dereference of `&mut`-pointer
         let buf = self.buf;
         self.buf = Vec::new();
         buf 
@@ -14,4 +15,4 @@ impl<T> Buffer<T> {
        std::mem::replace(&mut self.buf, Vec::new())
     }
 }
-</code></pre>
+```

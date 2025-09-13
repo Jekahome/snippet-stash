@@ -1,7 +1,6 @@
 
 
-
-<pre><code class="language-rust">
+```
 //! From https://doc.rust-lang.org/book/ch20-03-graceful-shutdown-and-cleanup.html
 #![allow(unused_variables)]
 use std::sync::mpsc;
@@ -13,7 +12,6 @@ enum Message {
     NewJob(Job),
     Terminate,
 }
-
 pub struct ThreadPool {
     workers: Vec<Worker>,
     sender: mpsc::Sender<Message>,
@@ -37,14 +35,12 @@ impl ThreadPool {
         self.sender.send(Message::NewJob(job)).unwrap();
     }
 }
-
 impl Drop for ThreadPool {
     fn drop(&mut self) {
         println!("Sending terminate message to all workers.");
         for _ in &mut self.workers {
             self.sender.send(Message::Terminate).unwrap();
         }
-
         println!("Shutting down all workers.");
         for worker in &mut self.workers {
             println!("Shutting down worker {}", worker.id);
@@ -54,12 +50,10 @@ impl Drop for ThreadPool {
         }
     }
 }
-
 struct Worker {
     id: usize,
     thread: Option<thread::JoinHandle<()>>,
 }
-
 impl Worker {
     fn new(id: usize, receiver: Arc<Mutex<mpsc::Receiver<Message>>>) -> Worker {
         let thread = thread::spawn(move || loop {
@@ -78,4 +72,4 @@ impl Worker {
         Worker { id, thread: Some(thread) }
     }
 }
-</code></pre>
+```

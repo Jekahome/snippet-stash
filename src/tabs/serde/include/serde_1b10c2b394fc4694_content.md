@@ -6,7 +6,7 @@ deserialize_map
 
 1. Динамические или неизвестные поля
 С deserialize_map вы можете динамически прочитать все поля и сохранить их, например, в HashMap или игнорировать ненужные:
-<pre><code class="language-rust">
+```
 while let Some(key) = map.next_key::<String>()? {
     match key.as_str() {
         "name" => name = Some(map.next_value()?),
@@ -17,7 +17,7 @@ while let Some(key) = map.next_key::<String>()? {
         }
     }
 }
-</code></pre>
+```
 
 
 2. Обработка неизвестных структур
@@ -49,9 +49,9 @@ match key.as_str() {
 
 4. Работа с вложенными структурами без явных определений
 Если вложенные объекты имеют произвольный или переменный формат, deserialize_map позволяет обработать их без создания соответствующих структур
-<pre><code class="language-rust">
+```rust
 fn main(){
     let data: HashMap<String, serde_json::Value> = map.next_value()?;
 }
-</code></pre>
+```
 

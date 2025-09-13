@@ -1,7 +1,6 @@
 
 
-
-<pre><code class="language-rust">
+```
 pub struct MyCell<T> {
     value: T,
 }
@@ -23,4 +22,4 @@ impl<T> MyCell<T> {
         }
     }
 }
-</code></pre>
+```

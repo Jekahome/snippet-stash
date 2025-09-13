@@ -6,7 +6,7 @@
 Ничто не мешает вам следовать стилю BDD в обычных тестах Rust. 
 
 ❌ Итак, вместо:
-<pre><code class="language-rust">
+```
 #[cfg(test)]
 mod tests {
     use super::*;
@@ -19,10 +19,10 @@ mod tests {
         assert!(!h.contains("z"));
     }
 }
-</code></pre>
+```
 
 ✅ Вы всегда можете написать это более осмысленно:
-<pre><code class="language-rust">
+```
 #[cfg(test)]
 mod hash_spec {
     use super::*;
@@ -37,6 +37,6 @@ mod hash_spec {
         assert!(!hash("some_string").contains("z"));
     }
 }
-</code></pre>
+```
 Это делает тесты более детализированными (а значит, более значимыми ошибками тестирования), а намерения тестирования становятся более понятными для читателя.
 

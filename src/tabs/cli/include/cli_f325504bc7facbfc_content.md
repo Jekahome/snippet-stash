@@ -1,7 +1,6 @@
 
 
-
-<pre><code class="language-rust">
+```
 use std::ffi::OsStr;
 use std::io::Write;
 use std::process::{Child, Command, Output, Stdio};
@@ -45,4 +44,4 @@ fn get_stdout(child: Child) -> Vec<u8> {
         .expect("Process did not end after right number was given")
         .stdout
 }
-</code></pre>
+```

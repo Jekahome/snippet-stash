@@ -9,8 +9,7 @@ Rc, в отличие от этого Box, не копирует весь кон
 Единственное, что мы копируем, это ссылка на объект, живущий в куче, и мы увеличиваем счетчик 1.
 
 
-
-<pre><code class="language-rust">
+```
 use std::rc::Rc;
 pub struct Server {
     engine: Rc<Engine>,
@@ -38,4 +37,4 @@ impl Server {
         Server { engine: self.engine.clone()}
     }
 }
-</code></pre>
+```

@@ -1,7 +1,6 @@
 
 
-
-<pre><code class="language-rust">
+```
 pub struct Server {
     listener: TcpListener,
     connections: Vec<Box<Future<Item = (), Error = io::Error> + Send>>,
@@ -40,4 +39,4 @@ impl Future for Server {
         Ok(Async::NotReady)
     }
 }
-</code></pre>
+```

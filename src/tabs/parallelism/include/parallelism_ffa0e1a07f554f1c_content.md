@@ -1,7 +1,6 @@
 
 
-
-<pre><code class="language-rust">
+```
 #[derive(Debug, Clone)]
 pub struct Point {
         x: Cell<i32>,
@@ -42,4 +41,5 @@ fn test() {
     // println!("point={:#?}",point);
     assert_eq!(point.get_x(), 0);
 }
-</code></pre>
+```
+

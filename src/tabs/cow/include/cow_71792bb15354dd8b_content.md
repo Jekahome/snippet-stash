@@ -1,7 +1,6 @@
 
 
-
-<pre><code class="language-rust">
+```
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub struct FileContentsResponse<'a> {
     is_error: bool,
@@ -33,4 +32,4 @@ impl<'a> FileContentsResponse<'a> {
         }
     }
 }
-</code></pre>
+```

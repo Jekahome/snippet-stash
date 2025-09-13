@@ -6,7 +6,7 @@ assert_cmd = "2.0.11"
 predicates = "3.0.3"
 ```
 
-<pre><code class="language-rust">
+```
 use assert_cmd::prelude::*; // Add methods on commands
 use predicates::prelude::*; // Used for writing assertions
 use std::process::Command; // Run programs
@@ -22,4 +22,4 @@ fn file_doesnt_exist() -> Result<(), Box<dyn std::error::Error>> {
 
     Ok(())
 }
-</code></pre>
+```

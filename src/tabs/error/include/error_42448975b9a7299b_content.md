@@ -1,7 +1,7 @@
 
 
 
-<pre><code class="language-rust">
+```
 fn main(){
     match exec_ctx.logout_user() {
         Ok(_) => Ok(true),
@@ -12,11 +12,11 @@ fn main(){
         .map(|_| true)
         .map_err(|_| CustomError::BadRequest("User not logged in".to_string())) ✅ 
 }
-</code></pre>
+```
 
 ---
 
-<pre><code class="language-rust">
+```
 fn main(){
     match &self.id {
         Some(value) => Some(value.clone()),❌
@@ -24,11 +24,11 @@ fn main(){
     }
     self.id.map(Clone::clone) ✅
 }
-</code></pre>
+```
 
 ---
 
-<pre><code class="language-rust">
+```
 fn main(){
     match exec_ctx.update_user(Box::new(update_user)) {
         Ok(user) => Ok(Userjuniper::from(user)), ❌
@@ -37,11 +37,11 @@ fn main(){
 
     exec_ctx.update_user(Box::new(update_user)).map(Userjuniper::from) ✅ 
 }
-</code></pre>
+```
 
 ---
 
-<pre><code class="language-rust">
+```
     fn birth_date(&self) -> Option<String> {
        /* match &self.birth_date {
             Some(value) => Some(value.clone()), ❌
@@ -49,7 +49,7 @@ fn main(){
        }*/
        self.birth_date.clone().map(std::string::String) ✅ 
     }
-</code></pre>
+```
 
 ---
 

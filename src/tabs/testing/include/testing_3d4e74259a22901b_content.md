@@ -6,7 +6,7 @@ wasm-bindgen-test = "0.3.0"
 ```
 
 File: `<you crate>/tests/web.rs`:
-<pre><code class="language-rust">
+```
 #[cfg(test)]
 mod test {
     use wasm_bindgen_test::*;
@@ -16,7 +16,7 @@ mod test {
         assert_eq!(1, 1);
     }
 }
-</code></pre>
+```
 
 Run:
 ```

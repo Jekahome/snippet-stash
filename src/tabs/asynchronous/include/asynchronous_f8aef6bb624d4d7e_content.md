@@ -1,7 +1,6 @@
 
 
-
-<pre><code class="language-rust">
+```
 fn get_future(val:String)-> impl Future<Item=String, Error=()>{
     MyTask(val)
 }
@@ -23,4 +22,4 @@ impl Client {
         futures::future::ok((self, done))
     }
 }
-</code></pre>
+```

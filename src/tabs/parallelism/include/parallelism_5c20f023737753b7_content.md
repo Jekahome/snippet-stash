@@ -11,7 +11,7 @@ Rust предотвращает гонки данных на уровне сис
 - Использование unsafe может привести к гонке данных, если вы неправильно управляете памятью.
 - Для безопасного параллельного программирования используйте предоставленные Rust инструменты: Mutex, RwLock, Arc, и атомарные типы.
  
-<pre><code class="language-rust">
+```
 use std::thread;
 use std::sync::atomic::{AtomicUsize, Ordering};
 use std::sync::Arc;
@@ -38,4 +38,4 @@ if idx.load(Ordering::SeqCst) < data.len() {
         println!("{}", data.get_unchecked(idx.load(Ordering::SeqCst)));
     }
 }
-</code></pre>
+```

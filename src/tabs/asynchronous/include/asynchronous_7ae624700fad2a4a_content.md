@@ -1,7 +1,6 @@
 
 
-
-<pre><code class="language-rust">
+```
 // Эта функция:
 async fn foo() {
     step_one().await;
@@ -23,13 +22,13 @@ async fn recursive() {
     recursive().await;
     recursive().await;
 }
-</code></pre>
+```
 
 
 Чтобы исправить это, мы должны ввести косвенность при помощи Box. 
 К сожалению, из-за ограничений компилятора, обернуть вызов `recursive()` в `Box::pin` не достаточно. 
 Чтобы это заработало, мы должны сделать recursive не асинхронной функцией, которая возвращает `.boxed()` с async блоком:
-<pre><code class="language-rust">
+```
 use futures::future::{BoxFuture, FutureExt};
 fn recursive() -> BoxFuture<'static, ()> {
     async move {
@@ -37,4 +36,4 @@ fn recursive() -> BoxFuture<'static, ()> {
         recursive().await;
     }.boxed()
 }
-</code></pre>
+```

@@ -5,7 +5,7 @@
 * **info!**: Важная информация о ходе выполнения. ( для важных шагов процесса)
 * **debug!**: Детальная информация для отладки. (для входных/выходных данных функций)
 * **trace!**: Очень подробная информация, вход/выход из функций. (для пошагового выполнения)
-<pre><code class="language-rust">
+```
 pub async fn call_api(url: &str) -> Result<Response> {
     info!("Calling external API: {}", url);
     let response = reqwest::get(url).await?;
@@ -20,4 +20,4 @@ pub async fn call_api(url: &str) -> Result<Response> {
     }
     Ok(response)
 }
-</code></pre>
+```
