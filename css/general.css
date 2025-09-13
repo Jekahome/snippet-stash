@@ -217,6 +217,11 @@ th[id]:nth-of-type(3) {
     background: rgba(0,123,255,0.3);
 }
 
+.section{
+    opacity: 0.9 !important;
+}
+
+
 /* Стили для блоков кода */
 .data-table .cell-content pre {
     margin: 0;
