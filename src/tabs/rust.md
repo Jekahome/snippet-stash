@@ -1,16 +1,21 @@
 # Rust
 
 
-- [Rust Playground](https://play.rust-lang.org/?version=stable&mode=debug&edition=2021)
-- [Rust Snippet stash](https://jekahome.github.io/snippet-stash/tabs/base/index.html#?t=1757410789338)
+- [Playground](https://play.rust-lang.org/?version=stable&mode=debug&edition=2021)
+- [Snippet stash](https://jekahome.github.io/snippet-stash/tabs/base/index.html#?t=1757410789338)
 - [Rust Atomics and Locks by Mara Bos](https://marabos.nl/atomics/)
 - [Luca Palmieri](https://www.lpalmieri.com/)
 - [Исходники rust/library/std](https://github.com/rust-lang/rust/tree/0a84708edca7c275cb99ad080317fbc7637516d8/library/std/src)
 - [instrumentisto/rust-incubator: Learning Rust step-by-step.](https://github.com/instrumentisto/rust-incubator)
 - [Forks · instrumentisto/rust-incubator](https://github.com/instrumentisto/rust-incubator/forks)
-- [Jekahome/rustcamp: Learning Rust step-by-step.](https://github.com/Jekahome/rustcamp)
+- [rustcamp: Learning Rust step-by-step.](https://github.com/Jekahome/rustcamp)
 - [https://www.rust-lang.org/](https://www.rust-lang.org/ru/)
-- [Medium безплатно](https://12ft.io/)
+- [std/core](https://doc.rust-lang.org/std/)
+- [Compiler Error Index](https://doc.rust-lang.org/error-index.html#E0015)
+- [rust-analyzer](https://rust-analyzer.github.io/manual.html#unresolved-import)
+- [Medium free](https://freedium.cfd)
+
+---
 
 <details>
 <summary>Rust Blog:</summary>
@@ -42,77 +47,57 @@
 
 </details>
 
-- [Распространенные заблуждения на протяжении всей жизни Rust](https://github.com/pretzelhammer/rust-blog/blob/master/posts/common-rust-lifetime-misconceptions.md#2-if-t-static-then-t-must-be-valid-for-the-entire-program)
-- [Изучите Rust опасным способом - Клиффл](https://cliffle.com/p/dangerust/)
-- [Rust Design Patterns](https://rust-unofficial.github.io/patterns/)
-- [RUST - Google Таблицы](https://docs.google.com/spreadsheets/d/1pc6Ous0vi3_czLU0-3OPtqjt9rjDV3Al7P8bZWCE-3c/edit#gid=0)
-- [std/core](https://doc.rust-lang.org/std/)
-- [Compiler Error Index](https://doc.rust-lang.org/error-index.html#E0015)
-- [rust-analyzer](https://rust-analyzer.github.io/manual.html#unresolved-import)
+---
+
+
+- [Design Patterns rust-unofficial.github.io/patterns](https://rust-unofficial.github.io/patterns/)
 - [Rust Style Guide](https://github.com/rust-lang-nursery/fmt-rfcs/blob/master/guide/guide.md)
+
+---
 
 <details>
 <summary>Examples:</summary>
 - [Rust By Example](https://rurust.github.io/rust-by-example-ru/custom_types/enum.html)
-- [ruRust/gtk-rust-by-example: Gtk-Rust by Example (GRBE) - неофициальная книга по разработке GTK GUI, на языке программирования Rust. Практическое использование библиотек](https://github.com/ruRust/gtk-rust-by-example)
+- [Gtk-Rust by Example (GRBE) - неофициальная книга по разработке GTK GUI](https://github.com/ruRust/gtk-rust-by-example)
 - [https://rurust.github.io/gtk-rust-by-example/](https://rurust.github.io/gtk-rust-by-example/pages/2/hello_world.html)
-- [Rust by Example](https://doc.rust-lang.org/rust-by-example/)
-- [Rust By Example RU](https://doc.rust-lang.ru/stable/rust-by-example/index.html)
-- [Rust на практике - Rust на практике](https://practice.rs/why-exercise.html)
+- [Rust by Example](https://doc.rust-lang.org/rust-by-example/) и [ru](https://doc.rust-lang.ru/stable/rust-by-example/index.html)
+- [Rust на практике](https://practice.rs/why-exercise.html)
 
 </details>
+
+---
+
+Guides
 
 - **0 rustup doc Локальная док reference** file:///home/jeka/.rustup/toolchains/nightly-x86_64-unknown-linux-gnu/share/doc/rust/html/reference/attributes.html 
-- [1 https://doc.rust-lang.org/book/](https://doc.rust-lang.org/book/)
-- [1 https://doc.rust-lang.ru](https://doc.rust-lang.ru/book/)
-- [2 The Rustonomicon  - Темные искусства небезопасной ржавчины](https://doc.rust-lang.org/nomicon/index.html)
-- [3 Rust Cookbook](https://rust-lang-nursery.github.io/rust-cookbook/about.html#how-to-read-this-book)
-- [4 Справочник по Rust The Reference](https://doc.rust-lang.org/reference/)
-- [5 Книга производительности Rust](https://nnethercote.github.io/perf-book/introduction.html)
-- [6 Rust для программиста-полиглота (почитать)](https://www.chiark.greenend.org.uk/~ianmdlvl/rust-polyglot/ffi.html)
-- [7 Тур по Rust - Let's go on an adventure!](https://tourofrust.com/TOC_ru.html)
-- [pretzelhammer/rust-blog](https://github.com/pretzelhammer/rust-blog/blob/master/posts/common-rust-lifetime-misconceptions.md)
-
-- [Asynchronous Programming in Rust](https://rust-lang.github.io/async-book/)
-- [The Unstable Book](https://doc.rust-lang.org/unstable-book/the-unstable-book.html)
+- **1** [The Rust Programming Language](https://doc.rust-lang.org/book/) и [ru](https://doc.rust-lang.ru/book/)
+- **2** [The Rustonomicon - Темные искусства небезопасной ржавчины](https://doc.rust-lang.org/nomicon/index.html) и [ru](https://doc.rust-lang.ru/stable/nomicon/)
+- **3** [Rust Cookbook](https://rust-lang-nursery.github.io/rust-cookbook/about.html#how-to-read-this-book) и [ru](https://doc.rust-lang.ru/rust-cookbook/)
+- **4** [Справочник по Rust The Reference](https://doc.rust-lang.org/reference/)
+- **5** [The Rust Performance Book](https://nnethercote.github.io/perf-book/introduction.html)
+- **6** [The Unstable Book](https://doc.rust-lang.org/unstable-book/the-unstable-book.html)
+- [Easy Rust на простом английском](https://dhghomon.github.io/easy_rust/Chapter_3.html)
+- [Rust для программиста-полиглота (почитать)](https://www.chiark.greenend.org.uk/~ianmdlvl/rust-polyglot/ffi.html)
+- [Изучите Rust опасным способом - Клиффл](https://cliffle.com/p/dangerust/)
+- [Жаргон функционального программирования в Rust](https://github.com/JasonShin/fp-core.rs)
+- [Тур по Rust - Let's go on an adventure!](https://tourofrust.com/TOC_ru.html)
+- [Asynchronous Programming in Rust](https://rust-lang.github.io/async-book/) и [ru](https://doc.rust-lang.ru/async-book/)
 - [Command Line Applications in Rust](https://rust-cli.github.io/book/index.html)
-- [Rust API Guidelines](https://rust-lang-nursery.github.io/api-guidelines/about.html)
-- [Элегантные API библиотек в Rust](https://deterministic.space/elegant-apis-in-rust.html#use-conversion-traits)
-- [Руководство  rustc](https://rustc-dev-guide.rust-lang.org/about-this-guide.html)
-- [Easy Rust](https://dhghomon.github.io/easy_rust/Chapter_3.html)
+- [Руководство rustc](https://rustc-dev-guide.rust-lang.org/about-this-guide.html)
 - [Rust Compiler Development Guide](https://rustc-dev-guide.rust-lang.org/about-this-guide.html)
 - [Добро пожаловать в Comprehensive Rust 🦀 - Комплексный Rust 🦀](https://google.github.io/comprehensive-rust/)
+- [Rust API Guidelines](https://rust-lang-nursery.github.io/api-guidelines/about.html)
+- [Элегантные API библиотек в Rust](https://deterministic.space/elegant-apis-in-rust.html#use-conversion-traits)
 - [RESTful API in Sync & Async Rust](https://github.com/Jekshmek/rust-blog/blob/master/posts/restful-api-in-sync-and-async-rust.md)
-- [rust-lang/rustlings](https://github.com/rust-lang/rustlings)
-- [Rust Design Patterns](https://rust-unofficial.github.io/patterns//)
 - [Secure Rust Guidelines](https://anssi-fr.github.io/rust-guide/01_introduction.html)
-- [жаргон функционального программирования в Rust](https://github.com/JasonShin/fp-core.rs)
-
-<details>
-<summary>Инструменты</summary>
-
-- [Дисассемблер (or xxd)](https://godbolt.org/)
-- [Перевод транслит С to Rust](https://c2rust.com/)
-- [Web Framework Benchmarks](https://www.techempower.com/benchmarks/)
-
-</details>
-
-<details>
-<summary>Обучалки</summary>
-
+- [Rustlings](https://rustlings.rust-lang.org/) и [Rustlings (github)](https://github.com/rust-lang/rustlings)
 - [Хотите изучить и освоить Rust? | Упражнения](https://exercism.org/tracks/rust)
 - [Как развернуть Rust на Heroku (с Docker)](https://kerkour.com/deploy-rust-on-heroku-with-docker/)
-- [rust-learning](https://github.com/Jekshmek/rust-learning)
 - [Полчаса на изучение Rust](https://fasterthanli.me/articles/a-half-hour-to-learn-rust)
 - [Упражнения](https://github.com/rust-lang/rustlings)
 - [35 Rust Learning Resources Every Beginner Should Know in 2022](https://apollolabsblog.hashnode.dev/35-rust-learning-resources-every-beginner-should-know-in-2022)
 - [Archived Problems - Project Euler](https://projecteuler.net/archives)
-
-</details>
-
-<details>
-<summary>Обьяснение</summary>
-
+- [Распространенные заблуждения о lifetime в Rust](https://github.com/pretzelhammer/rust-blog/blob/master/posts/common-rust-lifetime-misconceptions.md#2-if-t-static-then-t-must-be-valid-for-the-entire-program)
 - [Понимание Rust Lifetimes - NEAR Protocol - Medium](https://medium.com/nearprotocol/understanding-rust-lifetimes-e813bcd405fa)
 - [Lifetimes | Learning Rust](https://learning-rust.github.io/docs/c3.lifetimes.html)
 - [Lifetimes - Learning Rust](https://learning-rust.gitbook.io/book/the-tough-part/lifetimes)
@@ -121,7 +106,19 @@
 - [Различные подходы написания кода](https://blog.antoyo.xyz/evolution-rust-programmer)
 - [Baby Steps](http://smallcultfollowing.com/babysteps/)
 
+---
+
+<details>
+<summary>Инструменты</summary>
+
+- [Дисассемблер (or xxd)](https://godbolt.org/)
+- [Перевод С to Rust](https://c2rust.com/)
+- [Web Framework Benchmarks](https://www.techempower.com/benchmarks/)
+
 </details>
+
+---
+
 
 <details>
 <summary>Libraries</summary>
@@ -165,6 +162,31 @@
 - [ctjhoa/rust-learning: A bunch of links to blog posts, articles, videos, etc for learning Rust](https://github.com/ctjhoa/rust-learning)
 - [Are we game yet?](https://arewegameyet.rs/)
 - [Areweyet - MozillaWiki](https://wiki.mozilla.org/Areweyet)
+
+</details>
+
+<details>
+<summary>Многопоточность</summary>
+
+- [Многопоточность в Rust / Хабр](https://habr.com/ru/post/256211/)
+- [Fearless Concurrency with Rust | Rust Blog](https://blog.rust-lang.org/2015/04/10/Fearless-Concurrency.html)
+- [jsdw - Rust: Getting started with nightly async/await support](https://jsdw.me/posts/rust-asyncawait-preview/)
+- [GitHub - alexcrichton/futures-await](https://github.com/alexcrichton/futures-await)
+- [Async/Await | Writing an OS in Rust](https://os.phil-opp.com/async-await/)
+- [Getting Started - Asynchronous Programming in Rust](https://rust-lang.github.io/async-book/)
+- [futures::stream::unfold - Rust](https://docs.rs/futures/0.1.25/futures/stream/fn.unfold.html)
+- [jsdw - Rust: Getting started with nightly async/await support](https://jsdw.me/posts/rust-asyncawait-preview/)
+- [futures::future::Future - Rust](https://docs.rs/futures/0.1.25/futures/future/trait.Future.html#provided-methods)
+- [Tutorial | Tokio - An asynchronous Rust runtime](https://tokio.rs/tokio/tutorial)
+
+</details>
+
+<details>
+<summary>Tokio</summary>
+
+- [tokio-rs/website: Website for the Tokio project](https://github.com/tokio-rs/website)
+- [Tokio](https://tokio.rs/)
+- [Discord](https://discord.com/invite/tokio)
 
 </details>
 
@@ -240,21 +262,7 @@
 
 </details>
 
-<details>
-<summary>Многопоточность</summary>
 
-- [Многопоточность в Rust / Хабр](https://habr.com/ru/post/256211/)
-- [Fearless Concurrency with Rust | Rust Blog](https://blog.rust-lang.org/2015/04/10/Fearless-Concurrency.html)
-- [jsdw - Rust: Getting started with nightly async/await support](https://jsdw.me/posts/rust-asyncawait-preview/)
-- [GitHub - alexcrichton/futures-await](https://github.com/alexcrichton/futures-await)
-- [Async/Await | Writing an OS in Rust](https://os.phil-opp.com/async-await/)
-- [Getting Started - Asynchronous Programming in Rust](https://rust-lang.github.io/async-book/)
-- [futures::stream::unfold - Rust](https://docs.rs/futures/0.1.25/futures/stream/fn.unfold.html)
-- [jsdw - Rust: Getting started with nightly async/await support](https://jsdw.me/posts/rust-asyncawait-preview/)
-- [futures::future::Future - Rust](https://docs.rs/futures/0.1.25/futures/future/trait.Future.html#provided-methods)
-- [Tutorial | Tokio - An asynchronous Rust runtime](https://tokio.rs/tokio/tutorial)
-
-</details>
 
 <details>
 <summary>Testing</summary>
@@ -383,14 +391,7 @@
 
 </details>
 
-<details>
-<summary>Tokio</summary>
 
-- [tokio-rs/website: Website for the Tokio project](https://github.com/tokio-rs/website)
-- [Tokio](https://tokio.rs/)
-- [Discord](https://discord.com/invite/tokio)
-
-</details>
 
 
 <details>
@@ -596,7 +597,7 @@
 - [Шпаргалка](https://www.breakdown-notes.com/make/load/rust_cs_canvas/true)
 - [AbdesamedBendjeddou/Rusty-CS: Учебная программа по информатике со вкусом Rust!](https://github.com/AbdesamedBendjeddou/Rusty-CS#why-learn-computer-science)
 - [Rust Quiz #21](https://dtolnay.github.io/rust-quiz/21)
-- [• Discord | #rust-questions-and-answers-1 | Rust Programming Language Community](https://discord.com/channels/273534239310479360/1120124565591425034)
+- [Discord | #rust-questions-and-answers-1 | Rust Programming Language Community](https://discord.com/channels/273534239310479360/1120124565591425034)
 - [rust - How use postgres (deadpool-postgres) with WebSocket Actix (actix-web-actors) - Stack Overflow](https://stackoverflow.com/questions/72068485/how-use-postgres-deadpool-postgres-with-websocket-actix-actix-web-actors)
 - [Hands-On Data Structures and Algorithms with Rust: Learn programming ... - Claus Matzinger - Google Книги](https://books.google.es/books?id=gYKFDwAAQBAJ&printsec=frontcover&redir_esc=y#v=onepage&q&f=false)
 - [Rust - DEV Community](https://dev.to/t/rust)
@@ -609,3 +610,4 @@
 - [Переписывание Rust](https://josephg.com/blog/rewriting-rust/)
 - [Начало работы — Руководство по разработке компилятора Rust](https://rustc-dev-guide.rust-lang.org/index.html)
 - [Pragmatic Rust Guidelines](https://microsoft.github.io/rust-guidelines/)
+
