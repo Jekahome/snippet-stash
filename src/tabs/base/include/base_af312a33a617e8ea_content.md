@@ -1,5 +1,23 @@
 
 
+Замыкание которое захватывает ссылку:
+```rust
+fn main(){
+    let mut text = "Hello".to_string();
+    
+    let closure = || println!("{}", &text);
+    
+    // При вызове замыкания используется shared ссылка
+    // поэтому мы не можем вызвать его после создания уникальной mut ссылки при вызове `text.push('a')`
+    // text.push('a'); ERROR
+    
+    closure();
+    
+    text.push('a');
+}
+```
+
+---
 
 ```rust
 fn main(){

@@ -1,0 +1,100 @@
+[
+  {
+    "type": "add-tr",
+    "tab_id": "base",
+    "tr_id": "base_5e3e5196bcbbcb75",
+    "tr_id_position": "base_4325ec744a24cc35",
+    "position": "before"
+  },
+  {
+    "type": "add-tr",
+    "tab_id": "base",
+    "tr_id": "base_9993bdb136dc12d3",
+    "tr_id_position": "base_c61ca83d630cc751",
+    "position": "before"
+  },
+  {
+    "type": "add-tr",
+    "tab_id": "base",
+    "tr_id": "base_7813109f5120bacb",
+    "tr_id_position": "base_1a1cda484a0b0460",
+    "position": "before"
+  },
+  {
+    "type": "add-tr",
+    "tab_id": "string_types",
+    "tr_id": "string_types_25c5c731f60fe48e",
+    "tr_id_position": "string_types_dc6791fd6f071f8e",
+    "position": "before"
+  },
+  {
+    "type": "add-tr",
+    "tab_id": "string_types",
+    "tr_id": "string_types_e3dfc2b61aa3a512",
+    "tr_id_position": "string_types_dc6791fd6f071f8e",
+    "position": "before"
+  },
+  {
+    "type": "add-tr",
+    "tab_id": "string_types",
+    "tr_id": "string_types_18f1ab5d782c6a9f",
+    "tr_id_position": "string_types_e3dfc2b61aa3a512",
+    "position": "before"
+  },
+  {
+    "type": "add-tr",
+    "tab_id": "string_types",
+    "tr_id": "string_types_fa286562e0d9440e",
+    "tr_id_position": "string_types_96754abd8f578cab",
+    "position": "before"
+  },
+  {
+    "type": "add-tr",
+    "tab_id": "string_types",
+    "tr_id": "string_types_e3cca19235f6acd6",
+    "tr_id_position": "string_types_0022f7a18f1b2f3a",
+    "position": "before"
+  },
+  {
+    "type": "add-tr",
+    "tab_id": "string_types",
+    "tr_id": "string_types_4e51f4fd1781d1c1",
+    "tr_id_position": "string_types_e3cca19235f6acd6",
+    "position": "before"
+  },
+  {
+    "type": "add-tr",
+    "tab_id": "string_types",
+    "tr_id": "string_types_d82f9c052e7cddeb",
+    "tr_id_position": "string_types_e3cca19235f6acd6",
+    "position": "after"
+  },
+  {
+    "type": "add-tr",
+    "tab_id": "string_types",
+    "tr_id": "string_types_780637f948e64515",
+    "tr_id_position": "string_types_d82f9c052e7cddeb",
+    "position": "after"
+  },
+  {
+    "type": "add-tr",
+    "tab_id": "string_types",
+    "tr_id": "string_types_bdb959beb8a511a0",
+    "tr_id_position": "string_types_780637f948e64515",
+    "position": "after"
+  },
+  {
+    "type": "add-tr",
+    "tab_id": "string_types",
+    "tr_id": "string_types_f6e014e3cc3ca245",
+    "tr_id_position": "string_types_0022f7a18f1b2f3a",
+    "position": "before"
+  },
+  {
+    "type": "add-tr",
+    "tab_id": "string_types",
+    "tr_id": "string_types_607a035bc5f4f360",
+    "tr_id_position": "string_types_0022f7a18f1b2f3a",
+    "position": "before"
+  }
+]
