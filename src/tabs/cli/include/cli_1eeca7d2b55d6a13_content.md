@@ -1,7 +1,7 @@
 
 
 
-<pre><code class="language-rust">
+```rust
 use std::env;
 // $env:CASE_INSENSITIVE=1 
 // cargo run to poem.txt
@@ -36,11 +36,11 @@ fn main() -> Result<(), &'static str> {
     }
     Ok(())
 }
-</code></pre>
+```
 
 ---
 
-<pre><code class="language-rust">
+```rust
 fn main(){
     std::env::set_var("URL_REMOTE_SERVER",  "http://192.168.0.104:4011");
     if std::env::args().len() > 1 {
@@ -49,5 +49,5 @@ fn main(){
     }
    let url = std::env::var("URL_REMOTE_SERVER").unwrap()
 }
-</code></pre>
+```
 

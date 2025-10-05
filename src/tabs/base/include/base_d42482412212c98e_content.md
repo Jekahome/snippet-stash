@@ -11,7 +11,7 @@
 * [Конструкция `if let`](#Конструкция-if-let)
 * [Конструкция `while let`](#Конструкция-while-let)
 * [Циклы](#Циклы)
-* [`match`](#patternmatching)
+* [`Pattern matching`](#patternmatching)
 * [Function Pointers](#function-pointers)
 * [Функции `Fn`, `FnOnce`, `FnMut`](#Функции)
 * [Closures (a lambda expression)](#closures)
