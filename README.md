@@ -1,3 +1,5 @@
+[![Hits-of-Code](https://hitsofcode.com/github/Jekahome/snippet-stash?branch=main)](https://hitsofcode.com/github/Jekahome/snippet-stash/view?branch=main)
+[![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
 
 # Snipet stash
 ![Build](https://github.com/jekahome/snippet-stash/actions/workflows/mdbook.yml/badge.svg)
