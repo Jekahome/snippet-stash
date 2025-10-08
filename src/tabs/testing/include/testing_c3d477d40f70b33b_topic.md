@@ -1,0 +1,3 @@
+
+
+Этапы Конвейера (Pipeline Stages)
