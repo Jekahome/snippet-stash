@@ -1,6 +1,20 @@
 [![Hits-of-Code](https://hitsofcode.com/github/jekahome/snippet-stash?branch=main&label=Hits-of-Code)](https://hitsofcode.com/github/jekahome/snippet-stash/view?branch=main&label=Hits-of-Code)
 [![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
 
+<div style="all: initial !important; display: flex !important; flex-wrap: wrap !important; width: 100% !important; max-width: 1935px !important; font-size: 0 !important; line-height: 0 !important; margin: 0 !important; padding: 0 !important;">
+ <img src="promo/1.png" alt="Часть 1" style="display: inline-block !important; width: 47.0% !important; height: 238px !important; vertical-align: top !important; border: none !important; padding: 0 !important; margin: 0 !important;;">
+ <img src="promo/2.png" alt="Часть 2" style="display: inline-block !important; width: 9% !important; height: 244px !important; vertical-align: top !important; border: none !important;; padding: 0 !important; margin: 0 !important;">
+ <img src="promo/3.png" alt="Часть 3" style="display: inline-block !important; width: 43.0% !important; height: 240px !important; vertical-align: top !important; border: none !important; padding: 0 !important;; margin: 0 !important;;">
+ 
+ <img src="promo/4.png" alt="Часть 4" style="display: inline-block !important; width: 47.0% !important; height: 130px !important; vertical-align: top !important; border: none !important; padding: 0 !important; margin: 0 !important;">
+ <a href="https://jekahome.github.io/snippet-stash/tabs/rust.html"><img src="promo/door.png" alt="Часть 4" style="display: inline-block !important; width: 9% !important; height: 130px !important; vertical-align: top !important; border: none !important; padding: 0 !important; margin: 0 !important;"></a>
+ <img src="promo/6.png" alt="Часть 6" style="display: inline-block !important; width: 43.0% !important; height: 130px !important; vertical-align: top !important; border: none !important; padding: 0 !important; margin: 0 !important;">
+ 
+ <img src="promo/7.png" alt="Часть 7" style="display: inline-block !important; width: 47.0% !important; height: 240px !important; vertical-align: top !important; border: none !important; padding: 0 !important; margin: 0 !important;">
+ <img src="promo/8.png" alt="Часть 8" style="display: inline-block !important; width: 9% !important; height: 240px !important; vertical-align: top !important; border: none !important; padding: 0 !important; margin: 0 !important;">
+ <img src="promo/9.png" alt="Часть 9" style="display: inline-block !important; width: 43.0% !important; height: 240px !important; vertical-align: top !important; border: none !important; padding: 0 !important; margin: 0 !important;">
+</div>
+
 # Snipet stash
 ![Build](https://github.com/jekahome/snippet-stash/actions/workflows/mdbook.yml/badge.svg)
 
