@@ -438,6 +438,11 @@
                 <td id="types_1ee5fb0a5d2bac5d_content"><div class="cell-content" contenteditable="true">{{include('src/tabs/types/include/types_1ee5fb0a5d2bac5d_content.md')}}</div></td>
                 <td id="types_1ee5fb0a5d2bac5d_other"><div class="cell-content" contenteditable="true">{{include('src/tabs/types/include/types_1ee5fb0a5d2bac5d_other.md')}}</div></td>
             </tr>   
+            <tr id="types_cf9560f640aaa59f">
+                <td id="types_cf9560f640aaa59f_topic"><div class="cell-content" contenteditable="true">{{include('src/tabs/types/include/types_cf9560f640aaa59f_topic.md')}}</div></td>
+                <td id="types_cf9560f640aaa59f_content"><div class="cell-content" contenteditable="true">{{include('src/tabs/types/include/types_cf9560f640aaa59f_content.md')}}</div></td>
+                <td id="types_cf9560f640aaa59f_other"><div class="cell-content" contenteditable="true">{{include('src/tabs/types/include/types_cf9560f640aaa59f_other.md')}}</div></td>
+            </tr>   
             <tr id="types_d626d458fe0ca470">
                 <td id="types_d626d458fe0ca470_topic"><div class="cell-content" contenteditable="true">{{include('src/tabs/types/include/types_d626d458fe0ca470_topic.md')}}</div></td>
                 <td id="types_d626d458fe0ca470_content"><div class="cell-content" contenteditable="true">{{include('src/tabs/types/include/types_d626d458fe0ca470_content.md')}}</div></td>
