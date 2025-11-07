@@ -3,5 +3,51 @@
     "testing_188cedf4644623f7_topic": {
       "backgroundColor": "#b4b4b4"
     }
+  },
+  "base": {
+    "base_header_topic": {
+      "fontSize": "16px",
+      "backgroundColor": "#767676",
+      "width": 75
+    },
+    "base_header_content": {
+      "fontSize": "16px",
+      "backgroundColor": "#767676",
+      "width": 200
+    },
+    "base_header_other": {
+      "fontSize": "16px",
+      "backgroundColor": "#767676",
+      "width": 25
+    }
+  },
+  "types": {
+    "types_header_topic": {
+      "fontSize": "16px",
+      "backgroundColor": "#767676",
+      "width": 75
+    },
+    "types_header_content": {
+      "fontSize": "16px",
+      "backgroundColor": "#767676",
+      "width": 200
+    },
+    "types_header_other": {
+      "fontSize": "16px",
+      "backgroundColor": "#767676",
+      "width": 25
+    },
+    "types_65a777508291d791_topic": {
+      "backgroundColor": "#b4b4b4"
+    },
+    "types_50703d968dadeff1_topic": {
+      "backgroundColor": "#b4b4b4"
+    },
+    "types_a8c03bae1651a9b6_topic": {
+      "backgroundColor": "#b4b4b4"
+    },
+    "types_eb31e76fe4a32b3a_topic": {
+      "backgroundColor": "#b4b4b4"
+    }
   }
 }
