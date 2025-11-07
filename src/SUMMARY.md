@@ -49,8 +49,12 @@
   - [DB/API](./tabs/db_api/index.md)
   - [WASM](./tabs/wasm/index.md)
 
+- [C](./tabs/c.md)
+- [Lua](./tabs/lua.md)
+- [C++](./tabs/cpp.md)
+- [Bash](./tabs/bash.md)
+- [Python](./tabs/python.md)
 - [tab_2](./tabs/tab_2/index.md)
-
 
 ---
 
