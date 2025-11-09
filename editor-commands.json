@@ -1,0 +1,13 @@
+[
+  {
+    "type": "add-tabs",
+    "count_tr": "100",
+    "tabs_id": [
+      "base_c",
+      "base_lua",
+      "base_cpp",
+      "base_bash",
+      "base_python"
+    ]
+  }
+]

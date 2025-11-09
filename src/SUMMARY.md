@@ -50,10 +50,15 @@
   - [WASM](./tabs/wasm/index.md)
 
 - [C](./tabs/c.md)
+  - [Base](./tabs/base_c/index.md)
 - [Lua](./tabs/lua.md)
+  - [Base](./tabs/base_lua/index.md)
 - [C++](./tabs/cpp.md)
+  - [Base](./tabs/base_cpp/index.md)
 - [Bash](./tabs/bash.md)
+  - [Base](./tabs/base_bash/index.md)
 - [Python](./tabs/python.md)
+  - [Base](./tabs/base_python/index.md)
 - [tab_2](./tabs/tab_2/index.md)
 
 ---
