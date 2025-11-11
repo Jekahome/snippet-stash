@@ -433,6 +433,11 @@
                 <td id="cargo_a6500f8cd3a5ba32_content"><div class="cell-content" contenteditable="true">{{include('src/tabs/cargo/include/cargo_a6500f8cd3a5ba32_content.md')}}</div></td>
                 <td id="cargo_a6500f8cd3a5ba32_other"><div class="cell-content" contenteditable="true">{{include('src/tabs/cargo/include/cargo_a6500f8cd3a5ba32_other.md')}}</div></td>
             </tr>   
+            <tr id="cargo_8f40a26b636194ff">
+                <td id="cargo_8f40a26b636194ff_topic"><div class="cell-content" contenteditable="true">{{include('src/tabs/cargo/include/cargo_8f40a26b636194ff_topic.md')}}</div></td>
+                <td id="cargo_8f40a26b636194ff_content"><div class="cell-content" contenteditable="true">{{include('src/tabs/cargo/include/cargo_8f40a26b636194ff_content.md')}}</div></td>
+                <td id="cargo_8f40a26b636194ff_other"><div class="cell-content" contenteditable="true">{{include('src/tabs/cargo/include/cargo_8f40a26b636194ff_other.md')}}</div></td>
+            </tr>   
             <tr id="cargo_e070be062b234572">
                 <td id="cargo_e070be062b234572_topic"><div class="cell-content" contenteditable="true">{{include('src/tabs/cargo/include/cargo_e070be062b234572_topic.md')}}</div></td>
                 <td id="cargo_e070be062b234572_content"><div class="cell-content" contenteditable="true">{{include('src/tabs/cargo/include/cargo_e070be062b234572_content.md')}}</div></td>
