@@ -9,21 +9,25 @@
     "editor.minimap.enabled": false,
     "window.zoomLevel": -1,
     "files.autoSave": "afterDelay",
+  
+    "rust-analyzer.cargo.allFeatures": true,
  
     "tabnine.experimentalAutoImports": true,
     "editor.codeActionsOnSave": {
 
     },
     "rust-analyzer.procMacro.ignored": {
-        
-
+         
     },
+    "rust-analyzer.procMacro.enable": true, # поддержка derive-макросов (serde, async_trait, и др.)
     "rust-analyzer.procMacro.server": null,
     "debug.allowBreakpointsEverywhere": true,
     
     "rust-analyzer.inlayHints.bindingModeHints.enable": true,
-    "editor.inlayHints.enabled": "on", # это подсказки в коде
-   "rust-analyzer.check.command": "check", # будет запускаться cargo clippy при сохранении файла
+    "editor.inlayHints.enabled": "on", # это показывает типы прямо в коде 
+    "rust-analyzer.inlayHints.typeHints": true,
+    "rust-analyzer.checkOnSave.command": "clippy", # анализирует код Clippy при сохранении
+    "rust-analyzer.check.command": "check", # будет запускаться cargo clippy при сохранении файла
     "window.enableMenuBarMnemonics": false
 }
 ```

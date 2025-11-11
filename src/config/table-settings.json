@@ -49,5 +49,65 @@
     "types_eb31e76fe4a32b3a_topic": {
       "backgroundColor": "#b4b4b4"
     }
+  },
+  "base_c": {
+    "base_c_header_topic": {
+      "fontSize": "16px",
+      "backgroundColor": "#767676",
+      "width": 75
+    },
+    "base_c_header_content": {
+      "fontSize": "16px",
+      "backgroundColor": "#767676",
+      "width": 200
+    },
+    "base_c_header_other": {
+      "fontSize": "16px",
+      "backgroundColor": "#767676",
+      "width": 25
+    }
+  },
+  "questions": {
+    "questions_header_topic": {
+      "fontSize": "16px",
+      "backgroundColor": "#767676",
+      "width": 75
+    },
+    "questions_header_content": {
+      "fontSize": "16px",
+      "backgroundColor": "#767676",
+      "width": 200
+    },
+    "questions_header_other": {
+      "fontSize": "16px",
+      "backgroundColor": "#767676",
+      "width": 25
+    }
+  },
+  "cargo": {
+    "cargo_header_topic": {
+      "fontSize": "16px",
+      "backgroundColor": "#767676",
+      "width": 75
+    },
+    "cargo_header_content": {
+      "fontSize": "16px",
+      "backgroundColor": "#767676",
+      "width": 200
+    },
+    "cargo_header_other": {
+      "fontSize": "16px",
+      "backgroundColor": "#767676",
+      "width": 25
+    },
+    "cargo_a6500f8cd3a5ba32_topic": {
+      "backgroundColor": "#b4b4b4"
+    },
+    "cargo_cc2c8dea0a74f621_topic": {
+      "backgroundColor": "#b4b4b4"
+    },
+    "cargo_057d5871c5db648d_topic": {
+      "backgroundColor": "#b4b4b4"
+    }
   }
 }
