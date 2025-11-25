@@ -168,6 +168,11 @@
                 <td id="collections_62f4572b6447756f_content"><div class="cell-content" contenteditable="true">{{include('src/tabs/collections/include/collections_62f4572b6447756f_content.md')}}</div></td>
                 <td id="collections_62f4572b6447756f_other"><div class="cell-content" contenteditable="true">{{include('src/tabs/collections/include/collections_62f4572b6447756f_other.md')}}</div></td>
             </tr>   
+            <tr id="collections_8d2bb595f6841651">
+                <td id="collections_8d2bb595f6841651_topic"><div class="cell-content" contenteditable="true">{{include('src/tabs/collections/include/collections_8d2bb595f6841651_topic.md')}}</div></td>
+                <td id="collections_8d2bb595f6841651_content"><div class="cell-content" contenteditable="true">{{include('src/tabs/collections/include/collections_8d2bb595f6841651_content.md')}}</div></td>
+                <td id="collections_8d2bb595f6841651_other"><div class="cell-content" contenteditable="true">{{include('src/tabs/collections/include/collections_8d2bb595f6841651_other.md')}}</div></td>
+            </tr>   
             <tr id="collections_f2c4ab9c250a8359">
                 <td id="collections_f2c4ab9c250a8359_topic"><div class="cell-content" contenteditable="true">{{include('src/tabs/collections/include/collections_f2c4ab9c250a8359_topic.md')}}</div></td>
                 <td id="collections_f2c4ab9c250a8359_content"><div class="cell-content" contenteditable="true">{{include('src/tabs/collections/include/collections_f2c4ab9c250a8359_content.md')}}</div></td>

@@ -13,6 +13,11 @@
                 <td id="serde_38e139b7278026d3_content"><div class="cell-content" contenteditable="true">{{include('src/tabs/serde/include/serde_38e139b7278026d3_content.md')}}</div></td>
                 <td id="serde_38e139b7278026d3_other"><div class="cell-content" contenteditable="true">{{include('src/tabs/serde/include/serde_38e139b7278026d3_other.md')}}</div></td>
             </tr>   
+            <tr id="serde_7eed4a866bf55616">
+                <td id="serde_7eed4a866bf55616_topic"><div class="cell-content" contenteditable="true">{{include('src/tabs/serde/include/serde_7eed4a866bf55616_topic.md')}}</div></td>
+                <td id="serde_7eed4a866bf55616_content"><div class="cell-content" contenteditable="true">{{include('src/tabs/serde/include/serde_7eed4a866bf55616_content.md')}}</div></td>
+                <td id="serde_7eed4a866bf55616_other"><div class="cell-content" contenteditable="true">{{include('src/tabs/serde/include/serde_7eed4a866bf55616_other.md')}}</div></td>
+            </tr>   
             <tr id="serde_cfa6ce0b34434caa">
                 <td id="serde_cfa6ce0b34434caa_topic"><div class="cell-content" contenteditable="true">{{include('src/tabs/serde/include/serde_cfa6ce0b34434caa_topic.md')}}</div></td>
                 <td id="serde_cfa6ce0b34434caa_content"><div class="cell-content" contenteditable="true">{{include('src/tabs/serde/include/serde_cfa6ce0b34434caa_content.md')}}</div></td>
