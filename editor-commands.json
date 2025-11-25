@@ -1,0 +1,16 @@
+[
+  {
+    "type": "add-tr",
+    "tab_id": "serde",
+    "tr_id": "serde_7eed4a866bf55616",
+    "tr_id_position": "serde_cfa6ce0b34434caa",
+    "position": "before"
+  },
+  {
+    "type": "add-tr",
+    "tab_id": "collections",
+    "tr_id": "collections_8d2bb595f6841651",
+    "tr_id_position": "collections_f2c4ab9c250a8359",
+    "position": "before"
+  }
+]
