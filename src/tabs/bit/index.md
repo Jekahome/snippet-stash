@@ -53,6 +53,16 @@
                 <td id="bit_efcb96d34cc9fd23_content"><div class="cell-content" contenteditable="true">{{include('src/tabs/bit/include/bit_efcb96d34cc9fd23_content.md')}}</div></td>
                 <td id="bit_efcb96d34cc9fd23_other"><div class="cell-content" contenteditable="true">{{include('src/tabs/bit/include/bit_efcb96d34cc9fd23_other.md')}}</div></td>
             </tr>   
+            <tr id="bit_9cfa597908503e2a">
+                <td id="bit_9cfa597908503e2a_topic"><div class="cell-content" contenteditable="true">{{include('src/tabs/bit/include/bit_9cfa597908503e2a_topic.md')}}</div></td>
+                <td id="bit_9cfa597908503e2a_content"><div class="cell-content" contenteditable="true">{{include('src/tabs/bit/include/bit_9cfa597908503e2a_content.md')}}</div></td>
+                <td id="bit_9cfa597908503e2a_other"><div class="cell-content" contenteditable="true">{{include('src/tabs/bit/include/bit_9cfa597908503e2a_other.md')}}</div></td>
+            </tr>   
+            <tr id="bit_cd714acb61ed0176">
+                <td id="bit_cd714acb61ed0176_topic"><div class="cell-content" contenteditable="true">{{include('src/tabs/bit/include/bit_cd714acb61ed0176_topic.md')}}</div></td>
+                <td id="bit_cd714acb61ed0176_content"><div class="cell-content" contenteditable="true">{{include('src/tabs/bit/include/bit_cd714acb61ed0176_content.md')}}</div></td>
+                <td id="bit_cd714acb61ed0176_other"><div class="cell-content" contenteditable="true">{{include('src/tabs/bit/include/bit_cd714acb61ed0176_other.md')}}</div></td>
+            </tr>   
             <tr id="bit_c8afd45c7229adf9">
                 <td id="bit_c8afd45c7229adf9_topic"><div class="cell-content" contenteditable="true">{{include('src/tabs/bit/include/bit_c8afd45c7229adf9_topic.md')}}</div></td>
                 <td id="bit_c8afd45c7229adf9_content"><div class="cell-content" contenteditable="true">{{include('src/tabs/bit/include/bit_c8afd45c7229adf9_content.md')}}</div></td>
