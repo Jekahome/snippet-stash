@@ -2,7 +2,7 @@
 
 
 <pre><code class="language-rust">
-use ryan::prelude::*;
+use rayon::prelude::*;
 
 // Определим сообщение
 struct MyMessage(String);

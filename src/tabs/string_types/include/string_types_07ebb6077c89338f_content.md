@@ -12,11 +12,11 @@ fn main(){
     let c:String = a + &a;
     let c:String = a + "-" + &b.to_owned() + "-" + &a;
 // ----------------------------------------
-    let s = String::from("foo");
+    let mut s = String::from("foo");
     s.push('b');
 // ----------------------------------------
-    let s = String::from("foo");
-      s.push_str("hello");
+    let mut s = String::from("foo");
+    s.push_str("hello");
 // ----------------------------------------
     use std::fmt::Write;
     let mut s1:String = "tic".to_string();
