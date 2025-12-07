@@ -1,0 +1,12 @@
+
+
+Работает только для native Linux
+```
+$ ldd --version
+
+ldd (Ubuntu GLIBC 2.39-0ubuntu8.6) 2.39
+Copyright (C) 2024 Free Software Foundation, Inc.
+This is free software; see the source for copying conditions.  There is NO
+warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+Written by Roland McGrath and Ulrich Drepper.
+```
