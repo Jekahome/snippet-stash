@@ -1,6 +1,6 @@
 
 
-```
+```c
 
 // Предположим, 'input' содержит 1024 символа данных (не считая \0)
 // Длина input_data (strlen(input)) == 1024
@@ -32,7 +32,7 @@ snprintf(buffer, BUFFER_SIZE, "%s", input);
 
 **Использование strncpy (с осторожностью)**
 
-```
+```c
 
 // size_t total_to_copy = strlen(input);
 

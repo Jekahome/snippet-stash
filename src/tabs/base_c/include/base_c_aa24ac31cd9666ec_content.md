@@ -1,6 +1,6 @@
 
 
-```
+```c
 
 #include <stdio.h>
 #include <stdlib.h> // malloc, calloc, realloc, freem EXIT_SUCCESS

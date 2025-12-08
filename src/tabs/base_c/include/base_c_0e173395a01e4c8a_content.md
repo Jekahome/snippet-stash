@@ -2,7 +2,7 @@
 
 Вы можете использовать **sprintf**, чтобы сделать это, или, может быть, **snprintf**, если он у вас есть:
 
-```
+```c
 
 char str[ENOUGH];
 sprintf(str, "%d", 42);
@@ -15,7 +15,7 @@ sprintf(str, "%d", 42);
 
 ---
 
-```
+```c
 
 #include <stdio.h>
 #include <stdlib.h> // EXIT_SUCCESS

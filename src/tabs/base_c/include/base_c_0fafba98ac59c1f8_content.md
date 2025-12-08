@@ -45,7 +45,7 @@ Line 123 of "file.c" starts at address 0x4006a7 and ends at 0x4006b2
 <details>
 <summary>Пример</summary>
 
-```
+```c
 
 #include <stdio.h>
 #include <stdlib.h> // malloc, calloc, realloc, free

@@ -2,7 +2,7 @@
 
 **qsort**
 
-```
+```c
 
 #include <stdio.h>
 #include <stdlib.h> // EXIT_SUCCESS, qsort, bsearch
@@ -31,7 +31,7 @@ int main(void) {
 
 **bsearch**
 
-```
+```c
 
 #include <stdio.h>
 #include <stdlib.h> // EXIT_SUCCESS, qsort, bsearch

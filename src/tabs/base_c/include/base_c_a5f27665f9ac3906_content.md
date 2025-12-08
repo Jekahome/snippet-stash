@@ -1,6 +1,6 @@
 
 
-```
+```c
 
 #include <stdio.h>
 #include <string.h>
@@ -31,7 +31,7 @@ int main(void) {
 
 **Вариант с memmove и memcpy должен учитывать '\0'**
 
-```
+```c
 
 #include <stdio.h>
 #include <string.h>

@@ -1,6 +1,6 @@
 
 
-```
+```c
 
 // test.с  
 #include <stdio.h>

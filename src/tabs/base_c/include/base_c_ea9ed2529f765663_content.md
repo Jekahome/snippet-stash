@@ -8,7 +8,7 @@
 
 Функции wprintf, wcslen, wcscpy работают с wchar_t
 
-```
+```c
 
 #include <wchar.h>  
 #include <locale.h>

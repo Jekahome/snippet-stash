@@ -1,7 +1,7 @@
 
 
-```
-
+```c
+int main(void){
   // Преобразование строки в число типа double
   //double strtod (const char *str, char **endstr);
   // Преобразуемая строка
@@ -15,4 +15,6 @@
 
   d = strtod(str,&nstr);
   printf ("%f\n",d);// 123450000.000000
+  return 0;
+}
 ```

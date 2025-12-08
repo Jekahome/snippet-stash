@@ -1,6 +1,6 @@
 
 
-```
+```c
 
 /* memset: заполняет n байт по адресу s равными c */
 void *memset(void *s, int с, size_t n)

@@ -6,7 +6,7 @@
 <details>
 <summary>Пример</summary>
 
-```
+```c
 
 // main.c -- программа входа
 #include <stdio.h>

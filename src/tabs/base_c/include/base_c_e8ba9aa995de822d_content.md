@@ -7,7 +7,7 @@
 
 Пример: 
 
-```
+```c
 
 int *p = malloc(10 * sizeof(int)); 
 

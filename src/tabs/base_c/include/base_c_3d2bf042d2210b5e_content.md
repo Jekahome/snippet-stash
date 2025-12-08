@@ -1,6 +1,6 @@
 
 
-```
+```c
 
 int *p = (int[]){1, 2, 3};  // массив на стеке
 struct Point *pt = &(struct Point){.x = 5, .y = 10};
@@ -9,7 +9,7 @@ struct Point *pt = &(struct Point){.x = 5, .y = 10};
 
 Пример:
 
-```
+```c
 
 #include <stdio.h>
 #include <stdlib.h> // EXIT_SUCCESS

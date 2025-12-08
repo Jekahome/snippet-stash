@@ -12,7 +12,7 @@ for (заходит первый раз при инициализации; за�
 ```
 ---
 
-```
+```c
 
 #include <stdio.h>
 #include <stdlib.h> // EXIT_SUCCESS
@@ -57,7 +57,7 @@ int main(void) {
 
 Да такое чучело тоже возможно:
 
-```
+```c
 
 #include <stdio.h>
 #include <stdlib.h> // EXIT_SUCCESS

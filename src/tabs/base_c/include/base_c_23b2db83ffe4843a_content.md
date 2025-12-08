@@ -5,7 +5,7 @@ static хранит память между вызовами
 
 Для запрета мутации (imutable) используйте const указатель
 
-```
+```c
 
 void foo(const int *n){... может принять как обычный так и константный указатель, а вот обычный указатель не может принять константный
 
@@ -16,7 +16,7 @@ const int *ptr = &x;
 
 Пример:
 
-```
+```c
 
 #include <stdio.h>
 #include <stdlib.h> // EXIT_SUCCESS, EXIT_FAILURE
@@ -72,7 +72,7 @@ int main(void) {
 
 ---
 
-```
+```c
 
 int x = 10, y = 20;
 

@@ -2,7 +2,7 @@
 
 **atoi()** — строка → int
 
-```
+```c
 
 #include <stdlib.h>
 
@@ -13,7 +13,7 @@ int invalid = atoi("12abc");  // 12 (игнорирует хвост)
 
 **strtol()** — строка → long (рекомендуемый)
 
-```
+```c
 
 #include <stdlib.h>
 
@@ -31,7 +31,7 @@ if (*endptr != '\0') {
 
 **sscanf()** — форматированное чтение из строки
 
-```
+```c
 
 int num, count;
 char str[] = "123 456";
@@ -43,7 +43,7 @@ count = sscanf("abc", "%d", &num); // count = 0 (ошибка)
 
 **Для разных типов**:
 
-```
+```c
 
 #include <stdlib.h>
 

@@ -9,7 +9,7 @@
 **atexit**() - Регистрирует функцию, вызываемую при завершении exit():
 в embedded чаще всего не работает, потому что нет настоящей программы завершения
 
-```
+```c
 
 #include <stdio.h>
 #include <stdlib.h> // EXIT_SUCCESS, EXIT_FAILURE

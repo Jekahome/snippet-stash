@@ -1,9 +1,11 @@
 
 
-```
+```c
 
-    #define SLEN 60
-    #define LIM 5
+#define SLEN 60
+#define LIM 5
+
+int main(void){
    // Массивы символьных строк
     const char *mytalents[LIM] = {
         "Мгновенное складывание чисел",
@@ -27,4 +29,6 @@
     }
 
     printf("\npaзмep mytalents: %zd, размер yourtalents: %zd\n",sizeof(mytalents), sizeof(yourtalents));
+    return 0;
+}
 ```

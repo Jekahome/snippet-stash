@@ -18,7 +18,7 @@
 Избегайте проблематичных возможностей языка.
 Здесь переменная count может вычисляться **до или после** ее использования в качестве индекса массива ptr.
 
-```
+```c
 
 ptr[count] = name[++count];
 
@@ -26,7 +26,7 @@ ptr[count] = name[++count];
 
 Пример:
 
-```
+```c
 
 #include <stdio.h>
 #include <stdlib.h> // EXIT_SUCCESS
@@ -44,7 +44,7 @@ int main(void) {
 
 Пример:
 
-```
+```c
 
 #include <stdio.h>
 #include <stdlib.h> // EXIT_SUCCESS

@@ -1,10 +1,12 @@
 
 
 
+```c
 
 size_t **strftime** (char *str, size_t maxsize, const char *str_form, const struct tm * t_time);
+```
 
-спецификаторов формата для `strftime()`:
+Спецификаторы формата для `strftime()`:
 
 * `%a` — сокращённое название дня недели (Mon)
 * `%A` — полное название дня недели (Monday)
@@ -35,7 +37,7 @@ size_t **strftime** (char *str, size_t maxsize, const char *str_form, const stru
 * `%Z` — имя часового пояса
 * `%%` — символ `%`
 
-```
+```c
 
 #include <stdio.h>  // Для printf
 #include <time.h> // Для time, localtime, strftime

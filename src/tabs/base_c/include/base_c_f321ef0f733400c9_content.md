@@ -2,7 +2,7 @@
 
 **wchar_t** в мультибайтовую строку
 
-```
+```c
 
 #include <wchar.h>
 #include <locale.h>
@@ -25,7 +25,7 @@ int main(void) {
 
 **Мультибайтовой строки в wchar_t**
 
-```
+```c
 
 #include <wchar.h>
 #include <locale.h>
@@ -48,7 +48,7 @@ int main(void) {
 
 **С обработкой ошибок**
 
-```
+```c
 
 #include <wchar.h>
 #include <locale.h>

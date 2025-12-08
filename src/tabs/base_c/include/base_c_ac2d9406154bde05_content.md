@@ -44,7 +44,7 @@ void *memchr (const void *arr, int c, size_t n);
 
 Пример:
 
-```
+```c
 
 #include <stdio.h>  //Для printf
 #include <string.h>   //Для memset, memcpy, memmove

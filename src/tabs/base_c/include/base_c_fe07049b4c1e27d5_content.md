@@ -21,7 +21,7 @@
 
 Пример
 
-```
+```c
 
 #include <stdio.h>
 #include <locale.h>
