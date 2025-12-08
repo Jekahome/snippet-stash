@@ -1,6 +1,5 @@
 
 
-
 <details>
 <summary>KCachegrind</summary>
 
@@ -92,5 +91,6 @@ void process_data() {
 
 </details>
 
-<img src="/snippet-stash/images/base_c_18e6d65ba24c1cdb_content_8a49.png" alt="..." style="width: 10%; height: auto;">
+
+    <img src="/snippet-stash/images/base_c_18e6d65ba24c1cdb_content_9b59.png" alt="..." style="width: 80%; height: auto;">
 
