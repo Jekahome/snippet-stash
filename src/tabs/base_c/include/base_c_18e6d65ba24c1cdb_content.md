@@ -87,10 +87,12 @@ void process_data() {
 - **"Caller Map"** - кто кого вызывает
 - **"Source Code"** - просмотр с аннотацией времени по строкам
 
-**По сути:** Видишь всю иерархию вызовов и точно определяешь где программа тормозит.
+**По сути:** Видишь всю иерархию вызовов и точно определяешь, где программа тормозит.
 
 </details>
 
+<img src="/snippet-stash/images/base_c_18e6d65ba24c1cdb_content_9b59.png" alt="..." style="width: 80%; height: auto;">
 
-    <img src="/snippet-stash/images/base_c_18e6d65ba24c1cdb_content_9b59.png" alt="..." style="width: 80%; height: auto;">
+...
+
 
