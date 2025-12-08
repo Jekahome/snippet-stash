@@ -11,6 +11,7 @@ valgrind --tool=callgrind ./my_program.out // создаст файл callgrind.
 kcachegrind callgrind.out.*
 
 ```
+
 ---
 
 Компиляция Rust с отладочной информацией
