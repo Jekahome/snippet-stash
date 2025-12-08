@@ -19,7 +19,7 @@
 
 `getchar()` возвращает int (а не char), чтобы иметь возможность вернуть все 256 возможных байтовых значений (если char беззнаковый) плюс специальное значение EOF
 
-```
+```c
 #include <stdio.h>
 #include <stdlib.h> // EXIT_SUCCESS
 
@@ -38,7 +38,7 @@ int main() {
 
 ---
 
-```
+```c
 #include <stdio.h>
 #include <unistd.h>
 #include <stdlib.h> // EXIT_SUCCESS

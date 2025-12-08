@@ -8,13 +8,15 @@ char может хранить:
 
 В UTF-8 в char* (строки в Linux). Каждый байт — unsigned char
 
-```
+```c
 
 char *s = "Привет"; // UTF-8 строка, Linux ok
 
 ```
 
-```
+Пример:
+
+```c
 
 #include <stdio.h>
 #include <string.h>

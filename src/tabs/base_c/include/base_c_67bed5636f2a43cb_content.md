@@ -25,17 +25,17 @@
 Драйвер терминала в ядре ~ 4K.
 Обрабатывает специальные символы (Ctrl+C, Backspace).
 
-```
-    #include <stdio.h>
-    #include <termios.h>
+```c
+#include <stdio.h>
+#include <termios.h>
 
-    int main() {
-        struct termios t;
-        tcgetattr(0, &t);
+int main() {
+    struct termios t;
+    tcgetattr(0, &t);
         
-        printf("Размер буфера ядра: %d\n", t.c_cc[VTIME]);  // Настройки TTY
-        printf("Канонический режим: %s\n", (t.c_lflag & ICANON) ? "ON" : "OFF");
-    }
+    printf("Размер буфера ядра: %d\n", t.c_cc[VTIME]);  // Настройки TTY
+    printf("Канонический режим: %s\n", (t.c_lflag & ICANON) ? "ON" : "OFF");
+}
 ```
 
 **3. Библиотека stdio (пользовательский буфер)**
@@ -43,19 +43,19 @@
 BUFSIZ (обычно 4K-8K) в вашей программе.
 Добавляет свою буферизацию поверх ядра.
 
-```
-    #include <stdio.h>
-    #include <stdio_ext.h>
+```c
+#include <stdio.h>
+#include <stdio_ext.h>
 
-    int main() {
-        printf("Размер буфера stdio: %d\n", BUFSIZ);  // Обычно 8192
+int main() {
+    printf("Размер буфера stdio: %d\n", BUFSIZ);  // Обычно 8192
         
-        // Можно посмотреть/изменить буферизацию
-        printf("Тип буферизации stdin: ");
-        if (stdin->_flags & _IO_UNBUFFERED) printf("UNBUFFERED\n");
-        else if (stdin->_flags & _IO_LINE_BUF) printf("LINE BUFFERED\n");
-        else printf("FULLY BUFFERED\n");
-    }
+    // Можно посмотреть/изменить буферизацию
+    printf("Тип буферизации stdin: ");
+    if (stdin->_flags & _IO_UNBUFFERED) printf("UNBUFFERED\n");
+    else if (stdin->_flags & _IO_LINE_BUF) printf("LINE BUFFERED\n");
+    else printf("FULLY BUFFERED\n");
+}
 ```
 
 **Практическая демонстрация:**

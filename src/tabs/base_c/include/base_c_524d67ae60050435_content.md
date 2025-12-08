@@ -1,6 +1,6 @@
 
 
-```
+```c
 
 #include <stdio.h>
 #include <string.h> // для strlen

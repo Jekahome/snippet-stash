@@ -42,7 +42,7 @@ int main(void) {
 
 В заголовочной файле limits.h содержатся константы размерности типов
 
-```
+```c
 #include <stdio.h>
 #include <limits.h>
 #include <stdlib.h> // EXIT_SUCCESS

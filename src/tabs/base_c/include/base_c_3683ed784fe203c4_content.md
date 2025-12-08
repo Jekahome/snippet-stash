@@ -4,7 +4,7 @@
 
 Рассмотрим следующее присваивание:
 
-```
+```c
 n = (getchar() << 8) | getchar();
 ```
 
@@ -14,7 +14,7 @@ n = (getchar() << 8) | getchar();
 
 **Выключаем канонический режим**
 
-```
+```c
 #include <stdio.h>
 #include <termios.h>
 #include <unistd.h>

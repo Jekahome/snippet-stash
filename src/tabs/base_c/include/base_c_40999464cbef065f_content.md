@@ -1,6 +1,6 @@
 
 
-```
+```c
 // -Werror -Wconversion - флаги компиляции для отлова неяных преобразований с потерями
 #include <stdio.h>
 #include <stdlib.h> // EXIT_SUCCESS

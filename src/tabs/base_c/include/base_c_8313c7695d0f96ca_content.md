@@ -1,6 +1,6 @@
 
 
-```
+```c
 #include <stdio.h>
 #include <float.h>
 #include <stdlib.h> // EXIT_SUCCESS

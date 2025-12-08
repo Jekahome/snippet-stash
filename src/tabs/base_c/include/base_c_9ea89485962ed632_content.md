@@ -1,6 +1,6 @@
 
 
-```
+```c
 #include <stdio.h>
 #include <stdlib.h> // EXIT_SUCCESS
 
@@ -20,7 +20,7 @@ int main(void){
  
 Решение: Проверять переполнение в ручную перед операцией:
 
-```
+```c
 
 #include <limits.h>
 #include <stdio.h>

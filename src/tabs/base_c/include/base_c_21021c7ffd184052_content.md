@@ -2,7 +2,7 @@
 
 Конечный автомат (state machine):
 
-```
+```c
 
 #include <stdio.h>
 #include <stdlib.h> // EXIT_SUCCESS
@@ -34,7 +34,7 @@ end:
 
 Выход из вложенных циклов (главное легальное применение):
 
-```
+```c
 
 #include <stdio.h>
 #include <stdlib.h> // EXIT_SUCCESS
@@ -62,7 +62,7 @@ exit_all_loops:
 
 Обработка ошибок (второе легальное применение):
 
-```
+```c
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdlib.h> // EXIT_SUCCESS

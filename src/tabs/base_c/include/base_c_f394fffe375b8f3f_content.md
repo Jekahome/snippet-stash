@@ -4,7 +4,7 @@
 
 **Чтение/запись файлов**
 
-```
+```c
 #include <stdio.h>
 #include <stdlib.h> // EXIT_SUCCESS
 #include <stddef.h> // NULL
@@ -27,7 +27,7 @@ int main() {
 
 **Сетевые сокеты**
 
-```
+```c
 #include <stdio.h>
 #include <sys/socket.h>
 #include <stddef.h> // NULL
@@ -47,7 +47,7 @@ void handle_client(int sockfd) {
 
 **Высокопроизводительная обработка данных**
 
-```
+```c
 #include <stdio.h>
 
 void process_large_csv() {

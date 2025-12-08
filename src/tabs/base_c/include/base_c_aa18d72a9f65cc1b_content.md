@@ -1,6 +1,6 @@
 
 
-```
+```c
 
 #include <stdint.h> // int16_t
 #include <inttypes.h>

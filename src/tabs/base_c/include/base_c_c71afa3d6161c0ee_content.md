@@ -36,7 +36,7 @@ setvbuf(stdin, NULL, _IONBF, 0);  // Выключить буферизацию s
 <details>
 <summary>Пример</summary>
 
-```
+```c
 #include <stdio.h>
 #include <unistd.h>
 #include <time.h>

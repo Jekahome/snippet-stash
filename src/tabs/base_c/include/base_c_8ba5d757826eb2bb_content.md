@@ -1,6 +1,6 @@
 
 
-```
+```c
 
 #include <stdio.h> // библиотека ввода/вывода
 #include <stdlib.h> // EXIT_SUCCESS

@@ -1,6 +1,6 @@
 
 
-```
+```c
 
 #include <stdio.h>  // для printf, fprintf, fopen, fclose
 #include <stdlib.h> // EXIT_SUCCESS, EXIT_FAILURE, exit

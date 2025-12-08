@@ -1,6 +1,6 @@
 
 
-```
+```c
 #include <stdio.h>
 #include <stdbool.h>
 #include <math.h> // для констант NAN и INFINITY

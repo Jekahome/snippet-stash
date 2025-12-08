@@ -36,7 +36,7 @@
 
 Пример:
 
-```
+```c
 #include <stdio.h>
 #include <stdlib.h> // EXIT_SUCCESS
 

@@ -9,7 +9,7 @@
 
 Пример: Ошибка "Висячий Else" (Dangling Else)
 
-```
+```c
 
 #include <stdio.h>
 #include <stdbool.h>
@@ -40,7 +40,7 @@ warning: suggest explicit braces to avoid ambiguous ‘else’ [-Wdangling-else]
 
 **2.** Всегда использовать явную область видимости фигурными скобками
 
-```
+```c
 
     if(a > b){
     ...
@@ -52,7 +52,7 @@ warning: suggest explicit braces to avoid ambiguous ‘else’ [-Wdangling-else]
 
 Относительно ограничений компилятора следует отметить, что в стандарте С99 от компилятора требуется поддержка не менее 127 уровней вложенности.
 
-```
+```c
 
 if (condition1) {            // Уровень 1
     if (condition2) {        // Уровень 2  

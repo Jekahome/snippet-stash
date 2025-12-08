@@ -1,6 +1,6 @@
 
 
-```
+```c
 // main.c -- программа входа
 #include <stdio.h>
 #include <stdlib.h> // EXIT_SUCCESS

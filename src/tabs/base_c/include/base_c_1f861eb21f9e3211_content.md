@@ -62,7 +62,7 @@ unsigned для указания нужной формы)
 * double
 * long double
 
-```
+```c
 
 Тип float: %f = -1.000000
 Тип double: %lf = 3.140000

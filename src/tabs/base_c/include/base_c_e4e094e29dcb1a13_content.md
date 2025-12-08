@@ -29,7 +29,7 @@ tcsetattr(fd, TCSANOW, &t);
 
 ---
 
-```
+```c
 #include <stdio.h>
 #include <unistd.h>
 #include <sys/ioctl.h>

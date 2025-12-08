@@ -6,7 +6,7 @@
 **Имена функций**
 * Понятные префиксы: `vec_`, `str_`, `list_` — чтобы ясно было, к какой «модели» относится функция.
 
-```
+```c
 void read_file(void);
 int get_value_from_sensor(void);
 
@@ -15,7 +15,7 @@ int get_value_from_sensor(void);
 
 **Локальные переменные**
 
-```
+```c
 int count;
 char *buffer;
 float temperature_celsius;
@@ -25,7 +25,7 @@ float temperature_celsius;
 
 **Глобальные переменные** (принято давать префикс модуля или `_g_`):
 
-```
+```c
 int g_counter;
 char g_device_name[32];
 
@@ -33,7 +33,7 @@ char g_device_name[32];
 
 **Константы и макросы**
 
-```
+```c
 #define MAX_BUFFER_SIZE 256
 #define PI 3.1415926
 const int max_clients = 10;
@@ -43,7 +43,7 @@ const int max_clients = 10;
 
 **Типы и структуры** (часто пишут в PascalCase (с заглавной буквы)):
 
-```
+```c
 typedef struct {
     int x;
     int y;
@@ -67,7 +67,7 @@ typedef struct sensor_data_t {
 
 Так как в C нет пространств имён, принято добавлять префиксы для модулей:
 
-```
+```c
 // file: motor.c
 void motor_init(void);
 void motor_start(void);

@@ -9,7 +9,7 @@
 
 Пример Мини-механизм TRY / CATCH / THROW в C
 
-```
+```c
 
 #include <stdio.h>
 #include <setjmp.h>

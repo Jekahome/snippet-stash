@@ -13,7 +13,7 @@
 * `p10` это `2^10=1024`
 
 Пример:
-```
+```c
 
 #include <stdio.h>
 int main(void) {
@@ -28,7 +28,7 @@ int main(void) {
 
 Пример:
 
-```
+```c
 
 #include <stdio.h>
 #include <stdlib.h> // EXIT_SUCCESS

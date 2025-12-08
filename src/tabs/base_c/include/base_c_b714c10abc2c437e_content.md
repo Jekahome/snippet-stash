@@ -1,6 +1,6 @@
 
 
-```
+```c
 
 #include <stdio.h>
 #include <math.h> // Для NAN, INFINITY, isnan, isinf, isfinite

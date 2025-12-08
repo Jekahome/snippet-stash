@@ -1,6 +1,6 @@
 
 
-```
+```c
 
 #include <fcntl.h>   // для open, O_RDONLY, O_WRONLY, O_CREAT
 #include <unistd.h>  // для read, write, close

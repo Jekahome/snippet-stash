@@ -7,7 +7,7 @@
 
 А getchar() только последний символ удаляет из буфера, а не оставшуюся строку
 
-```
+```c
 
 #include <stdio.h>
 #include <stdlib.h> // EXIT_SUCCESS
@@ -51,7 +51,7 @@ int main(void) {
 
 Еще лучше вариант считывания всего ввода c ограничением длины, fgets сам очистит буфер  
 
-```
+```c
 
 #include <stdio.h>
 #include <stdlib.h> // EXIT_SUCCESS

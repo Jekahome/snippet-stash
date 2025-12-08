@@ -11,7 +11,7 @@
 
 Файл main.c:
 
-```
+```c
 
 #include <stdio.h>
 #include <stdlib.h> // EXIT_SUCCESS, EXIT_FAILURE
@@ -43,7 +43,7 @@ int main(void) {
 
 **Чтение неизвестного количества строк**
 
-```
+```c
 
 #include <stdio.h>
 #include <stdlib.h> // EXIT_SUCCESS, EXIT_FAILURE
