@@ -2,7 +2,7 @@
 
 Зачем нужен массив, выровненный по 16 байт:
 
-```
+```c
 
 char data[64] __attribute__((aligned(16)));
 printf("alignof(data) = %zu\n", __alignof__(data)); // 16

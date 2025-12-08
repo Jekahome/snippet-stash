@@ -8,7 +8,7 @@
 
 **Пример подавление предупреждений через макрос**
 
-```
+```c
 
 #include <stdio.h> 
 #include <stdlib.h> // EXIT_SUCCESS, EXIT_FAILURE
@@ -25,7 +25,7 @@ int main(void) {
 
 **Пример выравнивание (упаковка) структуры через макрос**
 
-```
+```c
 
 #include <stdio.h> 
 #include <stdlib.h> // EXIT_SUCCESS, EXIT_FAILURE
@@ -68,7 +68,7 @@ int main(void) {
 
 **Пример вывести сообщение компилятору во время сборки**
 
-```
+```c
 
 #ifdef DEBUG
 #pragma message "DEBUG mode enabled"

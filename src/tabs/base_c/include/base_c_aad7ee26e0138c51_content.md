@@ -3,7 +3,7 @@
 
 **И это и UB, и ошибочно, и вообще непредсказуемо**
 
-```
+```c
 
 union U x;
 x.f = 1.23f;
@@ -15,7 +15,7 @@ printf("%d\n", x.i);
 
 **Файл safe_value.h**
 
-```
+```c
 
 // Пользователь видит только API, не поля.
 #ifndef SAFE_VALUE_H
@@ -49,7 +49,7 @@ void value_free(Value* v);
 
 **Файл safe_value.c (реализация — поля скрыты)**
 
-```
+```c
 
 #include "safe_value.h"
 #include <stdlib.h>
@@ -126,7 +126,7 @@ void value_free(Value* v) {
 
 **Файл main.c — использование (безопасное)**
 
-```
+```c
 
 #include "safe_value.h"
 #include <stdio.h>

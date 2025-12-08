@@ -4,7 +4,7 @@
 
 **Файл x-macro.h**
 
-```
+```c
 
 // Создаём X-macro список — единственное место данных
 #define COLOR_LIST \
@@ -40,7 +40,7 @@ typedef enum {
 
 **Файл main.c**
 
-```
+```c
 
 #include "x-macro.h"
 #include <stdlib.h> // EXIT_SUCCESS, EXIT_FAILURE

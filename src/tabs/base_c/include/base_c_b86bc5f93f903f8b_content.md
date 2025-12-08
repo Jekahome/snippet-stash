@@ -15,7 +15,7 @@
 
 Функция malloc() выделяет динамически память, функция free() освобождает ее.
 
-```
+```c
 
 #include <stdio.h>
 #include <stdlib.h> // EXIT_SUCCESS, EXIT_FAILURE

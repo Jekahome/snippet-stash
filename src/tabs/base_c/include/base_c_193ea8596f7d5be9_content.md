@@ -2,7 +2,7 @@
 
 **File option_gen.c**
 
-```
+```c
 
 // option_gen.h
 #ifndef OPTION_H
@@ -47,7 +47,7 @@ static inline int Name##_is_none(Name o) { return !o.has_value; }
 
 **File main.c**
 
-```
+```c
 
 #include "option_gen.h"
 #include <stdio.h>

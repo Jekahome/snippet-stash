@@ -41,7 +41,7 @@ check: (7 ; +∞)
 
 ```
 
-```
+```c
 
 static bool _bst_is_valid(const Node* node, int min, int max) {
     if (!node) return true;

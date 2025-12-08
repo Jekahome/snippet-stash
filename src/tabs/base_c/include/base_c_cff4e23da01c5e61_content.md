@@ -1,6 +1,6 @@
 
 
-```
+```c
 
 // Упаковка RGB цвета в 16 бит (5-6-5)
 unsigned short pack_rgb565(int r, int g, int b) {

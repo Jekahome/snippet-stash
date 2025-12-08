@@ -2,11 +2,15 @@
 
 В языке C NULL — это 0
 
+```c
+
 #define NULL ((void*)0)    // В C (обычно)
 
 #define NULL 0             // В C++ или иногда в C
 
 ```
+
+```c
 
 #include <stdio.h>
 #include <stddef.h> // NULL

@@ -2,7 +2,7 @@
 
 Как виртуальная таблица в Rust/C++:
 
-```
+```c
 
 typedef struct {
     int (*open)(const char*);

@@ -6,7 +6,7 @@
 * panic/assert-fail функций
 * бесконечным циклам
 
-```
+```c
 
 #include <stdnoreturn.h> 
 

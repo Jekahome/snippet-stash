@@ -4,7 +4,7 @@
 
 ## 1. **Unique указатель (владение с передачей)**
 
-```
+```c
 
 #include <stdio.h>
 #include <stdlib.h> // EXIT_SUCCESS, EXIT_FAILURE
@@ -50,7 +50,7 @@ int main(void) {
 
 ## 2. **Shared указатель (разделяемое владение)**
 
-```
+```c
 
 #include <stdio.h>
 #include <stdlib.h> // EXIT_SUCCESS, EXIT_FAILURE
@@ -104,7 +104,7 @@ int main(void) {
 
 ## 3. **Комбинированное использование**
 
-```
+```c
 
 #include <stdio.h>
 #include <stdlib.h> // EXIT_SUCCESS, EXIT_FAILURE
@@ -179,7 +179,7 @@ int main(void) {
 
 ## 4. **С макросами для типобезопасности**
 
-```
+```c
 
 #include <stdio.h>
 #include <stdlib.h> // EXIT_SUCCESS, EXIT_FAILURE

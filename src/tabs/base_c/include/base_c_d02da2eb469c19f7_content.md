@@ -1,6 +1,6 @@
 
 
-```
+```c
 
 #include <stdio.h>
 #include <stdlib.h> // EXIT_SUCCESS, EXIT_FAILURE
@@ -37,7 +37,7 @@ int main() {
 
 Есть действия, которые можно выполнять над целыми числами, но нельзя над указателями, и наоборот.
 
-```
+```c
 
 int *result_ptr = ptr + 100;
 printf("result_ptr = %p\n", result_ptr);

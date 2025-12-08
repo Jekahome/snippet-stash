@@ -10,7 +10,7 @@ va_end(ap) - Закрывает список (обязателен!)
 
 **Собственная мини-printf**
 
-```
+```c
 
 #include <stdarg.h>
 #include <stdlib.h> // EXIT_SUCCESS, EXIT_FAILURE

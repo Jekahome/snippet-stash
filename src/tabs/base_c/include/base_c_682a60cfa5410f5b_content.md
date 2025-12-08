@@ -1,7 +1,7 @@
 
 
 
-```
+```c
 
 #include <stdio.h>
 #include <stdlib.h> // EXIT_SUCCESS, EXIT_FAILURE
@@ -21,7 +21,7 @@ int main(void){
 
 ---
 
-```
+```c
 
 #include <stdio.h>
 #include <stdlib.h> // EXIT_SUCCESS, EXIT_FAILURE

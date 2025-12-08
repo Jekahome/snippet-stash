@@ -2,7 +2,7 @@
 
 **Выборка части битовой последовательности**
 
-```
+```c
 
 #include <stdio.h>
 #include <stdlib.h> // EXIT_SUCCESS, EXIT_FAILURE

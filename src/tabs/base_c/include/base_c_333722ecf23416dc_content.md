@@ -6,7 +6,7 @@
 
 Теперь ошибка несовпадения типов параметров будет проигнорирована
 
-```
+```c
 
 #include <stdio.h>
 #include <stdlib.h> // EXIT_SUCCESS, EXIT_FAILURE

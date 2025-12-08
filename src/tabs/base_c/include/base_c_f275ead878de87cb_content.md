@@ -6,7 +6,7 @@
 
 Структуру можно передавать по значению и она копируется целиком.
 
-```
+```c
 
 #include <stdio.h>
 #include <stdlib.h> // EXIT_SUCCESS, EXIT_FAILURE

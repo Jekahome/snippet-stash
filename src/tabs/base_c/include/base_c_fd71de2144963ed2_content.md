@@ -1,6 +1,6 @@
 
 
-```
+```c
 
 #define  MINROW 1        /* верхний край */
 #define  MINCOL 1        /* левый край */

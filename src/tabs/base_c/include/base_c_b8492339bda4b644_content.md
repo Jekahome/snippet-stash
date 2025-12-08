@@ -2,7 +2,7 @@
 
 **Файл stack.h:**
 
-```
+```c
 
 typedef struct Stack Stack; // opaque type (непрозрачный тип)
 
@@ -17,7 +17,7 @@ int stack_is_empty(const Stack* stack);
 
 **Файл stack.c:**
 
-```
+```c
 
 #include "stack.h"
 #include <stdlib.h>
@@ -89,7 +89,7 @@ static void resize_stack(Stack* stack, size_t new_capacity) {
 
 **Файл main.c:**
 
-```
+```c
 
 #include <stdlib.h> // EXIT_SUCCESS, EXIT_FAILURE
 #include "stack.h"

@@ -2,7 +2,7 @@
 
 **Пример хвостовой рекурсии** (вызов функции на повтор происходит в конце)
 
-```
+```c
 
 #include <stdio.h>
 #include <stdlib.h> // EXIT_SUCCESS, EXIT_FAILURE
@@ -33,7 +33,7 @@ void up_and_down(int n){ // на каждом новом фрейме рекур
 
 ---
 
-```
+```c
 
 #include <stdio.h>
 #include <stdlib.h> // EXIT_SUCCESS, EXIT_FAILURE

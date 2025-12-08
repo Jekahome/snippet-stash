@@ -48,7 +48,7 @@ a=b >> 2 = 20/2^2 = 5   // 00000101
 
 ```
 
-```
+```c
 
 #include <stdio.h>
 #include <stdlib.h> // EXIT_SUCCESS, EXIT_FAILURE

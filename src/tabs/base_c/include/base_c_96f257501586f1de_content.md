@@ -2,7 +2,7 @@
 
 **Аппаратное программирование**
 
-```
+```c
 
 // Чтение регистров устройств
 unsigned int status_register = read_hardware_register();
@@ -19,7 +19,7 @@ int error_code = getbits(status_register, 3, 4);  // Биты 3-0
 
 **Сетевые протоколы**
 
-```
+```c
 
 // Разбор IP-пакета
 unsigned int ip_header = receive_packet();
@@ -34,7 +34,7 @@ int header_length = getbits(ip_header, 27, 4) * 4;
 
 **Криптография**
 
-```
+```c
 
 // Извлечение частей ключа
 unsigned int cryptographic_key = 0xABCD1234;

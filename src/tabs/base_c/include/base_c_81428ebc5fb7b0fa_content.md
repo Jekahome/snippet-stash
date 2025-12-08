@@ -1,6 +1,6 @@
 
 
-```
+```c
 
 #include <stddef.h> // NULL
 #include <stdlib.h> // malloc

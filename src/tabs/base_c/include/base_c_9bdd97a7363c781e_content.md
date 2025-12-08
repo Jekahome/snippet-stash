@@ -2,7 +2,7 @@
 
 **File result_gen.h**
 
-```
+```c
 
 #ifndef RESULT_GEN_H
 #define RESULT_GEN_H
@@ -71,7 +71,7 @@ static inline OkType Name##_expect(Name r, const char* msg) {         \
 
 **File fs_error.h**
 
-```
+```c
 
 #ifndef FS_ERROR_H
 #define FS_ERROR_H
@@ -99,7 +99,7 @@ static inline FsError fs_error(FsErrorKind kind, const char* msg, int code) {
 
 **File fs_result.h**
 
-```
+```c
 
 #include "result_gen.h"
 #include "fs_error.h"
@@ -111,7 +111,7 @@ DEFINE_RESULT(char*, FsError, FsResult)
 
 **File math_error.h**
 
-```
+```c
 
 #ifndef MATH_ERROR_H
 #define MATH_ERROR_H
@@ -139,7 +139,7 @@ static inline MathError math_error(MathErrorKind kind, const char* msg, int code
 
 **File math_result.h**
 
-```
+```c
 
 #ifndef MATH_RESULT_H
 #define MATH_RESULT_H
@@ -156,7 +156,7 @@ DEFINE_RESULT(int, MathError, MathResult)
 
 **File main.c**
 
-```
+```c
 
 #include "math_result.h"
 #include "fs_result.h"

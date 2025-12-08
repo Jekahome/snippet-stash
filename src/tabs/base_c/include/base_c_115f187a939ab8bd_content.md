@@ -2,7 +2,7 @@
 
 **Файл prog.exe:**
 
-```
+```c
 
 #include <stdio.h>
 #include <locale.h> // для русского языка

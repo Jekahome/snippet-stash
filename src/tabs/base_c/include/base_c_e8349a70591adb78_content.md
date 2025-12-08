@@ -2,7 +2,7 @@
 
 Это позволяют **хранить, передавать и вызывать** функции как данные — почти как функции высшего порядка в Rust или callbacks в C++.
 
-```
+```c
 
 #include <stdio.h>
 #include <stdlib.h> // EXIT_SUCCESS, EXIT_FAILURE, exit

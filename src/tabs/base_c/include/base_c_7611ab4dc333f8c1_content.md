@@ -2,7 +2,7 @@
 
 **Файл stack.h: - интерфейс**
 
-```
+```c
 
 #ifndef MODULE_H
 #define MODULE_H
@@ -27,7 +27,7 @@ size_t stack_capacity(const Stack* s);
 
 **Файл stack_internal.h (НЕ экспортируется пользователю):**
 
-```
+```c
 
 // Это приватный header, который включают только .c файлы этого модуля.
 #ifndef MODULE_INTERNAL_H
@@ -48,7 +48,7 @@ struct Stack {
 
 **Файл stack.c: — реализация**
 
-```
+```c
 
 #include "stack_internal.h"
 #include <stdlib.h>
@@ -118,7 +118,7 @@ static void resize_stack(Stack* stack, size_t new_capacity) {
 
 **Файл stack_inline.inl — реализация inline-функций:**
 
-```
+```c
 
 #ifdef MODULE_IMPLEMENTATION
 
@@ -133,7 +133,7 @@ inline size_t stack_capacity(const Stack* s) {
 
 **Файл main.c: - клиент**
 
-```
+```c
 
 #include "stack.h"
 #include <stdio.h>
@@ -156,7 +156,8 @@ int main() {
 ```
 
 **Makefile:**
-```
+
+```bash
 
 CC = gcc
 CFLAGS = -Wall -Wextra -std=c99

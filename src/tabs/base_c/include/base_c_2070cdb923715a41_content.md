@@ -8,7 +8,7 @@
 
 Обычно enum применяют для tagged union и для кодов ошибок.
 
-```
+```c
 
 #include <stdio.h>
 #include <stdlib.h> // EXIT_SUCCESS, EXIT_FAILURE, exit

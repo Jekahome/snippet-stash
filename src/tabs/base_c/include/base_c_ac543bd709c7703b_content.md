@@ -2,7 +2,7 @@
 
 **Файл config.h**
 
-```
+```c
 
 #ifndef CONFIG_H
 #define CONFIG_H
@@ -31,7 +31,7 @@
 
 **Файл main.c**
 
-```
+```c
 
 #include "config.h"
 #include <stdio.h>

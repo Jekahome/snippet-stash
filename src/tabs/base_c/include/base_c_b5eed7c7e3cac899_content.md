@@ -1,6 +1,6 @@
 
 
-```
+```c
 
 // Говорим компилятору: «Есть структура struct Nameval, и давай дадим ей короткое имя Nameval».
 typedef struct Nameval Nameval; 

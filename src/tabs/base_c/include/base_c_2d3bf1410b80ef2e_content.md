@@ -1,6 +1,6 @@
 
 
-```
+```c
 
 #include <stdio.h>
 #include <stdlib.h> // EXIT_SUCCESS, EXIT_FAILURE
@@ -30,7 +30,7 @@ int main(){
 
 **Иначе можно хранить указатель в структуре и ему выделить память**
 
-```
+```c
 
 #include <stdio.h>
 #include <stdlib.h> // EXIT_SUCCESS, EXIT_FAILURE
