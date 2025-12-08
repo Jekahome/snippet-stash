@@ -1,0 +1,3 @@
+
+
+char НЕ ДЛЯ UNICODE
