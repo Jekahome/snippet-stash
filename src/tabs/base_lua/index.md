@@ -17,6 +17,26 @@
                 <td id="base_lua_2cffdfa6b59c0c13_topic"><div class="cell-content" contenteditable="true">{{include('src/tabs/base_lua/include/base_lua_2cffdfa6b59c0c13_topic.md')}}</div></td>
                 <td id="base_lua_2cffdfa6b59c0c13_content"><div class="cell-content" contenteditable="true">{{include('src/tabs/base_lua/include/base_lua_2cffdfa6b59c0c13_content.md')}}</div></td>
                 <td id="base_lua_2cffdfa6b59c0c13_other"><div class="cell-content" contenteditable="true">{{include('src/tabs/base_lua/include/base_lua_2cffdfa6b59c0c13_other.md')}}</div></td>
+            </tr>
+            <tr id="base_lua_a73793c6a3f62e30">
+                <td id="base_lua_a73793c6a3f62e30_topic"><div class="cell-content" contenteditable="true">{{include('src/tabs/base_lua/include/base_lua_a73793c6a3f62e30_topic.md')}}</div></td>
+                <td id="base_lua_a73793c6a3f62e30_content"><div class="cell-content" contenteditable="true">{{include('src/tabs/base_lua/include/base_lua_a73793c6a3f62e30_content.md')}}</div></td>
+                <td id="base_lua_a73793c6a3f62e30_other"><div class="cell-content" contenteditable="true">{{include('src/tabs/base_lua/include/base_lua_a73793c6a3f62e30_other.md')}}</div></td>
+            </tr>
+            <tr id="base_lua_38a72529be3884ef">
+                <td id="base_lua_38a72529be3884ef_topic"><div class="cell-content" contenteditable="true">{{include('src/tabs/base_lua/include/base_lua_38a72529be3884ef_topic.md')}}</div></td>
+                <td id="base_lua_38a72529be3884ef_content"><div class="cell-content" contenteditable="true">{{include('src/tabs/base_lua/include/base_lua_38a72529be3884ef_content.md')}}</div></td>
+                <td id="base_lua_38a72529be3884ef_other"><div class="cell-content" contenteditable="true">{{include('src/tabs/base_lua/include/base_lua_38a72529be3884ef_other.md')}}</div></td>
+            </tr>
+            <tr id="base_lua_4afd3dd85a0ca014">
+                <td id="base_lua_4afd3dd85a0ca014_topic"><div class="cell-content" contenteditable="true">{{include('src/tabs/base_lua/include/base_lua_4afd3dd85a0ca014_topic.md')}}</div></td>
+                <td id="base_lua_4afd3dd85a0ca014_content"><div class="cell-content" contenteditable="true">{{include('src/tabs/base_lua/include/base_lua_4afd3dd85a0ca014_content.md')}}</div></td>
+                <td id="base_lua_4afd3dd85a0ca014_other"><div class="cell-content" contenteditable="true">{{include('src/tabs/base_lua/include/base_lua_4afd3dd85a0ca014_other.md')}}</div></td>
+            </tr>
+            <tr id="base_lua_37f0a1a897c28de6">
+                <td id="base_lua_37f0a1a897c28de6_topic"><div class="cell-content" contenteditable="true">{{include('src/tabs/base_lua/include/base_lua_37f0a1a897c28de6_topic.md')}}</div></td>
+                <td id="base_lua_37f0a1a897c28de6_content"><div class="cell-content" contenteditable="true">{{include('src/tabs/base_lua/include/base_lua_37f0a1a897c28de6_content.md')}}</div></td>
+                <td id="base_lua_37f0a1a897c28de6_other"><div class="cell-content" contenteditable="true">{{include('src/tabs/base_lua/include/base_lua_37f0a1a897c28de6_other.md')}}</div></td>
             </tr>   
             <tr id="base_lua_bb489440b3c35a44">
                 <td id="base_lua_bb489440b3c35a44_topic"><div class="cell-content" contenteditable="true">{{include('src/tabs/base_lua/include/base_lua_bb489440b3c35a44_topic.md')}}</div></td>
