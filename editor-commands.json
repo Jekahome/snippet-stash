@@ -1,0 +1,30 @@
+[
+  {
+    "type": "add-tr",
+    "tab_id": "base_lua",
+    "tr_id": "base_lua_37f0a1a897c28de6",
+    "tr_id_position": "base_lua_2cffdfa6b59c0c13",
+    "position": "after"
+  },
+  {
+    "type": "add-tr",
+    "tab_id": "base_lua",
+    "tr_id": "base_lua_a73793c6a3f62e30",
+    "tr_id_position": "base_lua_2cffdfa6b59c0c13",
+    "position": "after"
+  },
+  {
+    "type": "add-tr",
+    "tab_id": "base_lua",
+    "tr_id": "base_lua_38a72529be3884ef",
+    "tr_id_position": "base_lua_a73793c6a3f62e30",
+    "position": "after"
+  },
+  {
+    "type": "add-tr",
+    "tab_id": "base_lua",
+    "tr_id": "base_lua_4afd3dd85a0ca014",
+    "tr_id_position": "base_lua_38a72529be3884ef",
+    "position": "after"
+  }
+]
