@@ -1,6 +1,12 @@
 
 
+
+
+<img src="/snippet-stash/images/base_c_18e6d65ba24c1cdb_content_8a49.png" alt="KCachegrind" style="width: 100%; height: auto;">
+
+
 <details>
+
 <summary>KCachegrind</summary>
 
 **KCachegrind — это мощный GUI-анализатор профилировщика.** Вот что можно делать:
@@ -90,9 +96,6 @@ void process_data() {
 **По сути:** Видишь всю иерархию вызовов и точно определяешь, где программа тормозит.
 
 </details>
-
-
-<img src="/snippet-stash/images/base_c_18e6d65ba24c1cdb_content_9b59.png" alt="..." style="width: 70%; height: auto;">
 
 
 ...
