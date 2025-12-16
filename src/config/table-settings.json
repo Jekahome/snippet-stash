@@ -215,5 +215,25 @@
     "base_65aa5a7249221e10_topic": {
       "backgroundColor": "#b4b4b4"
     }
+  },
+  "bit": {
+    "bit_header_topic": {
+      "fontSize": "16px",
+      "backgroundColor": "#767676",
+      "width": 75
+    },
+    "bit_header_content": {
+      "fontSize": "16px",
+      "backgroundColor": "#767676",
+      "width": 200
+    },
+    "bit_header_other": {
+      "fontSize": "16px",
+      "backgroundColor": "#767676",
+      "width": 25
+    },
+    "bit_9ec1a7caf429051b_topic": {
+      "backgroundColor": "#b4b4b4"
+    }
   }
 }
