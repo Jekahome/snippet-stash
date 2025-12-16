@@ -18,6 +18,11 @@
                 <td id="bit_654bb1877f8f6152_content"><div class="cell-content" contenteditable="true">{{include('src/tabs/bit/include/bit_654bb1877f8f6152_content.md')}}</div></td>
                 <td id="bit_654bb1877f8f6152_other"><div class="cell-content" contenteditable="true">{{include('src/tabs/bit/include/bit_654bb1877f8f6152_other.md')}}</div></td>
             </tr>   
+            <tr id="bit_ae875613cec3d2c0">
+                <td id="bit_ae875613cec3d2c0_topic"><div class="cell-content" contenteditable="true">{{include('src/tabs/bit/include/bit_ae875613cec3d2c0_topic.md')}}</div></td>
+                <td id="bit_ae875613cec3d2c0_content"><div class="cell-content" contenteditable="true">{{include('src/tabs/bit/include/bit_ae875613cec3d2c0_content.md')}}</div></td>
+                <td id="bit_ae875613cec3d2c0_other"><div class="cell-content" contenteditable="true">{{include('src/tabs/bit/include/bit_ae875613cec3d2c0_other.md')}}</div></td>
+            </tr>   
             <tr id="bit_5bcf4a3ca10ef894">
                 <td id="bit_5bcf4a3ca10ef894_topic"><div class="cell-content" contenteditable="true">{{include('src/tabs/bit/include/bit_5bcf4a3ca10ef894_topic.md')}}</div></td>
                 <td id="bit_5bcf4a3ca10ef894_content"><div class="cell-content" contenteditable="true">{{include('src/tabs/bit/include/bit_5bcf4a3ca10ef894_content.md')}}</div></td>
