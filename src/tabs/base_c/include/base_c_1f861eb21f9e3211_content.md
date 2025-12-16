@@ -18,7 +18,7 @@ printf("%lld\n" , x);// -8
 желаемым типом):
 * unsigned int или unsigned
 * unsigned short
-* unsigned long
+* unsigned long  *или тоже самое (unsigned long int, long unsigned, long unsigned int)*
 
 ```
 
