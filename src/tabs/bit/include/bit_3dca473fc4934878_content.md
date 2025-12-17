@@ -45,8 +45,8 @@ fn main(){
     let result = a << k; 
     println!("{result} binary={:08b}",result);                // 52 binary=0011_0100
     // эквивалентно
-    let bit_depth = std::mem::size_of_val(&a)*8; 
-    let k = k % bit_depth;// 10%8=2
+    let w = std::mem::size_of_val(&a)*8; 
+    let k = k % w;// 10%8=2
     println!("{result}=={} binary={:08b}",a << k, a << k);// 52==52 binary=0011_0100
     assert_eq!(13_u8 << 10, 13_u8 << 2);  
 
@@ -58,6 +58,7 @@ fn main(){
     1.overflowing_shl(10)=(4, true) Возвращает результат и пометку «Да, был перебор».
     unwrap_or(0) Если сдвиг слишком большой, мы просто возвращаем ноль.
     */
+    let k: u32 = 10; // Важно: u32
     match a.checked_shl(k) {
         Some(res) => println!("checked_shl:    {}", res),
         None      => println!("checked_shl:    Ошибка! Сдвиг {} больше или равен разрядности {}", k, w),
