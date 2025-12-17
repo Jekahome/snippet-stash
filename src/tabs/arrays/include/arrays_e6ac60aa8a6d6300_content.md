@@ -2,9 +2,26 @@
 
 <pre><code class="language-rust">
 fn main(){
-    let mut v = ["a", "b", "c", "d"];
-    v.swap(1, 3);
-    assert!(v == ["a", "d", "c", "b"]);
+    //reverse_array 
+     
+    let mut arr = vec![1,2,3,4,5];
+    let mut first: usize = 0;
+    let mut last: usize = arr.len()-1;
+    
+    while first < last {
+        // inplace swap  
+        /*
+        arr[last] = arr[first] ^ arr[last];  
+        arr[first] = arr[first] ^ arr[last];  
+        arr[last] = arr[first] ^ arr[last]; 
+        */
+        // безопасный вариант через swap
+        arr.swap(first, last);
+        
+        first+=1;
+        last-=1;
+    }
+    println!("{:?}",arr);// [5, 4, 3, 2, 1]
 }
 </code></pre>
 
