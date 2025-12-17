@@ -163,6 +163,11 @@
                 <td id="base_c_02939eb25eed8cde_content"><div class="cell-content" contenteditable="true">{{include('src/tabs/base_c/include/base_c_02939eb25eed8cde_content.md')}}</div></td>
                 <td id="base_c_02939eb25eed8cde_other"><div class="cell-content" contenteditable="true">{{include('src/tabs/base_c/include/base_c_02939eb25eed8cde_other.md')}}</div></td>
             </tr>   
+            <tr id="base_c_67d18459106cf84f">
+                <td id="base_c_67d18459106cf84f_topic"><div class="cell-content" contenteditable="true">{{include('src/tabs/base_c/include/base_c_67d18459106cf84f_topic.md')}}</div></td>
+                <td id="base_c_67d18459106cf84f_content"><div class="cell-content" contenteditable="true">{{include('src/tabs/base_c/include/base_c_67d18459106cf84f_content.md')}}</div></td>
+                <td id="base_c_67d18459106cf84f_other"><div class="cell-content" contenteditable="true">{{include('src/tabs/base_c/include/base_c_67d18459106cf84f_other.md')}}</div></td>
+            </tr>   
             <tr id="base_c_4f13d782f09b3b19">
                 <td id="base_c_4f13d782f09b3b19_topic"><div class="cell-content" contenteditable="true">{{include('src/tabs/base_c/include/base_c_4f13d782f09b3b19_topic.md')}}</div></td>
                 <td id="base_c_4f13d782f09b3b19_content"><div class="cell-content" contenteditable="true">{{include('src/tabs/base_c/include/base_c_4f13d782f09b3b19_content.md')}}</div></td>
