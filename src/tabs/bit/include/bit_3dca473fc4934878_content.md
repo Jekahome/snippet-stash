@@ -26,7 +26,22 @@ fn main(){
 
 Запуск в режиме RELEASE:
 
+```rust
+fn get_k()->i32{10}
+fn main() {
+   let mut a: i8 = 13;
+   let mut k = get_k();// компилятор не видит константу и не знает что k больше чем число разрядов числа
+   let result = a << k;
+   println!("{} {:08b}",result, result); // 52 00110100
+   assert_eq!(result, 13_i8 << 2);// эквивалентно, сдвиг по модулю 10%8=2
+}
+```
+
+еще пример:
+
 ```rust, run_release
+// Для демонстрации добаим allow(arithmetic_overflow) так как компилятор видит константы и сразу понимает что это ошибка
+#[allow(arithmetic_overflow)]
     /*
       Вариант 1 запуск в режиме Debug:
       panic: attempt to shift left with overflow 
@@ -66,7 +81,7 @@ fn main(){
        
 ```
 
-Запуск в режиме DEBUG:
+Запуск в режиме DEBUG: (error: this arithmetic operation will overflow)
 
 ```rust, run_debug
 
