@@ -235,5 +235,25 @@
     "bit_9ec1a7caf429051b_topic": {
       "backgroundColor": "#b4b4b4"
     }
+  },
+  "types": {
+    "types_header_topic": {
+      "fontSize": "16px",
+      "backgroundColor": "#767676",
+      "width": 75
+    },
+    "types_header_content": {
+      "fontSize": "16px",
+      "backgroundColor": "#767676",
+      "width": 200
+    },
+    "types_header_other": {
+      "fontSize": "16px",
+      "backgroundColor": "#767676",
+      "width": 25
+    },
+    "types_8e27840b8bcece30_topic": {
+      "backgroundColor": "#b4b4b4"
+    }
   }
 }
