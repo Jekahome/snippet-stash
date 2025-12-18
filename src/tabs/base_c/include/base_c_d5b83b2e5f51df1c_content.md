@@ -5,20 +5,26 @@
 * Тип `void*` (**любой** указатель) в 32-разрядных программах 4 байта (32 бита), а в 64-разрядных – 8 байт (64 бита).
 * Тип **size_t** в 32-разрядных программах 4 байта (32 бита), а в 64-разрядных – 8 байт (64 бита)
 
-
 ```c
-
-#include <stdint.h>
-
 // Использовать фиксированные типы:
-int8_t x; // Всегда 8 бит  //  тоже самое signed char  
-int16_t x; // Всегда 16 бит  
-int32_t  a;  // Всегда 32 бита
-int64_t  b;  // Всегда 64 бита
-uintptr_t c; // Беззнаковый тип, вмещающий указатель
-size_t    d; // Для размеров объектов (меняется с разрядностью)
 
+#include <stdint.h> // int8_t, int32_t ...
+#include <inttypes.h>
+#include <stddef.h>
+
+    int8_t  -  int 8 bit (1 byte)  // Всегда 8 бит  //  тоже самое signed char  
+    int16_t - int 16 bit (2 byte) // Всегда 16 бит 
+    int32_t - int 32 bit (4 byte)  // Всегда 32 бита
+    int64_t - int 64 bit (8 byte) // Всегда 64 бита
+
+    uint8_t  -  unsigned int 8 bit (1 byte)
+    uint16_t - unsigned int 16 bit (2 byte)
+    uint32_t - unsigned int 32 bit (4 byte)
+    uint64_t - unsigned int 64 bit (8 byte)
+    uintptr_t c; // Беззнаковый тип, вмещающий указатель
+    size_t    d; // Для размеров объектов (меняется с разрядностью)
 ```
+ 
 
 ---
 
