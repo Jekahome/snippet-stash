@@ -7,6 +7,7 @@ standart C11
 ```c
 
 #include <stdio.h>
+#include <stdlib.h> // EXIT_SUCCESS
 
 #define get_format_specifier(X) _Generic((X), \
     unsigned char:   "%hhu", \
@@ -28,7 +29,7 @@ standart C11
     default: "Неизвестный тип" \
 )
 
-int main() {
+int main(void) {
     unsigned char un0 = 120;
     unsigned int un1 = 10; // equivalent size_t
     unsigned short un2 = 11;
@@ -74,6 +75,6 @@ int main() {
     const char *target_fmt = get_format_specifier(your_type);
     printf(target_fmt, your_type);
 
-    return 0;
+    return EXIT_SUCCESS;
 }
 ```
