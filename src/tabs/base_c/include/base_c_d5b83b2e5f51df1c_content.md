@@ -21,7 +21,7 @@
     uint16_t - unsigned int 16 bit (2 byte)
     uint32_t - unsigned int 32 bit (4 byte)
     uint64_t - unsigned int 64 bit (8 byte)
-    uintptr_t c; // Беззнаковый тип, вмещающий указатель
+    uintptr_t c; // Беззнаковый тип, вмещающий указатель void*
     size_t    d; // Для размеров объектов (меняется с разрядностью)
 ```
  
