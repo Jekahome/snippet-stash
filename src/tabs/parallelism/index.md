@@ -313,6 +313,11 @@
                 <td id="parallelism_8aff51f7a14a7826_content"><div class="cell-content" contenteditable="true">{{include('src/tabs/parallelism/include/parallelism_8aff51f7a14a7826_content.md')}}</div></td>
                 <td id="parallelism_8aff51f7a14a7826_other"><div class="cell-content" contenteditable="true">{{include('src/tabs/parallelism/include/parallelism_8aff51f7a14a7826_other.md')}}</div></td>
             </tr>   
+            <tr id="parallelism_31c264d87ecb5012">
+                <td id="parallelism_31c264d87ecb5012_topic"><div class="cell-content" contenteditable="true">{{include('src/tabs/parallelism/include/parallelism_31c264d87ecb5012_topic.md')}}</div></td>
+                <td id="parallelism_31c264d87ecb5012_content"><div class="cell-content" contenteditable="true">{{include('src/tabs/parallelism/include/parallelism_31c264d87ecb5012_content.md')}}</div></td>
+                <td id="parallelism_31c264d87ecb5012_other"><div class="cell-content" contenteditable="true">{{include('src/tabs/parallelism/include/parallelism_31c264d87ecb5012_other.md')}}</div></td>
+            </tr>   
             <tr id="parallelism_bee5c30f3a53a981">
                 <td id="parallelism_bee5c30f3a53a981_topic"><div class="cell-content" contenteditable="true">{{include('src/tabs/parallelism/include/parallelism_bee5c30f3a53a981_topic.md')}}</div></td>
                 <td id="parallelism_bee5c30f3a53a981_content"><div class="cell-content" contenteditable="true">{{include('src/tabs/parallelism/include/parallelism_bee5c30f3a53a981_content.md')}}</div></td>
