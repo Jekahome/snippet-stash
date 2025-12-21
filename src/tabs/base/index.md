@@ -382,6 +382,16 @@
                 <td id="base_21cddb5627b452d7_topic"><div class="cell-content" contenteditable="true">{{include('src/tabs/base/include/base_21cddb5627b452d7_topic.md')}}</div></td>
                 <td id="base_21cddb5627b452d7_content"><div class="cell-content" contenteditable="true">{{include('src/tabs/base/include/base_21cddb5627b452d7_content.md')}}</div></td>
                 <td id="base_21cddb5627b452d7_other"><div class="cell-content" contenteditable="true">{{include('src/tabs/base/include/base_21cddb5627b452d7_other.md')}}</div></td>
+            </tr>
+            <tr id="base_38bbed308232185c">
+                <td id="base_38bbed308232185c_topic"><div class="cell-content" contenteditable="true">{{include('src/tabs/base/include/base_38bbed308232185c_topic.md')}}</div></td>
+                <td id="base_38bbed308232185c_content"><div class="cell-content" contenteditable="true">{{include('src/tabs/base/include/base_38bbed308232185c_content.md')}}</div></td>
+                <td id="base_38bbed308232185c_other"><div class="cell-content" contenteditable="true">{{include('src/tabs/base/include/base_38bbed308232185c_other.md')}}</div></td>
+            </tr>   
+            <tr id="base_d6202481b65d5918">
+                <td id="base_d6202481b65d5918_topic"><div class="cell-content" contenteditable="true">{{include('src/tabs/base/include/base_d6202481b65d5918_topic.md')}}</div></td>
+                <td id="base_d6202481b65d5918_content"><div class="cell-content" contenteditable="true">{{include('src/tabs/base/include/base_d6202481b65d5918_content.md')}}</div></td>
+                <td id="base_d6202481b65d5918_other"><div class="cell-content" contenteditable="true">{{include('src/tabs/base/include/base_d6202481b65d5918_other.md')}}</div></td>
             </tr>   
             <tr id="base_1a8cc110c20895fa">
                 <td id="base_1a8cc110c20895fa_topic"><div class="cell-content" contenteditable="true">{{include('src/tabs/base/include/base_1a8cc110c20895fa_topic.md')}}</div></td>
