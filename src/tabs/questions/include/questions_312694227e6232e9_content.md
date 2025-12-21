@@ -31,9 +31,17 @@ $ rustup show
 ---
 
 ```
+$ rustc --version --verbose
 $ rustup show
 Default host: x86_64-unknown-linux-gnu
 rustup home:  /home/jeka/.rustup
+
+x86_64-unknown-linux-gnu которая включает 
+архитектуру процессора (x86_64)
+производителя (unknown),
+операционную систему (linux) 
+ABI (gnu)
+
 
 installed toolchains
 ------------------- 
