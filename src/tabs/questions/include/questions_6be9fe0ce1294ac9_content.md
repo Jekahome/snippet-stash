@@ -39,6 +39,8 @@ $ rustup override set stable
 ```toml
 [toolchain]
 channel = "nightly"
+components = ["rustfmt", "clippy"]
+targets = ["x86_64-unknown-linux-gnu"]
 ```
 
 ---
