@@ -1,0 +1,37 @@
+[
+  {
+    "type": "add-tr",
+    "tab_id": "testing",
+    "tr_id": "testing_edfedd9bdd5228b7",
+    "tr_id_position": "testing_0c8cf75445080deb",
+    "position": "before"
+  },
+  {
+    "type": "add-tr",
+    "tab_id": "testing",
+    "tr_id": "testing_1f2bd0524a321fd6",
+    "tr_id_position": "testing_0c8cf75445080deb",
+    "position": "before"
+  },
+  {
+    "type": "add-tr",
+    "tab_id": "testing",
+    "tr_id": "testing_9545a569048f2a9a",
+    "tr_id_position": "testing_b037d20fe77848d5",
+    "position": "after"
+  },
+  {
+    "type": "add-tr",
+    "tab_id": "testing",
+    "tr_id": "testing_31a5d89191b8d602",
+    "tr_id_position": "testing_9545a569048f2a9a",
+    "position": "before"
+  },
+  {
+    "type": "add-tr",
+    "tab_id": "testing",
+    "tr_id": "testing_c6074265252ffb87",
+    "tr_id_position": "testing_0530d1ad0608d3a7",
+    "position": "after"
+  }
+]

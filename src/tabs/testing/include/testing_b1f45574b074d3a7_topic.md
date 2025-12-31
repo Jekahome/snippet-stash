@@ -2,6 +2,8 @@
 
 #### Сквозное (e2e) тестирование
 
+так же это наз. **UI тестирование**
+
 [Puppetry](https://puppetry.app/)
 
 [testengineer.ru/e2](https://testengineer.ru/e2e-testirovanie/#:~:text=%D0%9E%D0%BF%D0%B8%D1%81%D0%B0%D0%BD%D0%B8%D0%B5,%D0%BA%D0%BE%D0%BD%D1%86%D0%B0%2C%20%D0%B2%D0%BC%D0%B5%D1%81%D1%82%D0%B5%20%D1%81%D0%BE%20%D0%B2%D1%81%D0%B5%D0%BC%D0%B8%20%D0%B7%D0%B0%D0%B2%D0%B8%D1%81%D0%B8%D0%BC%D0%BE%D1%81%D1%82%D1%8F%D0%BC%D0%B8)
