@@ -1,0 +1,23 @@
+[
+  {
+    "type": "add-tr",
+    "tab_id": "base",
+    "tr_id": "base_50a747b83616c9e0",
+    "tr_id_position": "base_5e3e5196bcbbcb75",
+    "position": "before"
+  },
+  {
+    "type": "add-tr",
+    "tab_id": "base",
+    "tr_id": "base_b9d83459f8f12966",
+    "tr_id_position": "base_667832eec218ccb1",
+    "position": "before"
+  },
+  {
+    "type": "add-tr",
+    "tab_id": "arrays",
+    "tr_id": "arrays_c5205a0042522ff7",
+    "tr_id_position": "arrays_8e021c7ad99de004",
+    "position": "before"
+  }
+]
