@@ -68,6 +68,11 @@
                 <td id="arrays_fd5503ed94ab0e2d_content"><div class="cell-content" contenteditable="true">{{include('src/tabs/arrays/include/arrays_fd5503ed94ab0e2d_content.md')}}</div></td>
                 <td id="arrays_fd5503ed94ab0e2d_other"><div class="cell-content" contenteditable="true">{{include('src/tabs/arrays/include/arrays_fd5503ed94ab0e2d_other.md')}}</div></td>
             </tr>   
+            <tr id="arrays_c5205a0042522ff7">
+                <td id="arrays_c5205a0042522ff7_topic"><div class="cell-content" contenteditable="true">{{include('src/tabs/arrays/include/arrays_c5205a0042522ff7_topic.md')}}</div></td>
+                <td id="arrays_c5205a0042522ff7_content"><div class="cell-content" contenteditable="true">{{include('src/tabs/arrays/include/arrays_c5205a0042522ff7_content.md')}}</div></td>
+                <td id="arrays_c5205a0042522ff7_other"><div class="cell-content" contenteditable="true">{{include('src/tabs/arrays/include/arrays_c5205a0042522ff7_other.md')}}</div></td>
+            </tr>   
             <tr id="arrays_8e021c7ad99de004">
                 <td id="arrays_8e021c7ad99de004_topic"><div class="cell-content" contenteditable="true">{{include('src/tabs/arrays/include/arrays_8e021c7ad99de004_topic.md')}}</div></td>
                 <td id="arrays_8e021c7ad99de004_content"><div class="cell-content" contenteditable="true">{{include('src/tabs/arrays/include/arrays_8e021c7ad99de004_content.md')}}</div></td>
