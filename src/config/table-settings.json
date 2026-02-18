@@ -257,6 +257,9 @@
     },
     "types_8e27840b8bcece30_topic": {
       "backgroundColor": "#b4b4b4"
+    },
+    "types_48ad39dfe762ee32_topic": {
+      "backgroundColor": "#b4b4b4"
     }
   },
   "parallelism": {
@@ -398,6 +401,77 @@
       "width": 25
     },
     "generic_a773d387fb4acf70_topic": {
+      "backgroundColor": "#b4b4b4"
+    }
+  },
+  "string_types": {
+    "string_types_header_topic": {
+      "fontSize": "16px",
+      "backgroundColor": "#767676",
+      "width": 75
+    },
+    "string_types_header_content": {
+      "fontSize": "16px",
+      "backgroundColor": "#767676",
+      "width": 200
+    },
+    "string_types_header_other": {
+      "fontSize": "16px",
+      "backgroundColor": "#767676",
+      "width": 25
+    }
+  },
+  "collections": {
+    "collections_header_topic": {
+      "fontSize": "16px",
+      "backgroundColor": "#767676",
+      "width": 75
+    },
+    "collections_header_content": {
+      "fontSize": "16px",
+      "backgroundColor": "#767676",
+      "width": 200
+    },
+    "collections_header_other": {
+      "fontSize": "16px",
+      "backgroundColor": "#767676",
+      "width": 25
+    }
+  },
+  "iterator": {
+    "iterator_header_topic": {
+      "fontSize": "16px",
+      "backgroundColor": "#767676",
+      "width": 75
+    },
+    "iterator_header_content": {
+      "fontSize": "16px",
+      "backgroundColor": "#767676",
+      "width": 200
+    },
+    "iterator_header_other": {
+      "fontSize": "16px",
+      "backgroundColor": "#767676",
+      "width": 25
+    }
+  },
+  "arrays": {
+    "arrays_header_topic": {
+      "fontSize": "16px",
+      "backgroundColor": "#767676",
+      "width": 75
+    },
+    "arrays_header_content": {
+      "fontSize": "16px",
+      "backgroundColor": "#767676",
+      "width": 200
+    },
+    "arrays_header_other": {
+      "fontSize": "16px",
+      "backgroundColor": "#767676",
+      "width": 25
+    },
+    "arrays_12e1d75bdb6143b7_topic": {
       "backgroundColor": "#b4b4b4"
     }
   }
