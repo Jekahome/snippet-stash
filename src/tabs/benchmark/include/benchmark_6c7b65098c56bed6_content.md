@@ -10,3 +10,4 @@
 * [hyperfine](#hyperfine)
 * [profiler.firefox.com](#profilerfirefoxcom)
 * [DHAT Замеры потребления памяти](#dhat-Замеры-потребления-памяти)
+* [Samply профилировщик](#samply)
