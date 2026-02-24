@@ -474,5 +474,25 @@
     "arrays_12e1d75bdb6143b7_topic": {
       "backgroundColor": "#b4b4b4"
     }
+  },
+  "file": {
+    "file_header_topic": {
+      "fontSize": "16px",
+      "backgroundColor": "#767676",
+      "width": 75
+    },
+    "file_header_content": {
+      "fontSize": "16px",
+      "backgroundColor": "#767676",
+      "width": 200
+    },
+    "file_header_other": {
+      "fontSize": "16px",
+      "backgroundColor": "#767676",
+      "width": 25
+    },
+    "file_726ccb19fc261039_topic": {
+      "backgroundColor": "#b4b4b4"
+    }
   }
 }

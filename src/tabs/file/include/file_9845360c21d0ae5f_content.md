@@ -12,3 +12,4 @@
 * [Trait std::io::Read](#trait-stdioread)
 * [std::fs::OpenOptions](#struct-stdfsopenoptions)
 * [Асинхронная работа с файловой системой](#Асинхронная-работа-с-файловой-системой)
+* [Memory mapping](#memory-mapping)
