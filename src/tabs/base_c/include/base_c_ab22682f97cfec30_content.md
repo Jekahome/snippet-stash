@@ -30,15 +30,17 @@ int main() {
 ```
 
 * Компиляция и запуск с включеной проверкой assert:
+
 ```
 gcc -std=c99 -Wall -Wextra -Wformat -Werror -Wconversion -Wformat=2 -Wformat-security -fdiagnostics-color=always -fmessage-length=0 -Wformat-diag -O0 error.c -o main && ./main
-my_program.out: error.c:10: test: Assertion `ptr != NULL' failed.
+my_program.out: error.c:10: test: Assertion ptr != NULL' failed.
 
 ```
 
 * Компиляция и запуск с выключеной проверкой assert т.е. RELEASE:
 
  Макрос DNDEBUG отключающий assert можно передать при компиляции, это и есть режим release в языке C
+
 ```
 gcc -std=c99 -DNDEBUG -Wall -Wextra -Wformat -Werror -Wconversion -Wformat=2 -Wformat-security -fdiagnostics-color=always -fmessage-length=0 -Wformat-diag -O0 error.c -o main && ./main
 
