@@ -57,7 +57,7 @@ SomeTypeA
 
 **Нам нужно самим взять на себя реализацию порядка освобождения памяти:**
 
-```no_run
+```
 let cl = move || {
     drop(a);
     drop(b);
@@ -67,7 +67,7 @@ let cl = move || {
 
 Либо гарантировать полями структуры.
 
-```no_run
+```
 struct Owned {
     a: SomeTypeA,
     b: SomeTypeB,
