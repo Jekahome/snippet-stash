@@ -419,6 +419,18 @@
       "fontSize": "16px",
       "backgroundColor": "#767676",
       "width": 25
+    },
+    "string_types_0022f7a18f1b2f3a_topic": {
+      "backgroundColor": "#b4b4b4"
+    },
+    "string_types_6abd12f12f6af481_topic": {
+      "backgroundColor": "#b4b4b4"
+    },
+    "string_types_cb342ab199e10827_topic": {
+      "backgroundColor": "#b4b4b4"
+    },
+    "string_types_029842abbf2a50db_topic": {
+      "backgroundColor": "#b4b4b4"
     }
   },
   "collections": {
@@ -472,6 +484,18 @@
       "width": 25
     },
     "arrays_12e1d75bdb6143b7_topic": {
+      "backgroundColor": "#b4b4b4"
+    },
+    "arrays_628bc9b5e1648c75_topic": {
+      "backgroundColor": "#b4b4b4"
+    },
+    "arrays_75965f7f526b2912_topic": {
+      "backgroundColor": "#b4b4b4"
+    },
+    "arrays_93248920d5014a0b_topic": {
+      "backgroundColor": "#b4b4b4"
+    },
+    "arrays_d3e69688f70efa9c_topic": {
       "backgroundColor": "#b4b4b4"
     }
   },
