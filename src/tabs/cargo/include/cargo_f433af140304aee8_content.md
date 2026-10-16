@@ -1,7 +1,7 @@
 
 
 ```
-        
+# check просто показывает, без него произойдет реальное исправление форматирования
 cargo fmt --all -- --check
 cargo +nightly fmt --all -- --check --unstable-features
 cargo clippy -- -D warnings
